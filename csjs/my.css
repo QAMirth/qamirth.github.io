@@ -98,7 +98,7 @@ select:where(:not([multiple])){max-width:350px;appearance:none;padding-right:30p
 .header-left{display:flex;gap:var(--tpl-spacing-2xl);justify-content:start;max-width:calc(100% - var(--subtract-size,327px));min-width:0}
 
 #p-logo a{background-position: center center; background-repeat: no-repeat; display: block; width: 4em; height: 56px; text-decoration: none;}
-.logo-link{background-image: url(logo.png);width: 36px;
+.logo-link{background-image: url(QASapiens2.jpg);width: 36px;
 height: 36px;background-size: contain;}
 .header-right{display:flex}
 
