@@ -40,8 +40,7 @@
 <link rel="stylesheet" href="../csjs/ulightbox.min.css" />
 <link rel="stylesheet" href="../csjs/social.css" />
 <script src="../csjs/ulightbox.min.js"></script>
-
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/codemirror.min.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/codemirror.min.css">
     <style>
         .CodeMirror {
             height: auto;
@@ -54,6 +53,9 @@
         }
         .invalid {
             color: red;
+        }
+        .line-error {
+            background-color: #fdd !important;
         }
     </style>
 
@@ -154,7 +156,7 @@ fill="currentColor"/>
 <div class="main">
 <div class="hz main-container">
 
-<h1 class="mat">XML Formatter</h1>
+<h1 class="mat">QAMirth XML Validator</h1>
 
 </div>
 <div class="container main-container">
@@ -168,7 +170,7 @@ fill="currentColor"/>
 	<!--MATERIAL-->
 
 
-		<textarea id="inputXml" placeholder="Paste your XML here"></textarea>
+		 <textarea id="inputXml" placeholder="Paste your XML here"></textarea>
     <button onclick="formatAndValidateXml()">Format and Validate XML</button>
     <div id="message"></div>
     <h2>Formatted XML:</h2>
@@ -193,6 +195,11 @@ fill="currentColor"/>
             var inputXml = editor.getValue();
             var messageDiv = document.getElementById("message");
             var outputDiv = document.getElementById("outputXml");
+
+            // Очистить предыдущие подсветки ошибок
+            for (let i = 0; i < editor.lineCount(); i++) {
+                editor.removeLineClass(i, 'background', 'line-error');
+            }
 
             try {
                 var parser = new DOMParser();
@@ -296,15 +303,6 @@ fill="currentColor"/>
                 this.removeLineClass(info.line, 'background', className);
             }
         });
-
-        // Custom CSS for highlighting error line
-        var style = document.createElement('style');
-        style.innerHTML = `
-            .line-error {
-                background-color: #fdd;
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 
 	
