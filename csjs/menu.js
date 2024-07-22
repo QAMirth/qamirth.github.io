@@ -20,7 +20,8 @@ document.write(`
                     </li>
                     <li class="uWithSubmenu"><a class="m3" href="/3/3.html" ><span>Design Techniques</span></a>
                         <ul>
-                            <li><a class="m31" href="/3/31.html" ><span>Yooo</span></a></li>
+                            <li><a class="m31" href="/3/3.html" ><span>Black-box</span></a></li>
+                             <li><a class="m31" href="/3/31.html" ><span>White-box</span></a></li>
                         </ul>
                     </li>
                     <li class="uWithSubmenu"><a class="m4" href="/4/4.html" ><span>Non-functional</span></a>
