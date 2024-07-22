@@ -40,10 +40,37 @@
 <link rel="stylesheet" href="../csjs/ulightbox.min.css" />
 <link rel="stylesheet" href="../csjs/social.css" />
 <script src="../csjs/ulightbox.min.js"></script>
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/codemirror.min.css">
-    <style>
-        .CodeMirror {
-            height: auto;
+<style>
+        .textarea-wrapper {
+            position: relative;
+            display: flex;
+        }
+        .line-numbers {
+            counter-reset: line;
+            padding: 10px;
+            border-right: 1px solid #ccc;
+            user-select: none;
+            background: #f5f5f5;
+        }
+        .line-numbers div {
+            counter-increment: line;
+            text-align: right;
+        }
+        .line-numbers div::before {
+            content: counter(line);
+            display: block;
+            padding-right: 10px;
+            color: #888;
+        }
+        #inputXml {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 0;
+            width: 100%;
+            font-family: monospace;
+            white-space: pre;
+            outline: none;
+            resize: none;
         }
         #message {
             margin-bottom: 10px;
@@ -54,8 +81,8 @@
         .invalid {
             color: red;
         }
-        .line-error {
-            background-color: #fdd !important;
+        .error-highlight {
+            background-color: #fdd;
         }
     </style>
 
@@ -170,47 +197,53 @@ fill="currentColor"/>
 	<!--MATERIAL-->
 
 
-		 <textarea id="inputXml" placeholder="Paste your XML here"></textarea>
+	 <div class="textarea-wrapper">
+        <div class="line-numbers" id="lineNumbers"></div>
+        <textarea id="inputXml" placeholder="Paste your XML here" oninput="updateLineNumbers()" onscroll="syncScroll()"></textarea>
+    </div>
     <button onclick="formatAndValidateXml()">Format and Validate XML</button>
     <div id="message"></div>
     <h2>Formatted XML:</h2>
     <pre id="outputXml"></pre>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/mode/xml/xml.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/addon/edit/closebrackets.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/addon/edit/matchtags.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/addon/selection/active-line.min.js"></script>
-
     <script>
-        var editor = CodeMirror.fromTextArea(document.getElementById("inputXml"), {
-            mode: "application/xml",
-            lineNumbers: true,
-            matchTags: { bothTags: true },
-            autoCloseBrackets: true,
-            styleActiveLine: true
-        });
+        function updateLineNumbers() {
+            const textarea = document.getElementById('inputXml');
+            const lineNumbers = document.getElementById('lineNumbers');
+            const lines = textarea.value.split('\n').length;
+            lineNumbers.innerHTML = '';
+            for (let i = 1; i <= lines; i++) {
+                const div = document.createElement('div');
+                div.textContent = i;
+                lineNumbers.appendChild(div);
+            }
+        }
+
+        function syncScroll() {
+            const textarea = document.getElementById('inputXml');
+            const lineNumbers = document.getElementById('lineNumbers');
+            lineNumbers.scrollTop = textarea.scrollTop;
+        }
 
         function formatAndValidateXml() {
-            var inputXml = editor.getValue();
-            var messageDiv = document.getElementById("message");
-            var outputDiv = document.getElementById("outputXml");
+            const textarea = document.getElementById('inputXml');
+            const messageDiv = document.getElementById('message');
+            const outputDiv = document.getElementById('outputXml');
+            const inputXml = textarea.value;
 
-            // Очистить предыдущие подсветки ошибок
-            for (let i = 0; i < editor.lineCount(); i++) {
-                editor.removeLineClass(i, 'background', 'line-error');
-            }
+            // Удаляем предыдущие подсветки ошибок
+            textarea.classList.remove('error-highlight');
 
             try {
-                var parser = new DOMParser();
-                var xmlDoc = parser.parseFromString(inputXml, "application/xml");
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(inputXml, "application/xml");
 
-                var parseError = xmlDoc.getElementsByTagName("parsererror");
+                const parseError = xmlDoc.getElementsByTagName("parsererror");
                 if (parseError.length > 0) {
                     throw new Error(parseError[0].textContent);
                 }
 
-                var formattedXml = formatXmlText(new XMLSerializer().serializeToString(xmlDoc.documentElement));
+                const formattedXml = formatXmlText(new XMLSerializer().serializeToString(xmlDoc.documentElement));
                 outputDiv.textContent = formattedXml;
                 messageDiv.textContent = "Your XML is valid";
                 messageDiv.className = "valid";
@@ -223,19 +256,19 @@ fill="currentColor"/>
         }
 
         function formatXmlText(xml) {
-            var reg = /(>)(<)(\/*)/g;
-            var wsexp = / *(.*) +\n/g;
-            var contexp = /(<.+>)(.+\n)/g;
+            const reg = /(>)(<)(\/*)/g;
+            const wsexp = / *(.*) +\n/g;
+            const contexp = /(<.+>)(.+\n)/g;
             xml = xml.replace(/\r\n/g, '\n');
             xml = xml.replace(reg, '$1\n$2$3');
             xml = xml.replace(wsexp, '$1\n');
             xml = xml.replace(contexp, '$1\n$2');
-            var pad = 0;
-            var formatted = '';
-            var lines = xml.split('\n');
-            var indent = 0;
-            var lastType = 'other';
-            var transitions = {
+            let pad = 0;
+            let formatted = '';
+            const lines = xml.split('\n');
+            let indent = 0;
+            let lastType = 'other';
+            const transitions = {
                 'single->single': 0,
                 'single->closing': -1,
                 'single->opening': 0,
@@ -254,21 +287,21 @@ fill="currentColor"/>
                 'other->other': 0
             };
 
-            for (var i = 0; i < lines.length; i++) {
-                var ln = lines[i];
+            for (let i = 0; i < lines.length; i++) {
+                let ln = lines[i];
 
-                var single = Boolean(ln.match(/<.+\/>/)); 
-                var closing = Boolean(ln.match(/<\/.+>/)); 
-                var opening = Boolean(ln.match(/<[^!].*>/)); 
+                let single = Boolean(ln.match(/<.+\/>/)); 
+                let closing = Boolean(ln.match(/<\/.+>/)); 
+                let opening = Boolean(ln.match(/<[^!].*>/)); 
 
-                var type = single ? 'single' : closing ? 'closing' : opening ? 'opening' : 'other';
+                let type = single ? 'single' : closing ? 'closing' : opening ? 'opening' : 'other';
 
-                var fromTo = lastType + '->' + type;
+                let fromTo = lastType + '->' + type;
                 lastType = type;
-                var padding = '';
+                let padding = '';
 
                 indent += transitions[fromTo];
-                for (var j = 0; j < indent; j++) {
+                for (let j = 0; j < indent; j++) {
                     padding += '  ';
                 }
                 formatted += padding + ln + '\n';
@@ -278,33 +311,27 @@ fill="currentColor"/>
         }
 
         function highlightErrorLine(message) {
-            var lines = editor.getValue().split("\n");
-            var errorLine = -1;
-            var match = message.match(/line (\d+)/);
+            const textarea = document.getElementById('inputXml');
+            const lines = textarea.value.split('\n');
+            let errorLine = -1;
+            const match = message.match(/line (\d+)/);
             if (match) {
-                errorLine = parseInt(match[1]) - 1; // CodeMirror uses zero-based index for lines
+                errorLine = parseInt(match[1]) - 1; // Zero-based index for lines
             }
 
             if (errorLine >= 0 && errorLine < lines.length) {
-                editor.addLineClass(errorLine, 'background', 'line-error');
+                textarea.classList.add('error-highlight');
+                const lineNumbers = document.getElementById('lineNumbers').children;
+                if (lineNumbers[errorLine]) {
+                    lineNumbers[errorLine].classList.add('error-highlight');
+                }
             }
         }
 
-        CodeMirror.defineExtension("addLineClass", function(line, className) {
-            var info = this.lineInfo(line);
-            if (info) {
-                this.addLineClass(info.line, 'background', className);
-            }
-        });
-
-        CodeMirror.defineExtension("removeLineClass", function(line, className) {
-            var info = this.lineInfo(line);
-            if (info) {
-                this.removeLineClass(info.line, 'background', className);
-            }
-        });
+        window.onload = function() {
+            updateLineNumbers();
+        }
     </script>
-
 	
 				
 				<!--/MATERIAL-->
