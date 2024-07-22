@@ -12,6 +12,8 @@
         }
         .CodeMirror {
             height: auto;
+            border: 1px solid #ccc;
+            font-size: 14px;
         }
         #message {
             margin-bottom: 10px;
@@ -148,20 +150,6 @@
                 editor.addLineClass(errorLine, 'background', 'line-error');
             }
         }
-
-        CodeMirror.defineExtension("addLineClass", function(line, className) {
-            var info = this.lineInfo(line);
-            if (info) {
-                this.addLineClass(info.line, 'background', className);
-            }
-        });
-
-        CodeMirror.defineExtension("removeLineClass", function(line, className) {
-            var info = this.lineInfo(line);
-            if (info) {
-                this.removeLineClass(info.line, 'background', className);
-            }
-        });
     </script>
 </body>
 </html>
