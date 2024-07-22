@@ -26,7 +26,7 @@ a{color:var(--tpl-accent-blue);text-decoration:none}
 a:hover{color:var(--tpl-accent-blue-dark)}
 h1,h2{margin-block:var(--tpl-spacing-l)}
 h1{font:var(--tpl-font-header-1);font-size:20px;}
-h2{font:var(--tpl-font-header-2)}
+h2{font:var(--tpl-font-header-2);font-size:16px}
 h3{font:var(--tpl-font-header-3)}
 h4{font:var(--tpl-font-header-4)}
 .hidden{display:none}
