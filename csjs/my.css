@@ -164,6 +164,10 @@ height: 36px;background-size: contain;}
 .pollBut{display:block}
 .pollLnk{margin-block:var(--tpl-spacing-l)}
 .pollLnk a{white-space:nowrap}
+
+.info-card-format{padding-top: 16px;}
+.format{color:#888;margin-right:16px;}
+.freepaid{color:#888;}
 .review-author-info,.user-box-header{align-items:center;display:flex;gap:var(--tpl-spacing-m)}
 :where(.info-box-user) .user-name,.user-box-name{font:var(--tpl-font-text-sb2);word-break:break-all;color:var(--tpl-dark-700)}
 .comm-avatar-img,.comm-form-avatar,.comm-card-avatar,.review-avatar,.user-box-avatar{--size:48px;align-items:center;background-color:var(--tpl-dark-300);border-radius:var(--size);color:var(--tpl-dark-600);display:flex;flex:0 0 var(--size);height:var(--size);justify-content:center;width:var(--size)}
@@ -1144,7 +1148,7 @@ form>:is(input[type=submit],input[type=text],select){min-width:100%}
 :where(.info-box) .info-cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(293px,100%),1fr));gap:10px}
 :where(.info-box) .info-card{padding:var(--tpl-spacing-xl);border:var(--tpl-border-line-100);border-radius:16px;display:grid;grid-row:auto/span 4;grid-template-rows:subgrid;gap:0}
 :where(.info-box) .info-card:where(:not(:has(.info-card-action))){grid-row:auto/span 3}
-:where(.info-box) .info-card-label{width:54px;height:54px;display:flex;align-items:center;justify-content:center;border-radius:54px;background-color:var(--tpl-accent-blue-light);color:var(--tpl-accent-blue)}
+:where(.info-box) .info-card-label{width:64px;height:64px;display:flex;align-items:center;justify-content:center;border-radius:54px;/*! background-color:var(--tpl-accent-blue-light); */color:var(--tpl-accent-blue);}
 :where(.info-box) .info-card-icon{width:24px;height:24px;display:block}
 :where(.info-box) .info-card-title{padding-block:var(--tpl-spacing-xl) var(--tpl-spacing-m)}
 :where(.info-box) .info-card-desc{color:var(--tpl-dark-700)}
