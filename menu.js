@@ -27,7 +27,7 @@ document.write(`
                             <li><a class="m41" href="4/41.html" ><span>Yooo</span></a></li>
                         </ul>
                     </li>
-                    <li class="uWithSubmenu"><a class="m5" href="/5/5.html" ><span>Other</span></a>
+                    <li class="uWithSubmenu"><a class="m5" href="/5/5.html" ><span>Other2</span></a>
                         <ul>
                             <li><a class="m51" href="5/51.html" ><span>Zooo</span></a></li>
                         </ul>
