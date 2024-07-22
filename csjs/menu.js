@@ -15,7 +15,7 @@ document.write(`
                     </li>
                     <li class="uWithSubmenu"><a class="m2" href="/2/2.html" ><span>Explore</span></a>
                         <ul>
-                            <li><a class="m21" href="/2/21.html" ><span>Exploratory testing</span></a></li>
+                            <li><a class="m21" href="/2/2.html" ><span>Exploratory testing</span></a></li>
                         </ul>
                     </li>
                     <li class="uWithSubmenu"><a class="m3" href="/3/3.html" ><span>Design Techniques</span></a>
