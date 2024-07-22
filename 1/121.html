@@ -41,6 +41,31 @@
 <link rel="stylesheet" href="../csjs/social.css" />
 <script src="../csjs/ulightbox.min.js"></script>
 
+	<style>
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 10px;
+            font-family: monospace;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        #message {
+            margin-bottom: 10px;
+        }
+        .valid {
+            color: green;
+        }
+        .invalid {
+            color: red;
+        }
+    </style>
+
 
 </head>
 <body class="index">
@@ -153,16 +178,37 @@ fill="currentColor"/>
 
 
 				
-			 <textarea id="inputXml" placeholder="Paste your XML here"></textarea>
-    <button onclick="formatXml()">Format XML</button>
+		 <textarea id="inputXml" placeholder="Paste your XML here"></textarea>
+    <button onclick="formatAndValidateXml()">Format and Validate XML</button>
+    <div id="message"></div>
     <h2>Formatted XML:</h2>
     <pre id="outputXml"></pre>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xmllint/1.0.0/xmllint.js"></script>
     <script>
-        function formatXml() {
+        function formatAndValidateXml() {
             var inputXml = document.getElementById("inputXml").value;
-            var formattedXml = formatXmlText(inputXml);
-            document.getElementById("outputXml").textContent = formattedXml;
+            var messageDiv = document.getElementById("message");
+            var outputDiv = document.getElementById("outputXml");
+
+            try {
+                var parser = new DOMParser();
+                var xmlDoc = parser.parseFromString(inputXml, "application/xml");
+
+                var parseError = xmlDoc.getElementsByTagName("parsererror");
+                if (parseError.length > 0) {
+                    throw new Error(parseError[0].textContent);
+                }
+
+                var formattedXml = formatXmlText(new XMLSerializer().serializeToString(xmlDoc.documentElement));
+                outputDiv.textContent = formattedXml;
+                messageDiv.textContent = "Your XML is valid";
+                messageDiv.className = "valid";
+            } catch (e) {
+                messageDiv.textContent = "XML Error: " + e.message;
+                messageDiv.className = "invalid";
+                outputDiv.textContent = "";
+            }
         }
 
         function formatXmlText(xml) {
@@ -219,13 +265,11 @@ fill="currentColor"/>
 
             return formatted;
         }
-    </script>
+    </script>	
 
 
 
-					</div>
-				</div>
-				
+	
 				
 				<!--/MATERIAL-->
 
