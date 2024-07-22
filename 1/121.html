@@ -41,19 +41,10 @@
 <link rel="stylesheet" href="../csjs/social.css" />
 <script src="../csjs/ulightbox.min.js"></script>
 
-	<style>
-        textarea {
-            width: 100%;
-            height: 150px;
-            margin-bottom: 10px;
-            font-family: monospace;
-        }
-        pre {
-            background-color: #f4f4f4;
-            padding: 10px;
-            border: 1px solid #ccc;
-            white-space: pre-wrap;
-            word-wrap: break-word;
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/codemirror.min.css">
+    <style>
+        .CodeMirror {
+            height: auto;
         }
         #message {
             margin-bottom: 10px;
@@ -177,17 +168,29 @@ fill="currentColor"/>
 	<!--MATERIAL-->
 
 
-				
-		 <textarea id="inputXml" placeholder="Paste your XML here"></textarea>
+		<textarea id="inputXml" placeholder="Paste your XML here"></textarea>
     <button onclick="formatAndValidateXml()">Format and Validate XML</button>
     <div id="message"></div>
     <h2>Formatted XML:</h2>
     <pre id="outputXml"></pre>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xmllint/1.0.0/xmllint.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/addon/edit/closebrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/addon/edit/matchtags.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/addon/selection/active-line.min.js"></script>
+
     <script>
+        var editor = CodeMirror.fromTextArea(document.getElementById("inputXml"), {
+            mode: "application/xml",
+            lineNumbers: true,
+            matchTags: { bothTags: true },
+            autoCloseBrackets: true,
+            styleActiveLine: true
+        });
+
         function formatAndValidateXml() {
-            var inputXml = document.getElementById("inputXml").value;
+            var inputXml = editor.getValue();
             var messageDiv = document.getElementById("message");
             var outputDiv = document.getElementById("outputXml");
 
@@ -205,6 +208,7 @@ fill="currentColor"/>
                 messageDiv.textContent = "Your XML is valid";
                 messageDiv.className = "valid";
             } catch (e) {
+                highlightErrorLine(e.message);
                 messageDiv.textContent = "XML Error: " + e.message;
                 messageDiv.className = "invalid";
                 outputDiv.textContent = "";
@@ -265,9 +269,43 @@ fill="currentColor"/>
 
             return formatted;
         }
-    </script>	
 
+        function highlightErrorLine(message) {
+            var lines = editor.getValue().split("\n");
+            var errorLine = -1;
+            var match = message.match(/line (\d+)/);
+            if (match) {
+                errorLine = parseInt(match[1]) - 1; // CodeMirror uses zero-based index for lines
+            }
 
+            if (errorLine >= 0 && errorLine < lines.length) {
+                editor.addLineClass(errorLine, 'background', 'line-error');
+            }
+        }
+
+        CodeMirror.defineExtension("addLineClass", function(line, className) {
+            var info = this.lineInfo(line);
+            if (info) {
+                this.addLineClass(info.line, 'background', className);
+            }
+        });
+
+        CodeMirror.defineExtension("removeLineClass", function(line, className) {
+            var info = this.lineInfo(line);
+            if (info) {
+                this.removeLineClass(info.line, 'background', className);
+            }
+        });
+
+        // Custom CSS for highlighting error line
+        var style = document.createElement('style');
+        style.innerHTML = `
+            .line-error {
+                background-color: #fdd;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 
 	
 				
