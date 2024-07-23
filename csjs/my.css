@@ -1325,7 +1325,7 @@ select.codeButtons{border-radius:5px;min-width:50px;padding-block:5px}
 .catalog-slider-container .swiper-btn{display:none}
   #p-logo a{background-position: center center; background-repeat: no-repeat; display: block; width: 2em; height: 36px; text-decoration: none;}
 .main-container{--gap-size:80px;--sidebar-size:100%;flex-direction:column}
-  .main-container > .tpl-content{padding-left:0; max-width:800px; margin: 0 auto;}
+  .main-container > .tpl-content{padding-right:0; max-width:800px; margin: 0 auto;}
   .hz{padding-left:0; max-width:800px; margin: 0 auto;}
   .header-container{padding-block:var(--tpl-spacing-m)}
 .header-right{gap:var(--tpl-spacing-l)}
