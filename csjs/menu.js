@@ -10,7 +10,7 @@ document.write(`
                         <ul>
                             <li><a class="m11" href="/1/1.html" ><span>Review</span></a></li>
                              <li><a class="m12" href="/1/11.html" ><span>Analysis</span></a></li>
-                             <li><a class="m12" href="/1/12.html" ><span>Resource files (JSON, YAML, XML etc)</span></a></li> 
+                             <li><a class="m12" href="/1/12.html" ><span>JSON, YAML, XML etc</span></a></li> 
                     </ul>
                     </li>
                     <li class="uWithSubmenu"><a class="m2" href="/2/2.html" ><span>Explore</span></a>
