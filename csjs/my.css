@@ -15,6 +15,7 @@ audio:not([controls]){display:none;height:0}
 audio,iframe,img,object,table,video,picture{max-width:100%}
 .myWinCont img{max-width:initial}
 img{border:0}
+  .ggh {float:left; max-width: 64px;margin-right: 16px;}
 fieldset{margin:0}
 textarea{overflow:auto;vertical-align:top;width:100%;resize:none}
 table{font-size:100%}
@@ -1152,9 +1153,9 @@ form>:is(input[type=submit],input[type=text],select){min-width:100%}
 :where(.info-box) :is(.review-card,details,.team-member){border:1px solid var(--tpl-dark-200);border-radius:16px}
 :where(.info-box).goods-box:not(:has(.product-card)),:where(.info-box).reviews-box:not(:has(.swiper-slide)){display:none}
 :where(.info-box) .info-cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(293px,100%),1fr));gap:10px}
-:where(.info-box) .info-card{padding:var(--tpl-spacing-xl);border:var(--tpl-border-line-100);border-radius:16px;display:grid;grid-row:auto/span 4;grid-template-rows:subgrid;gap:0}
+:where(.info-box) .info-card{padding:var(--tpl-spacing-xl);border:var(--tpl-border-line-100);border-radius:16px;/*! display:grid; */grid-row:auto/span 4;grid-template-rows:subgrid;gap:0}
 :where(.info-box) .info-card:where(:not(:has(.info-card-action))){grid-row:auto/span 3}
-:where(.info-box) .info-card-label{width:64px;height:64px;display:flex;align-items:center;justify-content:center;border-radius:54px;/*! background-color:var(--tpl-accent-blue-light); */color:var(--tpl-accent-blue);}
+:where(.info-box) .info-card-label{/*! width:64px; *//*! height:64px; *//*! display:flex; */align-items:center;justify-content:center;border-radius:54px;/*! background-color:var(--tpl-accent-blue-light); */color:var(--tpl-accent-blue);}
 :where(.info-box) .info-card-icon{width:24px;height:24px;display:block}
 :where(.info-box) .info-card-title{padding-block:var(--tpl-spacing-xl) var(--tpl-spacing-m)}
 :where(.info-box) .info-card-desc{color:var(--tpl-dark-700)}
