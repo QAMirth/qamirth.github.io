@@ -81,6 +81,7 @@ select:where(:not([multiple])){max-width:350px;appearance:none;padding-right:30p
 
 .main-container>.tpl-content{flex:1;min-width:0; padding-right:200px;}
 .hz{padding-left:264px;}
+.hz h1:before{content: "#"; /*! padding-right: 4px; */}
 
 .main-container>.tpl-content-home-page{flex:1;min-width:0; max-width:800px;margin: 0 auto;}
 
