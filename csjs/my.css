@@ -1326,8 +1326,9 @@ select.codeButtons{border-radius:5px;min-width:50px;padding-block:5px}
   #p-logo a{background-position: center center; background-repeat: no-repeat; display: block; width: 2em; height: 36px; text-decoration: none;}
 .main-container{--gap-size:80px;--sidebar-size:100%;flex-direction:column}
   .main-container > .tpl-content{padding-right:0; max-width:800px; margin: 0 auto;}
-  .hz{padding-left:0; max-width:800px; margin: 0 auto;}
+  .hz{padding-left:16px; max-width:800px; margin: 0 auto;}
   .header-container{padding-block:var(--tpl-spacing-m)}
+  .sidebar{max-width: 800px; margin:0 auto;}
 .header-right{gap:var(--tpl-spacing-l)}
 .header-left{max-width:initial}
 .menubar-block{/*! display:block */}
