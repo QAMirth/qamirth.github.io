@@ -93,8 +93,8 @@ select:where(:not([multiple])){max-width:350px;appearance:none;padding-right:30p
 .header{background-color:var(--tpl-accent-white);position:sticky;top:0;width:100%;z-index:999;/*! border-bottom:1px solid #6c6c6c; */}
 .uadm--fixed-body-top .header{top:30px}
 #uAdminBar.uadm:where(:not(.uadm--bottom):not(.uadm--fixed)),#uAdminBar.uadm:where(:not(.uadm--bottom):not(.uadm--fixed)) .uadm-collapse{top:70px}
-.footer{background-color:var(--tpl-dark-100);width:100%;/*! max-width:800px; */margin: 0 auto;/*! border-top: 1px solid var(--tpl-dark-200); */font-size:88%;}
-.footer-home-page{background-color:var(--tpl-dark-100);width:100%;border-top: 1px solid var(--tpl-dark-200);font-size:88%;}
+.footer{background-color:var(--tpl-dark-100);width:100%;/*! max-width:800px; */margin: 0 auto;/*! border-top: 1px solid var(--tpl-dark-200); */font-size:12px;}
+.footer-home-page{background-color:var(--tpl-dark-100);width:100%;border-top: 1px solid var(--tpl-dark-200);font-size:12px;}
 
 .footer-container{align-items:center;display:flex;justify-content:space-between;padding-block:var(--tpl-spacing-m)}
 :where(.auth-links,.main-menu-nav) a{color:var(--tpl-dark-900)}
@@ -173,8 +173,8 @@ height: 36px;background-size: contain;top:2px;}
 .pollLnk a{white-space:nowrap}
 
 .info-card-format{padding-top: 16px;}
-.format{color:var(--tpl-dark-600);margin-right:16px;}
-.freepaid{color:var(--tpl-dark-600);}
+.format{color:var(--tpl-dark-600);margin-right:16px;font-size:12px;}
+.freepaid{color:var(--tpl-dark-600);font-size:12px;}
 .review-author-info,.user-box-header{align-items:center;display:flex;gap:var(--tpl-spacing-m)}
 :where(.info-box-user) .user-name,.user-box-name{font:var(--tpl-font-text-sb2);word-break:break-all;color:var(--tpl-dark-700)}
 .comm-avatar-img,.comm-form-avatar,.comm-card-avatar,.review-avatar,.user-box-avatar{--size:48px;align-items:center;background-color:var(--tpl-dark-300);border-radius:var(--size);color:var(--tpl-dark-600);display:flex;flex:0 0 var(--size);height:var(--size);justify-content:center;width:var(--size)}
