@@ -26,10 +26,10 @@ table{font-size:100%}
 body{background-color:var(--tpl-dark-100);color:var(--tpl-dark-900);font:var(--tpl-font-text-r1)}
 a{color:var(--tpl-accent-blue);text-decoration:none}
 a:hover{color:var(--tpl-accent-blue-dark)}
-.ttl{font:var(--tpl-font-header-4);color: var(--tpl-dark-800);font-size: 18px;display: -webkit-box; -webkit-line-clamp: 1;
+.ttl{font:var(--tpl-font-header-4);color: var(--tpl-dark-800);font-size: 16px;display: -webkit-box; -webkit-line-clamp: 1;
 -webkit-box-orient: vertical;/*! white-space:nowrap; */ overflow: hidden;text-overflow: ellipsis;}
 h1,h2{margin-block:var(--tpl-spacing-l)}
-h1{color:var(--tpl-dark-800);font-size:18px;font-weight:600;}
+h1{color:var(--tpl-dark-800);font-size:16px;font-weight:600;}
 h2{font:var(--tpl-font-header-2);font-size:16px;font-weight:600;}
 h3{font:var(--tpl-font-header-3)}
 h4{font:var(--tpl-font-header-4);}
