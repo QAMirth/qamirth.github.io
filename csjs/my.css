@@ -16,7 +16,7 @@ audio:not([controls]){display:none;height:0}
 audio,iframe,img,object,table,video,picture{max-width:100%}
 .myWinCont img{max-width:initial}
 img{border:0}
-  .ggh {float:left; width:48px; height:48px; margin: 0 12px 2px 0;}
+  .ggh {float:right; width:48px; height:48px; margin: 0 0px 2px 12px;}
 fieldset{margin:0}
 textarea{overflow:auto;vertical-align:top;width:100%;resize:none}
 table{font-size:100%}
@@ -123,7 +123,7 @@ select:where(:not([multiple])){max-width:350px;appearance:none;padding-right:30p
 #p-logo a{background-position: center center; background-repeat: no-repeat; /*! display: block; */ width: 4em; height: 36px; text-decoration: none;}
 .logo-link{/*! background-image: url(QASapiens2.jpg); */width: 36px;
 height: 36px;background-size: contain;top:2px;}
-.logo-link:before{content:"#QAMirth";color:var(--tpl-accent-white);font-size:14px;font-weight:500;font-family:cursive,serif;/*! margin-top:8px */}
+.logo-link:before{content:"#QAMirth";color:var(--tpl-accent-white);font-size:15px;font-weight:500;font-family:cursive,serif;/*! margin-top:8px */}
 .header-right{display:flex}
 
 .header-search,.header-auth-block{display:none}
@@ -1155,7 +1155,7 @@ form>:is(input[type=submit],input[type=text],select){min-width:100%}
 :where(.module-index .userpm-layout) #pmdform#pmdform [data-deleteitem]:hover{background-color:var(--tpl-accent-red)}
 :where(.module-index .userpm-layout) .userpm-add-groups{gap:var(--tpl-spacing-m)}
 :where(.module-index .userpm-layout) .userpm-add-groups [type=checkbox]{margin:0}
-.info-box{margin-block:24px;background: #fff;border: var(--tpl-border-line-100);
+.info-box{margin-block:24px;background: #fff;border-top: var(--tpl-border-line-100);border-left: var(--tpl-border-line-100);border-right: var(--tpl-border-line-100); border-bottom: 0;
 border-radius: 8px;}
 :where(.sitePage1-layout) .info-box{margin-block:calc(var(--tpl-spacing-2xl) * 2)}
 :where(.tpl-content:not(:has(#allEntries)) .info-box).goods-box:not(:has(.product-card))~.team-box,.contact-box,.info-box.goods-box{margin-top:0}
