@@ -181,25 +181,6 @@ fill="currentColor"/>
 
 	<!--MATERIAL-->
 
- <div>
-        <h2>Step 1: Turn on the timer below the text and time how long it takes you to read the text above the stopwatch</h2>
-        <p id="sampleText">The first stage of the software testing life cycle is requirements analysis. At this stage, static testing of the hypothesis is performed by validating the technical documentation of the new release. In our team, such validation is performed in several iterations:
-
- the QA team is involved in the first meeting to discuss a certain hypothesis, where the preliminary validation of the idea for implementation in the next release of the application takes place. A QA Engineer points out a corner case or an overlooked feature when designing a hypothesis, and thus helps the Product Manager learn more context about the technical side of creating a feature.
-
-At this stage, the QA Engineer is already starting to analyze the technical task, form a test plan and determine the user cases that will need to be tested in the future release. Another advantage of including a testing team is that at such an early stage, the QA Engineer already pre-estimates the labor costs for the current release and can clearly form the risks related to the execution of the technical task.
-
-Based on the comments and suggestions of other team members, the Product Manager creates technical documentation describing the ...</p>
-    </div>
-    <div class="timer">
-        <h3>Reading Timer</h3>
-        <span id="timer">00:00</span><br>
-        <button id="startButton">Begin</button>
-        <button id="stopButton">Stop</button>
-        <button id="resetButton">Reset</button>
-    </div>
-
-<h2>Step 2: Paste the text that you need to read into the form below</h2>
 	
     <form>
         <textarea id="textInput" placeholder="Paste text here..."></textarea>
@@ -214,9 +195,7 @@ Based on the comments and suggestions of other team members, the Product Manager
         <p>Comma count: <span id="commaCount">0</span></p>
         <p>Special character count: <span id="specialCharCount">0</span></p>
     </div>
-    <div class="formula-result" id="formulaResult">
-        <h2></h2>According to your metrics (how much time did you spend reading a 1000 character text), the approximate reading time of the text you pasted is: <span id="calculatedTime">--:--</span></h2>
-    </div>
+    
 
     <script>
         let timer;
