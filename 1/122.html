@@ -4,31 +4,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <title>Text Calculator tool - QAMirth</title>
+
 <link rel="icon" type="image/x-icon" href="../csjs/favicon.ico">
+	
 <meta name="description" content="Text Calculator tool that may be useful for QA."/>
 
 
 <meta name="subject" content="Quality Assurance"/>
 <meta name="copyright" content="Katzeniy"/>
-
 <meta name="language" content="en"/>
-
 <meta name="robots" content="index,follow"/>
-
 <meta name="author" content="Katzeniy, katzeniy008@gmail.com"/>
-
 <meta name="category" content="Technology"/>
-
 <meta name="coverage" content="Worldwide"/>
-
 <meta name="distribution" content="Global"/>
-
 
 <meta property="og:title" content="Text Calculator tool - QAMirth">
 
-
 <meta property="og:description" content="Text Calculator tool that may be useful for QA.">
-
 
 <meta property="og:image" content="../csjs/logo.png">
 
@@ -48,6 +41,7 @@
         textarea {
             width: 100%;
             height: 100px;
+		background: #fff;
         }
         .results {
             margin-top: 20px;
@@ -60,7 +54,7 @@
             padding: 0;
         }
         .results li {
-            margin: 5px 0;
+            margin: 4px 0;
         }
         .timer {
             text-align: center;
@@ -70,7 +64,7 @@
             font-size: 2em;
         }
         .timer button {
-            margin: 5px;
+            margin: 4px;
         }
         .formula-result {
             margin-top: 20px;
@@ -86,7 +80,6 @@
 <div class="container header-container">
 <div class="header-left">
 <div id="p-logo" class="b-logo" role="banner">
-
 
 <a class="logo-link" href="../" title="Home Page"><span class="logo-slogan"></span></a></div>
 
@@ -175,10 +168,10 @@ fill="currentColor"/>
 <div class="main">
 <div class="hz main-container">
 
-<h1>QAMirth Text Calculator</h1>
+<a href="/1/1.html" class="back"></a><h1 class="mt">QAMirth Text Calculator</h1>
 
 </div>
-<div class="container main-container">
+<div class="container main-container-mt">
 
 
 <!-- <middle> -->
@@ -189,18 +182,27 @@ fill="currentColor"/>
 	<!--MATERIAL-->
 
  <div>
-        <p>Sample text (1000 characters):</p>
-        <p id="sampleText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <h2>Step 1: Turn on the timer below the text and time how long it takes you to read the text above the stopwatch</h2>
+        <p id="sampleText">The first stage of the software testing life cycle is requirements analysis. At this stage, static testing of the hypothesis is performed by validating the technical documentation of the new release. In our team, such validation is performed in several iterations:
+
+ the QA team is involved in the first meeting to discuss a certain hypothesis, where the preliminary validation of the idea for implementation in the next release of the application takes place. A QA Engineer points out a corner case or an overlooked feature when designing a hypothesis, and thus helps the Product Manager learn more context about the technical side of creating a feature.
+
+At this stage, the QA Engineer is already starting to analyze the technical task, form a test plan and determine the user cases that will need to be tested in the future release. Another advantage of including a testing team is that at such an early stage, the QA Engineer already pre-estimates the labor costs for the current release and can clearly form the risks related to the execution of the technical task.
+
+Based on the comments and suggestions of other team members, the Product Manager creates technical documentation describing the ...</p>
     </div>
     <div class="timer">
-        <h2>Reading Timer</h2>
+        <h3>Reading Timer</h3>
         <span id="timer">00:00</span><br>
         <button id="startButton">Begin</button>
         <button id="stopButton">Stop</button>
         <button id="resetButton">Reset</button>
     </div>
+
+<h2>Step 2: Paste the text that you need to read into the form below</h2>
+	
     <form>
-        <textarea id="textInput" placeholder="Enter text here..."></textarea>
+        <textarea id="textInput" placeholder="Paste text here..."></textarea>
     </form>
     <div class="results">
         <p>Number of letters and symbols with spaces: <span id="charCountWithSpaces">0</span></p>
@@ -213,7 +215,7 @@ fill="currentColor"/>
         <p>Special character count: <span id="specialCharCount">0</span></p>
     </div>
     <div class="formula-result" id="formulaResult">
-        We can write this text during: <span id="calculatedTime">--:--</span>
+        <h2></h2>According to your metrics (how much time did you spend reading a 1000 character text), the approximate reading time of the text you pasted is: <span id="calculatedTime">--:--</span></h2>
     </div>
 
     <script>
@@ -324,7 +326,7 @@ fill="currentColor"/>
 
 <div class="sidebar-block">
 					<div class="inner">
-						<div class="sidebar-block-content"><!-- <bc> --><!--<s1546>--><ul>
+						<div class="sidebar-block-content-mt"><!-- <bc> --><!--<s1546>--><ul>
 <li><a class="nana1" href="/1/1.html">Static review</a></li>
 <li><a class="nana11" href="/1/11.html">Static Analysis</a></li>
 <li><a class="nana12" href="/1/12.html">JSON, YAML, XML etc</a></li>
