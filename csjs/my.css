@@ -130,7 +130,7 @@ background-size: contain;}
 #p-logo a{background-position: center center; background-repeat: no-repeat; /*! display: block; */ width: 4em; height: 31px; text-decoration: none;}
 .logo-link{/*! background-image: url(QASapiens2.jpg); */width: 36px;
 height: 36px;background-size: contain;top:2px;}
-.logo-link:before{align-self: center; vertical-align: middle;content:"QAMirth";color:var(--tpl-accent-logo-menu);font-size:20px;font-weight:500;font-family:cursive,serif;/*! margin-top:8px */}
+.logo-link:before{align-self: center; vertical-align: middle;content:"QAMirth";color:var(--tpl-accent-logo-menu);font-size:16px;font-weight:500;font-family:cursive,serif;/*! margin-top:8px */}
 .header-right{display:flex}
 
 .header-search,.header-auth-block{display:none}
