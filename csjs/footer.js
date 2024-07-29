@@ -5,7 +5,7 @@
             <!-- <copy> -->
             Copyright <span class="kz">
               <a href="../99/feedback.html" target="_blank" rel="nofollow">@Katzeniy</a>
-            </span> © 2024 from the Nativity of Christ
+            </span> Â© 2024 from the Nativity of Christ
             <!-- </copy> -->
           </div>
           <div class="copy2"></div>
