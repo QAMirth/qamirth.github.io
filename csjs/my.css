@@ -127,7 +127,7 @@ background-size: contain;}
 .header-container{max-width: 100%;align-items:stretch;display:flex;gap:var(--tpl-spacing-l);justify-content:space-between}
 .header-left{display:flex;gap:var(--tpl-spacing-2xl);justify-content:start;max-width:calc(100% - var(--subtract-size,327px));min-width:0}
 
-#p-logo a{background-position: center center; background-repeat: no-repeat; /*! display: block; */ width: 4em; height: 47px; text-decoration: none;}
+#p-logo a{background-position: center center; background-repeat: no-repeat; /*! display: block; */ width: 4em; height: 31px; text-decoration: none;}
 .logo-link{/*! background-image: url(QASapiens2.jpg); */width: 36px;
 height: 36px;background-size: contain;top:2px;}
 .logo-link:before{align-self: center; vertical-align: middle;content:"#QAMirth";color:var(--tpl-accent-logo-menu);font-size:17px;font-weight:500;font-family:cursive,serif;/*! margin-top:8px */}
@@ -1587,7 +1587,7 @@ select.codeButtons{border-radius:5px;min-width:50px;padding-block:5px}
 }
   
 
-.main-menu-nav ::before {margin-right: 4px; font-size: 16px;vertical-align: middle;font-family: 'Material Icons';color:var(--tpl-dark-400);}
+.main-menu-nav ::before {margin-right: 8px; font-size: 16px;vertical-align: middle;font-family: 'Material Icons';color:var(--tpl-dark-400);}
 
 .m1::before {
   content: 'home';
