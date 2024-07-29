@@ -163,7 +163,10 @@ height: 36px;background-size: contain;top:2px;}
 :where(.header-cart .empty-cart) .icon-wrapper{align-items:center;background-color:var(--tpl-dark-100);border-radius:54px;display:flex;height:54px;justify-content:center;width:54px}
 :where(.header-cart .empty-cart) .empty-cart-title{color:var(--tpl-dark-700);font:var(--tpl-font-text-sb2);margin-block:var(--tpl-spacing-s)}
 :where(.header-cart .empty-cart) .empty-cart-link{margin-top:var(--tpl-spacing-xl)}
-.menu-icon{color:var(--tpl-accent-logo-menu);height:14px;pointer-events:none;transition:all var(--tpl-transition);vertical-align:middle;width:18px;}
+
+.menu-icon{color:var(--tpl-accent-logo-menu);height:12px;pointer-events:none;transition:all var(--tpl-transition);vertical-align:middle;width:18px;}
+
+
 .header-mobile-button{appearance:none;background-color:transparent;border:0;color:var(--tpl-dark-900);display:none;height:24px;padding:0;width:24px}
 .cart-icon,.header-mobile-icon{color:var(--tpl-accent-logo-menu);display:block;height:inherit;width:inherit}
 .header-mobile-close .header-mobile-icon{color:var(--tpl-accent-logo-menu);height:18px;pointer-events:none;width:18px}
@@ -1556,4 +1559,50 @@ select.codeButtons{border-radius:5px;min-width:50px;padding-block:5px}
 :where(.module-forum .post-card) .post-user-info{border-radius:0;display:grid;grid-template-areas:'user-name user-rank' 'user-group user-group' 'user-curator user-curator' 'manage-bar manage-bar';grid-template-columns:2fr 1fr;justify-items:left;padding:var(--tpl-spacing-l);text-align:left}
 :where(.module-shop .invoices-layout #invoice-form > select){flex-basis:100%}
 :where(.module-shop) .products-box .goods-list{grid-template-columns:1fr!important}
+}
+
+ @font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v142/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -moz-font-feature-settings: 'liga';
+  -moz-osx-font-smoothing: grayscale;
+}
+  
+
+.main-menu-nav ::before {margin-right: 8px; font-size: 16px;vertical-align: middle;font-family: 'Material Icons';color:var(--tpl-dark-400);}
+
+.m1::before {
+  content: 'home';
+}
+
+.m2::before {
+  content: 'explore';
+}
+
+.m3::before {
+  content: 'design_services';
+}
+
+.m4::before {
+  content: 'settings';
+}
+
+.m5::before {
+  content: 'more_vert';
 }
