@@ -121,7 +121,7 @@ background-size: contain;}
 
 
 .footer-container{align-items:center;display:flex;justify-content:space-between;padding-block:16px;}
-:where(.auth-links,.main-menu-nav) a{color:var(--tpl-accent-white);}
+:where(.auth-links,.main-menu-nav) a{color:var(--tpl-accent-logo-menu);}
 :where(.header) .logo-link{align-items:center;color:var(--tpl-accent-logo-menu);display:flex;flex-shrink:0;font:var(--tpl-font-header-4);gap:var(--tpl-spacing-s)}
 :where(.header) .logo-icon{flex:0 0 36px;height:36px;width:36px}
 :where(.header) .logo-slogan{max-width:224px}
@@ -1351,7 +1351,7 @@ select.codeButtons{border-radius:5px;min-width:50px;padding-block:5px}
 }
 @media screen and (max-width:1024px){
 .catalog-slider-container .swiper-btn{display:none}
-  #p-logo a{background-position: center center; background-repeat: no-repeat; display: block; width: 2em; height: 32px; text-decoration: none;}
+  #p-logo a{background-position: center center; background-repeat: no-repeat; display: block; width: 2em; height: 28px; text-decoration: none;}
 .main-container,.main-container-mt{/*! --gap-size:80px; */--sidebar-size:100%;flex-direction:column}
   .main-container > .tpl-content{padding-right:0; max-width:800px; margin: 0 auto;}
   .hz{flex-direction: row;padding-left:16px; max-width:800px; margin: 0 auto;}
@@ -1374,7 +1374,7 @@ select.codeButtons{border-radius:5px;min-width:50px;padding-block:5px}
 .main-menu-nav .main-menu-scroll-area{left:0;position:relative;transition:left var(--tpl-transition)}
 .main-menu-nav li>ul{left:100%;opacity:0;pointer-events:none;position:absolute;top:0;transition:opacity var(--tpl-transition);visibility:hidden;width:100%}
 .main-menu-nav li>ul.slide-visible{opacity:1;pointer-events:auto;visibility:visible}
-:where(.main-menu-nav li){align-items:center;/*! border-bottom:1px solid var(--tpl-dark-200); */display:flex;gap:var(--tpl-spacing-l);justify-content:space-between;}
+:where(.main-menu-nav li){align-items:center;border-bottom:1px solid var(--tpl-dark-200);display:flex;gap:var(--tpl-spacing-l);justify-content:space-between;}
 .main-menu-nav li>a{flex:1 1;padding:var(--tpl-spacing-l)}
 .main-menu-nav li.uWithSubmenu>a{padding-right:0}
 .menu-submenu-btn{align-items:center;display:flex;justify-content:center;padding:var(--tpl-spacing-l)}
