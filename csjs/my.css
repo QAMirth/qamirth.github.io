@@ -130,7 +130,7 @@ background-size: contain;}
 #p-logo a{background-position: center center; background-repeat: no-repeat; /*! display: block; */ width: 4em; height: 31px; text-decoration: none;}
 .logo-link{/*! background-image: url(QASapiens2.jpg); */width: 36px;
 height: 36px;background-size: contain;top:2px;}
-.logo-link:before{align-self: center; vertical-align: middle;content:"#QAMirth";color:var(--tpl-accent-logo-menu);font-size:17px;font-weight:500;font-family:cursive,serif;/*! margin-top:8px */}
+.logo-link:before{align-self: center; vertical-align: middle;content:"QAMirth";color:var(--tpl-accent-logo-menu);font-size:16px;font-weight:500;font-family:cursive,serif;/*! margin-top:8px */}
 .header-right{display:flex}
 
 .header-search,.header-auth-block{display:none}
@@ -1563,16 +1563,21 @@ select.codeButtons{border-radius:5px;min-width:50px;padding-block:5px}
 :where(.module-shop) .products-box .goods-list{grid-template-columns:1fr!important}
 }
 
- @font-face {
-  font-family: 'Material Icons';
+ /* fallback */
+@font-face {
+  font-family: 'Material Icons Outlined';
   font-style: normal;
-  font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/materialicons/v142/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/materialiconsoutlined/v109/gok-H7zzDkdnRel8-DQ6KAXJ69wP1tGnf4ZGhUce.woff2) format('woff2');
 }
 
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
+.material-icons-outlined {
+  font-family: 'Material Icons Outlined';
+  font-weight: 300;
+   font-variation-settings: 
+    'GRAD' -25, /* Grade */
+    'opsz'16;  /* Optical Size */
   font-style: normal;
   font-size: 24px;
   line-height: 1;
@@ -1587,7 +1592,7 @@ select.codeButtons{border-radius:5px;min-width:50px;padding-block:5px}
 }
   
 
-.main-menu-nav ::before {margin-right: 8px; font-size: 16px;vertical-align: middle;font-family: 'Material Icons';color:var(--tpl-dark-400);}
+.main-menu-nav ::before {margin-right: 8px; font-size: 18px;vertical-align: middle;font-family: 'Material Icons Outlined';color:var(--tpl-dark-400);}
 
 .m1::before {
   content: 'home';
