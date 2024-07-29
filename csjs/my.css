@@ -16,7 +16,7 @@ audio:not([controls]){display:none;height:0}
 audio,iframe,img,object,table,video,picture{max-width:100%}
 .myWinCont img{max-width:initial}
 img{border:0}
-  .ggh {float:right; width:64px; height:64px; margin: 32px 0px 4px 16px;background-color: var(--tpl-accent-button);border-radius:8px;align-items: center;}
+  .ggh {float:right; width:64px; height:64px; margin: 32px 0px 4px 16px;background-color: var(--tpl-accent-button);border-radius:8px;display: flex; justify-content: center; align-items: center; font-size: 16px;}
 fieldset{margin:0}
 textarea{overflow:auto;vertical-align:top;width:100%;resize:none}
 table{font-size:100%}
