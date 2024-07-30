@@ -1327,7 +1327,7 @@ select.codeButtons{border-radius:5px;min-width:50px;padding-block:5px}
 :is(.main-menu.menu-evolving,#f#f#f) li>ul{display:none}
 :is(.main-menu.menu-evolving,#f#f#f) [id^=uNMenuDiv]{overflow:hidden}
 .main-menu ul{white-space:nowrap}
-.main-menu .uMenuRoot{display:flex;gap:24px;justify-content:flex-start;font:var(--tpl-font-text-r2);height:100%;font-weight:400;font-size:var(--tpl-font-size);}
+.main-menu .uMenuRoot{display:flex;gap:22px;justify-content:flex-start;font:var(--tpl-font-text-r2);height:100%;font-weight:400;font-size:var(--tpl-font-size);}
 .main-menu.menu-evolving{opacity:0}
 .main-menu .uMenuRoot>li:where(:not(.hidden)){display:flex;gap:2px}
 .uWithSubmenu,.menu-item-more,.main-menu .uMenuRoot>li:has( > .uMenuItemA){position:relative}
