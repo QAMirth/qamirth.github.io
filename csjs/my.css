@@ -1323,7 +1323,7 @@ select.codeButtons{border-radius:5px;min-width:50px;padding-block:5px}
 :where(.header .cart-text){display:inline}
 :where(.menubar,.main-menu-nav,.main-menu-container,.main-menu-scroll-area){display:contents}
 :where( #uNMenuDiv1){height:100%}
-.main-menu{min-width:110px; margin-left: 80px;}
+.main-menu{min-width:110px; margin-left: 16px;}
 :is(.main-menu.menu-evolving,#f#f#f) li>ul{display:none}
 :is(.main-menu.menu-evolving,#f#f#f) [id^=uNMenuDiv]{overflow:hidden}
 .main-menu ul{white-space:nowrap}
