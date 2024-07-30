@@ -45,6 +45,7 @@
         .results {
             margin-top: 20px;
         }
+	#charCountWithSpaces,#charCountWithoutSpaces,#wordCount,#digitCount,#sentenceCount,#paragraphCount,#commaCount,#specialCharCount{color:red;}
     </style>
   
 </head>
@@ -169,6 +170,7 @@ fill="currentColor"/>
         <p>Comma count: <span id="commaCount">0</span></p>
         <p>Special character count: <span id="specialCharCount">0</span></p>
     </div>
+
 
     <script>
         document.getElementById('textInput').addEventListener('input', function() {
