@@ -37,39 +37,13 @@
 <link rel="stylesheet" href="../csjs/social.css" />
 <script src="../csjs/ulightbox.min.js"></script>
 
-<style>
+<style> 
         textarea {
             width: 100%;
             height: 100px;
-		background: #fff;
         }
         .results {
             margin-top: 20px;
-        }
-        .results span.count {
-            color: red;
-        }
-        .results ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .results li {
-            margin: 4px 0;
-        }
-        .timer {
-            text-align: left;
-            margin: 24px 0;
-        }
-        .timer span {
-            font-size: 2em;
-        }
-        .timer button {
-            margin: 4px;
-        }
-        .formula-result {
-            margin-top: 24px;
-            font-weight: 600;
-            text-align: left;
         }
     </style>
   
@@ -182,8 +156,8 @@ fill="currentColor"/>
 	<!--MATERIAL-->
 
 	
-    <form>
-        <textarea id="textInput" placeholder="Paste text here..."></textarea>
+   <form>
+        <textarea id="textInput" placeholder="Enter text here..."></textarea>
     </form>
     <div class="results">
         <p>Number of letters and symbols with spaces: <span id="charCountWithSpaces">0</span></p>
@@ -195,53 +169,9 @@ fill="currentColor"/>
         <p>Comma count: <span id="commaCount">0</span></p>
         <p>Special character count: <span id="specialCharCount">0</span></p>
     </div>
-    
 
     <script>
-        let timer;
-        let startTime;
-        let elapsedTime = 0;
-
-        const timerElement = document.getElementById('timer');
-        const startButton = document.getElementById('startButton');
-        const stopButton = document.getElementById('stopButton');
-        const resetButton = document.getElementById('resetButton');
-        const textInput = document.getElementById('textInput');
-        const calculatedTimeElement = document.getElementById('calculatedTime');
-
-        startButton.addEventListener('click', function() {
-            if (!timer) {
-                startTime = Date.now() - elapsedTime;
-                timer = setInterval(updateTimer, 1000);
-            }
-        });
-
-        stopButton.addEventListener('click', function() {
-            if (timer) {
-                clearInterval(timer);
-                timer = null;
-                elapsedTime = Date.now() - startTime;
-            }
-        });
-
-        resetButton.addEventListener('click', function() {
-            clearInterval(timer);
-            timer = null;
-            startTime = null;
-            elapsedTime = 0;
-            timerElement.innerText = "00:00";
-            calculatedTimeElement.innerText = "--:--";
-        });
-
-        function updateTimer() {
-            elapsedTime = Date.now() - startTime;
-            const totalSeconds = Math.floor(elapsedTime / 1000);
-            const minutes = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
-            const seconds = String(totalSeconds % 60).padStart(2, '0');
-            timerElement.innerText = `${minutes}:${seconds}`;
-        }
-
-        textInput.addEventListener('input', function() {
+        document.getElementById('textInput').addEventListener('input', function() {
             const text = this.value;
 
             // Length with spaces
@@ -277,18 +207,8 @@ fill="currentColor"/>
             document.getElementById('paragraphCount').innerText = paragraphCount;
             document.getElementById('commaCount').innerText = commaCount;
             document.getElementById('specialCharCount').innerText = specialCharCount;
-
-            // Calculate reading time
-            if (elapsedTime > 0) {
-                const totalSeconds = Math.floor(elapsedTime / 1000);
-                const readingTimeSeconds = totalSeconds * (charCountWithoutSpaces / 1000);
-                const readingTimeMinutes = Math.floor(readingTimeSeconds / 60);
-                const readingTimeRemainingSeconds = Math.floor(readingTimeSeconds % 60);
-                calculatedTimeElement.innerText = `${readingTimeMinutes}m ${readingTimeRemainingSeconds}s`;
-            }
         });
     </script>
-
 
 
   
