@@ -33,6 +33,7 @@ h1{color:var(--tpl-dark-800);font-size:var(--tpl-font-size-large);font-weight:60
 h2{font:var(--tpl-font-header-2);font-size:16px;font-weight:600;}
 h3{font:var(--tpl-font-header-3)}
 h4{font:var(--tpl-font-header-4);}
+.material-count{color: #757575 !important;}
 .hidden{display:none;}
 .freeze{overflow:hidden!important}
 ul{padding:0;margin:0;list-style:none}
