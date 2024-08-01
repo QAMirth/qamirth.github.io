@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Подсчет количества блоков с классом info-block
-    const materialCount = document.querySelectorAll('.info-block').length;
+    // Подсчет количества блоков с классом info-card
+    const materialCount = document.querySelectorAll('.info-card').length;
     // Обновление текста в элементе с классом material-count
     document.querySelector('.material-count').textContent = `(${materialCount} materials)`;
 });
