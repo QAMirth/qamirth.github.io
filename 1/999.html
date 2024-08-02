@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Create HTML Page</title>
+    <title>Create HTML Page2</title>
 </head>
 <body>
     <div>
@@ -20,21 +20,20 @@
     </div>
 
     <script>
-    function escapeHtml(str) {
-        return str.replace(/&/g, '&amp;')
-                  .replace(/</g, '&lt;')
-                  .replace(/>/g, '&gt;')
-                  .replace(/"/g, '&quot;')
-                  .replace(/'/g, '&#039;');
-    }
+        function escapeHtml(str) {
+            return str.replace(/&/g, '&amp;')
+                      .replace(/</g, '&lt;')
+                      .replace(/>/g, '&gt;')
+                      .replace(/"/g, '&quot;')
+                      .replace(/'/g, '&#039;');
+        }
 
-    function createHtml() {
-        const id = document.getElementById('id').value;
-        const title = escapeHtml(document.getElementById('title').value);
-        const h1 = escapeHtml(document.getElementById('h1').value);
+        function createHtml() {
+            const id = document.getElementById('id').value;
+            const title = escapeHtml(document.getElementById('title').value);
+            const h1 = escapeHtml(document.getElementById('h1').value);
 
-        const htmlContent = `
-<!DOCTYPE html>
+            const htmlContent = `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -74,8 +73,7 @@
 <div class="main-menu menu-evolving">
 <button class="header-mobile-button header-mobile-close js-mobile-menu-close">
 <svg class="header-mobile-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="none">
-<path d="M13.062 4.58334L13.0623 4.58298C13.1628 4.48245 13.3241 4.48245 13.4246 4.58298C13.5175 4.67593 13.5175 4.84474 13.4246 4.93769L9.71584 8.64645L9.36229 9L9.71584 9.35355L13.4246 13.0623C13.5251 13.1628 13.5251 13.3241 13.4246 13.4246C13.3241 13.5251 13.1628 13.5251 13.0623 13.4246L9.35355 9.71584L9 9.36229L8.64645 9.71584L4.93769 13.4246C4.83716 13.5251 4.67592 13.5251 4.5754 13.4246C4.47487 13.3241 4.47487 13.1628 4.5754 13.0623L8.28416 9.35355L8.63771 9L8.28416 8.64645L4.5754 4.93769C4.47487 4.83716 4.47487 4.67592 4.5754 4.5754C4.67592 4.47487 4.83716 4.47487 4.93769 4.5754L8.64645 8.28416L8.99964 8.63735L9.35319 8.28452L13.062 4.58334Z"
-stroke="currentColor"/>
+<path d="M13.062 4.58334L13.0623 4.58298C13.1628 4.48245 13.3241 4.48245 13.4246 4.58298C13.5175 4.67593 13.5175 4.84474 13.4246 4.93769L9.71584 8.64645L9.36229 9L9.71584 9.35355L13.4246 13.0623C13.5251 13.1628 13.5251 13.3241 13.4246 13.4246C13.3241 13.5251 13.1628 13.5251 13.0623 13.4246L9.35355 9.71584L9 9.36229L8.64645 9.71584L4.93769 13.4246C4.83716 13.5251 4.67592 13.5251 4.5754 13.4246C4.47487 13.3241 4.47487 13.1628 4.5754 13.0623L8.28416 9.35355L8.63771 9L8.28416 8.64645L4.5754 4.93769C4.47487 4.83716 4.47487 4.67592 4.5754 4.5754C4.67592 4.47487 4.83716 4.47487 4.93769 4.5754L8.64645 8.28416L8.99964 8.63735L9.35319 8.28452L13.062 4.58334Z" stroke="currentColor"/>
 </svg>
 </button>
 <div class="menubar">
@@ -130,7 +128,6 @@ stroke="currentColor"/>
 </button>
 </div>
 </div>
-</div>
 </header>
 <div id="content" class="layout-content">
 <div class="container">
@@ -147,14 +144,14 @@ stroke="currentColor"/>
 </body>
 </html>`;
 
-        const blob = new Blob([htmlContent], { type: 'text/html' });
-        const url = URL.createObjectURL(blob);
-        const downloadButton = document.getElementById('downloadButton');
-        downloadButton.href = url;
-        downloadButton.download = `${id}.html`;
-        downloadButton.style.display = 'inline';
-        downloadButton.textContent = 'Download HTML';
-    }
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const downloadButton = document.getElementById('downloadButton');
+            downloadButton.href = url;
+            downloadButton.download = `${id}.html`;
+            downloadButton.style.display = 'inline';
+            downloadButton.textContent = 'Download HTML';
+        }
     </script>
 </body>
 </html>
