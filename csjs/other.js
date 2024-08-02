@@ -8,8 +8,9 @@ document.addEventListener('scroll', function() {
 });
 
 
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Подсчет количества блоков с классом info-card2
+    // Подсчет количества блоков с классом info-card3
     function updateMaterialCount() {
         const materialCount = document.querySelectorAll('.info-card').length;
         document.querySelector('.material-count').textContent = `(${materialCount} materials)`;
@@ -41,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     form.addEventListener('submit', function(event) {
         event.preventDefault();
-
+        
         const title = document.getElementById('title').value;
         const description = document.getElementById('description').value;
         const format = document.getElementById('format').value;
@@ -89,14 +90,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Добавление обработчика для копирования HTML
         newMaterial.querySelector('.copy-html').addEventListener('click', function() {
-            const materialHTML = newMaterial.outerHTML.replace(/delete-material/g, 'delete-material2').replace(/copy-html/g, 'copy-html2');
+            const materialHTML = newMaterial.outerHTML.replace(/copy-html/g, 'copy-html2');
             navigator.clipboard.writeText(materialHTML);
         });
 
         // Скрытие формы
         popup.style.display = "none";
 
-        // Сохранение данных в localStorage (для дальнейшего использования)
+        // Сохранение данных в localStorage
         saveMaterialsToLocalStorage();
     });
 
@@ -152,13 +153,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Добавление обработчика для копирования HTML
                 newMaterial.querySelector('.copy-html').addEventListener('click', function() {
-                    const materialHTML = newMaterial.outerHTML.replace(/delete-material/g, 'delete-material2').replace(/copy-html/g, 'copy-html2');
+                    const materialHTML = newMaterial.outerHTML.replace(/copy-html/g, 'copy-html2');
                     navigator.clipboard.writeText(materialHTML);
                 });
             });
+
+            // Обновление количества материалов
+            updateMaterialCount();
         }
-        updateMaterialCount();
     }
 
+    // Загрузка материалов из localStorage при загрузке страницы
     loadMaterialsFromLocalStorage();
 });
