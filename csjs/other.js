@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     form.addEventListener('submit', function(event) {
         event.preventDefault();
-        
+
         const title = document.getElementById('title').value;
         const description = document.getElementById('description').value;
         const format = document.getElementById('format').value;
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Добавление обработчика для копирования HTML
         newMaterial.querySelector('.copy-html').addEventListener('click', function() {
-            const materialHTML = newMaterial.outerHTML.replace(/copy-html/g, 'copy-html2');
+            const materialHTML = newMaterial.outerHTML.replace(/delete-material/g, 'delete-material2').replace(/copy-html/g, 'copy-html2');
             navigator.clipboard.writeText(materialHTML);
         });
 
@@ -149,16 +149,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     updateMaterialCount();
                     saveMaterialsToLocalStorage();
                 });
-                
+
                 // Добавление обработчика для копирования HTML
                 newMaterial.querySelector('.copy-html').addEventListener('click', function() {
-                    const materialHTML = newMaterial.outerHTML.replace(/copy-html/g, 'copy-html2');
+                    const materialHTML = newMaterial.outerHTML.replace(/delete-material/g, 'delete-material2').replace(/copy-html/g, 'copy-html2');
                     navigator.clipboard.writeText(materialHTML);
                 });
             });
-
-            updateMaterialCount();
         }
+        updateMaterialCount();
     }
 
     loadMaterialsFromLocalStorage();
