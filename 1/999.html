@@ -25,6 +25,7 @@
             const title = document.getElementById('title').value;
             const h1 = document.getElementById('h1').value;
 
+            // Создание HTML-контента
             const doc = new DOMParser().parseFromString(`
                 <!DOCTYPE html>
                 <html lang="en">
@@ -49,7 +50,6 @@
                     <link type="text/css" rel="stylesheet" href="../csjs/my.css">
                     <link rel="stylesheet" href="../csjs/base.min.css">
                     <link rel="stylesheet" href="../csjs/layer7.min.css">
-                    
                 </head>
                 <body class="index">
                     <div id="layout" class="layout page">
@@ -67,15 +67,19 @@
                                         </button>
                                         <div class="menubar">
                                             <div id="menu24"></div>
-                                            <script src="../csjs/menu.js"></script>
                                             <div class="menubar-block">
                                                 <div class="user-box ">
-                                                    <div class="user-box-links">
-                                                        <script src="../csjs/right-block.js"></script>
-                                                    </div>
+                                                    <div class="user-box-links"></div>
                                                 </div>
                                             </div>
-                                            <script src="../csjs/social-menu.js"></script>
+                                            <!-- Вставляем внешний скрипт -->
+                                            <script>
+                                                (function() {
+                                                    var script = document.createElement('script');
+                                                    script.src = '../csjs/social-menu.js';
+                                                    document.head.appendChild(script);
+                                                })();
+                                            </script>
                                         </div>
                                     </div>
                                 </div>
@@ -99,9 +103,7 @@
                                         <svg class="svg-icon">
                                             <use xlink:href="../csjs/icons.svg#user_icon"></use>
                                         </svg>
-                                        <div class="auth-links">
-                                            <script src="../csjs/login-signup-menu.js"></script>
-                                        </div>
+                                        <div class="auth-links"></div>
                                     </div>
                                     <button class="header-mobile-button js-mobile-menu-btn">
                                         <svg class="header-mobile-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 19" fill="none">
@@ -129,6 +131,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Вставляем внешние скрипты -->
                     <script src="../csjs/content.js"></script>
                 </body>
                 </html>`, 'text/html');
