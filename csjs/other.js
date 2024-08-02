@@ -88,9 +88,9 @@ document.addEventListener('scroll', function() {
                             <span class="freepaid">${material.freepaid}</span>
                         </p>
                     </div>
-                    <button class="delete-material" style="color:red; cursor:pointer;">&times;</button>
-                    <button class="copy-html" style="color:blue; cursor:pointer;">Copy HTML</button>
-                    <button class="edit-material" style="color:green; cursor:pointer;">Edit</button>
+                    <button class="delete-material">&times;</button>
+                    <button class="copy-html">Copy HTML</button>
+                    <button class="edit-material">Edit</button>
                 `;
 
                 newMaterial.querySelector('.delete-material').addEventListener('click', function() {
@@ -100,7 +100,7 @@ document.addEventListener('scroll', function() {
                 });
 
                 newMaterial.querySelector('.copy-html').addEventListener('click', function() {
-                    const materialHTML = newMaterial.outerHTML.replace(/delete-material/g, 'delete-material2').replace(/copy-html/g, 'copy-html2');
+                    const materialHTML = newMaterial.outerHTML.replace(/delete-material/g, 'delete-material2').replace(/copy-html/g, 'copy-html2').replace(/edit-material/g, 'edit-material2');
                     navigator.clipboard.writeText(materialHTML);
                 });
 
@@ -177,9 +177,9 @@ document.addEventListener('scroll', function() {
                                 <span class="freepaid">${material.freepaid}</span>
                             </p>
                         </div>
-                        <button class="delete-material" style="color:red; cursor:pointer;">&times;</button>
-                        <button class="copy-html" style="color:blue; cursor:pointer;">Copy HTML</button>
-                        <button class="edit-material" style="color:green; cursor:pointer;">Edit</button>
+                        <button class="delete-material">&times;</button>
+                        <button class="copy-html">Copy HTML</button>
+                        <button class="edit-material">Edit</button>
                     `;
 
                     materialElement.querySelector('.delete-material').addEventListener('click', function() {
@@ -189,7 +189,7 @@ document.addEventListener('scroll', function() {
                     });
 
                     materialElement.querySelector('.copy-html').addEventListener('click', function() {
-                        const materialHTML = materialElement.outerHTML.replace(/delete-material/g, 'delete-material2').replace(/copy-html/g, 'copy-html2');
+                        const materialHTML = materialElement.outerHTML.replace(/delete-material/g, 'delete-material2').replace(/copy-html/g, 'copy-html2').replace(/edit-material/g, 'edit-material2');
                         navigator.clipboard.writeText(materialHTML);
                     });
 
