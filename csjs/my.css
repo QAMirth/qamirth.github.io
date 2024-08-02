@@ -1672,3 +1672,28 @@ select.codeButtons{border-radius:5px;min-width:50px;padding-block:5px}
 .copy-html {
     color: blue;
 }
+
+.info-card {
+    position: relative;
+}
+
+.info-card .delete-material,
+.info-card .copy-html {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+}
+
+.info-card .copy-html {
+    right: 40px;
+}
+
+.info-card a {
+    pointer-events: none;
+}
+
+.info-card .delete-material,
+.info-card .copy-html {
+    pointer-events: auto;
+}
