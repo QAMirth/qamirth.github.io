@@ -8,7 +8,7 @@ document.addEventListener('scroll', function() {
 });
 
 
-    document.addEventListener('DOMContentLoaded', function() {
+   document.addEventListener('DOMContentLoaded', function() {
             // Подсчет количества блоков с классом info-card
             function updateMaterialCount() {
                 const materialCount = document.querySelectorAll('.info-card').length;
@@ -39,7 +39,9 @@ document.addEventListener('scroll', function() {
             // Обработка формы
             const form = document.getElementById('material-form');
 
-            form.addEventListener('submit', function(event) {
+            form.addEventListener('submit', submitHandler);
+
+            function submitHandler(event) {
                 event.preventDefault();
 
                 const title = document.getElementById('title').value;
@@ -65,7 +67,7 @@ document.addEventListener('scroll', function() {
 
                 // Скрытие формы
                 popup.style.display = "none";
-            });
+            }
 
             function createMaterialElement(material) {
                 const newMaterial = document.createElement('div');
@@ -100,7 +102,11 @@ document.addEventListener('scroll', function() {
                 });
 
                 newMaterial.querySelector('.copy-html').addEventListener('click', function() {
-                    const materialHTML = newMaterial.outerHTML.replace(/delete-material/g, 'delete-material2').replace(/copy-html/g, 'copy-html2').replace(/edit-material/g, 'edit-material2');
+                    const materialHTML = newMaterial.outerHTML
+                        .replace('info-card dynamic', 'info-card static')
+                        .replace(/delete-material/g, 'delete-material2')
+                        .replace(/copy-html/g, 'copy-html2')
+                        .replace(/edit-material/g, 'edit-material2');
                     navigator.clipboard.writeText(materialHTML);
                 });
 
@@ -189,7 +195,11 @@ document.addEventListener('scroll', function() {
                     });
 
                     materialElement.querySelector('.copy-html').addEventListener('click', function() {
-                        const materialHTML = materialElement.outerHTML.replace(/delete-material/g, 'delete-material2').replace(/copy-html/g, 'copy-html2').replace(/edit-material/g, 'edit-material2');
+                        const materialHTML = materialElement.outerHTML
+                            .replace('info-card dynamic', 'info-card static')
+                            .replace(/delete-material/g, 'delete-material2')
+                            .replace(/copy-html/g, 'copy-html2')
+                            .replace(/edit-material/g, 'edit-material2');
                         navigator.clipboard.writeText(materialHTML);
                     });
 
@@ -205,37 +215,6 @@ document.addEventListener('scroll', function() {
                 });
             }
 
-            function submitHandler(event) {
-                event.preventDefault();
-
-                const title = document.getElementById('title').value;
-                const description = document.getElementById('description').value;
-                const format = document.getElementById('format').value;
-                const freepaid = document.getElementById('freepaid').value;
-                const image = document.getElementById('image').value;
-                const link = document.getElementById('link').value;
-                const linkType = document.getElementById('link-type').value;
-
-                const newMaterial = createMaterialElement({
-                    title, description, format, freepaid, image, link, linkType
-                });
-
-                // Добавление нового материала на страницу
-                document.querySelector('.info-cards-grid').appendChild(newMaterial);
-
-                // Обновление количества материалов
-                updateMaterialCount();
-
-                // Сохранение данных в localStorage
-                saveMaterialsToLocalStorage();
-
-                // Скрытие формы
-                popup.style.display = "none";
-            }
-
-            form.addEventListener('submit', submitHandler);
-
             // Загрузка сохраненных материалов
             loadMaterialsFromLocalStorage();
         });
-
