@@ -1689,9 +1689,6 @@ select.codeButtons{border-radius:5px;min-width:50px;padding-block:5px}
     right: 40px;
 }
 
-.info-card a {
-    pointer-events: none;
-}
 
 .info-card .delete-material,
 .info-card .copy-html {
