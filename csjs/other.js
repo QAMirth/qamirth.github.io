@@ -1,10 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Подсчет количества блоков с классом info-card
-    const materialCount = document.querySelectorAll('.info-card').length;
-    // Обновление текста в элементе с классом material-count
-    document.querySelector('.material-count').textContent = `${materialCount}`;
-});
-
 document.addEventListener('scroll', function() {
     const header = document.getElementById('header');
     if (window.scrollY > 0) {
@@ -15,10 +8,13 @@ document.addEventListener('scroll', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Подсчет количества блоков с классом info-card
-    const materialCount = document.querySelectorAll('.info-card').length;
-    // Обновление текста в элементе с классом material-count
-    document.querySelector('.material-count').textContent = `${materialCount}`;
+    // Подсчет количества блоков с классом info-block
+    function updateMaterialCount() {
+        const materialCount = document.querySelectorAll('.info-card').length;
+        document.querySelector('.material-count').textContent = `${materialCount}`;
+    }
+
+    updateMaterialCount();
 
     // Открытие и закрытие popup формы
     const popup = document.getElementById('popup-form');
@@ -60,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
         newMaterial.rel = 'nofollow';
 
         newMaterial.innerHTML = `
-            <div class="info-card">
+            <div class="info-card info-block">
                 <div class="info-card-label">
                     <img src="${image}" alt="#" class="ggh">
                 </div>
@@ -69,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p class="info-card-desc">${description}</p>
                     <p class="info-card-format"><span class="format">${format}</span><span class="freepaid">${freepaid}</span></p>
                 </div>
+                <span class="delete-material" style="color:red; cursor:pointer;">&times;</span>
             </div>
         `;
 
@@ -76,8 +73,14 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.info-cards-grid').appendChild(newMaterial);
 
         // Обновление количества материалов
-        const updatedMaterialCount = document.querySelectorAll('.info-block').length;
-        document.querySelector('.material-count').textContent = `(${updatedMaterialCount} materials)`;
+        updateMaterialCount();
+
+        // Добавление обработчика для удаления материала
+        newMaterial.querySelector('.delete-material').addEventListener('click', function() {
+            newMaterial.remove();
+            updateMaterialCount();
+            saveMaterialsToLocalStorage();
+        });
 
         // Скрытие формы
         popup.style.display = "none";
@@ -112,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 newMaterial.rel = 'nofollow';
 
                 newMaterial.innerHTML = `
-                    <div class="info-card">
+                    <div class="info-card info-block">
                         <div class="info-card-label">
                             <img src="${material.image}" alt="#" class="ggh">
                         </div>
@@ -121,15 +124,24 @@ document.addEventListener('DOMContentLoaded', function() {
                             <p class="info-card-desc">${material.description}</p>
                             <p class="info-card-format"><span class="format">${material.format}</span><span class="freepaid">${material.freepaid}</span></p>
                         </div>
+                        <span class="delete-material" style="color:red; cursor:pointer;">&times;</span>
                     </div>
                 `;
 
                 document.querySelector('.info-cards-grid').appendChild(newMaterial);
+
+                // Добавление обработчика для удаления материала
+                newMaterial.querySelector('.delete-material').addEventListener('click', function() {
+                    newMaterial.remove();
+                    updateMaterialCount();
+                    saveMaterialsToLocalStorage();
+                });
             });
         }
     }
 
     loadMaterialsFromLocalStorage();
+    updateMaterialCount();
 });
 
 document.addEventListener('scroll', function() {
