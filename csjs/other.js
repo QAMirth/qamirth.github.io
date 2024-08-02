@@ -7,8 +7,10 @@ document.addEventListener('scroll', function() {
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Подсчет количества блоков с классом info-block
+
+
+   document.addEventListener('DOMContentLoaded', function() {
+    // Подсчет количества блоков с классом info-card
     function updateMaterialCount() {
         const materialCount = document.querySelectorAll('.info-card').length;
         document.querySelector('.material-count').textContent = `${materialCount}`;
@@ -47,16 +49,19 @@ document.addEventListener('DOMContentLoaded', function() {
         const freepaid = document.getElementById('freepaid').value;
         const image = document.getElementById('image').value;
         const link = document.getElementById('link').value;
+        const linkType = document.getElementById('link-type').value;
+
+        const targetAttr = linkType === 'target_blank' ? ' target="_blank" rel="nofollow"' : '';
 
         // Создание нового материала
         const newMaterial = document.createElement('a');
         newMaterial.href = link;
         newMaterial.className = 'ttb';
-        newMaterial.target = '_blank';
-        newMaterial.rel = 'nofollow';
+        newMaterial.setAttribute('target', linkType === 'target_blank' ? '_blank' : '');
+        newMaterial.setAttribute('rel', linkType === 'target_blank' ? 'nofollow' : '');
 
         newMaterial.innerHTML = `
-            <div class="info-card info-block">
+            <div class="info-card">
                 <div class="info-card-label">
                     <img src="${image}" alt="#" class="ggh">
                 </div>
@@ -65,7 +70,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p class="info-card-desc">${description}</p>
                     <p class="info-card-format"><span class="format">${format}</span><span class="freepaid">${freepaid}</span></p>
                 </div>
-                <span class="delete-material" style="color:red; cursor:pointer;">&times;</span>
+                <button class="delete-material" style="color:red; cursor:pointer;">&times;</button>
+                <button class="copy-html" style="color:blue; cursor:pointer;">Copy HTML</button>
             </div>
         `;
 
@@ -80,6 +86,12 @@ document.addEventListener('DOMContentLoaded', function() {
             newMaterial.remove();
             updateMaterialCount();
             saveMaterialsToLocalStorage();
+        });
+
+        // Добавление обработчика для копирования HTML
+        newMaterial.querySelector('.copy-html').addEventListener('click', function() {
+            const materialHTML = newMaterial.outerHTML.replace(/delete-material/g, 'delete-material2');
+            navigator.clipboard.writeText(materialHTML);
         });
 
         // Скрытие формы
@@ -98,7 +110,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 description: material.querySelector('.info-card-desc').textContent,
                 format: material.querySelector('.format').textContent,
                 freepaid: material.querySelector('.freepaid').textContent,
-                image: material.querySelector('img').src
+                image: material.querySelector('img').src,
+                linkType: material.getAttribute('target') ? 'target_blank' : 'direct_link'
             };
         });
         localStorage.setItem('materials', JSON.stringify(materialsData));
@@ -111,11 +124,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 const newMaterial = document.createElement('a');
                 newMaterial.href = material.link;
                 newMaterial.className = 'ttb';
-                newMaterial.target = '_blank';
-                newMaterial.rel = 'nofollow';
+                newMaterial.setAttribute('target', material.linkType === 'target_blank' ? '_blank' : '');
+                newMaterial.setAttribute('rel', material.linkType === 'target_blank' ? 'nofollow' : '');
 
                 newMaterial.innerHTML = `
-                    <div class="info-card info-block">
+                    <div class="info-card">
                         <div class="info-card-label">
                             <img src="${material.image}" alt="#" class="ggh">
                         </div>
@@ -124,7 +137,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             <p class="info-card-desc">${material.description}</p>
                             <p class="info-card-format"><span class="format">${material.format}</span><span class="freepaid">${material.freepaid}</span></p>
                         </div>
-                        <span class="delete-material" style="color:red; cursor:pointer;">&times;</span>
+                        <button class="delete-material" style="color:red; cursor:pointer;">&times;</button>
+                        <button class="copy-html" style="color:blue; cursor:pointer;">Copy HTML</button>
                     </div>
                 `;
 
@@ -136,19 +150,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     updateMaterialCount();
                     saveMaterialsToLocalStorage();
                 });
+
+                // Добавление обработчика для копирования HTML
+                newMaterial.querySelector('.copy-html').addEventListener('click', function() {
+                    const materialHTML = newMaterial.outerHTML.replace(/delete-material/g, 'delete-material2');
+                    navigator.clipboard.writeText(materialHTML);
+                });
             });
+
+            updateMaterialCount();
         }
     }
 
     loadMaterialsFromLocalStorage();
-    updateMaterialCount();
-});
-
-document.addEventListener('scroll', function() {
-    const header = document.getElementById('header');
-    if (window.scrollY > 0) {
-        header.classList.add('header-scrolled');
-    } else {
-        header.classList.remove('header-scrolled');
-    }
 });
