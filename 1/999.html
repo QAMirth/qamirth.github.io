@@ -15,7 +15,6 @@
 <script src="../csjs/ulightbox.min.js"></script>
 <script src="../csjs/other.js"></script>
 </head>
-
 <body>
     <div>
         <form id="createForm">
@@ -32,14 +31,24 @@
     </div>
 
     <script>
+    function escapeHtml(str) {
+        return str.replace(/&/g, '&amp;')
+                  .replace(/</g, '&lt;')
+                  .replace(/>/g, '&gt;')
+                  .replace(/"/g, '&quot;')
+                  .replace(/'/g, '&#039;');
+    }
+
     function createHtml() {
         const id = document.getElementById('id').value;
-        const title = document.getElementById('title').value;
-        const h1 = document.getElementById('h1').value;
+        const title = escapeHtml(document.getElementById('title').value);
+        const h1 = escapeHtml(document.getElementById('h1').value);
 
-        const htmlContent = `<!DOCTYPE html>
+        const htmlContent = `
+<!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>${title} - QAMirth</title>
 <link rel="icon" type="image/x-icon" href="../csjs/favicon.ico">
