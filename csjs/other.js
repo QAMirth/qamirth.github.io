@@ -9,7 +9,7 @@ document.addEventListener('scroll', function() {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Подсчет количества блоков с классом info-card
+    // Подсчет количества блоков с классом info-card2
     function updateMaterialCount() {
         const materialCount = document.querySelectorAll('.info-card').length;
         document.querySelector('.material-count').textContent = `(${materialCount} materials)`;
