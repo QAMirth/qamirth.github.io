@@ -8,12 +8,11 @@ document.addEventListener('scroll', function() {
 });
 
 
-
-   document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     // Подсчет количества блоков с классом info-card
     function updateMaterialCount() {
         const materialCount = document.querySelectorAll('.info-card').length;
-        document.querySelector('.material-count').textContent = `${materialCount}`;
+        document.querySelector('.material-count').textContent = `(${materialCount} materials)`;
     }
 
     updateMaterialCount();
@@ -90,7 +89,7 @@ document.addEventListener('scroll', function() {
 
         // Добавление обработчика для копирования HTML
         newMaterial.querySelector('.copy-html').addEventListener('click', function() {
-            const materialHTML = newMaterial.outerHTML.replace(/delete-material/g, 'delete-material2');
+            const materialHTML = newMaterial.outerHTML.replace(/copy-html/g, 'copy-html2');
             navigator.clipboard.writeText(materialHTML);
         });
 
@@ -150,10 +149,10 @@ document.addEventListener('scroll', function() {
                     updateMaterialCount();
                     saveMaterialsToLocalStorage();
                 });
-
+                
                 // Добавление обработчика для копирования HTML
                 newMaterial.querySelector('.copy-html').addEventListener('click', function() {
-                    const materialHTML = newMaterial.outerHTML.replace(/delete-material/g, 'delete-material2');
+                    const materialHTML = newMaterial.outerHTML.replace(/copy-html/g, 'copy-html2');
                     navigator.clipboard.writeText(materialHTML);
                 });
             });
