@@ -1,195 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XML Formatter and Validator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .textarea-wrapper {
-            position: relative;
-            display: flex;
-        }
-        .line-numbers {
-            counter-reset: line;
-            padding: 10px;
-            border-right: 1px solid #ccc;
-            user-select: none;
-            background: #f5f5f5;
-        }
-        .line-numbers div {
-            counter-increment: line;
-            text-align: right;
-        }
-        .line-numbers div::before {
-            content: counter(line);
-            display: block;
-            padding-right: 10px;
-            color: #888;
-        }
-        #inputXml {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 0;
-            width: 100%;
-            font-family: monospace;
-            white-space: pre;
-            outline: none;
-            resize: none;
-        }
-        #message {
-            margin-bottom: 10px;
-        }
-        .valid {
-            color: green;
-        }
-        .invalid {
-            color: red;
-        }
-        .error-highlight {
-            background-color: #fdd;
-        }
-    </style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>HTML Generator - QAMirth</title>
 </head>
 <body>
-    <h1>XML Formatter and Validator</h1>
-    <div class="textarea-wrapper">
-        <div class="line-numbers" id="lineNumbers"></div>
-        <textarea id="inputXml" placeholder="Paste your XML here" oninput="updateLineNumbers()" onscroll="syncScroll()"></textarea>
+<div id="layout" class="layout page">
+<header id="header" class="header">
+    <div class="container header-container">
+        <h1>Create Your HTML</h1>
     </div>
-    <button onclick="formatAndValidateXml()">Format and Validate XML</button>
-    <div id="message"></div>
-    <h2>Formatted XML:</h2>
-    <pre id="outputXml"></pre>
+</header>
+<div class="main">
+    <div class="container main-container">
+        <form id="htmlForm">
+            <label for="id">ID (file name):</label>
+            <input type="text" id="id" name="id" required><br>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required><br>
+            <label for="h1">H1 Text:</label>
+            <input type="text" id="h1" name="h1" required><br>
+            <button type="button" onclick="createHtml()">Create HTML</button>
+            <button type="button" id="downloadButton" style="display:none;" onclick="downloadHtml()">Download</button>
+        </form>
+    </div>
+</div>
+<footer class="footer">
+    <div class="container footer-container">
+        <p>QAMirth</p>
+    </div>
+</footer>
+</div>
 
-    <script>
-        function updateLineNumbers() {
-            const textarea = document.getElementById('inputXml');
-            const lineNumbers = document.getElementById('lineNumbers');
-            const lines = textarea.value.split('\n').length;
-            lineNumbers.innerHTML = '';
-            for (let i = 1; i <= lines; i++) {
-                const div = document.createElement('div');
-                div.textContent = i;
-                lineNumbers.appendChild(div);
-            }
-        }
+<script>
+function createHtml() {
+    const id = document.getElementById('id').value;
+    const title = document.getElementById('title').value;
+    const h1 = document.getElementById('h1').value;
 
-        function syncScroll() {
-            const textarea = document.getElementById('inputXml');
-            const lineNumbers = document.getElementById('lineNumbers');
-            lineNumbers.scrollTop = textarea.scrollTop;
-        }
+    const htmlContent = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>${title} - QAMirth</title>
+<meta name="description" content="${title} that may be useful for QA."/>
+<meta name="subject" content="Quality Assurance"/>
+<meta name="copyright" content="Katzeniy"/>
+<meta name="language" content="en"/>
+<meta name="robots" content="index,follow"/>
+<meta name="author" content="Katzeniy, katzeniy008@gmail.com"/>
+<meta name="category" content="Technology"/>
+<meta name="coverage" content="Worldwide"/>
+<meta name="distribution" content="Global"/>
+<meta property="og:title" content="${title} - QAMirth">
+<meta property="og:description" content="${title} that may be useful for QA.">
+<meta property="og:image" content="../csjs/logo.png">
+<link type="text/css" rel="stylesheet" href="../csjs/swiper-bundle.min.css">
+<link type="text/css" rel="stylesheet" href="../csjs/my.css" />
+<link rel="stylesheet" href="../csjs/base.min.css" />
+<link rel="stylesheet" href="../csjs/layer7.min.css" />
+<script src="../csjs/jquery-3.6.0.min.js"></script>
+<script src="../csjs/uwnd.min.js"></script>
+<link rel="stylesheet" href="../csjs/ulightbox.min.css" />
+<link rel="stylesheet" href="../csjs/social.css" />
+<script src="../csjs/ulightbox.min.js"></script>
+<script src="../csjs/other.js"></script>
+</head>
+<body class="index">
+<div id="layout" class="layout page">
+<header id="header" class="header">
+    <div class="container header-container">
+        <div class="header-left">
+            <div id="p-logo" class="b-logo" role="banner">
+                <a class="logo-link" href="../" title="Home Page"><span class="logo-slogan"></span></a>
+            </div>
+            <div class="main-menu menu-evolving">
+                <button class="header-mobile-button header-mobile-close js-mobile-menu-close">
+                    <svg class="header-mobile-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="none">
+                        <path d="M13.062 4.58334L13.0623 4.58298C13.1628 4.48245 13.3241 4.48245 13.4246 4.58298C13.5175 4.67593 13.5175 4.84474 13.4246 4.93769L9.71584 8.64645L9.36229 9L9.71584 9.35355L13.4246 13.0623C13.5251 13.1628 13.5251 13.3241 13.4246 13.4246C13.3241 13.5251 13.1628 13.5251 13.0623 13.4246L9.35355 9.71584L9 9.36229L8.64645 9.71584L4.93769 13.4246C4.83716 13.5251 4.67592 13.5251 4.5754 13.4246C4.47487 13.3241 4.47487 13.1628 4.5754 13.0623L8.28416 9.35355L8.63771 9L8.28416 8.64645L4.5754 4.93769C4.47487 4.83716 4.47487 4.67592 4.5754 4.5754C4.67592 4.47487 4.83716 4.47487 4.93769 4.5754L8.64645 8.28416L8.99964 8.63735L9.35319 8.28452L13.062 4.58334Z"
+                        stroke="currentColor"/>
+                    </svg>
+                </button>
+                <div class="menubar">
+                    <div id="menu24"></div>
+                    <script src="../csjs/menu.js"></script>
+                    <div class="menubar-block">
+                        <div class="user-box ">
+                            <div class="user-box-links">
+                                <script src="../csjs/right-block.js"></script>
+                            </div>
+                        </div>
+                    </div>
+                    <script src="../csjs/social-menu.js"></script>
+                </div>
+            </div>
+        </div>
+        <div class="header-right">
+            <div id="header_mb_search" class="header-search">
+                <button class="header-mobile-button js-mb-search-btn">
+                    <svg class="header-mobile-icon">
+                        <use xlink:href="../csjs/icons.svg#search_icon"></use>
+                    </svg>
+                </button>
+                <div id="header_mb_search_panel" class="header-search-panel">
+                    <div class="header-search-overlay js-header-search-overlay"></div>
+                    <form class="header-search-form" onsubmit="this.sfSbm.disabled=true" method="get" action="/search/">
+                        <input type="hidden" name="t" value="0">
+                        <input class="header-search-input js-mb-search-input" placeholder="What are you looking for?" type="text" name="q" maxlength="30" size="20" autocomplete="off">
+                        <button class="header-search-button" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+            <div class="header-auth-block">
+                <svg class="svg-icon">
+                    <use xlink:href="../csjs/icons.svg#user_icon"></use>
+                </svg>
+                <div class="auth-links">
+                    <script src="../csjs/login-signup-menu.js"></script>
+                </div>
+            </div>
+            <button class="header-mobile-button js-mobile-menu-btn">
+                <svg class="header-mobile-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 19" fill="none">
+                    <g clip-path="url(#clip0_1648_5374)">
+                        <path d="M0.888889 15.5H17.1111C17.6 15.5 18 15.125 18 14.6667C18 14.2083 17.6 13.8333 17.1111 13.8333H0.888889C0.4 13.8333 0 14.2083 0 14.6667C0 15.125 0.4 15.5 0.888889 15.5ZM0.888889 10.3331H17.1111C17.6 10.3331 18 9.95812 18 9.49978C18 9.04145 17.6 8.66645 17.1111 8.66645H0.888889C0.4 8.66645 0 9.04145 0 9.49978C0 9.95812 0.4 10.3331 0.888889 10.3331ZM0 4.33333C0 4.79167 0.4 5.16667 0.888889 5.16667H17.1111C17.6 5.16667 18 4.79167 18 4.33333C18 3.875 17.6 3.5 17.1111 3.5H0.888889C0.4 3.5 0 3.875 0 4.33333Z"
+                        fill="currentColor"/>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_1648_5374">
+                            <rect width="18" height="18" fill="black" transform="translate(0 0.5)"/>
+                        </clipPath>
+                    </defs>
+                </svg>
+            </button>
+        </div>
+    </div>
+</header>
+<div class="main">
+    <div class="hz main-container">
+        <h1>${h1}
+        <span class="material-count"></span>
+        </h1>
+        <script src="../csjs/ad.js"></script>
+    </div>
+    <div class="container main-container">
+        <div class="tpl-content">
+            <div class="index-page-content">
+                <div class="info-box guarantees-box">
+                    <div class="info-cards-grid">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <aside id="sidebar" class="sidebar">
+            <div class="sidebar-container">
+                <div class="sidebar-block">
+                    <div class="inner">
+                        <div class="sidebar-block-content">
+                            <ul>
+                                <li><a class="nana1" href="/1/1.html">Static review</a></li>
+                                <li><a class="nana11" href="/1/11.html">Static Analysis</a></li>
+                                <li><a class="nana12" href="/1/12.html">Requirements Management Tools List</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+<footer class="footer">
+    <script src="../csjs/footer.js"></script>
+</footer>
+</div>
+<script src="../csjs/1234.main.js"></script>
+<script src="../csjs/swiper-bundle.min.js"></script>
+</body>
+</html>`;
 
-        function formatAndValidateXml() {
-            const textarea = document.getElementById('inputXml');
-            const messageDiv = document.getElementById('message');
-            const outputDiv = document.getElementById('outputXml');
-            const inputXml = textarea.value;
+    const blob = new Blob([htmlContent], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
 
-            // Удаляем предыдущие подсветки ошибок
-            textarea.classList.remove('error-highlight');
+    const downloadButton = document.getElementById('downloadButton');
+    downloadButton.href = url;
+    downloadButton.download = `${id}.html`;
+    downloadButton.style.display = 'block';
+}
 
-            try {
-                const parser = new DOMParser();
-                const xmlDoc = parser.parseFromString(inputXml, "application/xml");
-
-                const parseError = xmlDoc.getElementsByTagName("parsererror");
-                if (parseError.length > 0) {
-                    throw new Error(parseError[0].textContent);
-                }
-
-                const formattedXml = formatXmlText(new XMLSerializer().serializeToString(xmlDoc.documentElement));
-                outputDiv.textContent = formattedXml;
-                messageDiv.textContent = "Your XML is valid";
-                messageDiv.className = "valid";
-            } catch (e) {
-                highlightErrorLine(e.message);
-                messageDiv.textContent = "XML Error: " + e.message;
-                messageDiv.className = "invalid";
-                outputDiv.textContent = "";
-            }
-        }
-
-        function formatXmlText(xml) {
-            const reg = /(>)(<)(\/*)/g;
-            const wsexp = / *(.*) +\n/g;
-            const contexp = /(<.+>)(.+\n)/g;
-            xml = xml.replace(/\r\n/g, '\n');
-            xml = xml.replace(reg, '$1\n$2$3');
-            xml = xml.replace(wsexp, '$1\n');
-            xml = xml.replace(contexp, '$1\n$2');
-            let pad = 0;
-            let formatted = '';
-            const lines = xml.split('\n');
-            let indent = 0;
-            let lastType = 'other';
-            const transitions = {
-                'single->single': 0,
-                'single->closing': -1,
-                'single->opening': 0,
-                'single->other': 0,
-                'closing->single': 0,
-                'closing->closing': -1,
-                'closing->opening': 0,
-                'closing->other': 0,
-                'opening->single': 1,
-                'opening->closing': 0,
-                'opening->opening': 1,
-                'opening->other': 1,
-                'other->single': 0,
-                'other->closing': -1,
-                'other->opening': 0,
-                'other->other': 0
-            };
-
-            for (let i = 0; i < lines.length; i++) {
-                let ln = lines[i];
-
-                let single = Boolean(ln.match(/<.+\/>/)); 
-                let closing = Boolean(ln.match(/<\/.+>/)); 
-                let opening = Boolean(ln.match(/<[^!].*>/)); 
-
-                let type = single ? 'single' : closing ? 'closing' : opening ? 'opening' : 'other';
-
-                let fromTo = lastType + '->' + type;
-                lastType = type;
-                let padding = '';
-
-                indent += transitions[fromTo];
-                for (let j = 0; j < indent; j++) {
-                    padding += '  ';
-                }
-                formatted += padding + ln + '\n';
-            }
-
-            return formatted;
-        }
-
-        function highlightErrorLine(message) {
-            const textarea = document.getElementById('inputXml');
-            const lines = textarea.value.split('\n');
-            let errorLine = -1;
-            const match = message.match(/line (\d+)/);
-            if (match) {
-                errorLine = parseInt(match[1]) - 1; // Zero-based index for lines
-            }
-
-            if (errorLine >= 0 && errorLine < lines.length) {
-                textarea.classList.add('error-highlight');
-                const lineNumbers = document.getElementById('lineNumbers').children;
-                if (lineNumbers[errorLine]) {
-                    lineNumbers[errorLine].classList.add('error-highlight');
-                }
-            }
-        }
-
-        window.onload = function() {
-            updateLineNumbers();
-        }
-    </script>
+function downloadHtml() {
+    const downloadButton = document.getElementById('downloadButton');
+    downloadButton.click();
+}
+</script>
 </body>
 </html>
