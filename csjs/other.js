@@ -96,18 +96,26 @@ document.addEventListener('scroll', function() {
                     saveMaterialsToLocalStorage();
                 });
 
+              // --- ИЗМЕНЕНИЕ НАЧАЛО ---
                 newMaterial.querySelector('.copy-html').addEventListener('click', function() {
+                    removeEmoji(newMaterial);
                     const materialHTML = newMaterial.outerHTML
                         .replace('info-card dynamic', 'info-card static')
                         .replace(/delete-material/g, 'delete-material2')
                         .replace(/copy-html/g, 'copy-html2')
                         .replace(/edit-material/g, 'edit-material2');
                     navigator.clipboard.writeText(materialHTML);
+                    addEmoji(newMaterial);
                 });
+                // --- ИЗМЕНЕНИЕ КОНЕЦ ---
 
                 newMaterial.querySelector('.edit-material').addEventListener('click', function() {
                     editMaterial(newMaterial, material);
                 });
+
+                // --- ИЗМЕНЕНИЕ НАЧАЛО ---
+                addEmoji(newMaterial);
+                // --- ИЗМЕНЕНИЕ КОНЕЦ ---
 
                 return newMaterial;
             }
@@ -189,6 +197,19 @@ document.addEventListener('scroll', function() {
                         saveMaterialsToLocalStorage();
                     });
 
+                    // --- ИЗМЕНЕНИЕ НАЧАЛО ---
+                    materialElement.querySelector('.copy-html').addEventListener('click', function() {
+                        removeEmoji(materialElement);
+                        const materialHTML = materialElement.outerHTML
+                            .replace('info-card dynamic', 'info-card static')
+                            .replace(/delete-material/g, 'delete-material2')
+                            .replace(/copy-html/g, 'copy-html2')
+                            .replace(/edit-material/g, 'edit-material2');
+                        navigator.clipboard.writeText(materialHTML);
+                        addEmoji(materialElement);
+                    });
+                    // --- ИЗМЕНЕНИЕ КОНЕЦ ---
+
                     materialElement.querySelector('.copy-html').addEventListener('click', function() {
                         const materialHTML = materialElement.outerHTML
                             .replace('info-card dynamic', 'info-card static')
@@ -202,6 +223,10 @@ document.addEventListener('scroll', function() {
                         editMaterial(materialElement, material);
                     });
 
+                    // --- ИЗМЕНЕНИЕ НАЧАЛО ---
+                    addEmoji(materialElement);
+                    // --- ИЗМЕНЕНИЕ КОНЕЦ ---
+
                     updateMaterialCount();
                     saveMaterialsToLocalStorage();
                     form.removeEventListener('submit', updateHandler);
@@ -209,25 +234,39 @@ document.addEventListener('scroll', function() {
                     popup.style.display = "none";
                 });
             }
+     
+// --- ИЗМЕНЕНИЕ НАЧАЛО ---
+            function addEmoji(element) {
+                const formatElements = element.querySelectorAll('.format');
+                const freePaidElements = element.querySelectorAll('.freepaid');
+
+                formatElements.forEach(element => {
+                    if (element.textContent.trim() === 'Download') {
+                        element.textContent = '🌐 ' + element.textContent;
+                    }
+                });
+
+                freePaidElements.forEach(element => {
+                    if (element.textContent.trim() === 'Trial') {
+                        element.textContent = '❤️ ' + element.textContent;
+                    }
+                });
+            }
+
+            function removeEmoji(element) {
+                const formatElements = element.querySelectorAll('.format');
+                const freePaidElements = element.querySelectorAll('.freepaid');
+
+                formatElements.forEach(element => {
+                    element.textContent = element.textContent.replace('🌐 ', '');
+                });
+
+                freePaidElements.forEach(element => {
+                    element.textContent = element.textContent.replace('❤️ ', '');
+                });
+            }
+            // --- ИЗМЕНЕНИЕ КОНЕЦ ---
 
             // Загрузка сохраненных материалов
             loadMaterialsFromLocalStorage();
-        });
-
-
-  document.addEventListener('DOMContentLoaded', function() {
-            const formatElements = document.querySelectorAll('.format');
-            const freePaidElements = document.querySelectorAll('.freepaid');
-
-            formatElements.forEach(element => {
-                if (element.textContent.trim() === 'Download') {
-                    element.textContent = '🌐 ' + element.textContent;
-                }
-            });
-
-            freePaidElements.forEach(element => {
-                if (element.textContent.trim() === 'Trial') {
-                    element.textContent = '❤️ ' + element.textContent;
-                }
-            });
         });
