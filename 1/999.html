@@ -223,14 +223,13 @@ fill="currentColor"/>
 </footer>
 <script src="../csjs/1234.main.js"></script>
 <script src="../csjs/swiper-bundle.min.js"></script>
-</div> 
-</body>-->
+</div></body>  -->
 </html>`;
 
         // Remove specific HTML comments
         htmlContent = htmlContent
            .replace(/<!--\s*<footer class="footer">/, '<footer class="footer">')
-            .replace(/<\/body>\s*-->/, '</body>');
+            .replace(/<\/div><\/body>\s*-->/, '</body>');
 
         // Create a Blob with the HTML content
         const blob = new Blob([htmlContent], { type: 'text/html' });
