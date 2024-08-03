@@ -43,7 +43,7 @@ ul{padding:0;margin:0;list-style:none}
   display: flex; 
   flex-wrap: wrap; 
 }
-.delete-material2,.copy-html2,.edit-material2{display:none;}
+
 .sidebar-block-content li,.sidebar-block-content-mt li,.uWithSubmenu {
   margin: 0 4px 4px 0; background: var(--tpl-accent-button); padding: 4px 12px; border-radius:8px;
 }
@@ -1688,3 +1688,5 @@ select.codeButtons{border-radius:5px;min-width:50px;padding-block:5px}
 .info-card .copy-html {
     right: 40px;
 }
+
+.delete-material2,.copy-html2,.edit-material2{display:none;}
