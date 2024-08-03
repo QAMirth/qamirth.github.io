@@ -8,8 +8,9 @@ document.addEventListener('scroll', function() {
 });
 
 
-   document.addEventListener('DOMContentLoaded', function() {
-            // Подсчет количества блоков с классом info-card24
+ document.addEventListener('DOMContentLoaded', function() {
+            const pageKey = location.pathname.split('/').pop(); // Extracts the current page name (e.g., '1.html')
+
             function updateMaterialCount() {
                 const materialCount = document.querySelectorAll('.info-card').length;
                 document.querySelector('.material-count').textContent = `(${materialCount} materials)`;
@@ -17,7 +18,6 @@ document.addEventListener('scroll', function() {
 
             updateMaterialCount();
 
-            // Открытие и закрытие popup формы
             const popup = document.getElementById('popup-form');
             const addBtn = document.getElementById('add-material-btn');
             const closeBtn = document.querySelector('.close');
@@ -36,7 +36,6 @@ document.addEventListener('scroll', function() {
                 }
             }
 
-            // Обработка формы
             const form = document.getElementById('material-form');
 
             form.addEventListener('submit', submitHandler);
@@ -56,16 +55,12 @@ document.addEventListener('scroll', function() {
                     title, description, format, freepaid, image, link, linkType
                 });
 
-                // Добавление нового материала на страницу
                 document.querySelector('.info-cards-grid').appendChild(newMaterial);
 
-                // Обновление количества материалов
                 updateMaterialCount();
 
-                // Сохранение данных в localStorage
                 saveMaterialsToLocalStorage();
 
-                // Скрытие формы
                 popup.style.display = "none";
             }
 
@@ -130,11 +125,11 @@ document.addEventListener('scroll', function() {
                         linkType: material.querySelector('.info-card-title a').target === '_blank' ? 'target_blank' : 'direct_link'
                     };
                 });
-                localStorage.setItem('materials', JSON.stringify(materialsData));
+                localStorage.setItem(`materials_${pageKey}`, JSON.stringify(materialsData));
             }
 
             function loadMaterialsFromLocalStorage() {
-                const materialsData = JSON.parse(localStorage.getItem('materials')) || [];
+                const materialsData = JSON.parse(localStorage.getItem(`materials_${pageKey}`)) || [];
                 materialsData.forEach(material => {
                     const newMaterial = createMaterialElement(material);
                     document.querySelector('.info-cards-grid').appendChild(newMaterial);
