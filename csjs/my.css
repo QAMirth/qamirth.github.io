@@ -1679,14 +1679,16 @@ select.codeButtons{border-radius:5px;min-width:50px;padding-block:5px}
 
 .info-card .delete-material,
 .info-card .copy-html {
-    position: absolute;
+    position: absolute; padding:5px; font-size:12px;
     top: 10px;
-    right: 10px;
+    right: 0px;
     z-index: 10;
 }
 
 .info-card .copy-html {
-    right: 40px;
+    right: 20px;
 }
+.edit-material{margin-top:18px;font-size:10px;}
+
 
 .delete-material2,.copy-html2,.edit-material2{display:none;}
