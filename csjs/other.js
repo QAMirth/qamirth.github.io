@@ -96,16 +96,14 @@ document.addEventListener('scroll', function() {
                     saveMaterialsToLocalStorage();
                 });
 
-              // --- ИЗМЕНЕНИЕ НАЧАЛО ---
+               // --- ИЗМЕНЕНИЕ НАЧАЛО ---
                 newMaterial.querySelector('.copy-html').addEventListener('click', function() {
-                    removeEmoji(newMaterial);
                     const materialHTML = newMaterial.outerHTML
                         .replace('info-card dynamic', 'info-card static')
                         .replace(/delete-material/g, 'delete-material2')
                         .replace(/copy-html/g, 'copy-html2')
                         .replace(/edit-material/g, 'edit-material2');
-                    navigator.clipboard.writeText(materialHTML);
-                    addEmoji(newMaterial);
+                    navigator.clipboard.writeText(removeEmojiFromHTML(materialHTML));
                 });
                 // --- ИЗМЕНЕНИЕ КОНЕЦ ---
 
@@ -113,7 +111,7 @@ document.addEventListener('scroll', function() {
                     editMaterial(newMaterial, material);
                 });
 
-                // --- ИЗМЕНЕНИЕ НАЧАЛО ---
+                  // --- ИЗМЕНЕНИЕ НАЧАЛО ---
                 addEmoji(newMaterial);
                 // --- ИЗМЕНЕНИЕ КОНЕЦ ---
 
@@ -199,31 +197,22 @@ document.addEventListener('scroll', function() {
 
                     // --- ИЗМЕНЕНИЕ НАЧАЛО ---
                     materialElement.querySelector('.copy-html').addEventListener('click', function() {
-                        removeEmoji(materialElement);
                         const materialHTML = materialElement.outerHTML
                             .replace('info-card dynamic', 'info-card static')
                             .replace(/delete-material/g, 'delete-material2')
                             .replace(/copy-html/g, 'copy-html2')
                             .replace(/edit-material/g, 'edit-material2');
-                        navigator.clipboard.writeText(materialHTML);
-                        addEmoji(materialElement);
+                        navigator.clipboard.writeText(removeEmojiFromHTML(materialHTML));
                     });
                     // --- ИЗМЕНЕНИЕ КОНЕЦ ---
 
-                    materialElement.querySelector('.copy-html').addEventListener('click', function() {
-                        const materialHTML = materialElement.outerHTML
-                            .replace('info-card dynamic', 'info-card static')
-                            .replace(/delete-material/g, 'delete-material2')
-                            .replace(/copy-html/g, 'copy-html2')
-                            .replace(/edit-material/g, 'edit-material2');
-                        navigator.clipboard.writeText(materialHTML);
-                    });
+                   
 
                     materialElement.querySelector('.edit-material').addEventListener('click', function() {
                         editMaterial(materialElement, material);
                     });
 
-                    // --- ИЗМЕНЕНИЕ НАЧАЛО ---
+                     // --- ИЗМЕНЕНИЕ НАЧАЛО ---
                     addEmoji(materialElement);
                     // --- ИЗМЕНЕНИЕ КОНЕЦ ---
 
@@ -253,17 +242,10 @@ document.addEventListener('scroll', function() {
                 });
             }
 
-            function removeEmoji(element) {
-                const formatElements = element.querySelectorAll('.format');
-                const freePaidElements = element.querySelectorAll('.freepaid');
-
-                formatElements.forEach(element => {
-                    element.textContent = element.textContent.replace('🌐 ', '');
-                });
-
-                freePaidElements.forEach(element => {
-                    element.textContent = element.textContent.replace('❤️ ', '');
-                });
+            function removeEmojiFromHTML(html) {
+                return html
+                    .replace(/🌐 /g, '')
+                    .replace(/❤️ /g, '');
             }
             // --- ИЗМЕНЕНИЕ КОНЕЦ ---
 
