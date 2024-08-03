@@ -228,8 +228,10 @@ fill="currentColor"/>
 </body>
 </html>`;
 
-        // Remove HTML comments
-        htmlContent = htmlContent.replace(/<!--[\s\S]*?-->/g, '');
+        // Remove specific HTML comments
+        htmlContent = htmlContent
+           .replace(/<!--\s*<footer class="footer">/, '<footer class="footer">')
+            .replace(/<script src="\.\.\/csjs\/swiper-bundle\.min\.js"><\/script>\s*-->/, '<script src="../csjs/swiper-bundle.min.js"></script>');
 
         // Create a Blob with the HTML content
         const blob = new Blob([htmlContent], { type: 'text/html' });
