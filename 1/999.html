@@ -58,10 +58,8 @@
 <link rel="stylesheet" href="../csjs/base.min.css" />
 <link rel="stylesheet" href="../csjs/layer7.min.css" />
 <link rel="stylesheet" href="../csjs/ulightbox.min.css" />
-<link rel="stylesheet" href="../csjs/social.css" />
-
-
-	       <!--    <script src="../csjs/jquery-3.6.0.min.js"></script>
+<!-- <link rel="stylesheet" href="../csjs/social.css" />
+<script src="../csjs/jquery-3.6.0.min.js"></script>
 <script src="../csjs/uwnd.min.js"></script>
 <script src="../csjs/ulightbox.min.js"></script>
 <script src="../csjs/other.js"></script>
@@ -161,11 +159,9 @@ fill="currentColor"/>
 </header>
 <div class="main">
 <div class="hz main-container">
-		<script src="../csjs/ad.js"></script>    -->
-			
-
+	<script src="../csjs/ad.js"></script>    
 	
-<h1>${h1}
+<h1>-->${h1}
 <span class="material-count"></span>
 </h1>
 	
@@ -228,8 +224,10 @@ fill="currentColor"/>
 
         // Remove specific HTML comments
         htmlContent = htmlContent
-           .replace(/<!--\s*<footer class="footer">/, '<footer class="footer">')
-            .replace(/<\/div><\/body>\s*-->/, '</body>');
+    .replace(/<!--\s*<footer class="footer">/, '<footer class="footer">') // Удаление <!-- перед <footer class="footer">
+    .replace(/<\/div>\s*<\/body>\s*-->/, '</div></body>') // Удаление --> после </div></body>
+    .replace(/<!--\s*<link rel="stylesheet" href="\.\.\/csjs\/social\.css" \/>/, '<link rel="stylesheet" href="../csjs/social.css" />') // Удаление <!-- перед <link rel="stylesheet" href="../csjs/social.css" />
+    .replace(/<h1>\s*-->/, '<h1>'); // Удаление --> после <h1>
 
         // Create a Blob with the HTML content
         const blob = new Blob([htmlContent], { type: 'text/html' });
