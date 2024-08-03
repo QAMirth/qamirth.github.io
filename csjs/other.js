@@ -213,3 +213,21 @@ document.addEventListener('scroll', function() {
             // Загрузка сохраненных материалов
             loadMaterialsFromLocalStorage();
         });
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+            const formatElements = document.querySelectorAll('.format');
+            const freePaidElements = document.querySelectorAll('.freepaid');
+
+            formatElements.forEach(element => {
+                if (element.textContent.trim() === 'Download') {
+                    element.textContent = '🌐 ' + element.textContent;
+                }
+            });
+
+            freePaidElements.forEach(element => {
+                if (element.textContent.trim() === 'Trial') {
+                    element.textContent = '❤️ ' + element.textContent;
+                }
+            });
+        });
