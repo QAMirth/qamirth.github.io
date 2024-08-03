@@ -41,10 +41,10 @@ document.write(`
                                <li><a class="m552" href="/5/52.html" ><span>Security</span></a></li>
                         </ul>
                     </li>
-                    <li><a class="m81" href="/8/1.html" ><span>Automated</span></a></li>
-                    <li><a class="m82" href="/8/2.html" ><span>Mobile testing</span></a></li>
-                    <li><a class="m83" href="/8/3.html" ><span>Test case based</span></a></li>
-                    <li><a class="m84" href="/8/4.html" ><span>Exploratory/Ad hoc</span></a></li>
+                    <li><a class="m81" href="/8/8.html" ><span>Automated</span></a></li>
+                    <li><a class="m82" href="/8/81.html" ><span>Mobile testing</span></a></li>
+                    <li><a class="m83" href="/8/82.html" ><span>Test case based</span></a></li>
+                    <li><a class="m84" href="/8/83.html" ><span>Exploratory/Ad hoc</span></a></li>
                     <li><a class="m85" href="/1/12.html" ><span>Management Tools List</span></a></li>
                    
                   </ul>
