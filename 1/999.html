@@ -228,13 +228,16 @@ fill="currentColor"/>
 </body>
 </html>`;
 
+       // Удаление всех HTML-комментариев
+        htmlContent = htmlContent.replace(/<!--[\s\S]*?-->/g, '');
+
         const blob = new Blob([htmlContent], { type: 'text/html' });
         const url = URL.createObjectURL(blob);
         const downloadButton = document.getElementById('downloadButton');
         downloadButton.href = url;
         downloadButton.download = `${id}.html`;
-        downloadButton.style.display = 'inline';
-        downloadButton.textContent = 'Download HTML';
+        downloadButton.style.display = 'block';
+        downloadButton.textContent = `Download ${id}.html`;
     }
     </script>
 </body>
