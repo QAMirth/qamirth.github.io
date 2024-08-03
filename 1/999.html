@@ -222,16 +222,15 @@ fill="currentColor"/>
 <script src="../csjs/footer.js"></script>
 </footer>
 <script src="../csjs/1234.main.js"></script>
-<script src="../csjs/swiper-bundle.min.js"></script>   -->
-
-</div>
-</body>
+<script src="../csjs/swiper-bundle.min.js"></script>
+</div> 
+</body>-->
 </html>`;
 
         // Remove specific HTML comments
         htmlContent = htmlContent
            .replace(/<!--\s*<footer class="footer">/, '<footer class="footer">')
-            .replace(/<script src="\.\.\/csjs\/swiper-bundle\.min\.js"><\/script>\s*-->/, '<script src="../csjs/swiper-bundle.min.js"></script>');
+            .replace(/<\/body>\s*-->/, '</body>');
 
         // Create a Blob with the HTML content
         const blob = new Blob([htmlContent], { type: 'text/html' });
