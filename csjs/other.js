@@ -101,7 +101,8 @@ document.addEventListener('scroll', function() {
                 .replace('info-card dynamic', 'info-card static')
                 .replace(/delete-material/g, 'delete-material2')
                 .replace(/copy-html/g, 'copy-html2')
-                .replace(/edit-material/g, 'edit-material2');
+                .replace(/edit-material/g, 'edit-material2')
+                .replace(/<div class="info-card static"/, `<div class="info-card static" data-title="${material.title}"`);
             navigator.clipboard.writeText(materialHTML);
         });
 
@@ -196,7 +197,8 @@ document.addEventListener('scroll', function() {
                     .replace('info-card dynamic', 'info-card static')
                     .replace(/delete-material/g, 'delete-material2')
                     .replace(/copy-html/g, 'copy-html2')
-                    .replace(/edit-material/g, 'edit-material2');
+                    .replace(/edit-material/g, 'edit-material2')
+                    .replace(/<div class="info-card static"/, `<div class="info-card static" data-title="${material.title}"`);
                 navigator.clipboard.writeText(materialHTML);
             });
 
