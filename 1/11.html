@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function sortMaterials(type, order) {
-    const materialsContainer = document.getElementByClassName('info-cards-grid');
+    const materialsContainer = document.getElementById('materials');
     const materials = Array.from(materialsContainer.getElementsByClassName('info-card'));
 
     materials.sort((a, b) => {
