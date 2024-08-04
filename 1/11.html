@@ -163,17 +163,16 @@ document.addEventListener("DOMContentLoaded", function() {
     populateFilters();
 });
 
-function sortMaterials(type, order) {
+function sortMaterials() {
+    const sortValue = document.getElementById('sort-filter').value;
+    const [type, order] = sortValue.split('-');
     const materialsContainer = document.getElementById('materials');
     const materials = Array.from(materialsContainer.getElementsByClassName('info-card'));
 
     materials.sort((a, b) => {
         let valueA, valueB;
 
-        if (type === 'date') {
-            valueA = new Date(a.getAttribute('data-date'));
-            valueB = new Date(b.getAttribute('data-date'));
-        } else if (type === 'title') {
+        if (type === 'title') {
             valueA = a.getAttribute('data-title').toLowerCase();
             valueB = b.getAttribute('data-title').toLowerCase();
         }
@@ -188,10 +187,8 @@ function sortMaterials(type, order) {
     materialsContainer.innerHTML = '';
     materials.forEach(material => materialsContainer.appendChild(material));
 }
-</script>
 
-	<script>
-		function populateFilters() {
+function populateFilters() {
     const formatFilter = document.getElementById('format-filter');
     const freepaidFilter = document.getElementById('freepaid-filter');
     const materials = Array.from(document.getElementsByClassName('info-card'));
@@ -236,19 +233,16 @@ function filterMaterials() {
         }
     });
 }
-
-	</script>
-
+</script>
 
 	
-<div id="sort-buttons">
-    <button onclick="sortMaterials('date', 'asc')">Дата добавления (A)</button>
-    <button onclick="sortMaterials('date', 'desc')">Дата добавления (D)</button>
-    <button onclick="sortMaterials('title', 'asc')">Название материала (A)</button>
-    <button onclick="sortMaterials('title', 'desc')">Название материала (D)</button>
-</div>
 
+	
 <div id="filters">
+    <select id="sort-filter" onchange="sortMaterials()">
+        <option value="title-asc">Название материала (A)</option>
+        <option value="title-desc">Название материала (D)</option>
+    </select>
     <select id="format-filter" onchange="filterMaterials()">
         <option value="">All Formats</option>
     </select>
@@ -256,7 +250,6 @@ function filterMaterials() {
         <option value="">All Free/Paid</option>
     </select>
 </div>
-
 
 	
 
