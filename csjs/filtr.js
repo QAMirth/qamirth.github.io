@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function sortMaterials() {
     const sortValue = document.getElementById('sort-filter').value;
     const [type, order] = sortValue.split('-');
-    const materialsContainer = document.getElementById('materials');
+    const materialsContainer = document.querySelector('.info-cards-grid');
     const materials = Array.from(materialsContainer.getElementsByClassName('info-card'));
 
     materials.sort((a, b) => {
