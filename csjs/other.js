@@ -219,11 +219,11 @@ document.addEventListener('scroll', function() {
         const formatElement = materialElement.querySelector('.format');
         const freePaidElement = materialElement.querySelector('.freepaid');
 
-        if (formatElement && formatElement.textContent.trim() === 'Online') {
+        if (formatElement && formatElement.textContent.trim() === 'Download') {
             formatElement.textContent = '🌐 ' + formatElement.textContent;
         }
 
-        if (freePaidElement && freePaidElement.textContent.trim() === 'Free') {
+        if (freePaidElement && freePaidElement.textContent.trim() === 'Trial') {
             freePaidElement.textContent = '❤️ ' + freePaidElement.textContent;
         }
     }
@@ -242,13 +242,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const freePaidElements = document.querySelectorAll('.freepaid');
 
     formatElements.forEach(element => {
-        if (element.textContent.trim() === 'Online') {
+        if (element.textContent.trim() === 'Download') {
             element.textContent = '🌐 ' + element.textContent;
         }
     });
 
     freePaidElements.forEach(element => {
-        if (element.textContent.trim() === 'Free') {
+        if (element.textContent.trim() === 'Trial') {
             element.textContent = '❤️ ' + element.textContent;
         }
     });
