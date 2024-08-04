@@ -214,16 +214,16 @@ document.addEventListener('scroll', function() {
         });
     }
 
-    // ИЗМЕНЕНИЕ: Функция для добавления эмодзи
+   // ИЗМЕНЕНИЕ: Функция для добавления эмодзи
     function addEmoji(materialElement) {
         const formatElement = materialElement.querySelector('.format');
         const freePaidElement = materialElement.querySelector('.freepaid');
 
-        if (formatElement && formatElement.textContent.trim() === 'Download') {
+        if (formatElement && formatElement.textContent.trim() === 'Online') {
             formatElement.textContent = '🌐 ' + formatElement.textContent;
         }
 
-        if (freePaidElement && freePaidElement.textContent.trim() === 'Trial') {
+        if (freePaidElement && freePaidElement.textContent.trim() === 'Free') {
             freePaidElement.textContent = '❤️ ' + freePaidElement.textContent;
         }
     }
@@ -242,13 +242,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const freePaidElements = document.querySelectorAll('.freepaid');
 
     formatElements.forEach(element => {
-        if (element.textContent.trim() === 'Download') {
+        if (element.textContent.trim() === 'Online') {
             element.textContent = '🌐 ' + element.textContent;
         }
     });
 
     freePaidElements.forEach(element => {
-        if (element.textContent.trim() === 'Trial') {
+        if (element.textContent.trim() === 'Free') {
             element.textContent = '❤️ ' + element.textContent;
         }
     });
