@@ -156,13 +156,119 @@ fill="currentColor"/>
 <div class="index-page-content">
 <!-- <body> -->
 
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    populateFilters();
+});
+
+function sortMaterials(type, order) {
+    const materialsContainer = document.getElementById('materials');
+    const materials = Array.from(materialsContainer.getElementsByClassName('info-card'));
+
+    materials.sort((a, b) => {
+        let valueA, valueB;
+
+        if (type === 'date') {
+            valueA = new Date(a.getAttribute('data-date'));
+            valueB = new Date(b.getAttribute('data-date'));
+        } else if (type === 'title') {
+            valueA = a.querySelector('.info-card-title a').textContent.trim().toLowerCase();
+            valueB = b.querySelector('.info-card-title a').textContent.trim().toLowerCase();
+        }
+
+        if (order === 'asc') {
+            return valueA > valueB ? 1 : -1;
+        } else {
+            return valueA < valueB ? 1 : -1;
+        }
+    });
+
+    materialsContainer.innerHTML = '';
+    materials.forEach(material => materialsContainer.appendChild(material));
+}
+</script>
+
+	<script>
+		function populateFilters() {
+    const formatFilter = document.getElementById('format-filter');
+    const freepaidFilter = document.getElementById('freepaid-filter');
+    const materials = Array.from(document.getElementsByClassName('info-card'));
+
+    const formats = new Set();
+    const freepaids = new Set();
+
+    materials.forEach(material => {
+        formats.add(material.querySelector('.format').textContent.trim());
+        freepaids.add(material.querySelector('.freepaid').textContent.trim());
+    });
+
+    formats.forEach(format => {
+        const option = document.createElement('option');
+        option.value = format;
+        option.textContent = format;
+        formatFilter.appendChild(option);
+    });
+
+    freepaids.forEach(freepaid => {
+        const option = document.createElement('option');
+        option.value = freepaid;
+        option.textContent = freepaid;
+        freepaidFilter.appendChild(option);
+    });
+}
+
+function filterMaterials() {
+    const formatFilter = document.getElementById('format-filter').value;
+    const freepaidFilter = document.getElementById('freepaid-filter').value;
+    const materials = Array.from(document.getElementsByClassName('info-card'));
+
+    materials.forEach(material => {
+        const format = material.querySelector('.format').textContent.trim();
+        const freepaid = material.querySelector('.freepaid').textContent.trim();
+        
+        if ((formatFilter === '' || format === formatFilter) && 
+            (freepaidFilter === '' || freepaid === freepaidFilter)) {
+            material.style.display = '';
+        } else {
+            material.style.display = 'none';
+        }
+    });
+}
+
+	</script>
+
+
+	
+<div id="sort-buttons">
+    <button onclick="sortMaterials('date', 'asc')">Дата добавления (A)</button>
+    <button onclick="sortMaterials('date', 'desc')">Дата добавления (D)</button>
+    <button onclick="sortMaterials('title', 'asc')">Название материала (A)</button>
+    <button onclick="sortMaterials('title', 'desc')">Название материала (D)</button>
+</div>
+
+<div id="filters">
+    <select id="format-filter" onchange="filterMaterials()">
+        <option value="">All Formats</option>
+    </select>
+    <select id="freepaid-filter" onchange="filterMaterials()">
+        <option value="">All Free/Paid</option>
+    </select>
+</div>
+
+
+	
+
+
+	
 	<!--MATERIAL-->
 
 <div class="info-box guarantees-box">
 <div class="info-cards-grid">
 		
 
-<div class="info-card static">
+<div class="info-card static" data-title="YAML Lint">
     <div class="info-card-label">
         <a href="https://www.yamllint.com/" class="ttc" target="_blank" rel="nofollow">
             <img src="1.png" alt="#" class="ggh">
@@ -177,7 +283,7 @@ fill="currentColor"/>
     </div>
 </div>
 
-<div class="info-card static">
+<div class="info-card static" data-title="JSONLint">
     <div class="info-card-label">
         <a href="https://jsonlint.com/" class="ttc" target="_blank" rel="nofollow">
             <img src="2.png" alt="#" class="ggh">
@@ -192,7 +298,7 @@ fill="currentColor"/>
     </div>
 </div>
 
-<div class="info-card static">
+<div class="info-card static"  data-title="XML Lint">
     <div class="info-card-label">
         <a href="https://xmllint.com/" class="ttc" target="_blank" rel="nofollow">
             <img src="3.png" alt="#" class="ggh">
