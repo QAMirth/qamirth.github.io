@@ -224,31 +224,42 @@ document.addEventListener('scroll', function() {
                 });
             }
      
-// --- ИЗМЕНЕНИЕ НАЧАЛО ---
-            function addEmoji(element) {
-                const formatElements = element.querySelectorAll('.format');
-                const freePaidElements = element.querySelectorAll('.freepaid');
+// ИЗМЕНЕНИЕ: Функция для добавления эмодзи
+    function addEmoji(materialElement) {
+        const formatElement = materialElement.querySelector('.format');
+        const freePaidElement = materialElement.querySelector('.freepaid');
 
-                formatElements.forEach(element => {
-                    if (element.textContent.trim() === 'Download') {
-                        element.textContent = '🌐 ' + element.textContent;
-                    }
-                });
+        if (formatElement && formatElement.textContent.trim() === 'Online') {
+            formatElement.textContent = '🌐 ' + formatElement.textContent;
+        }
 
-                freePaidElements.forEach(element => {
-                    if (element.textContent.trim() === 'Trial') {
-                        element.textContent = '❤️ ' + element.textContent;
-                    }
-                });
-            }
+        if (freePaidElement && freePaidElement.textContent.trim() === 'Free') {
+            freePaidElement.textContent = '❤️ ' + freePaidElement.textContent;
+        }
+    }
 
-            function removeEmojiFromHTML(html) {
-                return html
-                    .replace(/🌐 /g, '')
-                    .replace(/❤️ /g, '');
-            }
-            // --- ИЗМЕНЕНИЕ КОНЕЦ ---
+    // ИЗМЕНЕНИЕ: Функция для удаления эмодзи из HTML кода
+    function removeEmojiFromHTML(html) {
+        return html.replace('🌐 ', '').replace('❤️ ', '');
+    }
 
-            // Загрузка сохраненных материалов
-            loadMaterialsFromLocalStorage();
-        });
+    // Загрузка сохраненных материалов
+    loadMaterialsFromLocalStorage();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const formatElements = document.querySelectorAll('.format');
+    const freePaidElements = document.querySelectorAll('.freepaid');
+
+    formatElements.forEach(element => {
+        if (element.textContent.trim() === 'Online') {
+            element.textContent = '🌐 ' + element.textContent;
+        }
+    });
+
+    freePaidElements.forEach(element => {
+        if (element.textContent.trim() === 'Free') {
+            element.textContent = '❤️ ' + element.textContent;
+        }
+    });
+});
