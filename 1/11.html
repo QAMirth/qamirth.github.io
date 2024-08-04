@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function sortMaterials(type, order) {
-    const materialsContainer = document.getElementById('materials');
+    const materialsContainer = document.getElementByClassName('info-cards-grid');
     const materials = Array.from(materialsContainer.getElementsByClassName('info-card'));
 
     materials.sort((a, b) => {
@@ -174,8 +174,8 @@ function sortMaterials(type, order) {
             valueA = new Date(a.getAttribute('data-date'));
             valueB = new Date(b.getAttribute('data-date'));
         } else if (type === 'title') {
-            valueA = a.querySelector('.info-card-title a').textContent.trim().toLowerCase();
-            valueB = b.querySelector('.info-card-title a').textContent.trim().toLowerCase();
+            valueA = a.getAttribute('data-title').toLowerCase();
+            valueB = b.getAttribute('data-title').toLowerCase();
         }
 
         if (order === 'asc') {
