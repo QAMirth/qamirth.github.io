@@ -79,7 +79,7 @@ document.addEventListener('scroll', function() {
                         ${material.title}
                     </a>
                 </div>
-                <p class="info-card-desc"><a class="button-link2">Open</a>${material.description}</p>
+                <p class="info-card-desc">${material.description}</p>
                 <div class="info-card-format">
                     <span class="format">${material.format}</span>
                     <span class="freepaid">${material.freepaid}</span>
