@@ -110,6 +110,11 @@ document.addEventListener('scroll', function() {
             editMaterial(newMaterial, material);
         });
 
+         // ИЗМЕНЕНИЕ: Добавлен обработчик события для кнопки Open
+        newMaterial.querySelector('.open-material2').addEventListener('click', function() {
+            window.open(this.getAttribute('data-link'), '_blank');
+        });
+
         addEmoji(newMaterial); // ИЗМЕНЕНИЕ: Добавление эмодзи при создании элемента
 
         return newMaterial;
@@ -184,6 +189,7 @@ document.addEventListener('scroll', function() {
                 <button class="delete-material">&times;</button>
                 <button class="copy-html">Copy HTML</button>
                 <button class="edit-material">Edit</button>
+                 <button class="open-material2" data-link="${material.link}">Open</button>
             `;
 
             materialElement.querySelector('.delete-material').addEventListener('click', function() {
@@ -204,6 +210,11 @@ document.addEventListener('scroll', function() {
 
             materialElement.querySelector('.edit-material').addEventListener('click', function() {
                 editMaterial(materialElement, material);
+            });
+
+            // ИЗМЕНЕНИЕ: Добавлен обработчик события для кнопки Open
+            materialElement.querySelector('.open-material2').addEventListener('click', function() {
+                window.open(this.getAttribute('data-link'), '_blank');
             });
 
             addEmoji(materialElement); // ИЗМЕНЕНИЕ: Добавление эмодзи при редактировании элемента
