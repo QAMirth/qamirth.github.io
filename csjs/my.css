@@ -1716,5 +1716,5 @@ select.codeButtons{border-radius:5px;min-width:50px;padding-block:5px}
             display: none;
         }
 	.bl3{
-            order: 4;
+            order: 4; margin:16px 0;
         }
