@@ -40,29 +40,16 @@ document.addEventListener('scroll', function() {
 
     form.addEventListener('submit', submitHandler);
 
-
-
-const descriptionField = document.getElementById('description');
-
-    descriptionField.addEventListener('input', function() {
-        let content = descriptionField.value.split('\n').map(line => `<p>${line}</p>`).join('');
-        descriptionField.innerHTML = content;
-    });
-
-
-
     function submitHandler(event) {
         event.preventDefault();
 
         const title = document.getElementById('title').value;
+        const description = document.getElementById('description').value;
         const format = document.getElementById('format').value;
         const freepaid = document.getElementById('freepaid').value;
         const image = document.getElementById('image').value;
         const link = document.getElementById('link').value;
         const linkType = document.getElementById('link-type').value;
-
- let description = descriptionField.value.split('\n').map(line => `<p>${line}</p>`).join('');
-
 
         const newMaterial = createMaterialElement({
             title, description, format, freepaid, image, link, linkType
@@ -92,12 +79,11 @@ const descriptionField = document.getElementById('description');
                         ${material.title}
                     </a>
                 </div>
-                <p class="info-card-desc"><a class="button-link2">Open</a>${material.description}</p>
-                <div class="info-card-format">
+                <p class="info-card-desc">${material.description}</p>
+                <p class="info-card-format">
                     <span class="format">${material.format}</span>
                     <span class="freepaid">${material.freepaid}</span>
-                <div class="bl3"><a class="button-link3">Close</a></div>
-                </div>
+                </p>
             </div>
             <button class="delete-material">&times;</button>
             <button class="copy-html">Copy HTML</button>
@@ -136,7 +122,7 @@ const descriptionField = document.getElementById('description');
         const materialsData = Array.from(materials).map(material => {
             return {
                 title: material.querySelector('.info-card-title a').textContent,
-                description: material.querySelector('.info-card-desc').innerHTML,
+                description: material.querySelector('.info-card-desc').textContent,
                 format: material.querySelector('.info-card-format .format').textContent,
                 freepaid: material.querySelector('.info-card-format .freepaid').textContent,
                 image: material.querySelector('.info-card-label img').src,
