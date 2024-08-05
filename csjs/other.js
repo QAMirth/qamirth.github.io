@@ -79,11 +79,12 @@ document.addEventListener('scroll', function() {
                         ${material.title}
                     </a>
                 </div>
-                <p class="info-card-desc">${material.description}</p>
-                <p class="info-card-format">
+                <p class="info-card-desc"><a class="button-link2">Open</a>${material.description}</p>
+                <div class="info-card-format">
                     <span class="format">${material.format}</span>
                     <span class="freepaid">${material.freepaid}</span>
-                </p>
+                 <div class="bl3"><a class="button-link3">Close</a></div>
+                </div>
             </div>
             <button class="delete-material">&times;</button>
             <button class="copy-html">Copy HTML</button>
@@ -177,11 +178,12 @@ document.addEventListener('scroll', function() {
                             ${material.title}
                         </a>
                     </div>
-                    <p class="info-card-desc">${material.description}</p>
-                    <p class="info-card-format">
+                    <p class="info-card-desc"><a class="button-link2">Open</a>${material.description}</p>
+                    <div class="info-card-format">
                         <span class="format">${material.format}</span>
                         <span class="freepaid">${material.freepaid}</span>
-                    </p>
+                   <div class="bl3"><a class="button-link3">Close</a></div>
+                    </div>
                 </div>
                 <button class="delete-material">&times;</button>
                 <button class="copy-html">Copy HTML</button>
