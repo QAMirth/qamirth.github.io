@@ -103,7 +103,8 @@ document.addEventListener('scroll', function() {
                 .replace(/delete-material/g, 'delete-material2')
                 .replace(/copy-html/g, 'copy-html2')
                 .replace(/edit-material/g, 'edit-material2')
-                .replace(/<div class="info-card static"/, `<div class="info-card static" data-title="${material.title}"`);
+                .replace(/<div class="info-card static"/, `<div class="info-card static" data-title="${material.title}"`)
+                .replace(/<p class="info-card-desc">"/, `<p class="info-card-desc"><a class="button-link2">Open</a>"`);
             navigator.clipboard.writeText(materialHTML);
         });
 
@@ -202,7 +203,8 @@ document.addEventListener('scroll', function() {
                     .replace(/delete-material/g, 'delete-material2')
                     .replace(/copy-html/g, 'copy-html2')
                     .replace(/edit-material/g, 'edit-material2')
-                    .replace(/<div class="info-card static"/, `<div class="info-card static" data-title="${material.title}"`);
+                    .replace(/<div class="info-card static"/, `<div class="info-card static" data-title="${material.title}"`)
+                .replace(/<p class="info-card-desc">"/, `<p class="info-card-desc"><a class="button-link2">Open</a>"`);
                 navigator.clipboard.writeText(materialHTML);
             });
 
