@@ -75,7 +75,7 @@ input:where(:not([type=reset]):not([type=submit]):not([type=button])):focus,sele
 [type=checkbox]:checked:before{width:calc(var(--box-size) * .3);height:calc(var(--box-size)/ 10);transform:translate(-50%) rotate(230deg);transform-origin:30% 100%}
 [type=checkbox]:checked:after{width:calc(var(--box-size)/ 2);height:calc(var(--box-size)/ 10);transform:translate(-50%,-50%) rotate(130deg);transform-origin:56% 70%}
 .button-link{display:inline-block}
-.buy-box [id$=buynow],.button-link,.button-link2,.button-link3,.basketorder,.advanced-search-link,.add-to-cart-link,button,[type=button],[type=reset],[type=submit]{padding:10px 14px;border:0;font:var(--tpl-font-text-sb1);border-radius:8px;cursor:pointer;transition:background-color var(--tpl-transition)}
+.buy-box [id$=buynow],.button-link,.basketorder,.advanced-search-link,.add-to-cart-link,button,[type=button],[type=reset],[type=submit]{padding:10px 14px;border:0;font:var(--tpl-font-text-sb1);border-radius:8px;cursor:pointer;transition:background-color var(--tpl-transition)}
 button,.button-link,.basketorder,.add-to-cart-link,.buy-box [id$=buynow],[type=button],[type=submit]{background-color:var(--tpl-accent-blue);color:var(--tpl-accent-white)}
 .basketorder:hover,.button-link:hover,.add-to-cart-link:hover,button:hover,[type=button]:hover,[type=submit]:hover{background-color:var(--tpl-accent-blue-dark)}
 .qty-btn,.stock-reset-btn,.notify-stock-btn,.advanced-search-link,[type=reset]{background-color:var(--tpl-dark-100);color:var(--tpl-dark-600)}
