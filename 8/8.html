@@ -204,7 +204,7 @@ fill="currentColor"/>
                 <p class="info-card-format">
                             <span class="format">Online</span>
                             <span class="freepaid">Trial</span>
-			<a class="button-link2">More info</a>
+			 <div class="bl3"><a class="button-link2">Close</a></div>
                         </p>
                     </div>
 	
@@ -449,36 +449,31 @@ fill="currentColor"/>
 
 
  <script>
-       document.addEventListener('DOMContentLoaded', function() {
-            const desc = document.querySelector('.info-card-desc');
-            const buttonLink2 = document.querySelector('.button-link2');
-            const buttonLink = document.createElement('a');
-            buttonLink.className = 'button-link';
-            buttonLink.textContent = 'More info';
-            desc.insertBefore(buttonLink, desc.firstChild);
-
-            buttonLink.addEventListener('click', function() {
+      document.querySelectorAll('.button-link').forEach(button => {
+            button.addEventListener('click', function() {
+                const desc = this.parentElement;
                 desc.classList.add('expanded');
-                buttonLink.style.display = 'none';
+                this.style.display = 'none';
+                const buttonLink2 = desc.parentElement.querySelector('.button-link2');
+                buttonLink2.textContent = 'Close';
                 buttonLink2.style.display = 'inline';
             });
+        });
 
-            buttonLink2.addEventListener('click', function() {
+        document.querySelectorAll('.button-link2').forEach(button => {
+            button.addEventListener('click', function() {
+                const desc = this.closest('.info-card').querySelector('.info-card-desc');
                 const isExpanded = desc.classList.toggle('expanded');
+                const buttonLink = desc.querySelector('.button-link');
                 if (isExpanded) {
                     buttonLink.style.display = 'none';
-                    buttonLink2.style.display = 'inline';
+                    this.textContent = 'Close';
                 } else {
                     buttonLink.style.display = 'inline';
-                    buttonLink2.style.display = 'none';
+                    this.textContent = 'More info';
+                    this.style.display = 'none';
                 }
             });
-
-            // Изначально проверяем, если текст свернут, скрываем кнопку "Close"
-            if (!desc.classList.contains('expanded')) {
-                buttonLink.style.display = 'inline';
-                buttonLink2.style.display = 'none';
-            }
         });
     </script>
 
