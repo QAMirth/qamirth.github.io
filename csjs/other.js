@@ -1,3 +1,4 @@
+
 document.addEventListener('scroll', function() {
     const header = document.getElementById('header');
     if (window.scrollY > 0) {
@@ -40,6 +41,17 @@ document.addEventListener('scroll', function() {
 
     form.addEventListener('submit', submitHandler);
 
+
+
+const descriptionField = document.getElementById('description');
+
+    descriptionField.addEventListener('input', function() {
+        let content = descriptionField.value.split('\n').map(line => `<p>${line}</p>`).join('');
+        descriptionField.innerHTML = content;
+    });
+
+
+
     function submitHandler(event) {
         event.preventDefault();
 
@@ -50,6 +62,9 @@ document.addEventListener('scroll', function() {
         const image = document.getElementById('image').value;
         const link = document.getElementById('link').value;
         const linkType = document.getElementById('link-type').value;
+
+ let description = descriptionField.value.split('\n').map(line => `<p>${line}</p>`).join('');
+
 
         const newMaterial = createMaterialElement({
             title, description, format, freepaid, image, link, linkType
