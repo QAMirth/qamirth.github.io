@@ -1692,3 +1692,29 @@ select.codeButtons{border-radius:5px;min-width:50px;padding-block:5px}
 
 
 .delete-material2,.copy-html2,.edit-material2{display:none;}
+
+ .info-card-desc {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .expanded {
+            -webkit-line-clamp: unset;
+            overflow: visible;
+        }
+        .button-link2, .button-link3 {
+            cursor: pointer;
+            color: white;
+            background-color: var(--tpl-accent-blue);
+        }
+	.button-link2 {
+            float: right; margin-left:16px;
+        }
+	.button-link3 {
+            display: none;
+        }
+	.bl3{
+            order: 4;
+        }
