@@ -159,19 +159,7 @@ fill="currentColor"/>
         }
     </style>
 
- <script>
-        document.querySelectorAll('.button-link, .button-link2').forEach(button => {
-            button.addEventListener('click', function() {
-                const desc = this.parentElement;
-                const isExpanded = desc.classList.toggle('expanded');
 
-                this.textContent = isExpanded ? 'Close' : 'More info';
-                desc.querySelectorAll('.button-link, .button-link2').forEach(link => {
-                    link.textContent = isExpanded ? 'Close' : 'More info';
-                });
-            });
-        });
-    </script>
 
 	
 
@@ -457,5 +445,22 @@ fill="currentColor"/>
 </footer>
 <script src="../csjs/1234.main.js"></script>
 <script src="../csjs/swiper-bundle.min.js"></script>
+
+
+ <script>
+        document.querySelectorAll('.button-link, .button-link2').forEach(button => {
+            button.addEventListener('click', function() {
+                const desc = this.parentElement;
+                const isExpanded = desc.classList.toggle('expanded');
+
+                this.textContent = isExpanded ? 'Close' : 'More info';
+                desc.querySelectorAll('.button-link, .button-link2').forEach(link => {
+                    link.textContent = isExpanded ? 'Close' : 'More info';
+                });
+            });
+        });
+    </script>
+
+	
 </div></body>
 </html>
