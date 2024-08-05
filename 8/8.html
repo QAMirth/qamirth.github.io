@@ -209,11 +209,11 @@ fill="currentColor"/>
                             
                             </a>
                         </div>
-                        <p class="info-card-desc"><a class="button-link">More info</a>Testsigma is an AI-based tool for black box testing. It provides automation capability without writing the code. Testsigma is widely used by many organizations, as anyone can automate the testing scenarios. It is trending in the best low-code automation tool.</p>
+                        <p class="info-card-desc"><a class="button-link2">Open</a>Testsigma is an AI-based tool for black box testing. It provides automation capability without writing the code. Testsigma is widely used by many organizations, as anyone can automate the testing scenarios. It is trending in the best low-code automation tool.</p>
                 <p class="info-card-format">
                             <span class="format">Online</span>
                             <span class="freepaid">Trial</span>
-			 <div class="bl3"><a class="button-link2">Close</a></div>
+			 <div class="bl3"><a class="button-link3">Close</a></div>
                         </p>
                     </div>
 	
@@ -458,22 +458,22 @@ fill="currentColor"/>
 
 
  <script>
-      document.querySelectorAll('.button-link').forEach(button => {
+      document.querySelectorAll('.button-link2').forEach(button => {
             button.addEventListener('click', function() {
                 const desc = this.parentElement;
                 desc.classList.add('expanded');
                 this.style.display = 'none';
-                const buttonLink2 = desc.parentElement.querySelector('.button-link2');
+                const buttonLink2 = desc.parentElement.querySelector('.button-link3');
                 buttonLink2.textContent = 'Close';
                 buttonLink2.style.display = 'inline';
             });
         });
 
-        document.querySelectorAll('.button-link2').forEach(button => {
+        document.querySelectorAll('.button-link3').forEach(button => {
             button.addEventListener('click', function() {
                 const desc = this.closest('.info-card').querySelector('.info-card-desc');
                 const isExpanded = desc.classList.toggle('expanded');
-                const buttonLink = desc.querySelector('.button-link');
+                const buttonLink = desc.querySelector('.button-link2');
                 if (isExpanded) {
                     buttonLink.style.display = 'none';
                     this.textContent = 'Close';
