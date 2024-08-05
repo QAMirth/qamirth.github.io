@@ -16,8 +16,8 @@ document.write(`
             <input type="text" id="link" name="link" required><br>
             <label for="link-type">Link Type:</label>
             <select id="link-type" name="link-type">
-                <option value="direct_link">Direct Link</option>
                 <option value="target_blank">Open in New Tab</option>
+                <option value="direct_link">Direct Link</option>
             </select><br>
             <input type="submit" value="Add Material">
         </form>
