@@ -449,13 +449,14 @@ fill="currentColor"/>
 
 
  <script>
-        document.querySelectorAll('.button-link').forEach(button => {
+       document.querySelectorAll('.button-link').forEach(button => {
             button.addEventListener('click', function() {
                 const desc = this.parentElement;
                 desc.classList.add('expanded');
                 this.style.display = 'none';
                 const buttonLink2 = document.querySelector('.button-link2');
                 buttonLink2.textContent = 'Close';
+                buttonLink2.style.display = 'inline';
             });
         });
 
@@ -464,8 +465,14 @@ fill="currentColor"/>
                 const desc = document.querySelector('.info-card-desc');
                 const isExpanded = desc.classList.toggle('expanded');
                 const buttonLink = document.querySelector('.button-link');
-                buttonLink.style.display = isExpanded ? 'none' : 'inline';
-                this.textContent = isExpanded ? 'Close' : 'More info';
+                if (isExpanded) {
+                    buttonLink.style.display = 'none';
+                    this.textContent = 'Close';
+                } else {
+                    buttonLink.style.display = 'inline';
+                    this.textContent = 'More info';
+                    this.style.display = 'none';
+                }
             });
         });
     </script>
