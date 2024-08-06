@@ -235,17 +235,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const freePaidElement = materialElement.querySelector('.freepaid');
 
         if (formatElement && formatElement.textContent.trim() === 'Online') {
-            formatElement.textContent = '🌐 ' + formatElement.textContent;
+            formatElement.textContent = ' ' + formatElement.textContent;
         }
 
         if (freePaidElement && freePaidElement.textContent.trim() === 'Free') {
-            freePaidElement.textContent = '❤️ ' + freePaidElement.textContent;
+            freePaidElement.textContent = ' ' + freePaidElement.textContent;
         }
     }
 
     // ИЗМЕНЕНИЕ: Функция для удаления эмодзи из HTML кода
     function removeEmojiFromHTML(html) {
-        return html.replace('🌐 ', '').replace('❤️ ', '');
+        return html.replace(' ', '').replace(' ', '');
     }
 
     // Загрузка сохраненных материалов
@@ -258,13 +258,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     formatElements.forEach(element => {
         if (element.textContent.trim() === 'Online') {
-            element.textContent = '🌐 ' + element.textContent;
+            element.textContent = ' ' + element.textContent;
         }
     });
 
     freePaidElements.forEach(element => {
         if (element.textContent.trim() === 'Free') {
-            element.textContent = '❤️ ' + element.textContent;
+            element.textContent = ' ' + element.textContent;
         }
     });
 });
