@@ -12,7 +12,7 @@ document.write(`
             <label for="title">Title:</label>
             <input type="text" id="title" name="title" required><br>
             <label for="description">Description:</label>
-            <textarea id="description" name="description" required></textarea><br>
+            <div id="description-container"></div><br>
             <label for="format">Format:</label>
             <input type="text" id="format" name="format" required><br>
             <label for="freepaid">Free/Paid:</label>
