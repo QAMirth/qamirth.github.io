@@ -125,7 +125,7 @@ document.addEventListener('scroll', function() {
         const materialsData = Array.from(materials).map(material => {
             return {
                 title: material.querySelector('.info-card-title a').textContent,
-                description: material.querySelector('.info-card-desc').textContent,
+                description: material.querySelector('.info-card-desc2').textContent,
                 format: material.querySelector('.info-card-format .format').textContent,
                 freepaid: material.querySelector('.info-card-format .freepaid').textContent,
                 image: material.querySelector('.info-card-label img').src,
