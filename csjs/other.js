@@ -44,7 +44,7 @@ document.addEventListener('scroll', function() {
         event.preventDefault();
 
         const title = document.getElementById('title').value;
-        const description = document.getElementById('description-container').value;
+        const description = document.getElementById('description').value;
         const format = document.getElementById('format').value;
         const freepaid = document.getElementById('freepaid').value;
         const image = document.getElementById('image').value;
@@ -147,7 +147,7 @@ document.addEventListener('scroll', function() {
 
     function editMaterial(materialElement, material) {
         document.getElementById('title').value = material.title;
-        document.getElementById('description-container').value = material.description;
+        document.getElementById('description').value = material.description;
         document.getElementById('format').value = material.format;
         document.getElementById('freepaid').value = material.freepaid;
         document.getElementById('image').value = material.image;
@@ -161,7 +161,7 @@ document.addEventListener('scroll', function() {
             event.preventDefault();
 
             material.title = document.getElementById('title').value;
-            material.description = document.getElementById('description-container').value;
+            material.description = document.getElementById('description').value;
             material.format = document.getElementById('format').value;
             material.freepaid = document.getElementById('freepaid').value;
             material.image = document.getElementById('image').value;
