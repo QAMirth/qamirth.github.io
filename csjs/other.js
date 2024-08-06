@@ -79,7 +79,7 @@ document.addEventListener('scroll', function() {
                         ${material.title}
                     </a>
                 </div>
-                <p class="info-card-desc"><a class="button-link2">Open</a>${material.description}</p>
+                <div class="info-card-desc2">${material.description}</div>
                 <div class="info-card-format">
                     <span class="format">${material.format}</span>
                     <span class="freepaid">${material.freepaid}</span>
@@ -100,11 +100,12 @@ document.addEventListener('scroll', function() {
         newMaterial.querySelector('.copy-html').addEventListener('click', function() {
             const materialHTML = removeEmojiFromHTML(newMaterial.outerHTML) // ИЗМЕНЕНИЕ: Удаление эмодзи перед копированием
                 .replace('info-card dynamic', 'info-card static')
+                .replace('info-card-desc2', 'info-card-desc')
                 .replace(/delete-material/g, 'delete-material2')
                 .replace(/copy-html/g, 'copy-html2')
                 .replace(/edit-material/g, 'edit-material2')
                 .replace(/<div class="info-card static"/, `<div class="info-card static" data-title="${material.title}"`)
-                .replace(/<p class="info-card-desc">"/, `<p class="info-card-desc"><a class="button-link2">Open</a>"`);
+                .replace(`<div class="info-card-desc">${material.description}</div>`, `<div class="info-card-desc"><a class="button-link2">Open</a>${material.description}</div>`);
             navigator.clipboard.writeText(materialHTML);
         });
 
@@ -179,7 +180,7 @@ document.addEventListener('scroll', function() {
                             ${material.title}
                         </a>
                     </div>
-                    <p class="info-card-desc"><a class="button-link2">Open</a>${material.description}</p>
+                    <div class="info-card-desc2">${material.description}</div>
                     <div class="info-card-format">
                         <span class="format">${material.format}</span>
                         <span class="freepaid">${material.freepaid}</span>
@@ -200,11 +201,12 @@ document.addEventListener('scroll', function() {
             materialElement.querySelector('.copy-html').addEventListener('click', function() {
                 const materialHTML = removeEmojiFromHTML(materialElement.outerHTML) // ИЗМЕНЕНИЕ: Удаление эмодзи перед копированием
                     .replace('info-card dynamic', 'info-card static')
+                    .replace('info-card-desc2', 'info-card-desc')
                     .replace(/delete-material/g, 'delete-material2')
                     .replace(/copy-html/g, 'copy-html2')
                     .replace(/edit-material/g, 'edit-material2')
                     .replace(/<div class="info-card static"/, `<div class="info-card static" data-title="${material.title}"`)
-                .replace(/<p class="info-card-desc">"/, `<p class="info-card-desc"><a class="button-link2">Open</a>"`);
+                    .replace(`<div class="info-card-desc">${material.description}</div>`, `<div class="info-card-desc"><a class="button-link2">Open</a>${material.description}</div>`);
                 navigator.clipboard.writeText(materialHTML);
             });
 
