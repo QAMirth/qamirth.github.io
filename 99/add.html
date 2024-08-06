@@ -149,22 +149,21 @@ fill="currentColor"/>
     <form id="contact-form" action="https://formspree.io/f/xzzpgpnl" method="POST">
         <label for="user-email">Your Email:</label>
         <input type="email" id="user-email" name="user-email" required><br>
-        <label for="title">Title:</label>
+        <label for="title">Tool Name (for example Jira):</label>
         <input type="text" id="title" name="title" required><br>
-        <label for="description">Description:</label>
+        <label for="description">Description/ Full text of the description of the tool's functionality:</label>
         <div id="description-container"></div><br>
-        <label for="format">Format:</label>
+        <label for="format">Format (FILTER):</label>
         <input type="text" id="format" name="format" required><br>
-        <label for="freepaid">Free/Paid:</label>
+        <label for="freepaid">Free/Paid (FILTER):</label>
         <input type="text" id="freepaid" name="freepaid" required><br>
-        <label for="image">Image URL:</label>
+        <label for="image">Tool logo image URL:</label>
         <input type="text" id="image" name="image" required><br>
-        <label for="link">Link:</label>
+        <label for="link">Link on the tool's web-site:</label>
         <input type="text" id="link" name="link" required><br>
         <label for="link-type">Link Type:</label>
         <select id="link-type" name="link-type">
             <option value="target_blank" selected>Open in New Tab</option>
-            <option value="direct_link">Direct Link</option>
         </select><br>
         <input type="submit" value="Submit">
     </form>
