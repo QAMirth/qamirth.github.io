@@ -1,5 +1,11 @@
 document.write(`
- <script src="https://cdn.ckeditor.com/4.24.0-lts/standard/ckeditor.js"></script>
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <style>
+        #description-container {
+            height: 300px;
+        }
+    </style>
 <button id="add-material-btn">+</button>
          <div id="popup-form" style="display: none;">
         <form id="material-form">
@@ -26,7 +32,18 @@ document.write(`
     </div>
      <script>
         document.addEventListener('DOMContentLoaded', function() {
-            CKEDITOR.replace('description');
+            var quill = new Quill('#description-container', {
+                theme: 'snow'
+            });
+
+            // Handle form submission to include Quill data
+            document.getElementById('material-form').onsubmit = function() {
+                var descriptionInput = document.createElement('input');
+                descriptionInput.setAttribute('type', 'hidden');
+                descriptionInput.setAttribute('name', 'description');
+                descriptionInput.value = quill.root.innerHTML;
+                this.appendChild(descriptionInput);
+            };
         });
     </script>
 `);
