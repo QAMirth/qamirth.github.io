@@ -44,7 +44,7 @@ document.addEventListener('scroll', function() {
         event.preventDefault();
 
         const title = document.getElementById('title').value;
-        const description = quill.root.innerHTML; // Update this line to get content from Quill editor
+        const description = quill.root.innerHTML; // Get description from Quill
         const format = document.getElementById('format').value;
         const freepaid = document.getElementById('freepaid').value;
         const image = document.getElementById('image').value;
@@ -125,7 +125,7 @@ document.addEventListener('scroll', function() {
         const materialsData = Array.from(materials).map(material => {
             return {
                 title: material.querySelector('.info-card-title a').textContent,
-                description: material.querySelector('.info-card-desc2').textContent,
+                description: material.querySelector('.info-card-desc2').innerHTML, // Fix to get HTML content
                 format: material.querySelector('.info-card-format .format').textContent,
                 freepaid: material.querySelector('.info-card-format .freepaid').textContent,
                 image: material.querySelector('.info-card-label img').src,
