@@ -31,19 +31,19 @@ document.write(`
         <button class="close">Close</button>
     </div>
      <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var quill = new Quill('#description-container', {
-                theme: 'snow'
-            });
+       document.addEventListener('DOMContentLoaded', function() {
+    var quill = new Quill('#description-container', {
+        theme: 'snow'
+    });
 
-            // Handle form submission to include Quill data
-            document.getElementById('material-form').onsubmit = function() {
-                var descriptionInput = document.createElement('input');
-                descriptionInput.setAttribute('type', 'hidden');
-                descriptionInput.setAttribute('name', 'description');
-                descriptionInput.value = quill.root.innerHTML;
-                this.appendChild(descriptionInput);
-            };
-        });
+    // Handle form submission to include Quill data
+    document.getElementById('material-form').onsubmit = function(event) {
+        var descriptionInput = document.createElement('input');
+        descriptionInput.setAttribute('type', 'hidden');
+        descriptionInput.setAttribute('name', 'description');
+        descriptionInput.value = quill.root.innerHTML;
+        this.appendChild(descriptionInput);
+    };
+});
     </script>
 `);
