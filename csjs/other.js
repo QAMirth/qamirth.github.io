@@ -44,7 +44,7 @@ document.addEventListener('scroll', function() {
         event.preventDefault();
 
         const title = document.getElementById('title').value;
-        const description = document.getElementById('description').value;
+        const description = quill.root.innerHTML; // Update this line to get content from Quill editor
         const format = document.getElementById('format').value;
         const freepaid = document.getElementById('freepaid').value;
         const image = document.getElementById('image').value;
@@ -147,7 +147,7 @@ document.addEventListener('scroll', function() {
 
     function editMaterial(materialElement, material) {
         document.getElementById('title').value = material.title;
-        document.getElementById('description').value = material.description;
+        quill.root.innerHTML = material.description; // Update this line to set content to Quill editor
         document.getElementById('format').value = material.format;
         document.getElementById('freepaid').value = material.freepaid;
         document.getElementById('image').value = material.image;
@@ -161,7 +161,8 @@ document.addEventListener('scroll', function() {
             event.preventDefault();
 
             material.title = document.getElementById('title').value;
-            material.description = document.getElementById('description').value;
+            material.description = quill.root.innerHTML; // Update this line to get content from Quill editor
+            material.format = document.getElementById('format').value;
             material.format = document.getElementById('format').value;
             material.freepaid = document.getElementById('freepaid').value;
             material.image = document.getElementById('image').value;
