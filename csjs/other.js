@@ -8,7 +8,10 @@ document.addEventListener('scroll', function() {
 });
 
 
- document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
+    var quill = new Quill('#description-container', {
+        theme: 'snow'
+    });
     const pageKey = location.pathname.split('/').pop(); // Extracts the current page name (e.g., '1.html')
 
     function updateMaterialCount() {
