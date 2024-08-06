@@ -1,13 +1,5 @@
 document.write(`
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
- <script>
-        tinymce.init({
-            selector: '#description',
-            plugins: 'advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code fullscreen insertdatetime media table paste code help wordcount',
-            toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
-            height: 300
-        });
-    </script>
+<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
 <button id="add-material-btn">+</button>
          <div id="popup-form" style="display: none;">
         <form id="material-form">
@@ -32,4 +24,9 @@ document.write(`
         </form>
         <button class="close">Close</button>
     </div>
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            CKEDITOR.replace('description');
+        });
+    </script>
 `);
