@@ -1,5 +1,5 @@
 document.write(`
-<div id="filters">
+<div id="filters-filters">
     <select id="format-filter" onchange="filterMaterials()">
         <option value="">- All Formats</option>
     </select>
