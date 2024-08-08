@@ -7,7 +7,7 @@ document.write(`
 					<input type="text" name="q" maxlength="30" size="20" class="queryField">
 				</div>
 				<div align="center" class="schBtn">
-					<input type="submit" class="searchSbmFl" name="sfSbm" value="Search">
+					<input type="submit" class="searchSbmFl" name="sfSbm" value="Sear">
 				</div>
 				<input type="hidden" name="t" value="0">
 			</form>
