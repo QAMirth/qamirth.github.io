@@ -20,7 +20,7 @@ name="q"
 maxlength="30"
 size="20"
 autocomplete="off">
-<button class="header-search-button" type="submit">Search</button>
+<button class="header-search-button" type="submit">Sear</button>
 </form>
 </div>
 </div>
