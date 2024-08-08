@@ -10,7 +10,7 @@ document.write(`
 <div id="header_mb_search_panel" class="header-search-panel">
 <div class="header-search-overlay js-header-search-overlay"></div>
 <form class="header-search-form" onsubmit="this.sfSbm.disabled=true" method="get"
-action="/search/">
+action="/99/feedback.html">
 <input type="hidden" name="t" value="0">
 <input
 class="header-search-input js-mb-search-input"
