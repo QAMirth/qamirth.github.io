@@ -6874,7 +6874,7 @@ select.codeButtons {
         min-width: 110px;
         margin: 0 -20px;
         width:calc(var(--tpl-max-layout-width) - var(--tpl-spacing-l) - var(--tpl-spacing-l) - var(--sidebar-size) - 110px);
-        padding-top: 12px;
+        padding-top: 16px;
     }
 
     :is(.main-menu.menu-evolving,#f#f#f) li>ul {
