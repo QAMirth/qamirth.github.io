@@ -273,8 +273,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener("DOMContentLoaded", function() {
     const pages = [
-        '1.html',
-        '2.html',
+        '/8/8.html',
+        '/index.html',
         '3.html',
         // ... добавьте все страницы вашего сайта
         '16.html'
