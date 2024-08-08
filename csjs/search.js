@@ -12,6 +12,6 @@ document.write(`
 				<input type="hidden" name="t" value="0">
 			</form>
 		</div>
-							<svg class="svg-icon search-form-icon"><use xlink:href="/.s/t/2301/icons.svg#search_icon"></use></svg>
+							<svg class="svg-icon search-form-icon"><use xlink:href="../csjs/icons.svg#search_icon"></use></svg>
 						</div>
   `);
