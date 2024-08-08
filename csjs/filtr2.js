@@ -5,10 +5,10 @@ document.write(`
         <option value="title-desc">Title (D)</option>
     </select>
     <select id="format-filter" onchange="filterMaterials()">
-        <option value="">- All Formats</option>
+        <option value="">All Formats</option>
     </select>
     <select id="freepaid-filter" onchange="filterMaterials()">
-        <option value="">- All Free/Paid</option>
+        <option value="">All Free/Paid</option>
     </select>
 </div>
 `);
