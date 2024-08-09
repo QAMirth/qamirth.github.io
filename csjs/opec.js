@@ -16,7 +16,7 @@
                 const buttonLink = desc.querySelector('.button-link2');
                 if (isExpanded) {
                     buttonLink.style.display = 'none';
-                    this.textContent = 'Close';
+                    this.textContent = 'Close info';
                 } else {
                     buttonLink.style.display = 'inline';
                     this.textContent = 'More info';
