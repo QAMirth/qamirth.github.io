@@ -7,7 +7,6 @@ document.addEventListener('scroll', function() {
     }
 });
 
-
 document.addEventListener('DOMContentLoaded', function() {
     var quill = new Quill('#description-container', {
         theme: 'snow'
@@ -101,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         newMaterial.querySelector('.copy-html').addEventListener('click', function() {
-            const materialHTML = removeEmojiFromHTML(newMaterial.outerHTML) // ИЗМЕНЕНИЕ: Удаление эмодзи перед копированием
+            const materialHTML = newMaterial.outerHTML
                 .replace('info-card dynamic', 'info-card static')
                 .replace('info-card-desc2', 'info-card-desc')
                 .replace(/delete-material/g, 'delete-material2')
@@ -115,10 +114,6 @@ document.addEventListener('DOMContentLoaded', function() {
         newMaterial.querySelector('.edit-material').addEventListener('click', function() {
             editMaterial(newMaterial, material);
         });
-
-
-
-        addEmoji(newMaterial); // ИЗМЕНЕНИЕ: Добавление эмодзи при создании элемента
 
         return newMaterial;
     }
@@ -203,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             materialElement.querySelector('.copy-html').addEventListener('click', function() {
-                const materialHTML = removeEmojiFromHTML(materialElement.outerHTML) // ИЗМЕНЕНИЕ: Удаление эмодзи перед копированием
+                const materialHTML = materialElement.outerHTML
                     .replace('info-card dynamic', 'info-card static')
                     .replace('info-card-desc2', 'info-card-desc')
                     .replace(/delete-material/g, 'delete-material2')
@@ -218,87 +213,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 editMaterial(materialElement, material);
             });
 
-
-            addEmoji(materialElement); // ИЗМЕНЕНИЕ: Добавление эмодзи при редактировании элемента
-
-            updateMaterialCount();
             saveMaterialsToLocalStorage();
+            popup.style.display = "none";
             form.removeEventListener('submit', updateHandler);
             form.addEventListener('submit', submitHandler);
-            popup.style.display = "none";
         });
     }
 
-   // ИЗМЕНЕНИЕ: Функция для добавления эмодзи
-    function addEmoji(materialElement) {
-        const formatElement = materialElement.querySelector('.format');
-        const freePaidElement = materialElement.querySelector('.freepaid');
-
-        if (formatElement && formatElement.textContent.trim() === 'Online2') {
-            formatElement.textContent = ' ' + formatElement.textContent;
-        }
-
-        if (freePaidElement && freePaidElement.textContent.trim() === 'Free2') {
-            freePaidElement.textContent = ' ' + freePaidElement.textContent;
-        }
-    }
-
-    // ИЗМЕНЕНИЕ: Функция для удаления эмодзи из HTML кода
-    function removeEmojiFromHTML(html) {
-        return html.replace(' ', '').replace(' ', '');
-    }
-
-    // Загрузка сохраненных материалов
     loadMaterialsFromLocalStorage();
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const formatElements = document.querySelectorAll('.format');
-    const freePaidElements = document.querySelectorAll('.freepaid');
-
-    formatElements.forEach(element => {
-        if (element.textContent.trim() === 'Online2') {
-            element.textContent = ' ' + element.textContent;
-        }
-    });
-
-    freePaidElements.forEach(element => {
-        if (element.textContent.trim() === 'Free2') {
-            element.textContent = ' ' + element.textContent;
-        }
-    });
-});
-
-
-
-
-newMaterial.querySelector('.copy-html').addEventListener('click', function() {
-    // Клонируем элемент, чтобы работать с ним, не изменяя оригинал
-    const clone = newMaterial.cloneNode(true);
-
-    // Заменяем классы
-    clone.classList.remove('dynamic');
-    clone.classList.add('static');
-
-    // Добавляем атрибут data-title
-    clone.setAttribute('data-title', material.title);
-
-    // Заменяем классы в нужных местах
-    clone.querySelector('.info-card-desc2').classList.replace('info-card-desc2', 'info-card-desc');
-
-    clone.querySelectorAll('.delete-material').forEach(btn => btn.classList.replace('delete-material', 'delete-material2'));
-    clone.querySelectorAll('.copy-html').forEach(btn => btn.classList.replace('copy-html', 'copy-html2'));
-    clone.querySelectorAll('.edit-material').forEach(btn => btn.classList.replace('edit-material', 'edit-material2'));
-
-    // Вставляем ссылку внутри info-card-desc
-    const descElement = clone.querySelector('.info-card-desc');
-    if (descElement) {
-        descElement.innerHTML = `<a class="button-link2"></a>${material.description}`;
-    }
-
-    // Получаем HTML код клона
-    const materialHTML = clone.outerHTML;
-
-    // Копируем HTML в буфер обмена
-    navigator.clipboard.writeText(materialHTML);
-});
