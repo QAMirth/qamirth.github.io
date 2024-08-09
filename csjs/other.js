@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="info-card-format">
                     <span class="format">${material.format}</span>
                     <span class="freepaid">${material.freepaid}</span>
-                 <div class="bl3"><a class="button-link3">Close</a></div>
+                 <div class="bl3"><a class="button-link3"></a></div>
                 </div>
             </div>
             <button class="delete-material">&times;</button>
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="info-card-format">
                         <span class="format">${material.format}</span>
                         <span class="freepaid">${material.freepaid}</span>
-                   <div class="bl3"><a class="button-link3">Close</a></div>
+                   <div class="bl3"><a class="button-link3"></a></div>
                     </div>
                 </div>
                 <button class="delete-material">&times;</button>
