@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 .replace(/copy-html/g, 'copy-html2')
                 .replace(/edit-material/g, 'edit-material2')
                 .replace(/<div class="info-card static"/, `<div class="info-card static" data-title="${material.title}"`)
-                .replace(`<div class="info-card-desc">${material.description}</div>`, `<div class="info-card-desc"><a class="button-link2">Open</a>${material.description}</div>`);
+                .replace(`<div class="info-card-desc">${material.description}</div>`, `<div class="info-card-desc"><a class="button-link2"></a>${material.description}</div>`);
             navigator.clipboard.writeText(materialHTML);
         });
 
@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     .replace(/copy-html/g, 'copy-html2')
                     .replace(/edit-material/g, 'edit-material2')
                     .replace(/<div class="info-card static"/, `<div class="info-card static" data-title="${material.title}"`)
-                    .replace(`<div class="info-card-desc">${material.description}</div>`, `<div class="info-card-desc"><a class="button-link2">Open</a>${material.description}</div>`);
+                    .replace(`<div class="info-card-desc">${material.description}</div>`, `<div class="info-card-desc"><a class="button-link2"></a>${material.description}</div>`);
                 navigator.clipboard.writeText(materialHTML);
             });
 
