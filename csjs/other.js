@@ -107,8 +107,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 .replace(/delete-material/g, 'delete-material2')
                 .replace(/copy-html/g, 'copy-html2')
                 .replace(/edit-material/g, 'edit-material2')
-                .replace(/<div class="info-card static"/, `<div class="info-card static" data-title="${material.title}"`)
-                .replace(`<div class="info-card-desc">${material.description}</div>`, `<div class="info-card-desc"><a class="button-link2"></a>${material.description}</div>`);
+                .replace(/<div class="info-card static"/g, `<div class="info-card static" data-title="${material.title}"`)
+                .replace(/<div class="info-card-desc">[\s\S]*?<\/div>/, `<div class="info-card-desc"><a class="button-link2"></a>${material.description}</div>`);
             navigator.clipboard.writeText(materialHTML);
         });
 
@@ -209,8 +209,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     .replace(/delete-material/g, 'delete-material2')
                     .replace(/copy-html/g, 'copy-html2')
                     .replace(/edit-material/g, 'edit-material2')
-                    .replace(/<div class="info-card static"/, `<div class="info-card static" data-title="${material.title}"`)
-                    .replace(`<div class="info-card-desc">${material.description}</div>`, `<div class="info-card-desc"><a class="button-link2"></a>${material.description}</div>`);
+                    .replace(/<div class="info-card static"/g, `<div class="info-card static" data-title="${material.title}"`)
+                    .replace(/<div class="info-card-desc">[\s\S]*?<\/div>/, `<div class="info-card-desc"><a class="button-link2"></a>${material.description}</div>`);
                 navigator.clipboard.writeText(materialHTML);
             });
 
