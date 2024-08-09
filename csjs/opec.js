@@ -4,7 +4,7 @@
                 desc.classList.add('expanded');
                 this.style.display = 'none';
                 const buttonLink2 = desc.parentElement.querySelector('.button-link3');
-                buttonLink2.textContent = 'Close inf';
+                buttonLink2.textContent = 'Close info block';
                 buttonLink2.style.display = 'inline';
             });
         });
@@ -16,7 +16,7 @@
                 const buttonLink = desc.querySelector('.button-link2');
                 if (isExpanded) {
                     buttonLink.style.display = 'none';
-                    this.textContent = 'Close info';
+                    this.textContent = 'Close';
                 } else {
                     buttonLink.style.display = 'inline';
                     this.textContent = 'More info';
