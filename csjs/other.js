@@ -271,6 +271,44 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+
+newMaterial.querySelector('.copy-html').addEventListener('click', function() {
+    // Клонируем элемент, чтобы работать с ним, не изменяя оригинал
+    const clone = newMaterial.cloneNode(true);
+
+    // Заменяем классы
+    clone.classList.remove('dynamic');
+    clone.classList.add('static');
+
+    // Добавляем атрибут data-title
+    clone.setAttribute('data-title', material.title);
+
+    // Заменяем классы в нужных местах
+    clone.querySelector('.info-card-desc2').classList.replace('info-card-desc2', 'info-card-desc');
+
+    clone.querySelectorAll('.delete-material').forEach(btn => btn.classList.replace('delete-material', 'delete-material2'));
+    clone.querySelectorAll('.copy-html').forEach(btn => btn.classList.replace('copy-html', 'copy-html2'));
+    clone.querySelectorAll('.edit-material').forEach(btn => btn.classList.replace('edit-material', 'edit-material2'));
+
+    // Вставляем ссылку внутри info-card-desc
+    const descElement = clone.querySelector('.info-card-desc');
+    if (descElement) {
+        descElement.innerHTML = `<a class="button-link2"></a>${material.description}`;
+    }
+
+    // Получаем HTML код клона
+    const materialHTML = clone.outerHTML;
+
+    // Копируем HTML в буфер обмена
+    navigator.clipboard.writeText(materialHTML);
+});
+
+
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", function() {
     const pages = [
         '/8/8.html',
