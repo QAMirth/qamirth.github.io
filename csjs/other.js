@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function updateMaterialCount() {
         const materialCount = document.querySelectorAll('.info-card').length;
-        document.querySelector('.material-count').textContent = `(${materialCount} materials)`;
+        document.querySelector('.material-count').textContent = `${materialCount} materials`;
     }
 
     updateMaterialCount();
