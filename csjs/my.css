@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @layer reset,defaults,components; @layer reset {
     * {
         -webkit-tap-highlight-color: transparent
@@ -16,6 +17,8 @@
     body,h1,h2,h3,h4,p,figure,blockquote,dl,dd {
         margin: 0
     }
+    
+    #add-material-btn{display:none}
 
     ul[role=list],ol[role=list] {
         list-style: none
@@ -117,15 +120,15 @@
         --tpl-border-line-100: 1px solid var(--tpl-dark-250);
         --tpl-border-line: 2px solid var(--tpl-dark-200);
         --tpl-spacing-0: 0;
-        --tpl-spacing-xs: 5px;
-        --tpl-spacing-s: 10px;
-        --tpl-spacing-m: 15px;
-        --tpl-spacing-l: 15px;
+        --tpl-spacing-xs: 4px;
+        --tpl-spacing-s: 8px;
+        --tpl-spacing-m: 12px;
+        --tpl-spacing-l: 16px;
         --tpl-spacing-ll: 20px;
-        --tpl-spacing-xl: 25px;
-        --tpl-spacing-xxl: 30px;
+        --tpl-spacing-xl: 24px;
+        --tpl-spacing-xxl: 32px;
         --tpl-spacing-2xl: 40px;
-        --tpl-spacing-3xl: 45px;
+        --tpl-spacing-3xl: 44px;
         --sidebar-size:126px;
         --left-absolute:72px;
         --left-space:230px;
@@ -191,7 +194,7 @@
         Font-weight:400;
         margin:0;
         background: var(--tpl-accent-white);
-        padding: var(--tpl-spacing-m) var(--tpl-spacing-ll) var(--tpl-spacing-ll);
+        padding: var(--tpl-spacing-l) var(--tpl-spacing-ll) var(--tpl-spacing-ll);
   border-top: var(--tpl-border-line-100);
         border-left: var(--tpl-border-line-100);
         border-right: var(--tpl-border-line-100);
@@ -446,7 +449,7 @@
 
 .main {
     flex: 1 1 auto;
-    margin-block:var(--tpl-spacing-l);  padding-left: var(--left-space);}
+    margin-block:var(--tpl-spacing-xl);  padding-left: var(--left-space);}
    
 
 .container {
@@ -465,12 +468,16 @@
 
 .hz {
      display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 0;
     width: 100%;
-    padding: 0;
+    max-width: calc(var(--tpl-max-layout-width) + (var(--tpl-spacing-l) * 2));
+  padding: 0 var(--tpl-spacing-l);
 }
-#filters{margin: 12px 0; vertical-align: middle;}
+#filters{padding: 0 var(--tpl-spacing-ll) 0;}
+
+#filters select,#filters-order select{background:#fff;border:0px solid var(--tpl-dark-300);border-radius:4px; padding: 4px 7px 4px 0; margin-bottom: 4px;color: var(--tpl-dark-400);font-size:var(--tpl-font-size-small); margin-right:16px;}
+
 #filters-order{margin: 5px 0; vertical-align: middle;}
 #filters-filters{margin: 5px 0; vertical-align: middle;}
 #filters-filters select,#filters-order select{font-weight:600;width:100%;background:#00aef0;border:0px solid var(--tpl-dark-300);border-radius:5px; padding: 5px 7.5px; margin-bottom: 5px;color: #fff;font-size:90%;}
@@ -485,7 +492,7 @@
     min-width: 0
 }
 
-.main-container>.sidebar {position:absolute; left:75px;
+.main-container>.sidebar {display:none;/*! position:absolute; */ left:var(--left-absolute);
     flex: 0 0 var(--sidebar-size);
     width: var(--sidebar-size);
 }
@@ -6076,7 +6083,7 @@ height: 32px;background-size: contain;top:26px;}
 }
 
 .info-box {
-  margin-block:-1px;
+  margin-block:0px;
   background-color: var(--tpl-accent-white);
   padding: 0 var(--tpl-spacing-ll) 0;
   border: var(--tpl-border-line-100);
@@ -6090,7 +6097,7 @@ height: 32px;background-size: contain;top:26px;}
 }
 
 .info-box:last-child {
-    margin-bottom: 0
+    margin-top: 0;
 }
 
 :where(.info-box) h2 {
@@ -6171,10 +6178,10 @@ height: 32px;background-size: contain;top:26px;}
     /*! border-radius: 60px; */
     /*! background-color: var(--tpl-accent-blue-light); */
     color: var(--tpl-accent-blue);
-    margin-right:24px;
+    margin-right:var(--tpl-spacing-ll);
 }
 
-:where(.info-box) .info-card-content {flex: 1;display:flex;flex-direction: column;line-height:1.5;color:var(--tpl-dark-400);}
+:where(.info-box) .info-card-content {flex: 1;display:flex;flex-direction: column;line-height:1.54;color:var(--tpl-dark-400);}
 .ttb {font-weight: 600;font-size:var(--tpl-font-size-medium-plus);}
 .ttb:hover {text-decoration:underline;}
 
@@ -7071,6 +7078,20 @@ select.codeButtons {
     .main{
     padding-left: 0;
      }
+    
+    .hz h1 {
+    padding-left: 0;
+     padding-right: 0;
+    }
+    
+    #filters {
+    padding-left: 0;
+     padding-right: 0;
+    }
+    
+    .info-box {
+    padding:  0;}
+    
     .footer {
     padding-left:0;
     }
