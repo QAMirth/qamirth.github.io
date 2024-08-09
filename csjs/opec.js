@@ -4,7 +4,7 @@
                 desc.classList.add('expanded');
                 this.style.display = 'none';
                 const buttonLink2 = desc.parentElement.querySelector('.button-link3');
-                buttonLink2.textContent = 'Close';
+                buttonLink2.textContent = 'Close inf';
                 buttonLink2.style.display = 'inline';
             });
         });
