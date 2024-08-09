@@ -7115,7 +7115,7 @@ select.codeButtons {
     .info-card{
     margin-left: 0;}
     
-    .button-link2:after {
+    .button-link2:before {
             content:'+';
         }
     
