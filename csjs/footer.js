@@ -15,7 +15,7 @@
             <a href="../99/contacts.html">Contact the author</a>
           </span>
           <span class="adt2">
-            <a href="../99/add.html" target="_blank">Add a tool</a>
+            <a href="../99/add.html">Add a tool</a>
           </span>
         </div>
       </div>
