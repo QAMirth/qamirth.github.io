@@ -6222,7 +6222,7 @@ height: 32px;background-size: contain;top:26px;}
             content:'#';
         }
 .button-link2:after {
-            content:' More details';
+            content:'More details';
         }
 	.bl3{
             order: 4; margin-top:12px;
@@ -7114,6 +7114,10 @@ select.codeButtons {
     
     .info-card{
     margin-left: 0;}
+    
+    .button-link2:after {
+            content:'+';
+        }
     
     .footer {
     padding-left:0;
