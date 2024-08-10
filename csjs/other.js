@@ -7,6 +7,9 @@ document.addEventListener('scroll', function() {
     }
 });
 
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     var quill = new Quill('#description-container', {
         theme: 'snow'
@@ -14,12 +17,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const pageKey = location.pathname.split('/').pop(); // Extracts the current page name (e.g., '1.html')
 
     function updateMaterialCount() {
-        const materialCount = document.querySelectorAll('.info-card').length;
-        document.querySelector('.material-count').textContent = `${materialCount} materials`;
+        const visibleMaterials = document.querySelectorAll('.info-card:not([style*="display: none"])'); // ТУТ change: Учитываем только видимые материалы
+        document.querySelector('.material-count').textContent = `${visibleMaterials.length} materials`;
     }
 
-    updateMaterialCount();
+    updateMaterialCount(); // ТУТ change: Вызываем функцию сразу для отображения общего количества при загрузке страницы
 
+    populateFilters(); // ТУТ change: Вызываем функцию для заполнения фильтров сразу при загрузке страницы
+
+    document.getElementById('format-filter').addEventListener('change', function() {
+        filterMaterials();
+        updateMaterialCount(); // ТУТ change: Обновляем счетчик при изменении фильтра
+    });
+
+    document.getElementById('freepaid-filter').addEventListener('change', function() {
+        filterMaterials();
+        updateMaterialCount(); // ТУТ change: Обновляем счетчик при изменении фильтра
+
+
+
+        
     const popup = document.getElementById('popup-form');
     const addBtn = document.getElementById('add-material-btn');
     const closeBtn = document.querySelector('.close');
