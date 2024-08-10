@@ -97,14 +97,14 @@
 
 @layer defaults {
     :root {
-        --tpl-font-system: 'Inter',system-ui,"Segoe UI",Montserrat,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol",sans-serif;
-        --tpl-font-size-small: 15px;
-        --tpl-font-size: 16px;
-        --tpl-font-size-plus: 20px;
-        --tpl-font-size-medium: 16px;
-        --tpl-font-size-medium-plus: 18px;
-        --tpl-font-size-large: 32px;
-        --tpl-font-size-extra-large: 18px;
+        --tpl-font-system:'Inter',system-ui,"Segoe UI",Montserrat,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol",sans-serif;
+        --tpl-font-size-small: 14px;
+        --tpl-font-size: 15px;
+        --tpl-font-size-plus: 19px;
+        --tpl-font-size-medium: 15px;
+        --tpl-font-size-medium-plus: 17px;
+        --tpl-font-size-large: 31px;
+        --tpl-font-size-extra-large: 17px;
         --tpl-font-text-r1: normal 400 var(--tpl-font-size)/1.4 var(--tpl-font-system);
         --tpl-font-text-m1: normal 500 var(--tpl-font-size)/1.4 var(--tpl-font-system);
         --tpl-font-text-sb1: normal 600 var(--tpl-font-size)/1.4 var(--tpl-font-system);
