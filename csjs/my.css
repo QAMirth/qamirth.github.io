@@ -130,8 +130,8 @@
         --tpl-spacing-2xl: 40px;
         --tpl-spacing-3xl: 44px;
         --sidebar-size:126px;
-        --left-absolute:72px;
-        --left-space:230px;
+        --left-absolute:5%;
+        --left-space:15%;
         --menuha: var(--tpl-dark-600);
         --tpl-dark-900: #020203;
         --tpl-dark-800: #191925;
