@@ -7,9 +7,6 @@ document.addEventListener('scroll', function() {
     }
 });
 
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
     var quill = new Quill('#description-container', {
         theme: 'snow'
@@ -24,8 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     updateMaterialCount();
 
-
-        
     const popup = document.getElementById('popup-form');
     const addBtn = document.getElementById('add-material-btn');
     const closeBtn = document.querySelector('.close');
@@ -52,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
 
         const title = document.getElementById('title').value;
-        const description = quill.root.innerHTML; // Get description from Quill
+        const description = quill.root.innerHTML; // Получение контента из Quill
         const format = document.getElementById('format').value;
         const freepaid = document.getElementById('freepaid').value;
         const image = document.getElementById('image').value;
@@ -66,7 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.info-cards-grid').appendChild(newMaterial);
 
         updateMaterialCount();
-
         saveMaterialsToLocalStorage();
 
         popup.style.display = "none";
@@ -112,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 .replace(/delete-material/g, 'delete-material2')
                 .replace(/copy-html/g, 'copy-html2')
                 .replace(/edit-material/g, 'edit-material2')
-                .replace(/<div class="info-card static"/g, `<div class="info-card static" data-title="${material.title}"`)
+                .replace(/<div class="info-card static"/g, `<div class="info-card static" data-title="${material.title.toLowerCase()}"`) // Изменение: добавлено приведение заголовка к нижнему регистру
                 .replace(/<div class="info-card-desc">[\s\S]*?<\/div>/, `<div class="info-card-desc"><a class="button-link2"></a>${material.description}</div>`);
             navigator.clipboard.writeText(materialHTML);
         });
@@ -129,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const materialsData = Array.from(materials).map(material => {
             return {
                 title: material.querySelector('.info-card-title a').textContent,
-                description: material.querySelector('.info-card-desc2').innerHTML, // Fix to get HTML content
+                description: material.querySelector('.info-card-desc2').innerHTML, // Исправлено: получение HTML контента
                 format: material.querySelector('.info-card-format .format').textContent,
                 freepaid: material.querySelector('.info-card-format .freepaid').textContent,
                 image: material.querySelector('.info-card-label img').src,
@@ -151,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function editMaterial(materialElement, material) {
         document.getElementById('title').value = material.title;
-        quill.root.innerHTML = material.description; // Update this line to set content to Quill editor
+        quill.root.innerHTML = material.description; // Исправлено: установка контента в Quill редактор
         document.getElementById('format').value = material.format;
         document.getElementById('freepaid').value = material.freepaid;
         document.getElementById('image').value = material.image;
@@ -165,8 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
 
             material.title = document.getElementById('title').value;
-            material.description = quill.root.innerHTML; // Update this line to get content from Quill editor
-            material.format = document.getElementById('format').value;
+            material.description = quill.root.innerHTML; // Исправлено: получение контента из Quill редактора
             material.format = document.getElementById('format').value;
             material.freepaid = document.getElementById('freepaid').value;
             material.image = document.getElementById('image').value;
@@ -210,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     .replace(/delete-material/g, 'delete-material2')
                     .replace(/copy-html/g, 'copy-html2')
                     .replace(/edit-material/g, 'edit-material2')
-                    .replace(/<div class="info-card static"/g, `<div class="info-card static" data-title="${material.title}"`)
+                    .replace(/<div class="info-card static"/g, `<div class="info-card static" data-title="${material.title.toLowerCase()}"`) // Изменение: добавлено приведение заголовка к нижнему регистру
                     .replace(/<div class="info-card-desc">[\s\S]*?<\/div>/, `<div class="info-card-desc"><a class="button-link2"></a>${material.description}</div>`);
                 navigator.clipboard.writeText(materialHTML);
             });
@@ -221,6 +214,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             saveMaterialsToLocalStorage();
             popup.style.display = "none";
+
             form.removeEventListener('submit', updateHandler);
             form.addEventListener('submit', submitHandler);
         });
@@ -228,4 +222,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
     loadMaterialsFromLocalStorage();
 });
-
