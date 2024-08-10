@@ -1,5 +1,14 @@
 document.addEventListener("DOMContentLoaded", function() {
     populateFilters();
+
+    // ТУТ change: Добавляем обработчики событий для фильтров
+    document.getElementById('format-filter').addEventListener('change', function() {
+        filterMaterials();
+    });
+
+    document.getElementById('freepaid-filter').addEventListener('change', function() {
+        filterMaterials();
+    });
 });
 
 function sortMaterials() {
@@ -71,5 +80,6 @@ function filterMaterials() {
             material.style.display = 'none';
         }
     });
+
     updateMaterialCount(); // ТУТ change: Обновляем счетчик после фильтрации
 }
