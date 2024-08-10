@@ -7072,6 +7072,16 @@ select.codeButtons {
     }
 }
 
+@media screen and (max-width: 1420px) {
+    .logo-link{left: calc(var(--left-absolute) - 1%);}
+}
+
+@media screen and (max-width: 1080px) {
+ .main,.footer,.header{padding-left: calc(var(--left-space) / 1)}
+    .logo-link{left: calc(var(--left-absolute) - 2%)}
+}
+ 
+
 @media screen and (max-width: 1024px) {
     .catalog-slider-container .swiper-btn {
         display:none
