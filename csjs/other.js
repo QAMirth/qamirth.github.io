@@ -17,22 +17,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const pageKey = location.pathname.split('/').pop(); // Extracts the current page name (e.g., '1.html')
 
     function updateMaterialCount() {
-        const visibleMaterials = document.querySelectorAll('.info-card:not([style*="display: none"])'); // ТУТ change: Учитываем только видимые материалы
+        // ТУТ change: Учитываем только видимые материалы
+        const visibleMaterials = document.querySelectorAll('.info-card:not([style*="display: none"])');
         document.querySelector('.material-count').textContent = `${visibleMaterials.length} materials`;
     }
 
     updateMaterialCount(); // ТУТ change: Вызываем функцию сразу для отображения общего количества при загрузке страницы
+});
 
-    populateFilters(); // ТУТ change: Вызываем функцию для заполнения фильтров сразу при загрузке страницы
-
-    document.getElementById('format-filter').addEventListener('change', function() {
-        filterMaterials();
-        updateMaterialCount(); // ТУТ change: Обновляем счетчик при изменении фильтра
-    });
-
-    document.getElementById('freepaid-filter').addEventListener('change', function() {
-        filterMaterials();
-        updateMaterialCount(); // ТУТ change: Обновляем счетчик при изменении фильтра
 
 
 
