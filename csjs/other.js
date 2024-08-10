@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const pageKey = location.pathname.split('/').pop(); // Extracts the current page name (e.g., '1.html')
 
     function updateMaterialCount() {
-        // ТУТ change: Учитываем только видимые материалы
+        // Учитываем только видимые материалы
         const visibleMaterials = document.querySelectorAll('.info-card:not([style*="display: none"])');
         document.querySelector('.material-count').textContent = `${visibleMaterials.length} materials`;
     }
@@ -221,4 +221,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     loadMaterialsFromLocalStorage();
+
+    // Вызов updateMaterialCount после каждого изменения фильтров
+    const filters = document.querySelectorAll('.filter'); // Предположим, что у фильтров есть класс 'filter'
+    filters.forEach(filter => {
+        filter.addEventListener('change', updateMaterialCount);
+    });
+
+    updateMaterialCount(); // Обновление счётчика материалов при загрузке страницы
 });
