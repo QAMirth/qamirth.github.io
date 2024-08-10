@@ -71,4 +71,5 @@ function filterMaterials() {
             material.style.display = 'none';
         }
     });
+    updateMaterialCount(); // ТУТ change: Обновляем счетчик после фильтрации
 }
