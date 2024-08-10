@@ -2004,7 +2004,7 @@ height: 32px;background-size: contain;top:26px;}
 }
 
 .index-page-content,.video_page-layout .vep-descr-block,.entry-layout .eText,.entry-layout .eMessage {
-    color: var(--tpl-dark-800);
+    color: var(--tpl-dark-400);
     font: var(--tpl-font-text-r2)
 }
 
