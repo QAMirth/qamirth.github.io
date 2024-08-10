@@ -186,32 +186,21 @@ The corner of the lonely QA Engineer, where the resources and tools interesting 
 	<br>
 
 
-<div id="header_mb_search2" class="header-search2">
-<button class="header-mobile-button2 js-mb-search-btn">
-<svg class="header-mobile-icon2">
-
-<use xlink:href="../csjs/icons.svg#search_icon"></use>
-
-</svg>
-</button>
-<div id="header_mb_search_panel2" class="header-search-panel">
-<div class="header-search-overlay js-header-search-overlay"></div>
-<form class="header-search-form" onsubmit="this.sfSbm.disabled=true" method="get"
-action="/99/search.html">
-<input type="hidden" name="t" value="0">
-<input
-class="header-search-input js-mb-search-input"
-placeholder="What are you looking for?"
-type="text"
-name="q"
-maxlength="30"
-size="20"
-autocomplete="off">
-<button class="header-search-button" type="submit"></button>
-</form>
-</div>
-</div>
-
+<div class="sidebar-block-content sidebar-search-content">
+							
+		<div class="searchForm">
+			<form onsubmit="this.sfSbm.disabled=true" method="get" style="margin:0" action="99/search.html">
+				<div align="center" class="schQuery">
+					<input type="text" name="q" maxlength="30" size="20" class="queryField">
+				</div>
+				<div align="center" class="schBtn">
+					<input type="submit" class="searchSbmFl" name="sfSbm" value="Search">
+				</div>
+				<input type="hidden" name="t" value="0">
+			</form>
+		</div>
+							<svg class="svg-icon search-form-icon"><use xlink:href="/.s/t/2301/icons.svg#search_icon"></use></svg>
+						</div>
 	
 </center>
 
