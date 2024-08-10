@@ -569,7 +569,7 @@ transition: background-color var(--tpl-transition);
 .footer a:hover{text-decoration: underline;}
 
 .footer-home-page {
-    background-color: var(--tpl-accent-white); color:var(--tpl-dark-600);width:100%;border-top: var(--tpl-border-line-100);font-size:var(--tpl-font-size-small);
+    background-color: var(--tpl-accent-white); color:var(--tpl-dark-600);width:100%;border-top: 1px solid var(--tpl-dark-300);font-size:var(--tpl-font-size-small);
 }
 .katzeniy{margin-right:8px;}
 
