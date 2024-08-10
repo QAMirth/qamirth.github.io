@@ -22,10 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.material-count').textContent = `${visibleMaterials.length} materials`;
     }
 
-    updateMaterialCount(); // ТУТ change: Вызываем функцию сразу для отображения общего количества при загрузке страницы
-});
-
-
+    updateMaterialCount();
 
 
         
