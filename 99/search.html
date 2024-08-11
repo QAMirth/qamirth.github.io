@@ -224,68 +224,44 @@ fill="currentColor"/>
 </footer>
 
 
-	  <script>
-        // Пример кода для поиска и вставки результатов поиска
-        function performSearchOnPage(page) {
-            // Ваш код поиска
-        }
-
-        const searchResultsContainer = document.getElementById('search-results');
-        const pages = ['/8/8.html', '/page2.html']; // Пример массива страниц
-
-        Promise.all(pages.map(performSearchOnPage))
-            .then(results => {
-                const mergedResults = results.join('');
-                if (mergedResults) {
-                    searchResultsContainer.innerHTML = mergedResults;
-                    // Инициализация обработчиков событий после вставки результатов
-                    initializeExpandCollapse();
-                } else {
-                    searchResultsContainer.innerHTML = 'No results found.';
-                }
-            })
-            .catch(error => {
-                console.error('Search error:', error);
-                searchResultsContainer.innerHTML = 'An error occurred while searching.';
-            });
-
-        // Функция для инициализации обработчиков событий
-        function initializeExpandCollapse() {
-            document.querySelectorAll('.button-link2').forEach(button => {
-                button.addEventListener('click', function() {
-                    const desc = this.parentElement;
-                    desc.classList.add('expanded');
-                    this.style.display = 'none';
-                    const buttonLink2 = desc.parentElement.querySelector('.button-link3');
-                    buttonLink2.textContent = 'Close info block';
-                    buttonLink2.style.display = 'inline';
-                });
-            });
-
-            document.querySelectorAll('.button-link3').forEach(button => {
-                button.addEventListener('click', function() {
-                    const desc = this.closest('.info-card').querySelector('.info-card-desc');
-                    const isExpanded = desc.classList.toggle('expanded');
-                    const buttonLink = desc.querySelector('.button-link2');
-                    if (isExpanded) {
-                        buttonLink.style.display = 'none';
-                        this.textContent = 'Close';
-                    } else {
-                        buttonLink.style.display = 'inline';
-                        this.textContent = 'More info';
-                        this.style.display = 'none';
-                    }
-                });
-            });
-        }
-
-        // Инициализация при загрузке страницы
-        initializeExpandCollapse();
-    </script>
 
 
 <script src="../csjs/1234.main.js"></script>
 <script src="../csjs/swiper-bundle.min.js"></script>
 
-</div></body>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('.button-link2').forEach(button => {
+            button.addEventListener('click', function() {
+                const desc = this.parentElement;
+                desc.classList.add('expanded');
+                this.style.display = 'none';
+                const buttonLink2 = desc.parentElement.querySelector('.button-link3');
+                buttonLink2.textContent = 'Close info block';
+                buttonLink2.style.display = 'inline';
+            });
+        });
+
+        document.querySelectorAll('.button-link3').forEach(button => {
+            button.addEventListener('click', function() {
+                const desc = this.closest('.info-card').querySelector('.info-card-desc');
+                const isExpanded = desc.classList.toggle('expanded');
+                const buttonLink = desc.querySelector('.button-link2');
+                if (isExpanded) {
+                    buttonLink.style.display = 'none';
+                    this.textContent = 'Close';
+                } else {
+                    buttonLink.style.display = 'inline';
+                    this.textContent = 'More info';
+                    this.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+
+
+</body>
 </html>
