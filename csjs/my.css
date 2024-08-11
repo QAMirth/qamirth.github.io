@@ -6219,7 +6219,7 @@ height: 32px;background-size: contain;top:26px;}
 	.button-link2 {
             float: right; margin-left:40px;margin-bottom: 2px;
         }
-	.button-link3 {font:var(--tpl-font-text-sb1);
+	.button-link3 {font:var(--tpl-font-text-sb1);cursor: pointer; 
             display: none;
         }
 .button-link3:before {
