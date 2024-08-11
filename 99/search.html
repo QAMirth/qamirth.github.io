@@ -232,48 +232,31 @@ fill="currentColor"/>
 </div>
 
 <script>
-    function initializeButtons() {
-        document.querySelectorAll('.button-link2').forEach(button => {
-            button.addEventListener('click', function() {
-                const desc = this.parentElement;
-                desc.classList.add('expanded');
-                this.style.display = 'none';
-                const buttonLink2 = desc.parentElement.querySelector('.button-link3');
-                buttonLink2.textContent = 'Close info block';
-                buttonLink2.style.display = 'inline';
-            });
-        });
-
-        document.querySelectorAll('.button-link3').forEach(button => {
-            button.addEventListener('click', function() {
-                const desc = this.closest('.info-card').querySelector('.info-card-desc');
-                const isExpanded = desc.classList.toggle('expanded');
-                const buttonLink = desc.querySelector('.button-link2');
-                if (isExpanded) {
-                    buttonLink.style.display = 'none';
-                    this.textContent = 'Close';
-                } else {
-                    buttonLink.style.display = 'inline';
-                    this.textContent = 'More info';
-                    this.style.display = 'none';
-                }
-            });
-        });
+ document.addEventListener('click', function(event) {
+    if (event.target.matches('.button-link2')) {
+        const desc = event.target.parentElement;
+        desc.classList.add('expanded');
+        event.target.style.display = 'none';
+        const buttonLink3 = desc.parentElement.querySelector('.button-link3');
+        buttonLink3.textContent = 'Close info block';
+        buttonLink3.style.display = 'inline';
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
-        initializeButtons(); // Инициализация при загрузке страницы
-    });
-
-    function performSearch(event) {
-        event.preventDefault();
-
-        // Ваш код поиска, который добавляет новые элементы в #search-results
-        // ...
-
-        // После добавления новых элементов
-        initializeButtons(); // Повторная привязка событий к новым элементам
+    if (event.target.matches('.button-link3')) {
+        const desc = event.target.closest('.info-card').querySelector('.info-card-desc');
+        const isExpanded = desc.classList.toggle('expanded');
+        const buttonLink2 = desc.querySelector('.button-link2');
+        if (isExpanded) {
+            buttonLink2.style.display = 'none';
+            event.target.textContent = 'Close';
+        } else {
+            buttonLink2.style.display = 'inline';
+            event.target.textContent = 'More info';
+            event.target.style.display = 'none';
+        }
     }
+});
+
 </script>
 
 
