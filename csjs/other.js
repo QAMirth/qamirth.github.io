@@ -239,7 +239,7 @@ document.addEventListener("DOMContentLoaded", function() {
         '3.html',
         // ... добавьте все страницы вашего сайта
         '16.html'
-    ];
+   ];
 
     let siteIndex = {};
 
@@ -287,13 +287,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    fetchAndIndexPages().then(() => {
-        const searchParams = new URLSearchParams(window.location.search);
-        const query = searchParams.get('q');
-        
-        if (query) {
-            const results = search(query);
-            displayResults(results);
-        }
-    });
+    function performSearch(event) {
+        event.preventDefault();
+        const query = document.querySelector('.header-search-input').value;
+        const results = search(query);
+        displayResults(results);
+    }
+
+    fetchAndIndexPages();
 });
