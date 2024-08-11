@@ -232,7 +232,7 @@ fill="currentColor"/>
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    function initializeButtons() {
         document.querySelectorAll('.button-link2').forEach(button => {
             button.addEventListener('click', function() {
                 const desc = this.parentElement;
@@ -259,8 +259,23 @@ fill="currentColor"/>
                 }
             });
         });
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        initializeButtons(); // Инициализация при загрузке страницы
     });
+
+    function performSearch(event) {
+        event.preventDefault();
+
+        // Ваш код поиска, который добавляет новые элементы в #search-results
+        // ...
+
+        // После добавления новых элементов
+        initializeButtons(); // Повторная привязка событий к новым элементам
+    }
 </script>
+
 
 
 </body>
