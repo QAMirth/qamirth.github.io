@@ -236,12 +236,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const pages = [
         '/8/8.html',
         '/index.html',
-        '3.html',
+        '1/11.html',
         // ... добавьте все страницы вашего сайта
         '16.html'
    ];
 
-    let siteIndex = {};
+    let siteIndex = [];
 
     function fetchAndIndexPages() {
         const fetchPromises = pages.map(page => {
@@ -250,8 +250,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 .then(html => {
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(html, 'text/html');
-                    const textContent = doc.body.innerText.toLowerCase();
-                    siteIndex[page] = textContent;
+                    const cards = doc.querySelectorAll('.info-card');
+                    
+                    cards.forEach(card => {
+                        siteIndex.push({
+                            content: card.innerText.toLowerCase(),
+                            html: card.outerHTML,
+                            page: page
+                        });
+                    });
                 });
         });
 
@@ -262,11 +269,11 @@ document.addEventListener("DOMContentLoaded", function() {
         const results = [];
         query = query.toLowerCase();
 
-        for (const [page, content] of Object.entries(siteIndex)) {
-            if (content.includes(query)) {
-                results.push(page);
+        siteIndex.forEach(item => {
+            if (item.content.includes(query)) {
+                results.push(item);
             }
-        }
+        });
 
         return results;
     }
@@ -274,15 +281,23 @@ document.addEventListener("DOMContentLoaded", function() {
     function displayResults(results) {
         const resultsContainer = document.querySelector('#search-results');
         resultsContainer.innerHTML = '';  // Очистка предыдущих результатов
+
         if (results.length === 0) {
             resultsContainer.textContent = 'No results found';
         } else {
             results.forEach(result => {
+                const resultDiv = document.createElement('div');
+                resultDiv.innerHTML = result.html;
+                
                 const link = document.createElement('a');
-                link.href = result;
-                link.textContent = `Found in: ${result}`;
-                resultsContainer.appendChild(link);
-                resultsContainer.appendChild(document.createElement('br'));
+                link.href = result.page;
+                link.textContent = `Found on page: ${result.page}`;
+                link.style.display = 'block';
+                link.style.marginTop = '10px';
+                
+                resultDiv.appendChild(link);
+                resultsContainer.appendChild(resultDiv);
+                resultsContainer.appendChild(document.createElement('hr'));
             });
         }
     }
@@ -294,5 +309,8 @@ document.addEventListener("DOMContentLoaded", function() {
         displayResults(results);
     }
 
-    fetchAndIndexPages();
+    fetchAndIndexPages().then(() => {
+        const searchForm = document.querySelector('.header-search-form');
+        searchForm.addEventListener('submit', performSearch);
+    });
 });
