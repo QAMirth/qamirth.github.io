@@ -262,8 +262,12 @@ document.addEventListener('DOMContentLoaded', function() {
             infoCards.forEach(card => {
               if (card.innerText.toLowerCase().includes(query.toLowerCase())) {
                 // Добавление ссылки на оригинальную страницу
-                const link = `<a href="${pageUrl}" class="sltyt"></a>`;
-                card.querySelector('.info-card-format').insertAdjacentHTML('beforeend', link);
+               const link = `<a href="${pageUrl}" class="sltyt"></a>`;
+            // ТУТ ПОМЕНЯЙ
+            const bl3Element = card.querySelector('.info-card-format .bl3');
+            if (bl3Element) {
+              bl3Element.insertAdjacentHTML('beforebegin', link);
+            }
                 results += card.outerHTML;
               }
             });
