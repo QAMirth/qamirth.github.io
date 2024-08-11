@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     populateFilters();
 
-    // ТУТ change: Добавляем обработчики событий для фильтров
+    // Обработчики событий для фильтров
     document.getElementById('format-filter').addEventListener('change', function() {
         filterMaterials();
     });
@@ -9,6 +9,9 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('freepaid-filter').addEventListener('change', function() {
         filterMaterials();
     });
+
+    // Обновление счетчика при загрузке страницы
+    updateMaterialCount();
 });
 
 function sortMaterials() {
@@ -34,6 +37,9 @@ function sortMaterials() {
 
     materialsContainer.innerHTML = '';
     materials.forEach(material => materialsContainer.appendChild(material));
+
+    // Обновляем счетчик после сортировки
+    updateMaterialCount();
 }
 
 function populateFilters() {
@@ -81,5 +87,17 @@ function filterMaterials() {
         }
     });
 
-    updateMaterialCount(); // ТУТ change: Обновляем счетчик после фильтрации
+    // Обновляем счетчик после фильтрации
+    updateMaterialCount();
+}
+
+function updateMaterialCount() {
+    const materials = Array.from(document.getElementsByClassName('info-card'));
+    const visibleMaterials = materials.filter(material => material.style.display !== 'none').length;
+    const totalMaterials = materials.length;
+
+    const materialCountSpan = document.querySelector('.material-count');
+    if (materialCountSpan) {
+        materialCountSpan.textContent = visibleMaterials === totalMaterials ? `(${totalMaterials})` : `(${visibleMaterials}/${totalMaterials})`;
+    }
 }
