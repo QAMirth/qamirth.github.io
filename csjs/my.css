@@ -548,6 +548,10 @@ transition: background-color var(--tpl-transition);
   content: 'add';
 }
 
+.sltyt::before {
+  content: '#Link';
+}
+
 .header-search-button:before{content:'search';font-size: 22px; }
 
 
