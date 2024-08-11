@@ -232,85 +232,58 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    const pages = [
+
+
+ document.addEventListener("DOMContentLoaded", function() {
+    const searchParams = new URLSearchParams(window.location.search);
+    const query = searchParams.get("q");
+    const searchResultsContainer = document.getElementById("search-results");
+
+    if (query) {
+      searchResultsContainer.innerHTML = "Searching...";
+      
+      // Массив страниц для поиска
+      const pages = [
         '/8/8.html',
-        '/index.html',
-        '1/11.html',
-        // ... добавьте все страницы вашего сайта
-        '16.html'
-   ];
+        // добавьте все ваши страницы сюда
+      ];
 
-    let siteIndex = [];
+      // Функция для поиска на всех страницах
+      function performSearchOnPage(pageUrl) {
+        return fetch(pageUrl)
+          .then(response => response.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const infoCards = doc.querySelectorAll('.info-card');
+            let results = '';
 
-    function fetchAndIndexPages() {
-        const fetchPromises = pages.map(page => {
-            return fetch(page)
-                .then(response => response.text())
-                .then(html => {
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(html, 'text/html');
-                    const cards = doc.querySelectorAll('.info-card');
-                    
-                    cards.forEach(card => {
-                        siteIndex.push({
-                            content: card.innerText.toLowerCase(),
-                            html: card.outerHTML,
-                            page: page
-                        });
-                    });
-                });
-        });
-
-        return Promise.all(fetchPromises);
-    }
-
-    function search(query) {
-        const results = [];
-        query = query.toLowerCase();
-
-        siteIndex.forEach(item => {
-            if (item.content.includes(query)) {
-                results.push(item);
-            }
-        });
-
-        return results;
-    }
-
-    function displayResults(results) {
-        const resultsContainer = document.querySelector('#search-results');
-        resultsContainer.innerHTML = '';  // Очистка предыдущих результатов
-
-        if (results.length === 0) {
-            resultsContainer.textContent = 'No results found';
-        } else {
-            results.forEach(result => {
-                const resultDiv = document.createElement('div');
-                resultDiv.innerHTML = result.html;
-                
-                const link = document.createElement('a');
-                link.href = result.page;
-                link.textContent = `Found on page: ${result.page}`;
-                link.style.display = 'block';
-                link.style.marginTop = '10px';
-                
-                resultDiv.appendChild(link);
-                resultsContainer.appendChild(resultDiv);
-                resultsContainer.appendChild(document.createElement('hr'));
+            infoCards.forEach(card => {
+              if (card.innerText.toLowerCase().includes(query.toLowerCase())) {
+                // Добавление ссылки на оригинальную страницу
+                const link = `<a href="${pageUrl}" class="sltyt"></a>`;
+                card.querySelector('.info-card-format').insertAdjacentHTML('beforeend', link);
+                results += card.outerHTML;
+              }
             });
-        }
-    }
 
-    function performSearch(event) {
-        event.preventDefault();
-        const query = document.querySelector('.header-search-input').value;
-        const results = search(query);
-        displayResults(results);
-    }
+            return results;
+          });
+      }
 
-    fetchAndIndexPages().then(() => {
-        const searchForm = document.querySelector('.header-search-form');
-        searchForm.addEventListener('submit', performSearch);
-    });
-});
+      // Выполнение поиска по всем страницам
+      Promise.all(pages.map(performSearchOnPage))
+        .then(results => {
+          const mergedResults = results.join('');
+          if (mergedResults) {
+            searchResultsContainer.innerHTML = mergedResults;
+          } else {
+            searchResultsContainer.innerHTML = 'No results found.';
+          }
+        })
+        .catch(error => {
+          console.error('Search error:', error);
+          searchResultsContainer.innerHTML = 'An error occurred while searching.';
+        });
+    }
+  });
