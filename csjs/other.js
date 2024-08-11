@@ -245,6 +245,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Массив страниц для поиска
       const pages = [
         '/8/8.html',
+        '/1/11.html',
         // добавьте все ваши страницы сюда
       ];
 
