@@ -230,3 +230,70 @@ document.addEventListener('DOMContentLoaded', function() {
 
     updateMaterialCount(); // Обновление счётчика материалов при загрузке страницы
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const pages = [
+        '/8/8.html',
+        '2.html',
+        '3.html',
+        // ... добавьте все страницы вашего сайта
+        '16.html'
+    ];
+
+    let siteIndex = {};
+
+    function fetchAndIndexPages() {
+        const fetchPromises = pages.map(page => {
+            return fetch(page)
+                .then(response => response.text())
+                .then(html => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const textContent = doc.body.innerText.toLowerCase();
+                    siteIndex[page] = textContent;
+                });
+        });
+
+        return Promise.all(fetchPromises);
+    }
+
+    function search(query) {
+        const results = [];
+        query = query.toLowerCase();
+
+        for (const [page, content] of Object.entries(siteIndex)) {
+            if (content.includes(query)) {
+                results.push(page);
+            }
+        }
+
+        return results;
+    }
+
+    function displayResults(results) {
+        const resultsContainer = document.querySelector('#search-results');
+        resultsContainer.innerHTML = '';  // Очистка предыдущих результатов
+        if (results.length === 0) {
+            resultsContainer.textContent = 'No results found';
+        } else {
+            results.forEach(result => {
+                const link = document.createElement('a');
+                link.href = result;
+                link.textContent = `Found in: ${result}`;
+                resultsContainer.appendChild(link);
+                resultsContainer.appendChild(document.createElement('br'));
+            });
+        }
+    }
+
+    fetchAndIndexPages().then(() => {
+        const searchParams = new URLSearchParams(window.location.search);
+        const query = searchParams.get('q');
+        
+        if (query) {
+            const results = search(query);
+            displayResults(results);
+        }
+    });
+});
