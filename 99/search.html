@@ -72,6 +72,27 @@ initializeExpandCollapse();
 	</script>
 
 
+      <script>
+Promise.all(pages.map(performSearchOnPage))
+  .then(results => {
+    const mergedResults = results.join('');
+    if (mergedResults) {
+      searchResultsContainer.innerHTML = mergedResults;
+      // ТУТ ПОМЕНЯЙ: После вставки результатов инициализируем обработчики событий
+      initializeExpandCollapse();
+    } else {
+      searchResultsContainer.innerHTML = 'No results found.';
+    }
+  })
+  .catch(error => {
+    console.error('Search error:', error);
+    searchResultsContainer.innerHTML = 'An error occurred while searching.';
+  });
+
+			      
+		      </script>
+
+	
 <style>
 
 .container {
@@ -239,26 +260,7 @@ fill="currentColor"/>
 
 <div id="search-results"></div>
 
-		      <script>
-Promise.all(pages.map(performSearchOnPage))
-  .then(results => {
-    const mergedResults = results.join('');
-    if (mergedResults) {
-      searchResultsContainer.innerHTML = mergedResults;
-      // ТУТ ПОМЕНЯЙ: После вставки результатов инициализируем обработчики событий
-      initializeExpandCollapse();
-    } else {
-      searchResultsContainer.innerHTML = 'No results found.';
-    }
-  })
-  .catch(error => {
-    console.error('Search error:', error);
-    searchResultsContainer.innerHTML = 'An error occurred while searching.';
-  });
-
-			      
-		      </script>
-
+		
 		</div>
               </div>
               <!--/MATERIAL-->
