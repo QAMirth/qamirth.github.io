@@ -6232,8 +6232,8 @@ height: 32px;background-size: contain;top:26px;}
             order: 4; margin-top:12px;
         }
 .info-card-format{margin-top:var(--tpl-spacing-0);}
-.format,.freepaid{font:normal 400 var(--tpl-font-size)/1.4 var(--tpl-font-system);}
-.format{margin-right:8px;}
+.format,.freepaid{font:normal 400 var(--tpl-font-size)/1.4 var(--tpl-font-system);margin-right:8px;}
+
 
 
 :where(.info-box) .info-card-icon {
