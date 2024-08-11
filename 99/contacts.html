@@ -32,18 +32,79 @@
 <link rel="stylesheet" href="../csjs/ulightbox.min.css" />
 <link rel="stylesheet" href="../csjs/social.css" />
 <script src="../csjs/ulightbox.min.js"></script>
-	<script src="../csjs/other.js"></script>
+<script src="../csjs/other.js"></script>
 
 
+<style>
+
+.container {
+    max-width: 100%;
+}
+	.main {
+     padding-left: 0; margin: 24px auto;}
+
+
+.header-search {
+   display: none;
+}
+
+
+
+.header {
+    padding: 8px 0 8px 0px;
+}
+
+.header-left {margin:0 auto;
+justify-content: center;
+text-align:center;    
+}
+
+	
+ .main-menu{
+        margin: 0 80px 0 0;
+        padding-top: 0;
+    }
+
+.header-container {
+flex-direction:row;
+}
+
+.logo-link{top:8px;left: 16px;}
+
+.header-auth-block { padding: 2px 16px 2px 8px; right: 16px;}
+   
+.footer-container {padding-block:8px;}
+
+	 .main-menu-nav li.uWithSubmenu>a {text-align:left;}
+
+.main-menu-nav li>a {text-align:left;}
+
+	@media screen and (max-width: 1024px) {
+    .logo-link{top:20px;}
+}
+
+	 h1 {
+        font-weight:400;
+    }
+
+	.searchForm2 form{display: flex;flex-direction: row;justify-content:center;}
+ .queryField{line-height:1;height:32px;border: 1px solid #8f8f9d;}
+.schBtn input{line-height: 1;border-radius:4px;margin-left:2px;height:32px; background:#e9e9ed;border:1px solid #8f8f9d;color:#222;font-size:12px;font-weight:400;vertical-align:middle}
+
+
+    
+</style>
+
+	
 </head>
-<body class="index">
+<body class="home-p">
 <div id="layout" class="layout page">
-<header class="header">
+<header id="header" class="header">
 <div class="container header-container">
 <div class="header-left">
 <div id="p-logo" class="b-logo" role="banner">
 
-<a class="logo-link" href="../" title="Home Page"><span class="logo-slogan"></span></a></div>
+<a class="logo-link" href="/" title="Home Page"><span class="logo-slogan"></span></a></div>
 
 <div class="main-menu menu-evolving">
 <button class="header-mobile-button header-mobile-close js-mobile-menu-close">
@@ -110,21 +171,14 @@ fill="currentColor"/>
 <div class="index-page-content">
 <!-- <body> -->
 
+
+	
 <br><br>
 
-<center>
-<img src="csjs/QASapiens.jpg" alt="QA Sapiens" width="320" height="186">
+	Author email is 
 
-<div style="margin-top: 24px;">
-<h1>QAMirth - the lonely QA Engineer corner</h1><p>
-The corner of the lonely QA Engineer, where the resources and tools interesting for QA work are collected.<br><br>
-<p>The author of this "masterpiece" did not worry about whether someone needed it or not. He was just bored and lonely.</p>
-<p>As a result, he decided to do something possibly useful for "QA Sapiens" since he himself is a representative of this "genus".
-</p></div>
-</center>
 
-	<div id="search-results"></div>
-
+  
 
 <!-- </body> -->
 </div>
@@ -139,8 +193,8 @@ The corner of the lonely QA Engineer, where the resources and tools interesting 
 <script src="../csjs/footer.js"></script>
 </footer>
 
-</div>
 <script src="../csjs/1234.main.js"></script>
 <script src="../csjs/swiper-bundle.min.js"></script>
-</body>
+<script src="../csjs/opec.js"></script>
+</div></body>
 </html>
