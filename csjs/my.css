@@ -136,7 +136,7 @@
         --tpl-dark-900: #0F0F0F;
         --tpl-dark-800: #212121;
         --tpl-dark-700: #323232;
-        --tpl-dark-600: #656565;
+        --tpl-dark-600: #5c5c5c;
         --tpl-dark-500: #818181;
         --tpl-dark-400: #323232;
         --tpl-dark-300: #ddddd0;
@@ -6196,7 +6196,7 @@ height: 32px;background-size: contain;top:26px;}
  .ggh {width:32px; height:32px; background-color: var(--tpl-accent-blue-100);border-radius:8px;display: flex; justify-content: center; align-items: center; font-size: 16px;}
 
 
-:where(.info-box) .info-card-content {flex: 1;display:flex;flex-direction: column;line-height:1.7;color:var(--tpl-dark-400);}
+:where(.info-box) .info-card-content {flex: 1;display:flex;flex-direction: column;line-height:1.7;color:var(--tpl-dark-900);}
 .ttb {font-weight: 700;font-size:var(--tpl-font-size-medium-plus);}
 .ttb:hover {text-decoration:underline;}
 .info-card-desc p{margin-bottom:16px;}
