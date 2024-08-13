@@ -172,6 +172,46 @@ fill="currentColor"/>
 <!-- <body> -->
 
 
+
+
+
+
+
+
+	
+
+	<a href="#" class="signin1" onclick="showSignInPopup()">Sign In</a>
+
+<div id="signin-popup" style="display: none;">
+    <div class="popup-content">
+        <a href="#" onclick="signInWithGitHub()">Sign in with GitHub</a>
+        <!-- Можно добавить и другие способы аутентификации, например Google -->
+        <a href="#" onclick="closePopup()">Close</a>
+    </div>
+</div>
+
+<script>
+    function showSignInPopup() {
+        document.getElementById('signin-popup').style.display = 'block';
+    }
+
+    function closePopup() {
+        document.getElementById('signin-popup').style.display = 'none';
+    }
+
+    function signInWithGitHub() {
+        // Здесь делаем редирект на серверную функцию для авторизации через GitHub
+        window.location.href = 'https://your-serverless-function-url.com/auth/github';
+    }
+</script>
+
+
+
+
+
+
+	
+
 	
 <br><br>
 
