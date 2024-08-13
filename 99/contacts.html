@@ -179,6 +179,27 @@ fill="currentColor"/>
 Peace, goodness and good luck to everyone in our difficult but interesting work!!! Especially if you are QA...
 
 
+
+<script>
+  const token = localStorage.getItem('githubToken');
+
+  if (token) {
+    fetch('https://api.github.com/user', {
+      headers: {
+        Authorization: `token ${token}`
+      }
+    })
+    .then(response => response.json())
+    .then(user => {
+      const userIcon = `<img src="${user.avatar_url}" alt="${user.login}" class="user-icon">`;
+      document.querySelector('#user-profile').innerHTML = userIcon;
+    });
+  }
+</script>
+
+<div id="user-profile" style="position: absolute; top: 10px; right: 10px;"></div>
+
+	
   
 
 <!-- </body> -->
