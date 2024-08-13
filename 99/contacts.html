@@ -207,7 +207,7 @@ fill="currentColor"/>
 
 <script>
 if (localStorage.getItem('user')) {
-    // Заменяем "Sign In" на иконку пользователя
+    console.log('User data:', JSON.parse(localStorage.getItem('user')));
     document.querySelector('.signin1').innerHTML = '<img src="' + localStorage.getItem('user-avatar') + '" class="user-icon">';
 }
 </script>
