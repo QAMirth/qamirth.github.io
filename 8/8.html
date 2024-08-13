@@ -408,49 +408,42 @@ fill="currentColor"/>
 
 
 
+ <!-- Форма аутентификации -->
+    <div id="auth-form" style="display: none;">
+        <input type="password" id="auth-password" placeholder="Enter password">
+        <button id="auth-submit">Submit</button>
+    </div>
 
- <script>
-        // Функция для установки cookie
-        function setCookie(name, value, days) {
-            let expires = "";
-            if (days) {
-                let date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                expires = "; expires=" + date.toUTCString();
-            }
-            document.cookie = name + "=" + (value || "") + expires + "; path=/";
-        }
+    <script>
+        // Ваша пароля
+        const secretPassword = 'your-secret-password'; 
 
-        // Функция для получения cookie
-        function getCookie(name) {
-            let nameEQ = name + "=";
-            let ca = document.cookie.split(';');
-            for (let i = 0; i < ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-            }
-            return null;
-        }
-
-        // Функция для установки видимости кнопки
-        function showButtonForCreator() {
-            const creatorCookie = getCookie('creator');
-            if (creatorCookie === 'true') {
+        // Проверка аутентификации
+        function checkAuthentication() {
+            const storedPassword = localStorage.getItem('authPassword');
+            if (storedPassword === secretPassword) {
                 document.getElementById('add-material-btn').style.display = 'block';
+                document.getElementById('auth-form').style.display = 'none';
+            } else {
+                document.getElementById('auth-form').style.display = 'block';
             }
         }
 
-        // Установите cookie для себя
-        // В идеальном случае это должно быть сделано на сервере при авторизации
-        // Для тестирования установите cookie вручную:
-        setCookie('creator', 'true', 1);
+        // Обработка формы аутентификации
+        document.getElementById('auth-submit').addEventListener('click', function() {
+            const inputPassword = document.getElementById('auth-password').value;
+            if (inputPassword === secretPassword) {
+                localStorage.setItem('authPassword', inputPassword);
+                document.getElementById('add-material-btn').style.display = 'block';
+                document.getElementById('auth-form').style.display = 'none';
+            } else {
+                alert('Incorrect password');
+            }
+        });
 
-        // Покажите кнопку если cookie для создателя установлено
-        showButtonForCreator();
+        // Проверить аутентификацию при загрузке
+        checkAuthentication();
     </script>
-
-
 
 
 
