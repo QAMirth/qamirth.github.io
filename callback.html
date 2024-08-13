@@ -4,7 +4,7 @@
 
   if (code) {
     // Обмен кода на токен
-    fetch(`https://your-backend-server.com/oauth-callback?code=${code}`)
+    fetch(`https://servak-sigma.vercel.app/oauth-callback?code=${code}`)
       .then(response => response.json())
       .then(data => {
         // Сохранение токена и отображение информации о пользователе
@@ -13,3 +13,5 @@
       });
   }
 </script>
+
+
