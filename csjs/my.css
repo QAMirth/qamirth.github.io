@@ -470,7 +470,7 @@
 
 .hz {
      display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     gap: 0;
     width: 100%;
     max-width: calc(var(--tpl-max-layout-width) + (var(--tpl-spacing-l) * 2));
