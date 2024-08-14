@@ -408,44 +408,6 @@ fill="currentColor"/>
 
 
 
- <!-- Форма аутентификации -->
-    <div id="auth-form" style="display: none;">
-        <input type="password" id="auth-password" placeholder="Enter password">
-        <button id="auth-submit">Submit</button>
-    </div>
-
-    <script>
-        // Ваша пароля
-        const secretPassword = 'your-secret-password'; 
-
-        // Проверка аутентификации
-        function checkAuthentication() {
-            const storedPassword = localStorage.getItem('authPassword');
-            if (storedPassword === secretPassword) {
-                document.getElementById('add-material-btn').style.display = 'block';
-                document.getElementById('auth-form').style.display = 'none';
-            } else {
-                document.getElementById('auth-form').style.display = 'block';
-            }
-        }
-
-        // Обработка формы аутентификации
-        document.getElementById('auth-submit').addEventListener('click', function() {
-            const inputPassword = document.getElementById('auth-password').value;
-            if (inputPassword === secretPassword) {
-                localStorage.setItem('authPassword', inputPassword);
-                document.getElementById('add-material-btn').style.display = 'block';
-                document.getElementById('auth-form').style.display = 'none';
-            } else {
-                alert('Incorrect password');
-            }
-        });
-
-        // Проверить аутентификацию при загрузке
-        checkAuthentication();
-    </script>
-
-
 
 
 
