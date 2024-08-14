@@ -18,7 +18,7 @@
         margin: 0
     }
     
-    #add-material-btn{display:none}
+   #add-material-btn{display:block; position:absolute; right:40px;} 
 
     ul[role=list],ol[role=list] {
         list-style: none
