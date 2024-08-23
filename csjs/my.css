@@ -396,10 +396,11 @@
         }
 
         button,.button-link,.basketorder,.add-to-cart-link,.buy-box [id$=buynow],[type=button],[type=submit] {
-            background-color: var(--tpl-accent-blue);
+            background-color: transparent;
             color: var(--tpl-accent-white);
         }
         
+        #add-material-btn:hover{background-color: #f0f0f0;}
 
         .basketorder:hover,.button-link:hover,.add-to-cart-link:hover,button: hover,[type=button]:hover,[type=submit]:hover {
             background-color:var(--tpl-accent-blue-dark)
@@ -554,13 +555,9 @@ transition: background-color var(--tpl-transition);
 
 
 
-.uadm--fixed-body-top .header {
-    top: 30px
-}
 
-#uAdminBar.uadm:where(:not(.uadm--bottom):not(.uadm--fixed)),#uAdminBar.uadm:where(:not(.uadm--bottom):not(.uadm--fixed)) .uadm-collapse {
-    top: 70px
-}
+
+
 
 .footer {
     background-color: var(--tpl-dark-100);color:var(--tpl-dark-600);font-size:var(--tpl-font-size-small);
@@ -643,17 +640,6 @@ height: 32px;background-size: contain;top:26px;}
     height: 100%
 }
 
-:where(.header-cart) .header-cart-btn {
-    align-items: center;
-    appearance: none;
-    background-color: transparent;
-    border: 0;
-    color: var(--tpl-dark-900);
-    display: flex;
-    gap: var(--tpl-spacing-s);
-    height: 100%;
-    padding: 0
-}
 
 
 
@@ -791,111 +777,7 @@ height: 32px;background-size: contain;top:26px;}
 
 
 
-.basket-item-del.fa-spinner {
-    animation: spinner 1s linear infinite;
-    pointer-events: none
-}
 
-.basket-item-del.fa-spinner:before {
-    background-color: transparent;
-    border: 2px solid;
-    border-color: transparent transparent var(--tpl-dark-500) var(--tpl-dark-500);
-    width: 13px
-}
-
-.basket-item-del.fa-spinner:after {
-    visibility: hidden
-}
-
-.shop-more-scroll-close:before,.shop-more-scroll-close:after,.basket-item-del::before,.basket-item-del::after {
-    background-color: var(--tpl-dark-500);
-    border-radius: 10px;
-    content: '';
-    font-size: 0;
-    height: 13px;
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    transition: transform var(--tpl-transition);
-    width: 2px;
-    will-change: transform
-}
-
-
-.shop-more-scroll-close:before,.basket-item-del::before {
-    transform: translate(-50%,-50%) rotate(45deg)
-}
-
-.shop-more-scroll-close:after,.basket-item-del::after {
-    transform: translate(-50%,-50%) rotate(-45deg)
-}
-
-#shop-currency-select {
-    width: 100%;
-    max-width: 100%
-}
-
-.rate-list {
-    margin-top: var(--tpl-spacing-s)
-}
-
-.sidebar-block .catsTable:where(:not(table)) {
-    gap: var(--tpl-spacing-s)
-}
-
-.sidebar-block .catsTable tr+tr .catsTd {
-    padding-top: var(--tpl-spacing-s)
-}
-
-.sidebar-block .catsTable .catNumData,.sidebar-block .catsTable .catDescr {
-    color: var(--tpl-dark-500);
-    font-size: .9em
-}
-
-.module-shop .cat-blocks {
-    padding: 0
-}
-
-.module-shop .cat-blocks div {
-    color: var(--tpl-dark-800);
-    font-size: var(--tpl-font-size)!important;
-    margin-bottom: var(--tpl-spacing-s);
-    padding: 0!important;
-    position: relative
-}
-
-.module-shop .cat-blocks .forumDescr {
-    color: var(--tpl-dark-500)
-}
-
-.module-shop .cat-blocks div[onclick*=shopCatBlocks] {
-    padding-right: 14px!important
-}
-
-.module-shop .cat-blocks [onclick*=shopCatBlocks]:after,.module-shop .cat-blocks [onclick*=shopCatBlocks]:before {
-    background-color: var(--tpl-dark-500);
-    border-radius: 2px;
-    content: '';
-    height: 2px;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: transform var(--tpl-transition);
-    width: 14px;
-    will-change: transform
-}
-
-
-
-.module-shop .cat-blocks li {
-    margin-bottom: var(--tpl-spacing-s);
-    padding-inline:var(--tpl-spacing-l) 0}
-
-.module-shop .cat-blocks li>a {
-    color: var(--tpl-dark-600)
-}
 
 .social-list {
     --item-color: gray;
@@ -1175,94 +1057,6 @@ height: 32px;background-size: contain;top:26px;}
     margin-top: var(--tpl-spacing-l)
 }
 
-:where(.goods-box) .catalog-link {
-    background-color: var(--tpl-dark-100);
-    border-radius: 8px;
-    color: var(--tpl-dark-600);
-    display: block;
-    font: var(--tpl-font-text-sb1);
-    margin-top: 10px;
-    padding: 10px;
-    text-align: center
-}
-
-:where(.goods-box) .catalog-link:hover {
-    background-color: var(--tpl-dark-200);
-    transition: background-color var(--tpl-transition)
-}
-
-.reviews-box {
-    --swiper-pagination-bottom: calc(var(--pagi-size) * -1);
-    --pagi-size: 32px
-}
-
-.reviews-box:has(.swiper-pagination:where(:not(:empty))) {
-    padding-bottom: var(--pagi-size)
-}
-
-
-
-:where(.team-box) .teams-slider-container .swiper-button-lock {
-    display: none
-}
-
-:where(.team-box) .user-social {
-    align-items: center;
-    display: flex;
-    gap: var(--tpl-spacing-s);
-    justify-content: start
-}
-
-:where(.team-box) .team-member-info {
-    padding: 0 var(--tpl-spacing-l) var(--tpl-spacing-xl)
-}
-
-
-:where(.land-box) .land-box-text h2 {
-    margin: 0;
-    text-wrap: pretty
-}
-
-:where(.land-box) .land-box-photo {
-    display: flex;
-    flex: 0 1 min(380px,100%);
-    height: 380px;
-    width: min(380px,100%)
-}
-
-
-
-
-
-
-
-
-
-
-
-
-#ui-datepicker-div .ui-widget-header {
-    background: var(--tpl-accent-blue);
-    border-color: var(--tpl-accent-blue)
-}
-
-#ui-datepicker-div .ui-state-default,#ui-datepicker-div :is(.ui-widget-content,.ui-widget-header) .ui-state-default {
-    color: var(--tpl-accent-blue)
-}
-
-#ui-datepicker-div :is(.ui-state-highlight,.ui-state-hover),#ui-datepicker-div :is(.ui-widget-content,.ui-widget-header) .ui-state-highlight {
-    background: var(--tpl-accent-blue-light);
-    border-color: var(--tpl-dark-500)
-}
-
-:is(div,.ucf-bb):has(> span > .codeButtons) {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    font-size: 12px;
-    gap: 5px;
-    justify-content: start;
-    margin-block:0 var(--tpl-spacing-s)}
 
 : is(input[type=button],select).codeButtons {
     font-size:12px;
@@ -1340,9 +1134,7 @@ select.codeButtons {
     :where(.header) :where(.logo-link) {
         padding-block:14px 13px}
 
-    :where(.header .cart-text) {
-        display: inline
-    }
+   
 
     :where(.menubar,.main-menu-nav,.main-menu-container,.main-menu-scroll-area) {
         display: contents
@@ -1923,32 +1715,9 @@ select.codeButtons {
         margin: calc(var(--tpl-spacing-s)/ 2)
     }
 
-    :where(.product-page) :is(.product-about-block:has(+.product-about-block),.product-page-head) {
-        margin-bottom: var(--tpl-spacing-l)
-    }
+   
 
-    :where(.product-page) .product-header {
-        margin-block:var(--tpl-spacing-xl) var(--tpl-spacing-l)}
-
-    : where(.product-page) .product-main {
-        grid-template-areas:"g" "h" "a";
-        grid-template-columns: 1fr;
-        gap: 0;
-        margin-bottom: var(--tpl-spacing-l)
-    }
-
-    :where(.product-page) .product-gallery {
-        position: static
-    }
-
-    :where(.product-page) .gallery-main-slider img {
-        max-height: 382px
-    }
-
-    .info-box-slider-container .swiper-btn {
-        display: none
-    }
-
+   
     :where(.info-box) :is(.team-member-info,.review-author-info,.user-social) {
         margin-top: var(--tpl-spacing-l)
     }
@@ -2004,126 +1773,7 @@ select.codeButtons {
         grid-template-columns: 1fr
     }
 
-    .module-video #uEntriesList .uEntryWrap {
-        width: 50%!important
-    }
-
-    .module-forum :where(.fFastSearchTd,.fFastNavTd) {
-        justify-content: start
-    }
-
-    :where(.module-forum #frM53)>tbody>tr:where(:not(#frM54):not(#frM59):not(#frM56)) {
-        gap: var(--tpl-spacing-s);
-        grid-template-columns: 1fr
-    }
-
-    :where(.module-forum :where(.threadpage-posts-table,.forum-topics-table)) td:has( > .forum-title) {
-        flex-wrap: wrap-reverse
-    }
-
-    .module-forum .breadcrumbs {
-        max-width: 100%
-    }
-
-    .module-forum .pollResults :is(table,tbody,tr,td),:where(.module-forum .post-card) :is(.post-signature,.post-content-footer:has(.post-signature:first-child),.post-violations,.post-avatar-wrapper,.post-footer,.post-num-posts,.post-awards,.post-reputation,.post-status) {
-        display: none
-    }
-
-    :where(.module-forum) .post-card {
-        border: 0;
-        gap: 0;
-        grid-template-columns: 1fr
-    }
-
-    :where(.module-forum .post-card) .post-manage-bar {
-        align-items: center;
-        display: flex;
-        gap: var(--tpl-spacing-s);
-        margin-top: var(--tpl-spacing-s)
-    }
-
-    :where(.module-forum .post-card) .post-user-info {
-        border-radius: 0;
-        display: grid;
-        grid-template-areas: 'user-name user-rank' 'user-group user-curator' 'manage-bar manage-bar';
-        grid-template-columns: 2fr 1fr;
-        padding: var(--tpl-spacing-l);
-        text-align: left
-    }
-
-    :where(.module-forum .post-card) .post-curator {
-        text-align: right
-    }
-
-    :where(.module-forum .post-card) .post-rank-icon img {
-        display: block;
-        max-width: initial
-    }
-
-    :where(.module-forum .post-card) .post-rank-wrapper {
-        align-items: center;
-        display: flex;
-        gap: 5px;
-        justify-content: end
-    }
-
-    :where(.module-forum .post-card) .post-content-header {
-        border-bottom: var(--tpl-border-line);
-        font-size: var(--tpl-font-size);
-        margin-top: var(--tpl-spacing-m);
-        padding-bottom: var(--tpl-spacing-m)
-    }
-
-    :where(.module-forum .post-card) :is(.post-content-footer,.post-content-main) {
-        margin-block:var(--tpl-spacing-xl) 0}
-
-    .module-forum .recent-posts>.gTableTop {
-        padding: 0
-    }
-
-    .module-forum .recent-posts>.gTableTop,:where(.threadpage-posts-table) [class^=postRest] {
-        border: 0
-    }
-
-    :where(.module-shop :where(.add-layout,.edit-layout) .manTable)>tbody,:where(.module-shop :where(.add-layout,.edit-layout) .manTable)>tbody>tr,:where(.module-shop :where(.add-layout,.edit-layout) .manTable)>tbody>tr>td,:where(.module-shop :where(.add-layout,.edit-layout) .manTable) {
-        display: block;
-        width: auto
-    }
-
-    :where(.module-shop :where(.add-layout,.edit-layout) .manTable)>tbody {
-        margin-block:var(--tpl-spacing-l)}
-
-    : where(.module-shop :where(.add-layout,.edit-layout) .manTable)>#tb_hide {
-        margin-top:var(--tpl-spacing-xl)
-    }
-
-    :where(.module-shop :where(.add-layout,.edit-layout) .manTable) .manTd1 {
-        margin-bottom: var(--tpl-spacing-s)
-    }
-
-    :where(.module-shop :where(.add-layout,.edit-layout) .manTable) .manTd2 {
-        margin-bottom: var(--tpl-spacing-m)
-    }
-
-    :where(.module-shop :where(.add-layout,.edit-layout) .manTable) :is([name=price],[name=price_in],[name=price_old]) {
-        width: calc(100% - 28px)!important
-    }
-
-    :where(.module-shop :where(.add-layout,.edit-layout) .manTable) :is([name=unit],[name=weight]) {
-        width: 100%!important
-    }
-
-    :where(.module-shop :where(.userarea-layout,.usertrans-layout)) :is(#add-funds-form,#add-funds-param,#transactions_filters) select,:where(.module-shop :where(.add-layout,.edit-layout) .manTable) :is([name=cats_add],[name=cat_id],[name=type]) {
-        max-width: 100%;
-        width: 100%
-    }
-
-    :where(.module-shop :where(.add-layout,.edit-layout) .manTable) #shop-categories {
-        align-items: center;
-        display: flex;
-        gap: var(--tpl-spacing-s)
-    }
-
+    
     :where(.module-shop :where(.add-layout,.edit-layout)) .manTable :where(#tb_undisc,#tb_exclude_from_yml,tbody[id^=yml_]) tr {
         align-items: center;
         display: flex;
@@ -2131,87 +1781,8 @@ select.codeButtons {
         gap: var(--tpl-spacing-s);
         justify-content: start
     }
-
-    :where(.module-shop :where(.add-layout,.edit-layout)) .manTable :where(#tb_undisc,#tb_exclude_from_yml,tbody[id^=yml_]) :is(.manTd2,.manTd1) {
-        margin: 0
-    }
-
-    :where(.module-shop :where(.add-layout,.edit-layout)) #tb_possting:empty,:where(.module-shop :where(.add-layout,.edit-layout) .manTable) tr:has(#id_hide,#id_web_app) .manTd1 {
-        display: none
-    }
-
-    :where(.module-shop :where(.add-layout,.edit-layout)) .goodsform-actions {
-        bottom: -1px;
-        left: 0;
-        position: sticky
-    }
-
-    :where(.module-shop :where(.add-layout,.edit-layout)) .goodsform-actions.is-pinned {
-        background-color: var(--tpl-accent-white);
-        box-shadow: var(--tpl-panel-shadow);
-        margin-inline:calc(var(--tpl-spacing-l) * -1);padding: var(--tpl-spacing-xl);
-        z-index: 11
-    }
-
-    :where(.module-shop :where(.userarea-layout,.usertrans-layout)) :where(#transactions_filters,.user-balance-table) tr {
-        align-items: stretch;
-        flex-direction: column;
-        justify-content: start
-    }
-
-    :where(.module-shop) #transactions_filters td:has(.datepicker),:where(.module-shop) :is(#add-funds-form,#add-funds-param) {
-        align-items: stretch;
-        flex-direction: column;
-        text-align: left
-    }
-
-    :where(.module-shop :where(.userarea-layout)) .user-balance-table td {
-        text-align: left!important
-    }
-
-    :where(.module-shop :where(.userarea-layout)) #add-funds-wait {
-        display: block;
-        margin: 0 auto!important
-    }
-
-    :where(.module-shop .checkout-layout) :is(#total-sum,#total-sum#total-sum :is(tbody,tr,td)) {
-        border: 0;
-        display: block;
-        padding: 0
-    }
-
-    :where(.module-shop .checkout-layout) #total-sum#total-sum td {
-        margin-block:var(--tpl-spacing-m)}
-
-    : where(.module-shop) .checkout-layout #order-button {
-        text-align:center;
-        width: 100%
-    }
-
-    :where(.module-shop .order-layout) .order-fields .order-block-body {
-        grid-template-columns: 1fr
-    }
-
-    :where(.module-shop .order-layout) .order-fields .order-fname {
-        border: 0;
-        color: var(--tpl-dark-600);
-        padding-bottom: 6px
-    }
-
-    :where(.module-shop .order-layout) .order-fields .order-field {
-        padding-top: 0
-    }
-
-    :where(.module-shop) .products-box .goods-list {
-        display: grid!important;
-        gap: 8px!important;
-        grid-template-columns: 1fr 1fr!important
-    }
-
-    :where(.module-shop) .products-box .product-card .product-img-link {
-        height: 180px
-    }
 }
+   
 
 @media screen and (max-width: 480px) {
     :root {
@@ -2219,357 +1790,22 @@ select.codeButtons {
         --pht-img-width: 100%
     }
 
-    :where(.module-board) .layout .breadcrumbs-wrapper {
-        flex-wrap: wrap
-    }
-
-    .promo-card-img {
-        border-radius: 0
-    }
-
-    :is(#addPhtFrm,#addEntForm) .form-fields {
-        grid-template-columns: 1fr
-    }
-
-    :where(.entry-layout .entry-comments),:where(.entry-layout .entry-comments) :is(tbody,tr,td) {
-        display: block;
-        height: auto
-    }
-
-    :where(.commTable) .commTd2>select[name=subs] {
-        margin-left: 5px;
-        width: 200px
-    }
-
-    .uComForm .ucf-options {
-        float: none
-    }
-
-    .entry-layout .entry-comments .com-order-block {
-        text-align: left
-    }
-
-    :where(.entry-layout .entry-comments) .pagesBlock1 {
-        justify-content: start
-    }
-
-    :where(:is(.entry-layout,.vichnl_page-layout,.video_page-layout)) .entry-comments .com-order-block {
-        margin-top: var(--tpl-spacing-m);
-        text-align: left
-    }
-
-    :where(:is(.entry-layout,.vichnl_page-layout,.video_page-layout)) .entry-comments .com-order-block .com-order-wrap {
-        display: flex;
-        flex-direction: column;
-        gap: var(--tpl-spacing-s)
-    }
-
-    :where(:is(.entry-layout,.vichnl_page-layout,.video_page-layout) .entry-comments) a:has(> .user_avatar) {
-        display: none
-    }
-
-    :where(:is(.entry-layout,.vichnl_page-layout,.video_page-layout) .entry-comments) .cTop {
-        padding: 0
-    }
-
-    .layout .filters-wrapper {
-        align-items: stretch;
-        flex-direction: column
-    }
-
-    :is(#addPhtFrm,#addEntForm) .u-combo,:is(#addPhtFrm,#addEntForm) :is(.u-comboedit,.u-comboedit:hover) {
-        width: 100%
-    }
-
-    .layout #uEntriesList {
-        margin-bottom: var(--tpl-spacing-xl)
-    }
-
-    .module-photo #uEntriesList {
-        gap: var(--tpl-spacing-xl) var(--tpl-spacing-l)
-    }
-
-    .module-stuff #uEntriesList {
-        row-gap: var(--tpl-spacing-xl)
-    }
-
-    .module-stuff #uEntriesList .entryBlock {
-        margin: 0
-    }
-
-    .module-stuff #uEntriesList .uEntryWrap {
-        width: 50%!important
-    }
-
-    .module-video #uEntriesList .uEntryWrap {
-        width: 100%!important
-    }
-
-    .module-video .vcp-image {
-        float: none
-    }
-
-    .module-video .breadcrumbs-wrapper {
-        flex-wrap: wrap
-    }
-
-    .module-video .vep-title {
-        clear: both
-    }
-
-    :where(.module-gb) .csTop {
-        flex-direction: row
-    }
-
-    :where(.module-forum) .forum-title {
-        font: var(--tpl-font-header-3)
-    }
-
-    .module-forum .main-layout .forumContent>.gDivLeft {
-        margin-top: var(--tpl-spacing-xl)
-    }
-
-    :where(.module-shop .order-layout) .order-detail-desc tbody,.module-forum :where(.thread-split-fields,.forum-subs-topics-table,.forum-topics-table,.forum-section-table,.forum-search-table) tbody {
-        grid-template-columns: 1fr
-    }
-
-    :where(.module-forum :is(.forum-topics-table,.forum-section-table,.forum-subs-topics-table))>tbody>tr {
-        align-items: start
-    }
-
-    .module-forum .forum-search-table>tbody>tr:nth-child(2),.module-forum .forum-additional-info .gTableRight,.module-forum :where(.forum-topics-table,.forum-section-table,.forum-subs-topics-table) :where(.forum-cat-item-updates,.topic-item-updates,tr:has(.gTableSubTop)) {
-        display: none
-    }
-
-    :where(.module-forum :is(.forum-topics-table,.forum-cat-item,.forum-subs-topics-table)) :is(.topic-item-title,.forum-cat-item-title) {
-        color: var(--tpl-accent-blue);
-        font: var(--tpl-font-header-4)
-    }
-
-    :where(.module-forum :is(.forum-topics-table,.forum-cat-item,.forum-subs-topics-table)) :is(.forum-cat-item-desc,.sub-forums-wrapper,.topic-item-desc) {
-        margin-block:6px}
-
-    :where(.module-shop .order-layout) .order-field-edit select,.module-forum #thread_search_field,:where(.module-forum :is(#forum_filter_select,#filter_word,.forumModerFuncs .moderOptions)),:where(.module-forum :where(input[id^=fln])),:where(.module-forum) select.fastNav {
-        width: 100%
-    }
-
-    :where(.module-forum :where(.ThrForumBarRow1,.ThrBotRow3)),:where(.module-forum .forum-search-table :where(.forum-search-main,.forum-search-advanced )) .gTableBody1 {
-        align-items: stretch;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap
-    }
-
-    :where(.forum-legends-table)>tbody>tr,:where(.module-forum .FrmBotTbl) .FrmBotRow2 {
-        align-items: stretch;
-        flex-direction: column-reverse;
-        flex-wrap: nowrap
-    }
-
-    .layout .filters-wrapper select,:where(.thread-split-fields) :is(input,select),:where(.module-forum :where(.forumModerFuncs,.forum-search-advanced )) select {
-        max-width: 100%
-    }
-
-    :where(.module-forum .forum-search-table) .forum-search-main {
-        padding-top: 0
-    }
-
-    :where(.module-forum .forum-search-table) .forum-search-main .gTableBody1:before {
-        content: attr(data-title);
-        display: block;
-        margin-bottom: var(--tpl-spacing-xl)
-    }
-
-    .module-forum .ThrBotCl32 {
-        flex: 1
-    }
-
-    .module-forum .fastSearch[type=text] {
-        width: 100%!important
-    }
-
-    :where(.thread-split-fields) tbody tr {
-        gap: var(--tpl-spacing-m)
-    }
-
-    :where(.module-shop) .shop-sort-block,:where(.module-shop :where(.shop-sort-block)) :is(tbody,tr,td,.slist) {
-        display: block;
-        text-align: left
-    }
-
-    :where(.module-index .user-search-block) :is(.uSearchFl,.uSearchFlSbm,.allUsersBtn,a:has(> .allUsersBtn)),:where(.module-shop .order-layout) .order-detail-desc :is(select,input),:where(.module-shop .product-page) .shop-options-s,:where(.module-shop) :where(.flist) select {
-        max-width: 100%;
-        width: 100%
-    }
-
-    :where(.module-shop) :is(.slist),:where(.module-shop) :where(.flist) select {
-        margin-top: var(--tpl-spacing-s)
-    }
-
-    :where(.module-shop .entry-layout) .shop_spec :is(.shop_spec_bg1,.shop_spec_bg2,:where(.shop_spec_grp:has(.shop_spec_val))) {
-        align-items: stretch;
-        flex-direction: column;
-        gap: var(--tpl-spacing-s)
-    }
-
-    :where(.module-shop .order-layout) .order-summary .order__button,:where(.module-shop .entry-layout) .shop_spec .fstMultipleMode .fstControls {
-        width: 100%
-    }
-
-    :where(.module-shop) :is(.breadcrumbs-table,.breadcrumbs-table :is(tbody,td)) {
-        display: block
-    }
-
-    :where(.module-shop) .breadcrumbs-table>tbody>tr {
-        align-items: start;
-        display: flex;
-        flex-direction: column;
-        gap: var(--tpl-spacing-m)
-    }
-
-    :where(.module-shop) .breadcrumbs {
-        overflow-x: auto;
-        scrollbar-width: none;
-        white-space: nowrap;
-        width: 100%
-    }
-
-    :where(.module-shop .entry-layout) .shop-itempage-purchase {
-        align-items: stretch;
-        flex-direction: column;
-        text-align: left
-    }
-
-    :where(.module-shop :where(.entry-layout .options-box,.price-layout .shop-options)) .val {
-        align-items: start;
-        display: flex;
-        flex-direction: column;
-        margin-top: var(--tpl-spacing-s)
-    }
-
-    :where(.module-shop .price-layout) #shop-price-buttons.gTableTop {
-        align-items: stretch;
-        flex-direction: column;
-        left: 0;
-        max-width: 100%;
-        right: 0
-    }
-
-    :where(.module-shop .compare-layout) .tabs .shop-tabs {
-        flex-wrap: nowrap;
-        white-space: nowrap
-    }
-
-    :where(.module-shop .compare-layout) .tabs {
-        overflow-x: auto;
-        scrollbar-width: none;
-        position: relative
-    }
-
-    :where(.product-page .gallery-thumbs-slider-container) .swiper-btn {
-        display: none
-    }
-
-    :where(.module-gb .commTable) .commTd2 table>tbody>tr {
-        display: flex;
-        flex-direction: column;
-        gap: var(--tpl-spacing-m)
-    }
-
-    :where(.module-gb .commTable) .commTd2 table>tbody>tr td {
-        width: 100%
-    }
-
-    :where(.module-gb .commTable) .commTd2 table .smiles {
-        grid-template-columns: repeat(auto-fill,minmax(16px,1fr));
-        width: auto;
-        padding: 0;
-        justify-items: start
-    }
-
-    :where(.goods-box) .product-card .product-img-link {
-        height: 223px
-    }
-
-    :where(.team-box) .team-member {
-        max-width: 222px
-    }
-
-    :where(.land-box) .land-box-photo {
-        height: auto
-    }
-
-    :where(.module-index .userpm-layout) .userpm-messages-table td:nth-child(3) {
-        display: none
-    }
-
-    :where(.module-index .userpm-layout .userpm-messages-table) td:nth-child(2) a:first-child {
-        display: inline-block;
-        max-width: 150px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        vertical-align: middle;
-        white-space: nowrap
-    }
-
-    :where(.module-index .userpm-layout) .userpm-add-table .userpm-add-label {
-        color: var(--tpl-dark-600);
-        padding-bottom: var(--tpl-spacing-s);
-        width: 100%
-    }
-
-    :where(.module-index .userpm-layout) .userpm-add-table .userpm-add-actions {
-        align-items: center;
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--tpl-spacing-s)
-    }
-
-    :where(.module-index .userpm-layout .userpm-add-table) .userpm-add-actions #sbm {
-        margin: 0
-    }
-
-    :where(.module-index .userpm-layout) :where(.userpm-add-table,.userpm-add-table :where(tbody,tr,td) ) {
-        display: block;
-        text-align: left;
-        width: auto
-    }
-
-    :where(.module-index .userpm-layout) :where(.userpm-add-table tr:not(:last-child) td:not(:has(#eMessage))) {
-        padding: 0 0 var(--tpl-spacing-l) 0
-    }
+   
 }
+
+
+   
+    
+
+   
+   
 
 @media screen and (max-width: 375px) {
     .main-menu {
         --menu-w:268px
     }
 
-    .module-stuff #uEntriesList .uEntryWrap {
-        width: 100%!important
-    }
-
-    :where(.module-forum .forum-section-table) tr:has(.catLink) td>img {
-        display: none
-    }
-
-    :where(.module-forum .post-card) .post-user-info {
-        border-radius: 0;
-        display: grid;
-        grid-template-areas: 'user-name user-rank' 'user-group user-group' 'user-curator user-curator' 'manage-bar manage-bar';
-        grid-template-columns: 2fr 1fr;
-        justify-items: left;
-        padding: var(--tpl-spacing-l);
-        text-align: left
-    }
-
-    :where(.module-shop .invoices-layout #invoice-form > select) {
-        flex-basis: 100%
-    }
-
-    :where(.module-shop) .products-box .goods-list {
-        grid-template-columns: 1fr!important
-    }
+   
 }
 
 
