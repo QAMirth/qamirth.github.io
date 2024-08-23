@@ -811,7 +811,7 @@ height: 32px;background-size: contain;top:26px;}
 
    
 
-}
+
 
 :where(.stock-sets-table td:first-child,.setItem td:nth-child(2)) {
     text-align: left
