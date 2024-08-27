@@ -830,9 +830,12 @@
   position: absolute;
   left: var(--left-absolute);
   background-image: url(logo125-removebg.png);
-  width: 126px;
-  height: 32px;
+  width: 20%; /* Set a percentage width to make it responsive */
+  max-width: 126px; /* Ensure it doesn’t exceed its original size */
+  height: 36%;
   background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   top: 20px;
 }
 
@@ -1630,6 +1633,7 @@ select.codeButtons {
   .logo-link {
     position: absolute;
     left: var(--tpl-spacing-m) + var(--ph);
+    height: 50%;
   }
   .header-search-form {
     position: static;
