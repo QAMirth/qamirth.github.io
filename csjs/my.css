@@ -830,7 +830,7 @@
   position: absolute;
   left: var(--left-absolute);
   background-image: url(logo125-removebg.png);
-  width: 20%; /* Set a percentage width to make it responsive */
+  width: 24%; /* Set a percentage width to make it responsive */
   max-width: 126px; /* Ensure it doesn’t exceed its original size */
   height: 36%;
   background-size: contain;
