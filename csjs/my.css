@@ -676,7 +676,7 @@
 }
 
 .m221::before {
-   content: "hub";
+   content: "token";
 }
 
 .m222::before {
@@ -701,11 +701,23 @@
 }
 
 .m4::before {
-  content: "settings";
+  content: "manage_history";
+}
+
+.m44::before {
+  content: "foundation";
+}
+
+.m441::before {
+  content: "zoom_in";
+}
+
+.m442::before {
+  content: "mood_bad";
 }
 
 .menu-item-more-text::before {
-  content: "more_vert";
+  content: "read_more";
 }
 
 .addd::before {
