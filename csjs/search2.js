@@ -14,7 +14,7 @@ action="/99/search.html">
 <input type="hidden" name="t" value="0">
 <input
 class="header-search-input js-mb-search-input"
-placeholder="What are you looking for?"
+placeholder="Search"
 type="text"
 name="q"
 maxlength="30"
