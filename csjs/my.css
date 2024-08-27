@@ -647,8 +647,8 @@
 }
 
 .main-menu-nav ::before {
-  margin-right: 6px;
-  font-size: 16px;
+  margin-right: 4px;
+  font-size: 20px;
   vertical-align: middle;
   font-family: "Material Icons Outlined";
   font-weight: 300;
@@ -667,20 +667,37 @@
 }
 
 
-.m21::before {
-   content: "altitude";
+.m2::before {
+ content: "timeline";
 }
 
-.m2::before {
-background: url('altitude.svg'); 
-height: 16px; 
-width: 16px;  
-position: absolute;
+.m22::before {
+   content: "all_out";
+}
+
+.m221::before {
+   content: "hub";
+}
+
+.m222::before {
+   content: "select_all";
+}
+
+.m223::before {
+   content: "sentiment_very_satisfied";
 }
 
 
 .m3::before {
   content: "draw";
+}
+
+.m33::before {
+  content: "outbox";
+}
+
+.m331::before {
+  content: "inbox";
 }
 
 .m4::before {
