@@ -204,7 +204,7 @@
     --tpl-accent-blue-100: #e6f8ff;
     --tpl-accent-blue-light: #e6edff;
     --tpl-accent-white: #ffffff;
-    --tpl-accent-red: #d44c4c;
+    --tpl-accent-shadow: 0 1px 12px 0 rgba(92, 92, 92, 0.32);
     --tpl-accent-red-light: #f9e4e4;
     --tpl-accent-red-100: #eb5757;
 
@@ -624,10 +624,9 @@
   z-index: 999;
   border-bottom: 1px solid var(--tpl-dark-300);
   padding: 20px 0 12px var(--left-space);
-  /*! box-shadow: 0 1px 0px 0 rgba(50, 50, 50, 0.1); */
 }
 .header-scrolled{
- box-shadow:0 1px 12px 0 rgba(92, 92, 92, 0.32);
+ box-shadow: var(--tpl-accent-shadow);
 }
 
 .header-search-button {
