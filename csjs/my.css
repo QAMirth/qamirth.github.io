@@ -81,6 +81,12 @@
     box-shadow: 0 2px 5px 1px rgba(64, 60, 67, 0.16);
   }
 
+ .header-search-input:focus {
+   border: 1px solid var(--tpl-dark-200);
+   box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.16);
+    outline: none; 
+}
+
   .queryField {
     border: var(--tpl-border-line-100);
     line-height: 24px;
