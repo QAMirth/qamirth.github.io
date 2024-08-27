@@ -648,22 +648,39 @@
 
 .main-menu-nav ::before {
   margin-right: 6px;
-  font-size: 17px;
+  font-size: 16px;
   vertical-align: middle;
   font-family: "Material Icons Outlined";
   font-weight: 300;
 }
 
 .m1::before {
+  content: "description";
+}
+
+.m11::before {
   content: "content_paste_search";
 }
 
-.m2::before {
-  content: "explore";
+.m111::before {
+  content: "integration_instructions";
 }
 
+
+.m21::before {
+   content: "altitude";
+}
+
+.m2::before {
+background: url('altitude.svg'); 
+height: 16px; 
+width: 16px;  
+position: absolute;
+}
+
+
 .m3::before {
-  content: "design_services";
+  content: "draw";
 }
 
 .m4::before {
