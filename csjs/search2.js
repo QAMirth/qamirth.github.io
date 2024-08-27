@@ -9,7 +9,7 @@ document.write(`
 </button>
 <div id="header_mb_search_panel" class="header-search-panel">
 <div class="header-search-overlay js-header-search-overlay"></div>
-<form class="header-search-form" onsubmit="this.sfSbm.disabled=true" method="get"
+<form class="header-search-form" onsubmit="return validateSearch()" method="get"
 action="/99/search.html">
 <input type="hidden" name="t" value="0">
 <input
