@@ -720,6 +720,42 @@
   content: "read_more";
 }
 
+.m5::before {
+  content: "verified_user";
+}
+
+.m55::before {
+  content: "queue_play_next";
+}
+
+.m551::before {
+  content: "preview";
+}
+
+.m552::before {
+  content: "security";
+}
+
+.m81::before {
+  content: "precision_manufacturing";
+}
+
+.m82::before {
+  content: "phone_iphone";
+}
+
+.m83::before {
+  content: "receipt_long";
+}
+
+.m84::before {
+  content: "explore";
+}
+
+.m85::before {
+  content: "manage_accounts";
+}
+
 .addd::before {
   margin-right: 6px;
   font-size: 17px;
