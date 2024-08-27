@@ -759,7 +759,7 @@
 .header-container {
   align-items: stretch;
   display: flex;
-  gap: var(--tpl-spacing-l);
+  /* gap: var(--tpl-spacing-l); */
   justify-content: space-between;
   flex-direction: column-reverse;
 }
