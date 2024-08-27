@@ -1490,8 +1490,8 @@ select.codeButtons {
     left: var(--tpl-spacing-s);
     pointer-events: none;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+   /*! top: 50%; */
+    transform: translateY(-160%);
   }
 
   .main-menu li ul .menu-submenu-btn .menu-icon {
