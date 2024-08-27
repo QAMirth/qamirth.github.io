@@ -242,7 +242,7 @@ function validateSearch() {
         input.placeholder = "So what should we look for?";
         
         // Устанавливаем красный бордер и бокс-шэдоу
-        input.style.border = "1px solid red";
+        input.style.border = "Inherit";
         input.style.boxShadow = "0 0 8px rgba(255, 0, 0, 0.5)";
         
         // Предотвращаем отправку формы
