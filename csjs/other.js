@@ -232,7 +232,26 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-
+// Функция для валидации поля поиска
+function validateSearch() {
+    var input = document.querySelector('.header-search-input');
+    
+    // Проверяем, пусто ли поле
+    if (input.value.trim() === "") {
+        // Меняем плейсхолдер на новый текст
+        input.placeholder = "So what should we look for?";
+        
+        // Устанавливаем красный бордер и бокс-шэдоу
+        input.style.border = "1px solid red";
+        input.style.boxShadow = "0 0 8px rgba(255, 0, 0, 0.5)";
+        
+        // Предотвращаем отправку формы
+        return false;
+    }
+    
+    // Если поле не пустое, форма отправляется нормально
+    return true;
+}
 
  document.addEventListener("DOMContentLoaded", function() {
     const searchParams = new URLSearchParams(window.location.search);
