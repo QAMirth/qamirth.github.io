@@ -739,7 +739,7 @@
 .logo-link {
   position: absolute;
   left: var(--left-absolute);
-  background-image: url(logo125.png);
+  background-image: url(logo125-removebg);
   width: 126px;
   height: 32px;
   background-size: contain;
