@@ -170,89 +170,94 @@ fill="currentColor"/>
 
 
 <h1>Add tool form</h1>
-    <form id="contact-form" action="https://formspree.io/f/xzzpgpnl" method="POST">
-        <label for="user-email">Your Email:</label>
-        <input type="email" id="user-email" name="user-email" required><br>
-        <label for="title">Tool Name (for example Jira):</label>
-        <input type="text" id="title" name="title" required><br>
-        <label for="description">Description/ Full text of the description of the tool's functionality:</label>
-        <div id="description-container"></div><br>
-        <label for="format">Format:</label>
-         <select id="format" name="format" required>
-            <option value="target_blank" selected>Static Review</option>
-		 <option value="target_blank" selected>Static Analysis</option>
-		<option value="target_blank" selected>Black-box</option>
-		 <option value="target_blank" selected>White-box</option>
-		<option value="target_blank" selected>Unit</option>
-		 <option value="target_blank" selected>Integration</option>
-		<option value="target_blank" selected>System</option>
-		 <option value="target_blank" selected>End-to-end testing</option>
-		 <option value="target_blank" selected>Smoke</option>
-		<option value="target_blank" selected>Sanity</option>
-		 <option value="target_blank" selected>Regression</option>
-		<option value="target_blank" selected>Performance</option>
-		 <option value="target_blank" selected>UI/UX</option>
-		<option value="target_blank" selected>Security</option>
-		 <option value="target_blank" selected>Automated</option>
-		 <option value="target_blank" selected>Mobile testing</option>
-		 <option value="target_blank" selected>Test case based</option>
-		<option value="target_blank" selected>Exploratory</option>
-		 <option value="target_blank" selected>Ad hoc</option>
-        </select><br>
-        <label for="freepaid">Free/Paid:</label>
-         <select id="freepaid" name="freepaid" required>
-            <option value="target_blank" selected>Static Review</option>
-		 <option value="target_blank" selected>Static Analysis</option>
-		<option value="target_blank" selected>Black-box</option>
-		 <option value="target_blank" selected>White-box</option>
-		<option value="target_blank" selected>Unit</option>
-		 <option value="target_blank" selected>Integration</option>
-		<option value="target_blank" selected>System</option>
-		 <option value="target_blank" selected>End-to-end testing</option>
-		 <option value="target_blank" selected>Smoke</option>
-		<option value="target_blank" selected>Sanity</option>
-		 <option value="target_blank" selected>Regression</option>
-		<option value="target_blank" selected>Performance</option>
-		 <option value="target_blank" selected>UI/UX</option>
-		<option value="target_blank" selected>Security</option>
-		 <option value="target_blank" selected>Automated</option>
-		 <option value="target_blank" selected>Mobile testing</option>
-		 <option value="target_blank" selected>Test case based</option>
-		<option value="target_blank" selected>Exploratory</option>
-		 <option value="target_blank" selected>Ad hoc</option>
-        </select><br>
-        <label for="image">Tool logo image URL:</label>
-        <input type="text" id="image" name="image" required><br>
-        <label for="link">Link on the tool's web-site:</label>
-        <input type="text" id="link" name="link" required><br>
-	<label for="link-type">Type of testing:</label>
-        <select id="link-type" name="testing-type" required>
-            <option value="target_blank" selected>Static Review</option>
-		 <option value="target_blank" selected>Static Analysis</option>
-		<option value="target_blank" selected>Black-box</option>
-		 <option value="target_blank" selected>White-box</option>
-		<option value="target_blank" selected>Unit</option>
-		 <option value="target_blank" selected>Integration</option>
-		<option value="target_blank" selected>System</option>
-		 <option value="target_blank" selected>End-to-end testing</option>
-		 <option value="target_blank" selected>Smoke</option>
-		<option value="target_blank" selected>Sanity</option>
-		 <option value="target_blank" selected>Regression</option>
-		<option value="target_blank" selected>Performance</option>
-		 <option value="target_blank" selected>UI/UX</option>
-		<option value="target_blank" selected>Security</option>
-		 <option value="target_blank" selected>Automated</option>
-		 <option value="target_blank" selected>Mobile testing</option>
-		 <option value="target_blank" selected>Test case based</option>
-		<option value="target_blank" selected>Exploratory</option>
-		 <option value="target_blank" selected>Ad hoc</option>
-        </select><br>
-        <label for="link-type">Link Type:</label>
-        <select id="link-type" name="link-type">
-            <option value="target_blank" selected>Open in New Tab</option>
-        </select><br>
-        <input type="submit" value="Submit">
-    </form>
+ <div class="form-container">
+        <form id="contact-form" action="https://formspree.io/f/xzzpgpnl" method="POST">
+            <div class="form-group">
+                <label for="user-email">Your Email:</label>
+                <input type="email" id="user-email" name="user-email" required>
+            </div>
+            <div class="form-group">
+                <label for="title">Tool Name:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <div id="description-container"></div>
+            </div>
+            <div class="form-group">
+                <label for="format">Format:</label>
+                <select id="format" name="format" required>
+                    <option value="target_blank">Static Review</option>
+                    <option value="target_blank">Static Analysis</option>
+                    <option value="target_blank">Black-box</option>
+                    <option value="target_blank">White-box</option>
+                    <option value="target_blank">Unit</option>
+                    <option value="target_blank">Integration</option>
+                    <option value="target_blank">System</option>
+                    <option value="target_blank">End-to-end testing</option>
+                    <option value="target_blank">Smoke</option>
+                    <option value="target_blank">Sanity</option>
+                    <option value="target_blank">Regression</option>
+                    <option value="target_blank">Performance</option>
+                    <option value="target_blank">UI/UX</option>
+                    <option value="target_blank">Security</option>
+                    <option value="target_blank">Automated</option>
+                    <option value="target_blank">Mobile testing</option>
+                    <option value="target_blank">Test case based</option>
+                    <option value="target_blank">Exploratory</option>
+                    <option value="target_blank">Ad hoc</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="freepaid">Free/Paid:</label>
+                <select id="freepaid" name="freepaid" required>
+                    <option value="free">Free</option>
+                    <option value="paid">Paid</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="image">Tool logo image URL:</label>
+                <input type="text" id="image" name="image" required>
+            </div>
+            <div class="form-group">
+                <label for="link">Link on the tool's web-site:</label>
+                <input type="text" id="link" name="link" required>
+            </div>
+            <div class="form-group">
+                <label for="testing-type">Type of testing:</label>
+                <select id="testing-type" name="testing-type" required>
+                    <option value="Static Review">Static Review</option>
+                    <option value="Static Analysis">Static Analysis</option>
+                    <option value="Black-box">Black-box</option>
+                    <option value="White-box">White-box</option>
+                    <option value="Unit">Unit</option>
+                    <option value="Integration">Integration</option>
+                    <option value="System">System</option>
+                    <option value="End-to-end testing">End-to-end testing</option>
+                    <option value="Smoke">Smoke</option>
+                    <option value="Sanity">Sanity</option>
+                    <option value="Regression">Regression</option>
+                    <option value="Performance">Performance</option>
+                    <option value="UI/UX">UI/UX</option>
+                    <option value="Security">Security</option>
+                    <option value="Automated">Automated</option>
+                    <option value="Mobile testing">Mobile testing</option>
+                    <option value="Test case based">Test case based</option>
+                    <option value="Exploratory">Exploratory</option>
+                    <option value="Ad hoc">Ad hoc</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="link-type">Link Type:</label>
+                <select id="link-type" name="link-type">
+                    <option value="target_blank">Open in New Tab</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
 
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script>
