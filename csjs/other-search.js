@@ -293,7 +293,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (mergedResults) {
                     searchResultsContainer.innerHTML = mergedResults;
                 } else {
-                    searchResultsContainer.innerHTML = 'No results found.';
+                    searchResultsContainer.innerHTML = 'No results';
                 }
             })
             .catch(error => {
