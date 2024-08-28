@@ -50,10 +50,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const description = quill.root.innerHTML; // Получение контента из Quill
         const format = document.getElementById('format').value;
         const freepaid = document.getElementById('freepaid').value;
-        const image = document.getElementById('image').value;
+let image = document.getElementById('image').value; // (Я ТУТ ДОБАВИЛ В КОД) Заменил const на let для возможности изменения значения
         const link = document.getElementById('link').value;
         const linkType = document.getElementById('link-type').value;
 
+ // (Я ТУТ ДОБАВИЛ В КОД) Проверка на пустой путь к изображению
+        if (!image) {
+            image = 'csjs/mirth.png'; // (Я ТУТ ДОБАВИЛ В КОД) Автоматически добавляем путь csjs/mirth.png
+        }
+        
         const newMaterial = createMaterialElement({
             title, description, format, freepaid, image, link, linkType
         });
@@ -166,6 +171,11 @@ document.addEventListener('DOMContentLoaded', function() {
             material.link = document.getElementById('link').value;
             material.linkType = document.getElementById('link-type').value;
 
+  // (Я ТУТ ДОБАВИЛ В КОД) Проверка на пустой путь к изображению в режиме редактирования
+            if (!material.image) {
+                material.image = 'csjs/mirth.png'; // (Я ТУТ ДОБАВИЛ В КОД) Автоматически добавляем путь csjs/mirth.png
+            }
+            
             materialElement.innerHTML = `
                 <div class="info-card-label">
                     <a href="${material.link}" class="ttc" target="${material.linkType === 'target_blank' ? '_blank' : ''}" rel="${material.linkType === 'target_blank' ? 'nofollow' : ''}">
