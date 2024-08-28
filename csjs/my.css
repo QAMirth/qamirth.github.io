@@ -254,6 +254,7 @@
 
   .hz h1 {
     font: var(--tpl-font-header-1);
+   color: var(--tpl-dark-400);
     font-weight: 400;
     margin: 0;
     background: var(--tpl-accent-white);
