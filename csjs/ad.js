@@ -18,7 +18,7 @@ document.write(`
             <label for="freepaid">Free/Paid:</label>
             <input type="text" id="freepaid" name="freepaid" required><br>
             <label for="image">Image URL:</label>
-            <input type="text" id="image" name="image" required><br>
+            <input type="text" id="image" name="image"><br>
             <label for="link">Link:</label>
             <input type="text" id="link" name="link" required><br>
             <label for="link-type">Link Type:</label>
