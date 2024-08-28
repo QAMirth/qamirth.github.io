@@ -56,7 +56,7 @@ let image = document.getElementById('image').value; // (Я ТУТ ДОБАВИЛ
 
  // (Я ТУТ ДОБАВИЛ В КОД) Проверка на пустой путь к изображению
         if (!image) {
-            image = 'csjs/mirth.png'; // (Я ТУТ ДОБАВИЛ В КОД) Автоматически добавляем путь csjs/mirth.png
+            image = '../csjs/mirth.png'; // (Я ТУТ ДОБАВИЛ В КОД) Автоматически добавляем путь csjs/mirth.png
         }
         
         const newMaterial = createMaterialElement({
@@ -173,7 +173,7 @@ let image = document.getElementById('image').value; // (Я ТУТ ДОБАВИЛ
 
   // (Я ТУТ ДОБАВИЛ В КОД) Проверка на пустой путь к изображению в режиме редактирования
             if (!material.image) {
-                material.image = 'csjs/mirth.png'; // (Я ТУТ ДОБАВИЛ В КОД) Автоматически добавляем путь csjs/mirth.png
+                material.image = '../csjs/mirth.png'; // (Я ТУТ ДОБАВИЛ В КОД) Автоматически добавляем путь csjs/mirth.png
             }
             
             materialElement.innerHTML = `
