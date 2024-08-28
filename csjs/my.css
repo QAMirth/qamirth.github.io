@@ -501,7 +501,7 @@
     .buy-box [id$="buynow"],
     [type="button"],
     [type="submit"] {
-      background-color: var(--tpl-accent-blue);
+      background: var(--tpl-accent-blue);
       color: var(--tpl-accent-white);
     }
 
