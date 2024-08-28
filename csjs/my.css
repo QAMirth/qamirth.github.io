@@ -1128,7 +1128,7 @@
   font-size: var(--tpl-font-size-medium-plus);
 }
 .ttb:hover {
-  text-decoration: underline;
+  text-decoration: underline 2px solid;
 }
 .info-card-desc p {
   margin-bottom: 0px;
