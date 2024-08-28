@@ -249,6 +249,11 @@ function validateSearch() {
     // Если поле не пустое, форма отправляется нормально
     return true;
 }
+document.querySelectorAll('form').forEach(form => {
+    if (form.id !== 'main-search-form') {  // Пропустить форму на главной странице
+        form.onsubmit = validateSearch;
+    }
+});
 
  document.addEventListener("DOMContentLoaded", function() {
     const searchParams = new URLSearchParams(window.location.search);
