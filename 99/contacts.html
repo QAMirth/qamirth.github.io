@@ -186,134 +186,17 @@ fill="currentColor"/>
 
 	
 
-	<a href="#" class="signin1" onclick="showSignInPopup()">Sign In</a>
 
-<div id="signin-popup" style="display: none;">
-    <div class="popup-content">
-        <a href="#" onclick="signInWithGitHub()">Sign in with GitHub</a>
-        <!-- Можно добавить и другие способы аутентификации, например Google -->
-        <a href="#" onclick="closePopup()">Close</a>
-    </div>
-</div>
-
-<script>
-    function showSignInPopup() {
-        document.getElementById('signin-popup').style.display = 'block';
-    }
-
-    function closePopup() {
-        document.getElementById('signin-popup').style.display = 'none';
-    }
-
-    function signInWithGitHub() {
-        // Здесь делаем редирект на серверную функцию для авторизации через GitHub
-        window.location.href = 'https://s1-git-main-eugeniys-projects.vercel.app/api/github-oauth';
-    }
-</script>
-
-<script>
-if (localStorage.getItem('user')) {
-    console.log('User data:', JSON.parse(localStorage.getItem('user')));
-    document.querySelector('.signin1').innerHTML = '<img src="' + localStorage.getItem('user-avatar') + '" class="user-icon">';
-}
-</script>
-
-
-
-	
-
-	
-<br><br>
-
-	Author email is katzeniy008@gmail.com, Telegram: https://t.me/katzeniy. If you have any suggestions or comments, you can write to the contacts mentioned above. <br>
+<center>
+Author email is katzeniy008@gmail.com<br>
+Telegram: https://t.me/katzeniy<br>
+	<br>
+If you have any suggestions or comments, you can write to the contacts mentioned above. <br>
 Peace, goodness and good luck to everyone in our difficult but interesting work!!! Especially if you are QA...
-
-
-
-<script>
-  const token = localStorage.getItem('githubToken');
-
-  if (token) {
-    fetch('https://api.github.com/user', {
-      headers: {
-        Authorization: `token ${token}`
-      }
-    })
-    .then(response => response.json())
-    .then(user => {
-      const userIcon = `<img src="${user.avatar_url}" alt="${user.login}" class="user-icon">`;
-      document.querySelector('#user-profile').innerHTML = userIcon;
-    });
-  }
-</script>
-
-<div id="user-profile" style="position: absolute; top: 10px; right: 10px;"></div>
-
 	
+</center>
 
 
-
-
-
-
-
-
-
-
-
-----------------------
-
-
-	<a href="#" class="addd1" onclick="showAddMaterialForm()">Add</a>
-
-<div id="add-material-popup" style="display: none;">
-    <div class="popup-content">
-        <form id="add-material-form">
-            <!-- Поля формы для добавления нового материала -->
-            <input type="text" id="material-title" placeholder="Title">
-            <input type="text" id="material-url" placeholder="URL">
-            <input type="text" id="material-image" placeholder="Image URL">
-            <!-- Добавьте другие поля, если необходимо -->
-            <button type="submit">Add Material</button>
-        </form>
-        <a href="#" onclick="closeAddMaterialPopup()">Close</a>
-    </div>
-</div>
-
-<script>
-    function showAddMaterialForm() {
-        document.getElementById('add-material-popup').style.display = 'block';
-    }
-
-    function closeAddMaterialPopup() {
-        document.getElementById('add-material-popup').style.display = 'none';
-    }
-
-    document.getElementById('add-material-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        // Логика для добавления материала на сервер или в локальное хранилище
-    });
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
 
 <!-- </body> -->
 </div>
