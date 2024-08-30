@@ -178,8 +178,17 @@ flex-direction:row;
  .queryField{line-height:1;height:32px;border: 1px solid #8f8f9d;}
 .schBtn input{line-height: 1;border-radius:4px;margin-left:2px;height:32px; background:#e9e9ed;border:1px solid #8f8f9d;color:#222;font-size:12px;font-weight:400;vertical-align:middle}
 
-
-    
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+  
 </style>
 
 	
@@ -278,7 +287,7 @@ The corner of the lonely QA Engineer, where the resources and tools interesting 
     <div class="searchForm2">
         <form method="get" style="margin:0" action="99/search.html" id="main-search-form">
             <div align="center" class="schQuery">
-                <label for="queryField">Search:</label>
+                <label for="queryField" class="visually-hidden">Search:</label>
                 <input type="text" id="queryField" name="q" maxlength="30" size="20" class="queryField"/>
             </div>
             <div align="center" class="schBtn">
