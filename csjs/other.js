@@ -264,12 +264,11 @@ document.querySelectorAll('form').forEach(form => {
     if (query) {
       searchResultsContainer.innerHTML = "Searching...";
       
-      // Массив страниц для поиска
-      const pages = [
-        '/8/8.html',
-        '/1/11.html',
-        // добавьте все ваши страницы сюда
-      ];
+      // Загрузка списка страниц из JSON файла
+        fetch('../csjs/pages.json')
+            .then(response => response.json())
+            .then(data => {
+            const pages = data.pages;
 
       // Функция для поиска на всех страницах
       function performSearchOnPage(pageUrl) {
