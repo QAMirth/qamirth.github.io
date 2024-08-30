@@ -257,11 +257,13 @@ document.addEventListener("DOMContentLoaded", function() {
     if (query && query.trim() !== "") {
         searchResultsContainer.innerHTML = "Searching...";
 
-        const pages = [
-            '/8/8.html',
-            '/1/11.html',
-            // добавьте все ваши страницы сюда
-        ];
+        // Загрузка списка страниц из JSON файла
+        fetch('../csjs/pages.json')
+            .then(response => response.json())
+            .then(data => {
+            const pages = data.pages;
+
+                
 
         function performSearchOnPage(pageUrl) {
             return fetch(pageUrl)
