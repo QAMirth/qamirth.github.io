@@ -504,7 +504,9 @@
       background: var(--tpl-accent-blue);
       color: var(--tpl-accent-white);
     }
-
+ #add-material-btn{
+      background-color: #fff;
+    }
     #add-material-btn:hover {
       background-color: #f0f0f0;
     }
