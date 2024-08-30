@@ -1,4 +1,4 @@
-document.addEventListener('scroll', function() {
+﻿document.addEventListener('scroll', function() {
     const header = document.getElementById('header');
     if (window.scrollY > 0) {
         header.classList.add('header-scrolled');
@@ -77,7 +77,7 @@ let image = document.getElementById('image').value; // (Я ТУТ ДОБАВИЛ
         newMaterial.innerHTML = `
             <div class="info-card-label">
                 <a href="${material.link}" class="ttc" target="${material.linkType === 'target_blank' ? '_blank' : ''}" rel="${material.linkType === 'target_blank' ? 'nofollow' : ''}">
-                    <img src="${material.image}" alt="#" class="ggh">
+                    <img src="${material.image}" alt="#" class="ggh"/>
                 </a>
             </div>
             <div class="info-card-content">
@@ -179,7 +179,7 @@ let image = document.getElementById('image').value; // (Я ТУТ ДОБАВИЛ
             materialElement.innerHTML = `
                 <div class="info-card-label">
                     <a href="${material.link}" class="ttc" target="${material.linkType === 'target_blank' ? '_blank' : ''}" rel="${material.linkType === 'target_blank' ? 'nofollow' : ''}">
-                        <img src="${material.image}" alt="#" class="ggh">
+                        <img src="${material.image}" alt="#" class="ggh"/>
                     </a>
                 </div>
                 <div class="info-card-content">
