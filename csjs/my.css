@@ -1547,7 +1547,7 @@ select.codeButtons {
     opacity: 0;
     position: absolute;
     /*! right: 0; */
-    top: calc(50% + (1em * 1.4) / 2 + 15px);
+    top: calc(100% + (1em * 1.4) / 2);
     transition: 0.5s ease-in-out 0s;
     visibility: hidden;
     z-index: 22000;
@@ -2210,7 +2210,7 @@ select.codeButtons {
 
 #sizeOptions {
     position: absolute;
-    top: calc(50% + (1em * 1.4) / 2 + 15px);
+    top: calc(100% + (1em * 1.4) / 2);
     left: 0;
     background-color: transparent;
     border-radius: 8px;
