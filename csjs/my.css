@@ -771,11 +771,11 @@
 }
 
 .addd::before {
-  margin-right: 6px;
-  font-size: 17px;
+  margin-right: 4px;
+  font-size: var(--tpl-font-size);
   vertical-align: middle;
   font-family: "Material Icons Outlined";
-  font-weight: 300;
+  font-weight: 700;
 }
 .addd::before {
   content: "add";
@@ -1376,21 +1376,24 @@ select.codeButtons {
   }
 
   .header-auth-block {
+    display: flex;
+    position: absolute;
+    gap: var(--tpl-spacing-s);
+    right: var(
+      --tpl-spacing-2xl);
+    align-items: center;
+  }
+  
+   .addd {
     color: var(--tpl-accent-blue);
     border: 1px solid var(--tpl-accent-blue);
-    padding: 8px 20px 8px 16px;
+    padding: 2px 16px 2px 8px;
     border-radius: 99px;
     align-items: center;
-    display: flex;
-    gap: var(--tpl-spacing-s);
-    /*! height: 100%; */
-    position: absolute;
-    right: var(
-      --tpl-spacing-2xl
-    ); /*! left:calc(var(--tpl-max-layout-width) + var(--left-space) - 68px); */
-  }
+     margin-top:0px;
+    }
 
-  .header-auth-block:hover {
+  .addd:hover {
     background-color: var(--tpl-accent-blue-100);
   }
 
@@ -2191,4 +2194,33 @@ select.codeButtons {
   direction: ltr;
   -moz-font-feature-settings: "liga";
   -moz-osx-font-smoothing: grayscale;
+}
+
+#sizeOptions {
+    position: absolute;
+    top: 100%; /* Позиционирует список сразу под кнопкой */
+    left: 0;
+    background-color: white; /* Задаем фон для списка */
+    border: 1px solid #ccc; /* Легкая рамка */
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0;
+    margin: 0;
+    display: none; /* Изначально скрыт */
+}
+
+#sizeOptions li {
+    margin: 0;
+}
+
+#sizeOptions button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+}
+
+#sizeOptions button:hover {
+    background-color: #f0f0f0; /* Подсветка при наведении */
 }
