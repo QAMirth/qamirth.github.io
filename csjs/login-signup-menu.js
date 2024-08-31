@@ -1,4 +1,3 @@
-
 document.write(`
 <div id="textSizeFilter" style="position: relative;">
     <button id="eyeButton" style="font-size: 24px;">👁</button>
