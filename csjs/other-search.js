@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 // HERE 4: Выполнение поиска по всем страницам после загрузки списка
                 Promise.all(pages.map(performSearchOnPage))
                     .then(results => {
-                        const mergedResults = results.join('');
+                       const mergedResults = mergeAndRemoveDuplicates(results);
                         if (mergedResults) {
                             searchResultsContainer.innerHTML = mergedResults;
                         } else {
