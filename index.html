@@ -115,67 +115,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-	<script>
-		// Функция для установки размера текста
-function setTextSize(size) {
-    let fontSize, linkSize;
-    switch(size) {
-        case 'small':
-            fontSize = '0.875em';
-            linkSize = '0.875em';
-            break;
-        case 'normal':
-            fontSize = '1em';
-            linkSize = '1em';
-            break;
-        case 'large':
-            fontSize = '1.5em';
-            linkSize = '1.5em';
-            break;
-        default:
-            fontSize = '1em';
-            linkSize = '1em';
-    }
-    document.body.style.fontSize = fontSize;
-    let links = document.querySelectorAll('a');
-    links.forEach(link => link.style.fontSize = linkSize);
-
-    // Сохраняем размер текста в cookies
-    document.cookie = `textSize=${size}; path=/; max-age=31536000;`; // сохраняем на 1 год
-}
-
-// Функция для получения значения cookies
-function getCookie(name) {
-    let matches = document.cookie.match(new RegExp(
-        "(?:^|; )" + name.replace(/([.$?*|{}()\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-    ));
-    return matches ? decodeURIComponent(matches[1]) : undefined;
-}
-
-// Инициализация настройки при загрузке страницы
-document.addEventListener('DOMContentLoaded', () => {
-    let savedSize = getCookie('textSize');
-    if (savedSize) {
-        setTextSize(savedSize);
-    }
-
-    // Отображение и скрытие списка опций
-    document.getElementById('eyeButton').addEventListener('click', () => {
-        let sizeOptions = document.getElementById('sizeOptions');
-        sizeOptions.style.display = sizeOptions.style.display === 'none' ? 'block' : 'none';
-    });
-
-    // Изменение размера текста при выборе опции
-    let buttons = document.querySelectorAll('#sizeOptions button');
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            let size = button.getAttribute('data-size');
-            setTextSize(size);
-            document.getElementById('sizeOptions').style.display = 'none';
-        });
-    });
-});
-	</script>
+	
 
 
 <style type="text/css">
