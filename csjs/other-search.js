@@ -1,3 +1,4 @@
+
 // Функция для валидации поля поиска
 function validateSearch() {
     var input = document.querySelector('.header-search-input');
@@ -23,13 +24,11 @@ document.addEventListener("DOMContentLoaded", function() {
     if (query && query.trim() !== "") {
         searchResultsContainer.innerHTML = "Searching...";
 
-        // Загрузка списка страниц из JSON файла
-        fetch('../csjs/pages.json')
-            .then(response => response.json())
-            .then(data => {
-            const pages = data.pages;
-
-                
+        const pages = [
+            '/8/8.html',
+            '/1/11.html',
+            // добавьте все ваши страницы сюда
+        ];
 
         function performSearchOnPage(pageUrl) {
             return fetch(pageUrl)
@@ -42,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     infoCards.forEach(card => {
                         if (card.innerText.toLowerCase().includes(query.toLowerCase())) {
-                            const link = `<a href="${pageUrl}" class="sltyt" aria-label="#Link"></a>`;
+                            const link = `<a href="${pageUrl}" class="sltyt"></a>`;
                             const bl3Element = card.querySelector('.info-card-format .bl3');
                             if (bl3Element) {
                                 bl3Element.insertAdjacentHTML('beforebegin', link);
