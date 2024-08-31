@@ -62,11 +62,12 @@ document.querySelectorAll('form').forEach(form => {
     if (query) {
       searchResultsContainer.innerHTML = "Searching...";
       
-      // Загрузка списка страниц из JSON файла
-        fetch('../csjs/pages.json')
-            .then(response => response.json())
-            .then(data => {
-            const pages = data.pages;
+      // Массив страниц для поиска
+      const pages = [
+        '/8/8.html',
+        '/1/11.html',
+        // добавьте все ваши страницы сюда
+      ];
 
       // Функция для поиска на всех страницах
       function performSearchOnPage(pageUrl) {
@@ -81,7 +82,7 @@ document.querySelectorAll('form').forEach(form => {
             infoCards.forEach(card => {
               if (card.innerText.toLowerCase().includes(query.toLowerCase())) {
                 // Добавление ссылки на оригинальную страницу
-               const link = <a href="${pageUrl}" class="sltyt"></a>;
+               const link = `<a href="${pageUrl}" class="sltyt"></a>`;
             // ТУТ ПОМЕНЯЙ
             const bl3Element = card.querySelector('.info-card-format .bl3');
             if (bl3Element) {
