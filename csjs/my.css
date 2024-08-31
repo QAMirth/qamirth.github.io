@@ -2210,14 +2210,15 @@ select.codeButtons {
 
 #sizeOptions {
     position: absolute;
-    top: 100%; /* Позиционирует список сразу под кнопкой */
+    top: calc(50% + (1em * 1.4) / 2 + 15px);
     left: 0;
-    background-color: white; /* Задаем фон для списка */
-    border: 1px solid #ccc; /* Легкая рамка */
-    list-style: none; /* Убираем маркеры списка */
+    background-color: transparent;
+    border-radius: 8px;
+    box-shadow: var(--tpl-panel-shadow);
+    list-style: none; 
     padding: 0;
     margin: 0;
-    display: none; /* Изначально скрыт */
+    display: none; 
 }
 
 #sizeOptions li {
@@ -2225,14 +2226,17 @@ select.codeButtons {
 }
 
 #sizeOptions button {
+    color: var(--menuha);
+    font-size: var(--tpl-font-size-small);
     width: 100%;
-    padding: 10px;
+    padding: var(--tpl-spacing-m) var(--tpl-spacing-l);
     border: none;
     background: none;
     text-align: left;
     cursor: pointer;
+    border-radius:0;
 }
 
 #sizeOptions button:hover {
-    background-color: #f0f0f0; /* Подсветка при наведении */
+    background-color: var(--tpl-accent-blue-100); 
 }
