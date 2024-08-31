@@ -1,5 +1,5 @@
 document.write(`
- <button id="eyeButton">👁</button>
+ <button id="eyeButton" aria-label="Visibility"></button>
     <ul id="sizeOptions" style="display: none;">
         <li><button data-size="small">Small</button></li>
         <li><button data-size="normal">Normal</button></li>
