@@ -20,7 +20,7 @@ name="q"
 maxlength="30"
 size="20"
 autocomplete="off">
-<button class="header-search-button" type="submit"></button>
+<button class="header-search-button" type="submit" aria-label="Look"></button>
 </form>
 </div>
 </div>
