@@ -242,7 +242,6 @@ function validateSearch() {
         // Меняем плейсхолдер на новый текст
         input.placeholder = "So what should we look for?";
         
-        
         // Предотвращаем отправку формы
         return false;
     }
@@ -250,66 +249,73 @@ function validateSearch() {
     // Если поле не пустое, форма отправляется нормально
     return true;
 }
+
 document.querySelectorAll('form').forEach(form => {
     if (form.id !== 'main-search-form') {  // Пропустить форму на главной странице
         form.onsubmit = validateSearch;
     }
 });
 
- document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
     const searchParams = new URLSearchParams(window.location.search);
     const query = searchParams.get("q");
     const searchResultsContainer = document.getElementById("search-results");
 
     if (query) {
-      searchResultsContainer.innerHTML = "Searching...";
-      
-      // Загрузка списка страниц из JSON файла
+        searchResultsContainer.innerHTML = "Searching...";
+        
+        // HERE WE HAVE: Загружаем список страниц из JSON файла
         fetch('../csjs/pages.json')
             .then(response => response.json())
             .then(data => {
-            const pages = data.pages;
+                const pages = data.pages;  // Список страниц из JSON
 
-      // Функция для поиска на всех страницах
-      function performSearchOnPage(pageUrl) {
-        return fetch(pageUrl)
-          .then(response => response.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            const infoCards = doc.querySelectorAll('.info-card');
-            let results = '';
+                // Функция для поиска на всех страницах
+                function performSearchOnPage(pageUrl) {
+                    return fetch(pageUrl)
+                        .then(response => response.text())
+                        .then(html => {
+                            const parser = new DOMParser();
+                            const doc = parser.parseFromString(html, 'text/html');
+                            const infoCards = doc.querySelectorAll('.info-card');
+                            let results = '';
 
-            infoCards.forEach(card => {
-              if (card.innerText.toLowerCase().includes(query.toLowerCase())) {
-                // Добавление ссылки на оригинальную страницу
-               const link = `<a href="${pageUrl}" class="sltyt"></a>`;
-            // ТУТ ПОМЕНЯЙ
-            const bl3Element = card.querySelector('.info-card-format .bl3');
-            if (bl3Element) {
-              bl3Element.insertAdjacentHTML('beforebegin', link);
-            }
-                results += card.outerHTML;
-              }
+                            infoCards.forEach(card => {
+                                if (card.innerText.toLowerCase().includes(query.toLowerCase())) {
+                                    // Добавление ссылки на оригинальную страницу
+                                    const link = `<a href="${pageUrl}" class="sltyt"></a>`;
+                                    const bl3Element = card.querySelector('.info-card-format .bl3');
+                                    
+                                    // HERE WE HAVE: Проверяем наличие элемента .bl3
+                                    if (bl3Element) {
+                                        bl3Element.insertAdjacentHTML('beforebegin', link);
+                                    }
+                                    results += card.outerHTML;
+                                }
+                            });
+
+                            return results;
+                        });
+                }
+
+                // HERE WE HAVE: Выполнение поиска после загрузки списка страниц
+                Promise.all(pages.map(performSearchOnPage))
+                    .then(results => {
+                        const mergedResults = results.join('');
+                        if (mergedResults) {
+                            searchResultsContainer.innerHTML = mergedResults;
+                        } else {
+                            searchResultsContainer.innerHTML = 'No results found.';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Search error:', error);
+                        searchResultsContainer.innerHTML = 'An error occurred while searching.';
+                    });
+            })
+            .catch(error => {
+                console.error('Failed to load pages JSON:', error);
+                searchResultsContainer.innerHTML = 'Failed to load search data.';
             });
-
-            return results;
-          });
-      }
-
-      // Выполнение поиска по всем страницам
-      Promise.all(pages.map(performSearchOnPage))
-        .then(results => {
-          const mergedResults = results.join('');
-          if (mergedResults) {
-            searchResultsContainer.innerHTML = mergedResults;
-          } else {
-            searchResultsContainer.innerHTML = 'No results found.';
-          }
-        })
-        .catch(error => {
-          console.error('Search error:', error);
-          searchResultsContainer.innerHTML = 'An error occurred while searching.';
-        });
     }
-  });
+});
