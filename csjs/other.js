@@ -242,7 +242,6 @@ function validateSearch() {
         // Меняем плейсхолдер на новый текст
         input.placeholder = "So what should we look for?";
         
-        
         // Предотвращаем отправку формы
         return false;
     }
@@ -250,67 +249,69 @@ function validateSearch() {
     // Если поле не пустое, форма отправляется нормально
     return true;
 }
+
 document.querySelectorAll('form').forEach(form => {
     if (form.id !== 'main-search-form') {  // Пропустить форму на главной странице
         form.onsubmit = validateSearch;
     }
 });
 
- document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
     const searchParams = new URLSearchParams(window.location.search);
     const query = searchParams.get("q");
     const searchResultsContainer = document.getElementById("search-results");
 
     if (query) {
-      searchResultsContainer.innerHTML = "Searching...";
-      
-      // Массив страниц для поиска
-      const pages = [
-        '/8/8.html',
-        '/1/11.html',
-        // добавьте все ваши страницы сюда
-      ];
+        searchResultsContainer.innerHTML = "Searching...";
 
-      // Функция для поиска на всех страницах
-      function performSearchOnPage(pageUrl) {
-        return fetch(pageUrl)
-          .then(response => response.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            const infoCards = doc.querySelectorAll('.info-card');
-            let results = '';
+        // Загрузка списка страниц из внешнего JSON-файла // HERE 13
+        fetch('/csjs/pages.json') // HERE 13
+            .then(response => response.json()) // HERE 13
+            .then(pages => { // HERE 13
+                // Функция для поиска на всех страницах
+                function performSearchOnPage(pageUrl) {
+                    return fetch(pageUrl)
+                        .then(response => response.text())
+                        .then(html => {
+                            const parser = new DOMParser();
+                            const doc = parser.parseFromString(html, 'text/html');
+                            const infoCards = doc.querySelectorAll('.info-card');
+                            let results = '';
 
-            infoCards.forEach(card => {
-              if (card.innerText.toLowerCase().includes(query.toLowerCase())) {
-                // Добавление ссылки на оригинальную страницу
-               const link = `<a href="${pageUrl}" class="sltyt"></a>`;
-            // ТУТ ПОМЕНЯЙ
-            const bl3Element = card.querySelector('.info-card-format .bl3');
-            if (bl3Element) {
-              bl3Element.insertAdjacentHTML('beforebegin', link);
-            }
-                results += card.outerHTML;
-              }
+                            infoCards.forEach(card => {
+                                if (card.innerText.toLowerCase().includes(query.toLowerCase())) {
+                                    // Добавление ссылки на оригинальную страницу
+                                    const link = `<a href="${pageUrl}" class="sltyt"></a>`;
+                                    const bl3Element = card.querySelector('.info-card-format .bl3');
+                                    if (bl3Element) { // HERE 13
+                                        bl3Element.insertAdjacentHTML('beforebegin', link); // HERE 13
+                                    }
+                                    results += card.outerHTML;
+                                }
+                            });
+
+                            return results;
+                        });
+                }
+
+                // Выполнение поиска по всем страницам
+                Promise.all(pages.map(performSearchOnPage))
+                    .then(results => {
+                        const mergedResults = results.join('');
+                        if (mergedResults) {
+                            searchResultsContainer.innerHTML = mergedResults;
+                        } else {
+                            searchResultsContainer.innerHTML = 'No results found.';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Search error:', error);
+                        searchResultsContainer.innerHTML = 'An error occurred while searching.';
+                    });
+            })
+            .catch(error => { // HERE 13
+                console.error('Error loading pages:', error); // HERE 13
+                searchResultsContainer.innerHTML = 'An error occurred while loading pages.'; // HERE 13
             });
-
-            return results;
-          });
-      }
-
-      // Выполнение поиска по всем страницам
-      Promise.all(pages.map(performSearchOnPage))
-        .then(results => {
-          const mergedResults = results.join('');
-          if (mergedResults) {
-            searchResultsContainer.innerHTML = mergedResults;
-          } else {
-            searchResultsContainer.innerHTML = 'No results found.';
-          }
-        })
-        .catch(error => {
-          console.error('Search error:', error);
-          searchResultsContainer.innerHTML = 'An error occurred while searching.';
-        });
     }
-  });
+});
