@@ -510,7 +510,19 @@
     #add-material-btn:hover {
       background-color: #f0f0f0;
     }
-
+    
+    #eyeButton{background:var(--tpl-accent-white); color: var(--tpl-accent-blue);padding:0 4px;border-radius:8px;border: 1px solid var(--tpl-accent-blue);}
+    #eyeButton::before {
+ font-size: 20px;
+  vertical-align: middle;
+  font-family: "Material Icons Outlined";
+  font-weight: 400;
+  content: "visibility";
+}
+    #eyeButton:hover {
+    background-color: var(--tpl-accent-blue-100);
+  }
+    
     .basketorder:hover,.button-link:hover,.add-to-cart-link:hover,button: hover,[type=button]:hover,[type=submit]:hover {
       background-color: var(--tpl-accent-blue-dark);
     }
@@ -1387,8 +1399,8 @@ select.codeButtons {
    .addd {
     color: var(--tpl-accent-blue);
     border: 1px solid var(--tpl-accent-blue);
-    padding: 2px 16px 2px 8px;
-    border-radius: 99px;
+    padding: 3px 16px 3px 8px;
+    border-radius: 8px;
     align-items: center;
      margin-top:0px;
     }
