@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
         searchResultsContainer.innerHTML = "Searching...";
 
         // Загрузка списка страниц из внешнего JSON-файла // HERE 13
-        fetch('/path/to/pages.json') // HERE 13
+        fetch('/csjs/pages.json') // HERE 13
             .then(response => response.json()) // HERE 13
             .then(pages => { // HERE 13
                 // Функция для поиска на всех страницах
