@@ -1112,7 +1112,7 @@
 
 :where(.info-box) .info-card-label {
   width: 32px;
-  height: 32px;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1124,7 +1124,8 @@
 
 .ggh {
   width: 32px;
-  height: 32px;
+  height: auto;
+  object-fit: cover;
   background-color: var(--tpl-accent-blue-100);
   border-radius: 8px;
   display: flex;
