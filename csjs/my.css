@@ -847,7 +847,7 @@
 .logo-link {
   position: absolute;
   left: var(--left-absolute);
-  background-image: url(logo125-removebg.png);
+  background-image: url(logo125-removebg3.png);
   width: 24%; /* Set a percentage width to make it responsive */
   max-width: 126px; /* Ensure it doesn’t exceed its original size */
   height: 36%;
