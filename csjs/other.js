@@ -41,17 +41,31 @@ document.addEventListener('DOMContentLoaded', function() {
         const description = quill.root.innerHTML; // Получение контента из Quill
         const format = document.getElementById('format').value;
         const freepaid = document.getElementById('freepaid').value;
-let image = document.getElementById('image').value; // (Я ТУТ ДОБАВИЛ В КОД) Заменил const на let для возможности изменения значения
+        let image = document.getElementById('image').value; // Заменил const на let для возможности изменения значения
         const link = document.getElementById('link').value;
         const linkType = document.getElementById('link-type').value;
+        const tagsInput = document.getElementById('tags').value; // Получение значения поля Tags
 
- // (Я ТУТ ДОБАВИЛ В КОД) Проверка на пустой путь к изображению
+        // Проверка на пустой путь к изображению
         if (!image) {
-            image = '../csjs/mirth.png'; // (Я ТУТ ДОБАВИЛ В КОД) Автоматически добавляем путь csjs/mirth.png
+            image = '../csjs/mirth.png'; // Автоматически добавляем путь csjs/mirth.png
         }
-        
+
+        // Преобразование тегов в HTML ссылки
+        const tagsHTML = tagsInput.split(',').map(tag => {
+            tag = tag.trim(); // Убираем пробелы
+            return `<a href="/99/search.html?t=0&q=${encodeURIComponent(tag)}" class="tg2">${tag}</a>`;
+        }).join(' ');
+
         const newMaterial = createMaterialElement({
-            title, description, format, freepaid, image, link, linkType
+            title,
+            description,
+            format,
+            freepaid,
+            image,
+            link,
+            linkType,
+            tagsHTML
         });
 
         document.querySelector('.info-cards-grid').appendChild(newMaterial);
@@ -59,6 +73,8 @@ let image = document.getElementById('image').value; // (Я ТУТ ДОБАВИЛ
         updateMaterialCount();
         saveMaterialsToLocalStorage();
 
+        form.reset();
+        quill.root.innerHTML = '';
         popup.style.display = "none";
     }
 
@@ -81,7 +97,10 @@ let image = document.getElementById('image').value; // (Я ТУТ ДОБАВИЛ
                 <div class="info-card-format">
                     <span class="format">${material.format}</span>
                     <span class="freepaid">${material.freepaid}</span>
-                 <div class="bl3"><a class="button-link3"></a></div>
+                    <span class="tags">
+                        <span class="tg">${material.tagsHTML}</span>
+                    </span>
+                    <div class="bl3"><a class="button-link3"></a></div>
                 </div>
             </div>
             <button class="delete-material">&times;</button>
@@ -89,12 +108,14 @@ let image = document.getElementById('image').value; // (Я ТУТ ДОБАВИЛ
             <button class="edit-material">Edit</button>
         `;
 
+        // Обработчик удаления материала
         newMaterial.querySelector('.delete-material').addEventListener('click', function() {
             newMaterial.remove();
             updateMaterialCount();
             saveMaterialsToLocalStorage();
         });
 
+        // Обработчик копирования HTML
         newMaterial.querySelector('.copy-html').addEventListener('click', function() {
             const materialHTML = newMaterial.outerHTML
                 .replace('info-card dynamic', 'info-card static')
@@ -102,11 +123,12 @@ let image = document.getElementById('image').value; // (Я ТУТ ДОБАВИЛ
                 .replace(/delete-material/g, 'delete-material2')
                 .replace(/copy-html/g, 'copy-html2')
                 .replace(/edit-material/g, 'edit-material2')
-                .replace(/<div class="info-card static"/g, `<div class="info-card static" data-title="${material.title.toLowerCase()}"`) // Изменение: добавлено приведение заголовка к нижнему регистру
-                .replace(/<div class="info-card-desc">[\s\S]*?<\/div>/, `<div class="info-card-desc"><a class="button-link2"></a>${material.description}</div>`);
+                .replace('<div class="info-card static"', `<div class="info-card static" data-title="${material.title.toLowerCase()}"`)
+                .replace('<div class="info-card-desc">', `<div class="info-card-desc"><a class="button-link2"></a>`);
             navigator.clipboard.writeText(materialHTML);
         });
 
+        // Обработчик редактирования материала
         newMaterial.querySelector('.edit-material').addEventListener('click', function() {
             editMaterial(newMaterial, material);
         });
@@ -119,12 +141,13 @@ let image = document.getElementById('image').value; // (Я ТУТ ДОБАВИЛ
         const materialsData = Array.from(materials).map(material => {
             return {
                 title: material.querySelector('.info-card-title a').textContent,
-                description: material.querySelector('.info-card-desc2').innerHTML, // Исправлено: получение HTML контента
+                description: material.querySelector('.info-card-desc2').innerHTML,
                 format: material.querySelector('.info-card-format .format').textContent,
                 freepaid: material.querySelector('.info-card-format .freepaid').textContent,
                 image: material.querySelector('.info-card-label img').src,
                 link: material.querySelector('.info-card-title a').href,
-                linkType: material.querySelector('.info-card-title a').target === '_blank' ? 'target_blank' : 'direct_link'
+                linkType: material.querySelector('.info-card-title a').target === '_blank' ? 'target_blank' : 'direct_link',
+                tagsHTML: material.querySelector('.info-card-format .tags .tg').innerHTML
             };
         });
         localStorage.setItem(`materials_${pageKey}`, JSON.stringify(materialsData));
@@ -141,12 +164,13 @@ let image = document.getElementById('image').value; // (Я ТУТ ДОБАВИЛ
 
     function editMaterial(materialElement, material) {
         document.getElementById('title').value = material.title;
-        quill.root.innerHTML = material.description; // Исправлено: установка контента в Quill редактор
+        quill.root.innerHTML = material.description;
         document.getElementById('format').value = material.format;
         document.getElementById('freepaid').value = material.freepaid;
         document.getElementById('image').value = material.image;
         document.getElementById('link').value = material.link;
         document.getElementById('link-type').value = material.linkType;
+        document.getElementById('tags').value = material.tagsHTML.replace(/<a href="[^"]+" class="tg2">([^<]+)<\/a>/g, '$1').split(' ').join(', ');
 
         popup.style.display = "block";
 
@@ -155,18 +179,25 @@ let image = document.getElementById('image').value; // (Я ТУТ ДОБАВИЛ
             event.preventDefault();
 
             material.title = document.getElementById('title').value;
-            material.description = quill.root.innerHTML; // Исправлено: получение контента из Quill редактора
+            material.description = quill.root.innerHTML;
             material.format = document.getElementById('format').value;
             material.freepaid = document.getElementById('freepaid').value;
             material.image = document.getElementById('image').value;
             material.link = document.getElementById('link').value;
             material.linkType = document.getElementById('link-type').value;
+            const tagsInput = document.getElementById('tags').value;
 
-  // (Я ТУТ ДОБАВИЛ В КОД) Проверка на пустой путь к изображению в режиме редактирования
+            // Проверка на пустой путь к изображению в режиме редактирования
             if (!material.image) {
-                material.image = '../csjs/mirth.png'; // (Я ТУТ ДОБАВИЛ В КОД) Автоматически добавляем путь csjs/mirth.png
+                material.image = '../csjs/mirth.png';
             }
-            
+
+            // Преобразование тегов в HTML ссылки
+            material.tagsHTML = tagsInput.split(',').map(tag => {
+                tag = tag.trim();
+                return `<a href="/99/search.html?t=0&q=${encodeURIComponent(tag)}" class="tg2">${tag}</a>`;
+            }).join(' ');
+
             materialElement.innerHTML = `
                 <div class="info-card-label">
                     <a href="${material.link}" class="ttc" target="${material.linkType === 'target_blank' ? '_blank' : ''}" rel="${material.linkType === 'target_blank' ? 'nofollow' : ''}">
@@ -183,7 +214,10 @@ let image = document.getElementById('image').value; // (Я ТУТ ДОБАВИЛ
                     <div class="info-card-format">
                         <span class="format">${material.format}</span>
                         <span class="freepaid">${material.freepaid}</span>
-                   <div class="bl3"><a class="button-link3"></a></div>
+                        <div class="tags">
+                            <span class="tg">${material.tagsHTML}</span>
+                        </div>
+                        <div class="bl3"><a class="button-link3"></a></div>
                     </div>
                 </div>
                 <button class="delete-material">&times;</button>
@@ -191,6 +225,7 @@ let image = document.getElementById('image').value; // (Я ТУТ ДОБАВИЛ
                 <button class="edit-material">Edit</button>
             `;
 
+            // Повторное добавление обработчиков событий
             materialElement.querySelector('.delete-material').addEventListener('click', function() {
                 materialElement.remove();
                 updateMaterialCount();
@@ -204,8 +239,8 @@ let image = document.getElementById('image').value; // (Я ТУТ ДОБАВИЛ
                     .replace(/delete-material/g, 'delete-material2')
                     .replace(/copy-html/g, 'copy-html2')
                     .replace(/edit-material/g, 'edit-material2')
-                    .replace(/<div class="info-card static"/g, `<div class="info-card static" data-title="${material.title.toLowerCase()}"`) // Изменение: добавлено приведение заголовка к нижнему регистру
-                    .replace(/<div class="info-card-desc">[\s\S]*?<\/div>/, `<div class="info-card-desc"><a class="button-link2"></a>${material.description}</div>`);
+                    .replace('<div class="info-card static"', `<div class="info-card static" data-title="${material.title.toLowerCase()}"`)
+                    .replace('<div class="info-card-desc">', `<div class="info-card-desc"><a class="button-link2"></a>`);
                 navigator.clipboard.writeText(materialHTML);
             });
 
@@ -214,6 +249,9 @@ let image = document.getElementById('image').value; // (Я ТУТ ДОБАВИЛ
             });
 
             saveMaterialsToLocalStorage();
+            updateMaterialCount();
+            form.reset();
+            quill.root.innerHTML = '';
             popup.style.display = "none";
 
             form.removeEventListener('submit', updateHandler);
@@ -231,7 +269,6 @@ let image = document.getElementById('image').value; // (Я ТУТ ДОБАВИЛ
 
     updateMaterialCount(); // Обновление счётчика материалов при загрузке страницы
 });
-
 
 // Функция для валидации поля поиска
 function validateSearch() {
@@ -264,11 +301,11 @@ document.addEventListener("DOMContentLoaded", function() {
     if (query) {
         searchResultsContainer.innerHTML = "Searching...";
 
-        // Загрузка списка страниц из внешнего JSON-файла // HERE 13
-        fetch('/csjs/pages.json') // HERE 13
-            .then(response => response.json()) // HERE 13
-            .then(pages => { // HERE 13
-                // Функция для поиска на всех страницах
+        // Загрузка списка страниц из внешнего JSON-файла
+        fetch('/csjs/pages.json')
+            .then(response => response.json())
+            .then(pages => {
+                // Функция для поиска на странице
                 function performSearchOnPage(pageUrl) {
                     return fetch(pageUrl)
                         .then(response => response.text())
@@ -283,8 +320,8 @@ document.addEventListener("DOMContentLoaded", function() {
                                     // Добавление ссылки на оригинальную страницу
                                     const link = `<a href="${pageUrl}" class="sltyt"></a>`;
                                     const bl3Element = card.querySelector('.info-card-format .bl3');
-                                    if (bl3Element) { // HERE 13
-                                        bl3Element.insertAdjacentHTML('beforebegin', link); // HERE 13
+                                    if (bl3Element) {
+                                        bl3Element.insertAdjacentHTML('beforebegin', link);
                                     }
                                     results += card.outerHTML;
                                 }
@@ -309,9 +346,9 @@ document.addEventListener("DOMContentLoaded", function() {
                         searchResultsContainer.innerHTML = 'An error occurred while searching.';
                     });
             })
-            .catch(error => { // HERE 13
-                console.error('Error loading pages:', error); // HERE 13
-                searchResultsContainer.innerHTML = 'An error occurred while loading pages.'; // HERE 13
+            .catch(error => {
+                console.error('Error loading pages:', error);
+                searchResultsContainer.innerHTML = 'An error occurred while loading pages.';
             });
     }
 });
