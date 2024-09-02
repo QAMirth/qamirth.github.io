@@ -13,6 +13,8 @@ document.write(`
             <input type="text" id="title" name="title" required><br>
             <label for="description">Description:</label>
             <div id="description-container"></div><br>
+             <label for="tags">Tags:</label>
+            <input type="text" id="tags" name="tags" required><br>
             <label for="format">Format:</label>
             <input type="text" id="format" name="format" required><br>
             <label for="freepaid">Free/Paid:</label>
@@ -26,8 +28,6 @@ document.write(`
                 <option value="target_blank" selected>Open in New Tab</option>
                 <option value="direct_link">Direct Link</option>
             </select><br>
-            <label for="tags">Tags:</label>
-    <input type="text" id="tags" name="tags" required><br> <!-- Новое поле для тегов -->
             <input type="submit" value="Add Material">
         </form>
         <button class="close">Close</button>
