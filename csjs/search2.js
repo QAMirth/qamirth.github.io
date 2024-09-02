@@ -1,6 +1,6 @@
 document.write(`
 <div id="header_mb_search" class="header-search">
-<button class="header-mobile-button js-mb-search-btn">
+<button class="header-mobile-button-pc js-mb-search-btn">
 <svg class="header-mobile-icon">
 
 <use xlink:href="../csjs/icons.svg#search_icon"></use>
