@@ -26,6 +26,8 @@ document.write(`
                 <option value="target_blank" selected>Open in New Tab</option>
                 <option value="direct_link">Direct Link</option>
             </select><br>
+            <label for="tags">Tags:</label>
+    <input type="text" id="tags" name="tags" required><br> <!-- Новое поле для тегов -->
             <input type="submit" value="Add Material">
         </form>
         <button class="close">Close</button>
