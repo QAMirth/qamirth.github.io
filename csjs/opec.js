@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         buttonLink2.addEventListener('click', function() {
             if (!desc.classList.contains('expanded')) {
                 desc.classList.add('expanded'); // Разворачиваем текст
-                buttonLink2.textContent = '̌^;
+                buttonLink2.textContent = '̌^';
                 buttonLink3.style.display = 'inline';
                 buttonLink3.textContent = 'Close block';
             } else {
