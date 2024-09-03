@@ -46,6 +46,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const linkType = document.getElementById('link-type').value;
         const tagsInput = document.getElementById('tags').value; // Получение значения поля Tags
 
+         // kurv: Собираем выбранные значения format
+        const formatSelect = document.getElementById('format');
+        const selectedFormats = Array.from(formatSelect.selectedOptions).map(option => option.value);
+
+        // kurv: Собираем выбранные значения freepaid
+        const freepaidSelect = document.getElementById('freepaid');
+        const selectedFreepaid = Array.from(freepaidSelect.selectedOptions).map(option => option.value);
+
+
         // Проверка на пустой путь к изображению
         if (!image) {
             image = '../csjs/mirth.png'; // Автоматически добавляем путь csjs/mirth.png
@@ -60,8 +69,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const newMaterial = createMaterialElement({
             title,
             description,
-            format,
-            freepaid,
+format: selectedFormats.join(', '), // kurv: Используем выбранные значения format
+freepaid: selectedFreepaid.join(', '), // kurv: Используем выбранные значения freepaid
             image,
             link,
             linkType,
