@@ -7,13 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Инициализация
         buttonLink2.style.display = 'block';
         buttonLink3.style.display = 'none';
-        buttonLink2.textContent = 'Open';
+        buttonLink2.textContent = 'ˇ';
 
         // При нажатии на .button-link2
         buttonLink2.addEventListener('click', function() {
             if (!desc.classList.contains('expanded')) {
                 desc.classList.add('expanded'); // Разворачиваем текст
-                buttonLink2.textContent = 'Close';
+                buttonLink2.textContent = '̌^;
                 buttonLink3.style.display = 'inline';
                 buttonLink3.textContent = 'Close block';
             } else {
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function collapseText() {
             desc.classList.remove('expanded'); // Сворачиваем текст
-            buttonLink2.textContent = 'Open';
+            buttonLink2.textContent = 'ˇ';
             buttonLink3.style.display = 'none';
         }
     });
