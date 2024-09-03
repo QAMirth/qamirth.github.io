@@ -1221,7 +1221,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.expanded {
+.expanded {display:block;
   -webkit-line-clamp: unset;
   overflow: visible;
 }
