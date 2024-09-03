@@ -1224,6 +1224,7 @@
 .expanded {display:block;
   -webkit-line-clamp: unset;
   overflow: visible;
+  position: relative;
 }
 .button-link2 {
   cursor: pointer;
