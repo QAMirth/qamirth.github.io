@@ -105,9 +105,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="info-card-format">
                     <span class="format">${material.format}</span>
                     <span class="freepaid">${material.freepaid}</span>
-                    <div class="tags">
+                    <span class="tags">
                         <span class="tg">${material.tagsHTML}</span>
-                    </div>
+                    </span>
                     <div class="bl3"><a class="button-link3"></a></div>
                 </div>
             </div>
