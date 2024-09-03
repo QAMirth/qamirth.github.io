@@ -51,9 +51,14 @@ function populateFilters() {
     const freepaids = new Set();
 
     materials.forEach(material => {
-        formats.add(material.querySelector('.format').textContent.trim());
-        freepaids.add(material.querySelector('.freepaid').textContent.trim());
+        // kurvu: Извлекаем все форматы и статусы оплаты, разбитые запятыми
+        const formatArray = material.querySelector('.format').textContent.trim().split(',').map(item => item.trim());
+        const freepaidArray = material.querySelector('.freepaid').textContent.trim().split(',').map(item => item.trim());
+
+        formatArray.forEach(format => formats.add(format));
+        freepaidArray.forEach(freepaid => freepaids.add(freepaid));
     });
+
 
     formats.forEach(format => {
         const option = document.createElement('option');
@@ -76,11 +81,15 @@ function filterMaterials() {
     const materials = Array.from(document.getElementsByClassName('info-card'));
 
     materials.forEach(material => {
-        const format = material.querySelector('.format').textContent.trim();
-        const freepaid = material.querySelector('.freepaid').textContent.trim();
-        
-        if ((formatFilter === '' || format === formatFilter) && 
-            (freepaidFilter === '' || freepaid === freepaidFilter)) {
+       // kurvu: Извлекаем все значения форматов и статусов оплаты
+        const formatArray = material.querySelector('.format').textContent.trim().split(',').map(item => item.trim());
+        const freepaidArray = material.querySelector('.freepaid').textContent.trim().split(',').map(item => item.trim());
+
+        // kurvu: Проверяем, содержится ли выбранное значение фильтра в массиве значений карточки
+        const formatMatch = formatFilter === '' || formatArray.includes(formatFilter);
+        const freepaidMatch = freepaidFilter === '' || freepaidArray.includes(freepaidFilter);
+
+        if (formatMatch && freepaidMatch) {
             material.style.display = '';
         } else {
             material.style.display = 'none';
