@@ -1234,6 +1234,7 @@
   font: var(--tpl-font-text-sb1);
   border-radius: 8px;
   transition: var(--tpl-transition);
+  max-width:fit-content;
 }
 .button-link2 {
   float: right;
@@ -1249,7 +1250,7 @@
   content: "#";
 }
 .button-link2:after {
-  content: "More details";
+  content: "";
 }
 .bl3 {
   order: 4;
