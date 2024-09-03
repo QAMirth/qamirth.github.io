@@ -46,14 +46,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const linkType = document.getElementById('link-type').value;
         const tagsInput = document.getElementById('tags').value; // Получение значения поля Tags
 
-         // kurv: Собираем выбранные значения format
+        // Собираем выбранные значения format
         const formatSelect = document.getElementById('format');
         const selectedFormats = Array.from(formatSelect.selectedOptions).map(option => option.value);
 
-        // kurv: Собираем выбранные значения freepaid
+        // Собираем выбранные значения freepaid
         const freepaidSelect = document.getElementById('freepaid');
         const selectedFreepaid = Array.from(freepaidSelect.selectedOptions).map(option => option.value);
-
 
         // Проверка на пустой путь к изображению
         if (!image) {
@@ -69,8 +68,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const newMaterial = createMaterialElement({
             title,
             description,
-format: selectedFormats.join(', '), // kurv: Используем выбранные значения format
-freepaid: selectedFreepaid.join(', '), // kurv: Используем выбранные значения freepaid
+            format: selectedFormats.join(', '), // Используем выбранные значения format
+            freepaid: selectedFreepaid.join(', '), // Используем выбранные значения freepaid
             image,
             link,
             linkType,
@@ -106,9 +105,9 @@ freepaid: selectedFreepaid.join(', '), // kurv: Используем выбра�
                 <div class="info-card-format">
                     <span class="format">${material.format}</span>
                     <span class="freepaid">${material.freepaid}</span>
-                    <span class="tags">
+                    <div class="tags">
                         <span class="tg">${material.tagsHTML}</span>
-                    </span>
+                    </div>
                     <div class="bl3"><a class="button-link3"></a></div>
                 </div>
             </div>
@@ -174,8 +173,8 @@ freepaid: selectedFreepaid.join(', '), // kurv: Используем выбра�
     function editMaterial(materialElement, material) {
         document.getElementById('title').value = material.title;
         quill.root.innerHTML = material.description;
-        document.getElementById('format').value = material.format;
-        document.getElementById('freepaid').value = material.freepaid;
+        restoreMultiSelectValues('format', material.format.split(', '));
+        restoreMultiSelectValues('freepaid', material.freepaid.split(', '));
         document.getElementById('image').value = material.image;
         document.getElementById('link').value = material.link;
         document.getElementById('link-type').value = material.linkType;
@@ -183,14 +182,15 @@ freepaid: selectedFreepaid.join(', '), // kurv: Используем выбра�
 
         popup.style.display = "block";
 
+        // Обновление блока материала
         form.removeEventListener('submit', submitHandler);
         form.addEventListener('submit', function updateHandler(event) {
             event.preventDefault();
 
             material.title = document.getElementById('title').value;
             material.description = quill.root.innerHTML;
-            material.format = document.getElementById('format').value;
-            material.freepaid = document.getElementById('freepaid').value;
+            material.format = Array.from(document.getElementById('format').selectedOptions).map(option => option.value).join(', ');
+            material.freepaid = Array.from(document.getElementById('freepaid').selectedOptions).map(option => option.value).join(', ');
             material.image = document.getElementById('image').value;
             material.link = document.getElementById('link').value;
             material.linkType = document.getElementById('link-type').value;
@@ -207,157 +207,112 @@ freepaid: selectedFreepaid.join(', '), // kurv: Используем выбра�
                 return `<a href="/99/search.html?t=0&q=${encodeURIComponent(tag)}" class="tg2">${tag}</a>`;
             }).join(' ');
 
-            materialElement.innerHTML = `
-                <div class="info-card-label">
-                    <a href="${material.link}" class="ttc" target="${material.linkType === 'target_blank' ? '_blank' : ''}" rel="${material.linkType === 'target_blank' ? 'nofollow' : ''}">
-                        <img src="${material.image}" alt="#" class="ggh"/>
-                    </a>
-                </div>
-                <div class="info-card-content">
-                    <div class="info-card-title">
-                        <a href="${material.link}" class="ttb" target="${material.linkType === 'target_blank' ? '_blank' : ''}" rel="${material.linkType === 'target_blank' ? 'nofollow' : ''}">
-                            ${material.title}
-                        </a>
-                    </div>
-                    <div class="info-card-desc2">${material.description}</div>
-                    <div class="info-card-format">
-                        <span class="format">${material.format}</span>
-                        <span class="freepaid">${material.freepaid}</span>
-                        <div class="tags">
-                            <span class="tg">${material.tagsHTML}</span>
-                        </div>
-                        <div class="bl3"><a class="button-link3"></a></div>
-                    </div>
-                </div>
-                <button class="delete-material">&times;</button>
-                <button class="copy-html">Copy HTML</button>
-                <button class="edit-material">Edit</button>
-            `;
+            // Обновление HTML материала
+            materialElement.querySelector('.info-card-title a').textContent = material.title;
+            materialElement.querySelector('.info-card-desc2').innerHTML = material.description;
+            materialElement.querySelector('.info-card-format .format').textContent = material.format;
+            materialElement.querySelector('.info-card-format .freepaid').textContent = material.freepaid;
+            materialElement.querySelector('.info-card-label img').src = material.image;
+            materialElement.querySelector('.info-card-title a').href = material.link;
+            materialElement.querySelector('.info-card-title a').target = material.linkType === 'target_blank' ? '_blank' : '';
+            materialElement.querySelector('.info-card-format .tags .tg').innerHTML = material.tagsHTML;
 
-            // Повторное добавление обработчиков событий
-            materialElement.querySelector('.delete-material').addEventListener('click', function() {
-                materialElement.remove();
-                updateMaterialCount();
-                saveMaterialsToLocalStorage();
-            });
-
-            materialElement.querySelector('.copy-html').addEventListener('click', function() {
-                const materialHTML = materialElement.outerHTML
-                    .replace('info-card dynamic', 'info-card static')
-                    .replace('info-card-desc2', 'info-card-desc')
-                    .replace(/delete-material/g, 'delete-material2')
-                    .replace(/copy-html/g, 'copy-html2')
-                    .replace(/edit-material/g, 'edit-material2')
-                    .replace('<div class="info-card static"', `<div class="info-card static" data-title="${material.title.toLowerCase()}"`)
-                    .replace('<div class="info-card-desc">', `<div class="info-card-desc"><a class="button-link2"></a>`);
-                navigator.clipboard.writeText(materialHTML);
-            });
-
-            materialElement.querySelector('.edit-material').addEventListener('click', function() {
-                editMaterial(materialElement, material);
-            });
-
-            saveMaterialsToLocalStorage();
-            updateMaterialCount();
-            form.reset();
-            quill.root.innerHTML = '';
             popup.style.display = "none";
+            saveMaterialsToLocalStorage();
 
             form.removeEventListener('submit', updateHandler);
             form.addEventListener('submit', submitHandler);
         });
     }
 
+    function restoreMultiSelectValues(elementId, values) {
+        const select = document.getElementById(elementId);
+        Array.from(select.options).forEach(option => {
+            option.selected = values.includes(option.value);
+        });
+    }
+
     loadMaterialsFromLocalStorage();
 
     // Вызов updateMaterialCount после каждого изменения фильтров
-    const filters = document.querySelectorAll('.filter'); // Предположим, что у фильтров есть класс 'filter'
+    const filters = document.querySelectorAll('.filter');
     filters.forEach(filter => {
         filter.addEventListener('change', updateMaterialCount);
     });
 
     updateMaterialCount(); // Обновление счётчика материалов при загрузке страницы
-});
 
-// Функция для валидации поля поиска
-function validateSearch() {
-    var input = document.querySelector('.header-search-input');
-    
-    // Проверяем, пусто ли поле
-    if (input.value.trim() === "") {
-        // Меняем плейсхолдер на новый текст
-        input.placeholder = "So what should we look for?";
-        
-        // Предотвращаем отправку формы
-        return false;
+    // Функция для валидации поля поиска
+    function validateSearch() {
+        var input = document.querySelector('.header-search-input');
+
+        if (input.value.trim() === "") {
+            input.placeholder = "So what should we look for?";
+            return false;
+        }
+
+        return true;
     }
-    
-    // Если поле не пустое, форма отправляется нормально
-    return true;
-}
 
-document.querySelectorAll('form').forEach(form => {
-    if (form.id !== 'main-search-form') {  // Пропустить форму на главной странице
-        form.onsubmit = validateSearch;
-    }
-});
+    document.querySelectorAll('form').forEach(form => {
+        if (form.id !== 'main-search-form') {
+            form.onsubmit = validateSearch;
+        }
+    });
 
-document.addEventListener("DOMContentLoaded", function() {
-    const searchParams = new URLSearchParams(window.location.search);
-    const query = searchParams.get("q");
-    const searchResultsContainer = document.getElementById("search-results");
+    document.addEventListener("DOMContentLoaded", function() {
+        const searchParams = new URLSearchParams(window.location.search);
+        const query = searchParams.get("q");
+        const searchResultsContainer = document.getElementById("search-results");
 
-    if (query) {
-        searchResultsContainer.innerHTML = "Searching...";
+        if (query) {
+            searchResultsContainer.innerHTML = "Searching...";
 
-        // Загрузка списка страниц из внешнего JSON-файла
-        fetch('/csjs/pages.json')
-            .then(response => response.json())
-            .then(pages => {
-                // Функция для поиска на странице
-                function performSearchOnPage(pageUrl) {
-                    return fetch(pageUrl)
-                        .then(response => response.text())
-                        .then(html => {
-                            const parser = new DOMParser();
-                            const doc = parser.parseFromString(html, 'text/html');
-                            const infoCards = doc.querySelectorAll('.info-card');
-                            let results = '';
+            fetch('/csjs/pages.json')
+                .then(response => response.json())
+                .then(pages => {
+                    function performSearchOnPage(pageUrl) {
+                        return fetch(pageUrl)
+                            .then(response => response.text())
+                            .then(html => {
+                                const parser = new DOMParser();
+                                const doc = parser.parseFromString(html, 'text/html');
+                                const infoCards = doc.querySelectorAll('.info-card');
+                                let results = '';
 
-                            infoCards.forEach(card => {
-                                if (card.innerText.toLowerCase().includes(query.toLowerCase())) {
-                                    // Добавление ссылки на оригинальную страницу
-                                    const link = `<a href="${pageUrl}" class="sltyt"></a>`;
-                                    const bl3Element = card.querySelector('.info-card-format .bl3');
-                                    if (bl3Element) {
-                                        bl3Element.insertAdjacentHTML('beforebegin', link);
+                                infoCards.forEach(card => {
+                                    if (card.innerText.toLowerCase().includes(query.toLowerCase())) {
+                                        const link = `<a href="${pageUrl}" class="sltyt"></a>`;
+                                        const bl3Element = card.querySelector('.info-card-format .bl3');
+                                        if (bl3Element) {
+                                            bl3Element.insertAdjacentHTML('beforebegin', link);
+                                        }
+                                        results += card.outerHTML;
                                     }
-                                    results += card.outerHTML;
-                                }
+                                });
+
+                                return results;
                             });
+                    }
 
-                            return results;
+                    Promise.all(pages.map(performSearchOnPage))
+                        .then(results => {
+                            const mergedResults = results.join('');
+                            if (mergedResults) {
+                                searchResultsContainer.innerHTML = mergedResults;
+                            } else {
+                                searchResultsContainer.innerHTML = 'No results found.';
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Search error:', error);
+                            searchResultsContainer.innerHTML = 'An error occurred while searching.';
                         });
-                }
-
-                // Выполнение поиска по всем страницам
-                Promise.all(pages.map(performSearchOnPage))
-                    .then(results => {
-                        const mergedResults = results.join('');
-                        if (mergedResults) {
-                            searchResultsContainer.innerHTML = mergedResults;
-                        } else {
-                            searchResultsContainer.innerHTML = 'No results found.';
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Search error:', error);
-                        searchResultsContainer.innerHTML = 'An error occurred while searching.';
-                    });
-            })
-            .catch(error => {
-                console.error('Error loading pages:', error);
-                searchResultsContainer.innerHTML = 'An error occurred while loading pages.';
-            });
-    }
+                })
+                .catch(error => {
+                    console.error('Error loading pages:', error);
+                    searchResultsContainer.innerHTML = 'An error occurred while loading pages.';
+                });
+        }
+    });
 });
