@@ -15,10 +15,18 @@ document.write(`
             <div id="description-container"></div><br>
              <label for="tags">Tags:</label>
             <input type="text" id="tags" name="tags" required><br>
-            <label for="format">Format:</label>
-            <input type="text" id="format" name="format" required><br>
-            <label for="freepaid">Free/Paid:</label>
-            <input type="text" id="freepaid" name="freepaid" required><br>
+               <label for="format">Format:</label>
+    <select id="format" name="format" multiple required>
+        <option value="Online">Online</option>
+        <option value="Download">Download</option>
+        <option value="Offline">Offline</option>
+    </select><br>
+    <label for="freepaid">Free/Paid:</label>
+    <select id="freepaid" name="freepaid" multiple required>
+        <option value="Free">Free</option>
+        <option value="Paid">Paid</option>
+        <option value="Trial">Trial</option>
+    </select><br>  
             <label for="image">Image URL:</label>
             <input type="text" id="image" name="image"><br>
             <label for="link">Link:</label>
