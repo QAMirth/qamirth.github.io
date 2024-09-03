@@ -1,26 +1,33 @@
-      document.querySelectorAll('.button-link2').forEach(button => {
-            button.addEventListener('click', function() {
-                const desc = this.parentElement;
-                desc.classList.add('expanded');
-                this.style.display = 'none';
-                const buttonLink2 = desc.parentElement.querySelector('.button-link3');
-                buttonLink2.textContent = 'Close info block';
-                buttonLink2.style.display = 'inline';
-            });
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.info-card').forEach(card => {
+        const desc = card.querySelector('.info-card-desc');
+        const buttonLink2 = card.querySelector('.button-link2');
+        const buttonLink3 = card.querySelector('.button-link3');
+
+        // Инициализация
+        buttonLink2.style.display = 'block';
+        buttonLink3.style.display = 'none';
+        buttonLink2.textContent = 'Open';
+
+        // При нажатии на .button-link2
+        buttonLink2.addEventListener('click', function() {
+            if (!desc.classList.contains('expanded')) {
+                desc.classList.add('expanded'); // Разворачиваем текст
+                buttonLink2.textContent = 'Close';
+                buttonLink3.style.display = 'inline';
+                buttonLink3.textContent = 'Close block';
+            } else {
+                collapseText(); // Если текст уже развернут, сворачиваем
+            }
         });
 
-        document.querySelectorAll('.button-link3').forEach(button => {
-            button.addEventListener('click', function() {
-                const desc = this.closest('.info-card').querySelector('.info-card-desc');
-                const isExpanded = desc.classList.toggle('expanded');
-                const buttonLink = desc.querySelector('.button-link2');
-                if (isExpanded) {
-                    buttonLink.style.display = 'none';
-                    this.textContent = 'Close';
-                } else {
-                    buttonLink.style.display = 'inline';
-                    this.textContent = 'More info';
-                    this.style.display = 'none';
-                }
-            });
-        });
+        // При нажатии на .button-link3
+        buttonLink3.addEventListener('click', collapseText);
+
+        function collapseText() {
+            desc.classList.remove('expanded'); // Сворачиваем текст
+            buttonLink2.textContent = 'Open';
+            buttonLink3.style.display = 'none';
+        }
+    });
+});
