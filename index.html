@@ -235,43 +235,25 @@
 
 
     
-     <style>
+   <style>
         #tag-cloud {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            margin: 50px auto;
-            perspective: 1000px;
-            animation: spin 10s infinite linear;
+            text-align: center;
+            margin: 20px;
         }
 
         #tag-cloud a {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform-style: preserve-3d;
-            transform-origin: 50% 50%;
             text-decoration: none;
+            margin: 5px;
+            display: inline-block;
             color: #3498db;
             font-family: Arial, sans-serif;
             transition: all 0.3s;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotateX(0deg) rotateY(0deg);
-            }
-            100% {
-                transform: rotateX(360deg) rotateY(360deg);
-            }
         }
 
         #tag-cloud a:hover {
             color: #e74c3c;
         }
     </style>
-
-
     
   </head>
   <body class="home-p">
@@ -411,12 +393,7 @@
 
 
 
-
-
-
-
-
-              <div id="tag-cloud">
+<div id="tag-cloud">
     <a href="link1.html" data-weight="10">Tag 1</a>
     <a href="link2.html" data-weight="5">Tag 2</a>
     <a href="link3.html" data-weight="20">Tag 3</a>
@@ -426,22 +403,17 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const tags = document.querySelectorAll("#tag-cloud a");
-        const radius = 100;
-        const totalTags = tags.length;
+        const minFontSize = 12;
+        const maxFontSize = 36;
 
-        tags.forEach((tag, index) => {
-            const angle = (index / totalTags) * Math.PI * 2;
-            const x = radius * Math.cos(angle);
-            const y = radius * Math.sin(angle);
-            const z = (Math.random() - 0.5) * 2 * radius;
-
-            tag.style.transform = `translate3d(${x}px, ${y}px, ${z}px)`;
+        tags.forEach(tag => {
             const weight = tag.getAttribute("data-weight");
-            const fontSize = 12 + (weight / 20) * 24;
+            const fontSize = minFontSize + (weight / 20) * (maxFontSize - minFontSize);
             tag.style.fontSize = fontSize + "px";
         });
     });
 </script>
+
 
 
   
