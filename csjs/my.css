@@ -821,7 +821,7 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding-block: var(--tpl-spacing-xl);
+  padding-block: var(--tpl-spacing-l);
 }
 
 : where(.auth-links,.main-menu-nav) a {
