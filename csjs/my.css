@@ -1713,6 +1713,7 @@ select.codeButtons {
     left: var(--tpl-spacing-m) + var(--ph);
     height: 50%;
   }
+
   .header-search-form {
     position: static;
     width: 100%;
@@ -1782,6 +1783,12 @@ select.codeButtons {
     display: block;
   }
 
+  .header-mobile-button-pc {
+  top: 21px;
+  position:absolute;
+  right: 56px;
+ }
+ 
   .header-mobile-button,.header-mobile-button-pc {
     align-items: center;
     display: flex;
