@@ -642,7 +642,7 @@
   width: 100%;
   z-index: 999;
   border-bottom: 1px solid var(--tpl-dark-300);
-  padding: 20px 0 20px var(--left-space);
+  padding: 8px 0 8px var(--left-space);
 }
 .header-scrolled {
   box-shadow: var(--tpl-accent-shadow);
@@ -847,7 +847,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  top: 20px;
+  top: 8px;
 }
 
 :where(.header) .logo-icon {
@@ -921,7 +921,7 @@
 }
 
 .header-mobile-button-pc {
-  top:19px;
+  top:8px;
   position:absolute;
   right:184px;
   align-items: center;
