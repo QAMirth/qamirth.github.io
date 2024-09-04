@@ -367,6 +367,57 @@
               </center>
               <br /><br />
 
+
+
+
+
+
+              <style>
+        #tag-cloud {
+            text-align: center;
+            margin: 20px;
+        }
+
+        #tag-cloud a {
+            text-decoration: none;
+            margin: 5px;
+            display: inline-block;
+            color: #3498db;
+            font-family: Arial, sans-serif;
+            transition: all 0.3s;
+        }
+
+        #tag-cloud a:hover {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+
+<div id="tag-cloud">
+    <a href="link1.html" data-weight="10">Tag 1</a>
+    <a href="link2.html" data-weight="5">Tag 2</a>
+    <a href="link3.html" data-weight="20">Tag 3</a>
+    <a href="link4.html" data-weight="15">Tag 4</a>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const tags = document.querySelectorAll("#tag-cloud a");
+        const minFontSize = 12;
+        const maxFontSize = 36;
+
+        tags.forEach(tag => {
+            const weight = tag.getAttribute("data-weight");
+            const fontSize = minFontSize + (weight / 20) * (maxFontSize - minFontSize);
+            tag.style.fontSize = fontSize + "px";
+        });
+    });
+</script>
+
+
+  
+
               <!-- </body> -->
             </div>
           </div>
