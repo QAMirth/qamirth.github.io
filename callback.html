@@ -1,17 +1,82 @@
-<script>
-  const urlParams = new URLSearchParams(window.location.search);
-  const code = urlParams.get('code');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag Cloud</title>
+    <style>
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .tag {
+            padding: 5px 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
 
-  if (code) {
-    // Обмен кода на токен
-    fetch(`https://servak-sigma.vercel.app/oauth-callback?code=${code}`)
-      .then(response => response.json())
-      .then(data => {
-        // Сохранение токена и отображение информации о пользователе
-        localStorage.setItem('githubToken', data.token);
-        window.location.href = '/';
-      });
-  }
+<div id="tagCloud" class="tag-cloud"></div>
+
+<script>
+    const pages = ['/index.html', '/8/8.html', '/9/9.html', '/10/10.html'];
+    const tagCloudLimit = 24;
+    const tagCounts = {};
+
+    // Функция для парсинга и получения тегов с каждой страницы
+    function extractTagsFromHTML(html) {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const tags = doc.querySelectorAll('.tg2');
+        tags.forEach(tag => {
+            const tagText = tag.textContent.trim();
+            if (tagCounts[tagText]) {
+                tagCounts[tagText]++;
+            } else {
+                tagCounts[tagText] = 1;
+            }
+        });
+    }
+
+    // Функция для получения страницы и обработки тегов
+    async function fetchAndProcessPage(pageUrl) {
+        try {
+            const response = await fetch(pageUrl);
+            const html = await response.text();
+            extractTagsFromHTML(html);
+        } catch (error) {
+            console.error(`Ошибка загрузки страницы ${pageUrl}:`, error);
+        }
+    }
+
+    // Главная функция, которая загружает все страницы и создает облако тегов
+    async function createTagCloud() {
+        // Загружаем все страницы
+        await Promise.all(pages.map(page => fetchAndProcessPage(page)));
+
+        // Сортируем теги по частоте использования и выбираем топ 24
+        const sortedTags = Object.entries(tagCounts)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, tagCloudLimit);
+
+        // Отображаем теги
+        const tagCloudElement = document.getElementById('tagCloud');
+        sortedTags.forEach(([tag, count]) => {
+            const tagElement = document.createElement('span');
+            tagElement.classList.add('tag');
+            tagElement.textContent = `${tag} (${count})`;
+            tagCloudElement.appendChild(tagElement);
+        });
+    }
+
+    // Запускаем создание облака тегов
+    createTagCloud();
 </script>
 
+</body>
+</html>
 
