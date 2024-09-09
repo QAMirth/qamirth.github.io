@@ -15,6 +15,16 @@
             background-color: #f0f0f0;
             border-radius: 5px;
             font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+        .tag a {
+            margin-right: 5px;
+            text-decoration: none;
+            color: blue;
+        }
+        .num {
+            color: gray;
         }
     </style>
 </head>
@@ -23,7 +33,7 @@
 <div id="tagCloud" class="tag-cloud"></div>
 
 <script>
-    const pages = ['/index.html', '/8/8.html', '/9/9.html', '/10/10.html'];
+    const jsonFilePath = '/csjs/pages.json';  // путь к JSON файлу
     const tagCloudLimit = 24;
     const tagCounts = {};
 
@@ -35,9 +45,12 @@
         tags.forEach(tag => {
             const tagText = tag.textContent.trim();
             if (tagCounts[tagText]) {
-                tagCounts[tagText]++;
+                tagCounts[tagText].count++;
             } else {
-                tagCounts[tagText] = 1;
+                tagCounts[tagText] = {
+                    count: 1,
+                    url: tag.href  // Сохраняем URL ссылки тега
+                };
             }
         });
     }
@@ -53,22 +66,48 @@
         }
     }
 
-    // Главная функция, которая загружает все страницы и создает облако тегов
+    // Функция для загрузки JSON файла со страницами
+    async function fetchPages() {
+        try {
+            const response = await fetch(jsonFilePath);
+            const json = await response.json();
+            return json.pages;
+        } catch (error) {
+            console.error('Ошибка загрузки JSON файла:', error);
+            return [];
+        }
+    }
+
+    // Главная функция, которая загружает страницы и создает облако тегов
     async function createTagCloud() {
-        // Загружаем все страницы
+        // Загружаем список страниц из JSON файла
+        const pages = await fetchPages();
+
+        // Загружаем все страницы и обрабатываем теги
         await Promise.all(pages.map(page => fetchAndProcessPage(page)));
 
         // Сортируем теги по частоте использования и выбираем топ 24
         const sortedTags = Object.entries(tagCounts)
-            .sort((a, b) => b[1] - a[1])
+            .sort((a, b) => b[1].count - a[1].count)
             .slice(0, tagCloudLimit);
 
         // Отображаем теги
         const tagCloudElement = document.getElementById('tagCloud');
-        sortedTags.forEach(([tag, count]) => {
+        sortedTags.forEach(([tag, data]) => {
             const tagElement = document.createElement('span');
             tagElement.classList.add('tag');
-            tagElement.textContent = `${tag} (${count})`;
+
+            const tagLink = document.createElement('a');
+            tagLink.href = data.url;
+            tagLink.classList.add('tag2');
+            tagLink.textContent = tag;
+
+            const tagCount = document.createElement('span');
+            tagCount.classList.add('num');
+            tagCount.textContent = `(${data.count})`;
+
+            tagElement.appendChild(tagLink);
+            tagElement.appendChild(tagCount);
             tagCloudElement.appendChild(tagElement);
         });
     }
@@ -79,4 +118,3 @@
 
 </body>
 </html>
-
