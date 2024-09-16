@@ -1,120 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tag Cloud</title>
-    <style>
-        .tag-cloud {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .tag {
-            padding: 5px 10px;
-            background-color: #f0f0f0;
-            border-radius: 5px;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-        }
-        .tag a {
-            margin-right: 5px;
-            text-decoration: none;
-            color: blue;
-        }
-        .num {
-            color: gray;
-        }
-    </style>
-</head>
-<body>
-
-<div id="tagCloud" class="tag-cloud"></div>
-
 <script>
-    const jsonFilePath = '/csjs/pages.json';  // путь к JSON файлу
-    const tagCloudLimit = 24;
-    const tagCounts = {};
+  const urlParams = new URLSearchParams(window.location.search);
+  const code = urlParams.get('code');
 
-    // Функция для парсинга и получения тегов с каждой страницы
-    function extractTagsFromHTML(html) {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const tags = doc.querySelectorAll('.tg2');
-        tags.forEach(tag => {
-            const tagText = tag.textContent.trim();
-            if (tagCounts[tagText]) {
-                tagCounts[tagText].count++;
-            } else {
-                tagCounts[tagText] = {
-                    count: 1,
-                    url: tag.href  // Сохраняем URL ссылки тега
-                };
-            }
-        });
-    }
-
-    // Функция для получения страницы и обработки тегов
-    async function fetchAndProcessPage(pageUrl) {
-        try {
-            const response = await fetch(pageUrl);
-            const html = await response.text();
-            extractTagsFromHTML(html);
-        } catch (error) {
-            console.error(`Ошибка загрузки страницы ${pageUrl}:`, error);
-        }
-    }
-
-    // Функция для загрузки JSON файла со страницами
-    async function fetchPages() {
-        try {
-            const response = await fetch(jsonFilePath);
-            const json = await response.json();
-            return json.pages;
-        } catch (error) {
-            console.error('Ошибка загрузки JSON файла:', error);
-            return [];
-        }
-    }
-
-    // Главная функция, которая загружает страницы и создает облако тегов
-    async function createTagCloud() {
-        // Загружаем список страниц из JSON файла
-        const pages = await fetchPages();
-
-        // Загружаем все страницы и обрабатываем теги
-        await Promise.all(pages.map(page => fetchAndProcessPage(page)));
-
-        // Сортируем теги по частоте использования и выбираем топ 24
-        const sortedTags = Object.entries(tagCounts)
-            .sort((a, b) => b[1].count - a[1].count)
-            .slice(0, tagCloudLimit);
-
-        // Отображаем теги
-        const tagCloudElement = document.getElementById('tagCloud');
-        sortedTags.forEach(([tag, data]) => {
-            const tagElement = document.createElement('span');
-            tagElement.classList.add('tag');
-
-            const tagLink = document.createElement('a');
-            tagLink.href = data.url;
-            tagLink.classList.add('tag2');
-            tagLink.textContent = tag;
-
-            const tagCount = document.createElement('span');
-            tagCount.classList.add('num');
-            tagCount.textContent = `(${data.count})`;
-
-            tagElement.appendChild(tagLink);
-            tagElement.appendChild(tagCount);
-            tagCloudElement.appendChild(tagElement);
-        });
-    }
-
-    // Запускаем создание облака тегов
-    createTagCloud();
+  if (code) {
+    // Обмен кода на токен
+    fetch(`https://servak-sigma.vercel.app/oauth-callback?code=${code}`)
+      .then(response => response.json())
+      .then(data => {
+        // Сохранение токена и отображение информации о пользователе
+        localStorage.setItem('githubToken', data.token);
+        window.location.href = '/';
+      });
+  }
 </script>
 
-</body>
-</html>
+

@@ -2,59 +2,46 @@
 <html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-
     <title>QAMirth - the lonely QA Engineer</title>
     <link rel="icon" type="image/x-icon" href="csjs/favicon.ico" />
-
     <meta name="keywords" content="QA, QA instruments, Katzeniy" />
-
     <meta
       name="description"
       content="QAMirth - The page of the lonely QA Engineer, where the resources and tools necessary for work are collected. Powered by Katzeniy"
     />
-
     <meta name="subject" content="Quality Assurance" />
     <meta name="copyright" content="Katzeniy" />
     <meta name="language" content="en" />
     <meta name="robots" content="index,follow" />
     <meta name="author" content="Katzeniy, katzeniy008@gmail.com" />
-
     <meta name="category" content="Technology" />
     <meta name="coverage" content="Worldwide" />
     <meta name="distribution" content="Global" />
-
     <meta property="og:title" content="QAMirth - the lonely QA Engineer" />
     <meta
       property="og:description"
       content="QAMirth - The page of the lonely QA Engineer, where the resources and tools necessary for work are collected. Powered by Katzeniy"
     />
-
     <meta property="og:image" content="csjs/logo.png" />
-
     <link type="text/css" rel="stylesheet" href="csjs/my.css" />
     <script type="text/javascript" src="csjs/ulightbox.min.js"></script>
 
     <script type="text/javascript">
-      // Функция для валидации поля поиска
       function validateSearch() {
         var input = document.querySelector(".header-search-input");
 
-        // Проверяем, пусто ли поле
         if (input.value.trim() === "") {
           // Меняем плейсхолдер на новый текст
           input.placeholder = "So what should we look for?";
 
-          // Предотвращаем отправку формы
           return false;
         }
 
-        // Если поле не пустое, форма отправляется нормально
         return true;
       }
 
       document.querySelectorAll("form").forEach((form) => {
         if (form.id !== "main-search-form") {
-          // Пропустить форму на главной странице
           form.onsubmit = validateSearch;
         }
       });
@@ -67,12 +54,10 @@
         if (query) {
           searchResultsContainer.innerHTML = "Searching...";
 
-          // Загрузка списка страниц из внешнего JSON-файла // HERE 13
-          fetch("/csjs/pages.json") // HERE 13
-            .then((response) => response.json()) // HERE 13
+          fetch("/csjs/pages.json") 
+            .then((response) => response.json()) 
             .then((pages) => {
               // HERE 13
-              // Функция для поиска на всех страницах
               function performSearchOnPage(pageUrl) {
                 return fetch(pageUrl)
                   .then((response) => response.text())
@@ -88,8 +73,7 @@
                         const link = `<a href="${pageUrl}" class="sltyt"></a>`;
                         const bl3Element = card.querySelector(".info-card-format .bl3");
                         if (bl3Element) {
-                          // HERE 13
-                          bl3Element.insertAdjacentHTML("beforebegin", link); // HERE 13
+                          bl3Element.insertAdjacentHTML("beforebegin", link); 
                         }
                         results += card.outerHTML;
                       }
@@ -99,7 +83,6 @@
                   });
               }
 
-              // Выполнение поиска по всем страницам
               Promise.all(pages.map(performSearchOnPage))
                 .then((results) => {
                   const mergedResults = results.join("");
@@ -115,145 +98,12 @@
                 });
             })
             .catch((error) => {
-              // HERE 13
-              console.error("Error loading pages:", error); // HERE 13
-              searchResultsContainer.innerHTML = "An error occurred while loading pages."; // HERE 13
+              console.error("Error loading pages:", error); 
+              searchResultsContainer.innerHTML = "An error occurred while loading pages."; 
             });
         }
       });
     </script>
-
-    <style type="text/css">
-      .container {
-        max-width: 100%;
-      }
-      .main {
-        padding-left: 0;
-        margin: 24px auto;
-      }
-
-      .header-search {
-        display: none;
-      }
-
-      .header {
-        padding: 8px 0 8px 0px;
-      }
-
-      .header-left {
-        margin: 0 auto;
-        justify-content: center;
-        text-align: center;
-      }
-
-      .main-menu {
-        margin: 0 185px 0 145px;
-        padding-top: 0;
-      }
-
-      .header-container {
-        flex-direction: row;
-      }
-
-      .logo-link {
-        top: 8px;
-        left: 16px;
-      }
-
-      .header-auth-block {
-        padding: 2px 16px 2px 8px;
-        right: 16px;
-      }
-
-      .footer-container {
-        padding-block: 8px;
-      }
-
-      .main-menu-nav li.uWithSubmenu > a {
-        text-align: left;
-      }
-
-      .main-menu-nav li > a {
-        text-align: left;
-      }
-
-      @media screen and (max-width: 1024px) {
-        .header-left {
-          margin: 0;
-        }
-        .logo-link {
-          top: 20px;
-        }
-        .main-menu {
-          margin: 0 0px 0 0px;
-          padding-top: 0;
-        }
-        .header-search {
-          display: block;
-        }
-      }
-
-      h1 {
-        font-weight: 400;
-      }
-
-      .searchForm2 form {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-      }
-      .queryField {
-        line-height: 1;
-        height: 32px;
-        border: 1px solid #8f8f9d;
-      }
-      .schBtn input {
-        line-height: 1;
-        border-radius: 4px;
-        margin-left: 2px;
-        height: 32px;
-        background: #e9e9ed;
-        border: 1px solid #8f8f9d;
-        color: #222;
-        font-size: 12px;
-        font-weight: 400;
-        vertical-align: middle;
-      }
-
-      .visually-hidden {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        margin: -1px;
-        padding: 0;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        border: 0;
-      }
-    </style>
-
-
-
-    
-   <style type="text/css">
-        #tag-cloud {
-            text-align: center;
-            margin: 20px;
-        }
-
-        #tag-cloud a {
-            text-decoration: none;
-            margin: 5px;
-            display: inline-block;
-            color: var(--tpl-accent-blue);
-            font-family: Inherit;
-            transition: all 0.3s;
-        }
-
-        #tag-cloud a:hover {
-            color: var(--tpl-accent-blue-dark);
-        }
-    </style>
     
   </head>
   <body class="home-p">
@@ -335,15 +185,18 @@
       <div class="main">
         <div class="container main-container">
           <!-- <middle> -->
-          <div class="tpl-content-home-page">
+          <main class="tpl-content-home-page">
             <div class="index-page-content">
               <!-- <body> -->
 
-              <br /><br />
+
+
+
+
 
               <center>
-                <img src="/csjs/logo125-removebg3.png" alt="QAMirth" width="233px" height="59px" />
-                <div style="margin-top: 24px 16px">
+                
+                <div style="margin-top: 48px">
                   <h1>QAMirth - the lonely QA Engineer corner</h1>
                   The corner of the lonely QA Engineer, where the resources and tools interesting
                   for QA work are collected.<br /><br />
@@ -389,40 +242,15 @@
                   </svg>
                 </div>
               </center>
-              <br /><br />
-
-
-
-<div id="tag-cloud">
-    <a href="/99/search.html?t=0&q=#ForJunior" data-weight="3">#ForJunior</a>
-    <a href="/99/search.html?t=0&q=#KnowJS" data-weight="1">#KnowJS</a>
-    <a href="/99/search.html?t=0&q=#AI-based" data-weight="7">#AI-based</a>
-    <a href="/99/search.html?t=0&q=#CLI" data-weight="5">#CLI</a>
-</div>
-
-<script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function() {
-        const tags = document.querySelectorAll("#tag-cloud a");
-        const minFontSize = 12;
-        const maxFontSize = 36;
-
-        tags.forEach(tag => {
-            const weight = tag.getAttribute("data-weight");
-            const fontSize = minFontSize + (weight / 20) * (maxFontSize - minFontSize);
-            tag.style.fontSize = fontSize + "px";
-        });
-    });
-</script>
-
-
-
-  
+              
 
               <!-- </body> -->
             </div>
-          </div>
+          </main>
 
           <!-- </middle> -->
+           <script type="text/javascript" src="csjs/modal-pop.js"></script>
+            <script type="text/javascript" src="csjs/modal.js"></script>
         </div>
       </div>
 
@@ -430,6 +258,8 @@
         <script type="text/javascript" src="csjs/footer.js"></script>
       </footer>
       <script type="text/javascript" src="csjs/1234.main.js"></script>
+      <script type="text/javascript" src="csjs/tags.js"></script>
+      <script type="text/javascript" src="csjs/opec.js"></script>
     </div>
   </body>
 </html>

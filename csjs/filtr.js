@@ -51,14 +51,23 @@ function populateFilters() {
     const freepaids = new Set();
 
     materials.forEach(material => {
-        // kurvu: Извлекаем все форматы и статусы оплаты, разбитые запятыми
-        const formatArray = material.querySelector('.format').textContent.trim().split(',').map(item => item.trim());
-        const freepaidArray = material.querySelector('.freepaid').textContent.trim().split(',').map(item => item.trim());
+        const formatLinks = material.querySelectorAll('.format a'); // YAHU: Изменено
+        const freepaidLinks = material.querySelectorAll('.freepaid a'); // YAHU: Изменено
 
-        formatArray.forEach(format => formats.add(format));
-        freepaidArray.forEach(freepaid => freepaids.add(freepaid));
+        formatLinks.forEach(link => {
+            const text = link.textContent.trim();
+            if (text) {
+                text.split(' ').forEach(part => formats.add(part)); // YAHU: Изменено
+            }
+        });
+
+        freepaidLinks.forEach(link => {
+            const text = link.textContent.trim();
+            if (text) {
+                text.split(' ').forEach(part => freepaids.add(part)); // YAHU: Изменено
+            }
+        });
     });
-
 
     formats.forEach(format => {
         const option = document.createElement('option');
@@ -81,11 +90,9 @@ function filterMaterials() {
     const materials = Array.from(document.getElementsByClassName('info-card'));
 
     materials.forEach(material => {
-       // kurvu: Извлекаем все значения форматов и статусов оплаты
-        const formatArray = material.querySelector('.format').textContent.trim().split(',').map(item => item.trim());
-        const freepaidArray = material.querySelector('.freepaid').textContent.trim().split(',').map(item => item.trim());
+        const formatArray = Array.from(material.querySelectorAll('.format a')).map(link => link.textContent.trim().split(' ')).flat(); // YAHU: Изменено
+        const freepaidArray = Array.from(material.querySelectorAll('.freepaid a')).map(link => link.textContent.trim().split(' ')).flat(); // YAHU: Изменено
 
-        // kurvu: Проверяем, содержится ли выбранное значение фильтра в массиве значений карточки
         const formatMatch = formatFilter === '' || formatArray.includes(formatFilter);
         const freepaidMatch = freepaidFilter === '' || freepaidArray.includes(freepaidFilter);
 

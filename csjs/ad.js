@@ -13,19 +13,25 @@ document.write(`
             <input type="text" id="title" name="title" required><br>
             <label for="description">Description:</label>
             <div id="description-container"></div><br>
-             <label for="tags">Tags:</label>
+             <label for="tags">Tags: #BEFORE, #BEFORE...</label>
             <input type="text" id="tags" name="tags" required><br>
                <label for="format">Format:</label>
     <select id="format" name="format" multiple required>
-        <option value="Online">Online</option>
-        <option value="Download">Download</option>
-        <option value="Offline">Offline</option>
+        <option value="#CLI">#CLI</option>
+        <option value="#Download">#Download</option>
+        <option value="#DevTools">#DevTools</option>
+        <option value="#Extension">#Extension</option>
+        <option value="#Online">#Online</option>
+        <option value="#Zip,Rar">#Zip,Rar</option>
+        <option value="#Failed,Archive">#Failed,Archive</option>
+        
     </select><br>
-    <label for="freepaid">Free/Paid:</label>
+    <label for="freepaid">License:</label>
     <select id="freepaid" name="freepaid" multiple required>
-        <option value="Free">Free</option>
-        <option value="Paid">Paid</option>
-        <option value="Trial">Trial</option>
+        <option value="#Free">#Free</option>
+        <option value="#Freemium">#Freemium</option>
+        <option value="#Paid">#Paid</option>
+        <option value="#Trial">#Trial</option>
     </select><br>  
             <label for="image">Image URL:</label>
             <input type="text" id="image" name="image"><br>

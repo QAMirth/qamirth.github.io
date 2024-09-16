@@ -47,37 +47,45 @@
     <style type="text/css">
       .form-container {
         background-color: #fff;
-        max-width: calc(var(--tpl-max-layout-width) + (var(--tpl-spacing-l) * 2));
+        max-width: 728px;
         width: 100%;
       }
 
       .form-group {
         display: flex;
         flex-direction: column;
-        margin-bottom: 15px;
+        margin-bottom: 16px;
       }
 
       .form-group label {
-        margin-bottom: 5px;
-        font-weight: 700;
+        margin-bottom: 4px;
+        font-weight: 600;
       }
 
       .form-group input[type="text"],
       .form-group input[type="email"],
       .form-group select {
-        padding: 8px;
-        border: 1px solid #ccc;
+        padding: 4px;
+        border: 1px solid var(--tpl-dark-300);
         border-radius: 4px;
         width: 100%;
         box-sizing: border-box;
+        background: var(--tpl-accent-lightgray);
       }
 
       .form-group input[type="submit"] {
-        padding: 10px 15px;
-        border: none;
-        border-radius: 4px;
+        padding: 8px 16px;
+        border-radius: 8px;
         cursor: pointer;
         max-width: fit-content;
+      }
+
+      .ql-editor {
+        padding: 4px;
+        border-radius: 4px;
+        width: 100%;
+        box-sizing: border-box;
+        background: var(--tpl-accent-lightgray);
       }
     </style>
 
@@ -217,11 +225,12 @@
       <div class="main">
         <div class="container main-container">
           <!-- <middle> -->
-          <div class="tpl-content">
+          <main class="tpl-content">
             <div class="index-page-content">
               <!-- <body> -->
 
               <h1>Add tool form</h1>
+            If you want to see some tool or software in the list of the site and did not find it through our search, you can fill out the form below and your request to place the material on the site will be satisfied. </br> In the name of all QA and those who work in IT.</br></br>
               <div class="form-container">
                 <form id="contact-form" action="https://formspree.io/f/xzzpgpnl" method="POST">
                   <div class="form-group">
@@ -238,33 +247,21 @@
                   </div>
                   <div class="form-group">
                     <label for="format">Format:</label>
-                    <select id="format" name="format" required>
-                      <option value="target_blank">Static Review</option>
-                      <option value="target_blank">Static Analysis</option>
-                      <option value="target_blank">Black-box</option>
-                      <option value="target_blank">White-box</option>
-                      <option value="target_blank">Unit</option>
-                      <option value="target_blank">Integration</option>
-                      <option value="target_blank">System</option>
-                      <option value="target_blank">End-to-end testing</option>
-                      <option value="target_blank">Smoke</option>
-                      <option value="target_blank">Sanity</option>
-                      <option value="target_blank">Regression</option>
-                      <option value="target_blank">Performance</option>
-                      <option value="target_blank">UI/UX</option>
-                      <option value="target_blank">Security</option>
-                      <option value="target_blank">Automated</option>
-                      <option value="target_blank">Mobile testing</option>
-                      <option value="target_blank">Test case based</option>
-                      <option value="target_blank">Exploratory</option>
-                      <option value="target_blank">Ad hoc</option>
+                    <select id="format" name="format" multiple required>
+                      <option value="CLI">CLI (Command Line Interface)</option>
+                      <option value="Download">Download</option>
+                      <option value="DevTools">DevTools part</option>
+                      <option value="Extension">Extension</option>
+                      <option value="Online">Online (use in Browser)</option>
                     </select>
                   </div>
                   <div class="form-group">
-                    <label for="freepaid">Free/Paid:</label>
+                    <label for="freepaid">License:</label>
                     <select id="freepaid" name="freepaid" required>
-                      <option value="free">Free</option>
-                      <option value="paid">Paid</option>
+                      <option value="Free">Free</option>
+                      <option value="Freemium">Freemium (A combination of free and paid elements)</option>
+                      <option value="Paid">Paid</option>
+                      <option value="Trial">Trial</option>
                     </select>
                   </div>
                   <div class="form-group">
@@ -277,7 +274,7 @@
                   </div>
                   <div class="form-group">
                     <label for="testing-type">Type of testing:</label>
-                    <select id="testing-type" name="testing-type" required>
+                    <select id="testing-type" name="testing-type" multiple required>
                       <option value="Static Review">Static Review</option>
                       <option value="Static Analysis">Static Analysis</option>
                       <option value="Black-box">Black-box</option>
@@ -313,7 +310,11 @@
 
               <!-- </body> -->
             </div>
-          </div>
+          </main>     
+
+          <aside id="sidebar" class="sidebar">
+            <script type="text/javascript" src="../csjs/footer-r.js"></script>
+          </aside>
 
           <!-- </middle> -->
         </div>

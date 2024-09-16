@@ -54,9 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const freepaidSelect = document.getElementById('freepaid');
         const selectedFreepaid = Array.from(freepaidSelect.selectedOptions).map(option => option.value);
 
-        // Проверка на пустой путь к изображению
         if (!image) {
-            image = '../csjs/mirth.png'; // Автоматически добавляем путь csjs/mirth.png
+            image = '../csjs/mirth.svg'; 
         }
 
         // Преобразование тегов в HTML ссылки
@@ -87,30 +86,64 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function createMaterialElement(material) {
+
+        //ЫТЬ Преобразование значений format в HTML-ссылки ЫТЬ
+    const formatLinks = material.format.split(', ').map(format => {
+        return `<a href="/99/search.html?t=0&q=${encodeURIComponent(format)}" class="ft2">${format}</a>`;
+    }).join(' ');
+
+    // ЫТЬ Преобразование значений freepaid в HTML-ссылки ЫТЬ
+    const freepaidLinks = material.freepaid.split(', ').map(freepaid => {
+        return `<a href="/99/search.html?t=0&q=${encodeURIComponent(freepaid)}" class="fp2">${freepaid}</a>`;
+    }).join(' ');
         const newMaterial = document.createElement('div');
         newMaterial.className = 'info-card dynamic';
+
+        // HERE ID: Замена пробелов на дефисы в атрибуте id
+
+const materialId = material.title.toLowerCase().replace(/\s+/g, '-').trim();
+const dataTitle = material.title.toLowerCase().trim();
+const linkOrigin = new URL(material.link).origin;
+
         newMaterial.innerHTML = `
+        <div class="info-who">
             <div class="info-card-label">
-                <a href="${material.link}" class="ttc" target="${material.linkType === 'target_blank' ? '_blank' : ''}" rel="${material.linkType === 'target_blank' ? 'nofollow' : ''}">
-                    <img src="${material.image}" alt="#" class="ggh"/>
-                </a>
-            </div>
-            <div class="info-card-content">
-                <div class="info-card-title">
-                    <a href="${material.link}" class="ttb" target="${material.linkType === 'target_blank' ? '_blank' : ''}" rel="${material.linkType === 'target_blank' ? 'nofollow' : ''}">
-                        ${material.title}
-                    </a>
+                <span class="flog1">
+                    <div class="flog11">
+                        <a href="${material.link}" class="ttc" target="${material.linkType === 'target_blank' ? '_blank' : ''}" rel="${material.linkType === 'target_blank' ? 'nofollow' : ''}"><img src="${material.image}" alt="#" class="ggh"/></a>
+                    </div>
+                </span>
+                <div class="fwho1">
+                    <div class="fwho11">
+                        <div class="info-card-title">
+                            <a href="${material.link}" class="ttb" target="${material.linkType === 'target_blank' ? '_blank' : ''}" rel="${material.linkType === 'target_blank' ? 'nofollow' : ''}">${material.title}</a>
+                        </div>
+                    </div>
+                    <div class="fwho12">
+                        <cite class="fwho121" role="text">${linkOrigin}</cite>
+                    </div>
                 </div>
-                <div class="info-card-desc2">${material.description}</div>
-                <div class="info-card-format">
-                    <span class="format">${material.format}</span>
-                    <span class="freepaid">${material.freepaid}</span>
-                    <span class="tags">
-                        <span class="tg">${material.tagsHTML}</span>
-                    </span>
-                    <div class="bl3"><a class="button-link3"></a></div>
+                <div class="fwho13">
+                    <span class="cp1"></span>
                 </div>
             </div>
+            <div class="ex1">
+                <a class="button-link2"></a> 
+            </div>
+        </div>
+        <div class="info-card-content">
+            <div class="info-card-desc2">
+                ${material.description}
+            </div>
+            <div class="info-card-format">
+                <span class="format">${formatLinks}</span>
+                <span class="freepaid">${freepaidLinks}</span>
+                <span class="tags">
+                    <span class="tg">${material.tagsHTML}</span>
+                </span>
+                <div class="bl3"><a class="button-link3"></a></div>
+            </div>
+        </div>
             <button class="delete-material">&times;</button>
             <button class="copy-html">Copy HTML</button>
             <button class="edit-material">Edit</button>
@@ -131,12 +164,30 @@ document.addEventListener('DOMContentLoaded', function() {
                 .replace(/delete-material/g, 'delete-material2')
                 .replace(/copy-html/g, 'copy-html2')
                 .replace(/edit-material/g, 'edit-material2')
-                .replace('<div class="info-card static"', `<div class="info-card static" data-title="${material.title.toLowerCase()}"`)
-                .replace('<div class="info-card-desc">', `<div class="info-card-desc"><a class="button-link2"></a>`);
-            navigator.clipboard.writeText(materialHTML);
-        });
+                .replace(/<div class="info-card static"[^>]*>/, function(match) {
 
-        // Обработчик редактирования материала
+// Убедимся, что 'data-title' добавляется только если его ещё нет в div
+
+if (!match.includes('data-title="')) {
+
+return `<div class="info-card static" data-title="${dataTitle}" id="${materialId}">`;
+
+}
+
+return match; // Оставляем без изменений, если 'data-title' уже есть
+
+})
+
+.replace('<div class="info-card-desc">', `<div class="info-card-desc">`);
+
+
+// Копируем результат в буфер обмена
+
+navigator.clipboard.writeText(materialHTML);
+
+});
+
+      // Обработчик редактирования материала
         newMaterial.querySelector('.edit-material').addEventListener('click', function() {
             editMaterial(newMaterial, material);
         });
@@ -150,8 +201,8 @@ document.addEventListener('DOMContentLoaded', function() {
             return {
                 title: material.querySelector('.info-card-title a').textContent,
                 description: material.querySelector('.info-card-desc2').innerHTML,
-                format: material.querySelector('.info-card-format .format').textContent,
-                freepaid: material.querySelector('.info-card-format .freepaid').textContent,
+                format: Array.from(material.querySelectorAll('.info-card-format .format a')).map(link => link.textContent).join(', '), // YAHU
+                freepaid: Array.from(material.querySelectorAll('.info-card-format .freepaid a')).map(link => link.textContent).join(', '), // YAHU
                 image: material.querySelector('.info-card-label img').src,
                 link: material.querySelector('.info-card-title a').href,
                 linkType: material.querySelector('.info-card-title a').target === '_blank' ? 'target_blank' : 'direct_link',
@@ -210,8 +261,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Обновление HTML материала
             materialElement.querySelector('.info-card-title a').textContent = material.title;
             materialElement.querySelector('.info-card-desc2').innerHTML = material.description;
-            materialElement.querySelector('.info-card-format .format').textContent = material.format;
-            materialElement.querySelector('.info-card-format .freepaid').textContent = material.freepaid;
+            materialElement.querySelector('.info-card-format .format').innerHTML = Array.from(document.getElementById('format').selectedOptions).map(option => `<a href="/99/search.html?t=0&amp;q=${encodeURIComponent(option.value)}" class="ft2">${option.value}</a>`).join(' '); // YAHU
+            materialElement.querySelector('.info-card-format .freepaid').innerHTML = Array.from(document.getElementById('freepaid').selectedOptions).map(option => `<a href="/99/search.html?t=0&amp;q=${encodeURIComponent(option.value)}" class="fp2">${option.value}</a>`).join(' '); // YAHU
             materialElement.querySelector('.info-card-label img').src = material.image;
             materialElement.querySelector('.info-card-title a').href = material.link;
             materialElement.querySelector('.info-card-title a').target = material.linkType === 'target_blank' ? '_blank' : '';
