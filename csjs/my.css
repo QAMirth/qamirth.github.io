@@ -1219,7 +1219,7 @@
   border-radius: var(--7a5);
   border: 1px solid var(--300);
   position: static;
-  /* right:0; */
+  margin-bottom: var(--pad-small);
   width: var(--sidebar-size-r);
 }
 
