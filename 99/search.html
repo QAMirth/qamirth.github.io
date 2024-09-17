@@ -155,25 +155,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
        <script>
-        // Функция для удаления псевдоэлемента ::after при клике на него
-        function removeAfterOnClick() {
+         // Функция для обработки клика на псевдоэлемент
+        function handleClick() {
             const button = document.querySelector('.button-link2');
 
             if (button) {
-                const observer = new MutationObserver(() => {
-                    if (getComputedStyle(button, '::after').content === 'url("path/to/your/image.png")') {
-                        button.addEventListener('click', () => {
+                // Для этого подхода, мы просто добавляем класс, чтобы скрыть псевдоэлемент
+                button.addEventListener('click', (event) => {
+                    // Определяем, что клик произошел на псевдоэлементе
+                    const rect = button.getBoundingClientRect();
+                    const clickX = event.clientX;
+                    const clickY = event.clientY;
+                    
+                    // Определяем область псевдоэлемента
+                    const iconRect = {
+                        left: rect.right - 20, // Предполагаем, что иконка имеет размер 20x20px
+                        top: rect.top,
+                        right: rect.right,
+                        bottom: rect.top + 20
+                    };
+                    
+                    // Проверяем, находится ли клик в пределах псевдоэлемента
+                    if (clickX >= iconRect.left && clickX <= iconRect.right &&
+                        clickY >= iconRect.top && clickY <= iconRect.bottom) {
                             button.classList.add('hidden');
-                        });
                     }
                 });
-
-                observer.observe(button, { attributes: true, attributeFilter: ['class'] });
             }
         }
 
         // Вызов функции после загрузки контента страницы
-        window.onload = removeAfterOnClick;
+        window.onload = handleClick;
     </script>
   
 
@@ -200,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <style type="text/css">
 
-.button-link2 {
+  .button-link2 {
             position: relative;
             display: inline-block;
             padding: 10px;
@@ -210,23 +222,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         .button-link2::after {
-            content: url('++');
+            content: url('path/to/your/image.png'); /* Или другой контент */
             position: absolute;
             top: 0;
             right: 0;
-            width: 20px; /* Примерный размер изображения */
-            height: 20px; /* Примерный размер изображения */
+            width: 20px;
+            height: 20px;
             cursor: pointer;
         }
 
         .button-link2.hidden::after {
             content: '';
         }
-
-
-
-
-
   
 
 
