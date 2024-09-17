@@ -3250,6 +3250,10 @@ body.popup-active {
   color: var(--550);
   }
 
+ .tag-cloud {
+  flex-direction: row;
+  }
+
 }
 
 
