@@ -3217,6 +3217,18 @@ body.popup-active {
     display: block;
   }
 
+     .sidebar-block {
+    display: none;
+  }
+  
+  #slideoutMenu .sidebar-block{
+    display: block;
+  }
+  
+  .stdb-t{
+    margin-top: var(--25);
+  }
+
   .slideout-menu.active {
     display: block;
   }
