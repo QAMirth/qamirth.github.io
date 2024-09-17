@@ -3219,7 +3219,7 @@ body.popup-active {
   }
 
   .close-menu {
-  background-color: var(--000);
+  background-color: var(--100);
   color: var(--500);
   border: none;
   padding: 0 var(--7a5);
