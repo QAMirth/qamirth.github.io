@@ -65,6 +65,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const parentElement = document.body; // Родительский элемент, который уже существует
 
+    // Добавляем обработчик событий для кликов
     parentElement.addEventListener('click', (event) => {
         // Проверяем, был ли клик по .button-link2
         if (event.target.closest('.button-link2')) {
@@ -101,7 +102,48 @@ document.addEventListener('DOMContentLoaded', () => {
         buttonLink2.innerHTML = '<svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path class="open11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
         buttonLink3.style.display = 'none';
     }
+
+    // Функция инициализации блока info-card после его подгрузки
+    function initializeInfoCard(infoCard) {
+        const buttonLink2 = infoCard.querySelector('.button-link2');
+        const buttonLink3 = infoCard.querySelector('.button-link3');
+
+        // Устанавливаем иконку по умолчанию для buttonLink2
+        buttonLink2.innerHTML = '<svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path class="open11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
+        
+        // Скрываем кнопку buttonLink3 по умолчанию
+        buttonLink3.style.display = 'none';
+    }
+
+    // Пример подгрузки динамического контента
+    function addDynamicInfoCard() {
+        const newCardHtml = `
+            <div class="info-card">
+                <div class="info-card-desc">Описание карточки...</div>
+                <a href="#" class="button-link2"></a>
+                <a href="#" class="button-link3">Свернуть</a>
+            </div>
+        `;
+
+        // Добавляем новую карточку в DOM
+        const container = document.querySelector('.info-cards-container');
+        const newCard = document.createElement('div');
+        newCard.innerHTML = newCardHtml;
+        container.appendChild(newCard);
+
+        // Инициализируем новую карточку
+        initializeInfoCard(newCard);
+    }
+
+    // Инициализация всех существующих info-card на странице после загрузки
+    document.querySelectorAll('.info-card').forEach(card => {
+        initializeInfoCard(card); // Инициализация иконок для существующих карточек
+    });
+    
+    // Вызов функции для демонстрации подгрузки новой карточки
+    addDynamicInfoCard();
 });
+
 
            </script>
 
