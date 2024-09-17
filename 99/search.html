@@ -62,40 +62,45 @@
     
 
      <script type="text/javascript">
-document.addEventListener('DOMContentLoaded', function () {
-  // Ищем все элементы с классом button-link2
-  document.querySelectorAll('.button-link2').forEach(function (buttonLink) {
-    
-    // Добавляем слушатель событий на клик по ссылке
-    buttonLink.addEventListener('click', function (event) {
-      event.preventDefault();
-      
-      // Находим ближайший элемент с классом info-card
-      const infoCard = buttonLink.closest('.info-card');
-      const infoCardDesc = infoCard.querySelector('.info-card-desc');
-      
-      // Проверяем, развёрнут ли текст
-      if (infoCardDesc.classList.contains('expanded')) {
-        // Если развёрнут, сворачиваем текст
-        infoCardDesc.classList.remove('expanded');
-        
-        // Меняем иконку обратно на open1
-        buttonLink.innerHTML = `
-          <svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
-            <path class="open11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
-          </svg>`;
-      } else {
-        // Если свёрнут, разворачиваем текст
-        infoCardDesc.classList.add('expanded');
-        
-        // Меняем иконку на close1
-        buttonLink.innerHTML = `
-          <svg class="close1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
-            <path class="close11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
-          </svg>`;
-      }
+document.addEventListener('DOMContentLoaded', () => {
+    const parentElement = document.body; // Родительский элемент, который уже существует
+
+    parentElement.addEventListener('click', (event) => {
+        // Проверяем, был ли клик по .button-link2
+        if (event.target.closest('.button-link2')) {
+            const buttonLink2 = event.target.closest('.button-link2');
+            const infoCard = buttonLink2.closest('.info-card');
+            const desc = infoCard.querySelector('.info-card-desc');
+            const buttonLink3 = infoCard.querySelector('.button-link3');
+
+            // Разворачиваем текст
+            if (!desc.classList.contains('expanded')) {
+                desc.classList.add('expanded'); // Разворачиваем текст
+                buttonLink2.innerHTML = '<svg class="close1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="close11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
+                buttonLink3.style.display = 'inline';
+                buttonLink3.textContent = '';
+            } else {
+                collapseText(desc, buttonLink2, buttonLink3); // Если текст уже развернут, сворачиваем
+            }
+        }
+
+        // Проверяем, был ли клик по .button-link3
+        if (event.target.closest('.button-link3')) {
+            const buttonLink3 = event.target.closest('.button-link3');
+            const infoCard = buttonLink3.closest('.info-card');
+            const desc = infoCard.querySelector('.info-card-desc');
+            const buttonLink2 = infoCard.querySelector('.button-link2');
+
+            collapseText(desc, buttonLink2, buttonLink3);
+        }
     });
-  });
+
+    // Функция сворачивания текста
+    function collapseText(desc, buttonLink2, buttonLink3) {
+        desc.classList.remove('expanded'); // Сворачиваем текст
+        buttonLink2.innerHTML = '<svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path class="open11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
+        buttonLink3.style.display = 'none';
+    }
 });
 
            </script>
