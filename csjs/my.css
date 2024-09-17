@@ -2181,7 +2181,7 @@ select.codeButtons {
   .sidebar-block,
 .sidebar-block2 {
   position: static;
-  margin-top: calc(-1 * var(--15));
+  margin-top: calc(-1 * var(--pad-big));
 }
 
   .footer {
