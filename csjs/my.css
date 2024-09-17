@@ -3144,8 +3144,8 @@ body.popup-active {
     transform: translateY(-50%);
     width: 16px;
     height: 16px;
-    border-radius: 50%;
-    border: 2px solid #ccc; /* Цвет незаполненного круга */
+    border-radius: 36%;
+    border: 3px solid #ccc; /* Цвет незаполненного круга */
     background: #fff;
     transition: background 0.3s, border-color 0.3s;
 }
