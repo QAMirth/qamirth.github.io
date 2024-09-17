@@ -154,40 +154,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-       <script>
-         // Функция для обработки клика на псевдоэлемент
-        function handleClick() {
-            const button = document.querySelector('.button-link2');
-
-            if (button) {
-                // Для этого подхода, мы просто добавляем класс, чтобы скрыть псевдоэлемент
-                button.addEventListener('click', (event) => {
-                    // Определяем, что клик произошел на псевдоэлементе
-                    const rect = button.getBoundingClientRect();
-                    const clickX = event.clientX;
-                    const clickY = event.clientY;
-                    
-                    // Определяем область псевдоэлемента
-                    const iconRect = {
-                        left: rect.right - 20, // Предполагаем, что иконка имеет размер 20x20px
-                        top: rect.top,
-                        right: rect.right,
-                        bottom: rect.top + 20
-                    };
-                    
-                    // Проверяем, находится ли клик в пределах псевдоэлемента
-                    if (clickX >= iconRect.left && clickX <= iconRect.right &&
-                        clickY >= iconRect.top && clickY <= iconRect.bottom) {
-                            button.classList.add('hidden');
-                    }
-                });
-            }
-        }
-
-        // Вызов функции после загрузки контента страницы
-        window.onload = handleClick;
-    </script>
-  
 
 
 
@@ -212,29 +178,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <style type="text/css">
 
-  .button-link2 {
-            position: relative;
-            display: inline-block;
-            padding: 10px;
-            background-color: #f0f0f0;
-            border: 1px solid #ccc;
-            text-decoration: none;
-        }
-
-        .button-link2::after {
-            content: "+";
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-        }
-
-        .button-link2.hidden::after {
-            content: "";
-        }
-  
 
 
 
