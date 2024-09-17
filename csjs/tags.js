@@ -69,7 +69,7 @@
 
             const tagCount = document.createElement('span');
             tagCount.classList.add('num');
-            tagCount.textContent = `(${data.count} Materials)`;
+            tagCount.textContent = `${data.count} Materials`;
 
             tagElement.appendChild(tagLink);
             tagElement.appendChild(tagCount);
