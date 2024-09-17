@@ -58,17 +58,27 @@ document.addEventListener("DOMContentLoaded", function() {
                             let results = '';
                             let matchingCards = 0;  // Track number of matching cards
 
+
                             infoCards.forEach(card => {
-                                if (card.innerText.toLowerCase().includes(query.toLowerCase())) {
-                                    const link = `<a href="${pageUrl}" class="sltyt" aria-label="#Link"></a>`;
-                                    const bl3Element = card.querySelector('.info-card-format .bl3');
-                                    if (bl3Element) {
-                                        bl3Element.insertAdjacentHTML('beforebegin', link);
-                                    }
-                                    results += card.outerHTML;
-                                    matchingCards++;  // Increment the count of matching cards
-                                }
-                            });
+    if (card.innerText.toLowerCase().includes(query.toLowerCase())) {
+        // Получаем id элемента с классом info-card
+        const cardId = card.getAttribute('id');
+        
+        // Формируем ссылку, добавляя id в конец href
+        const link = `<a href="${pageUrl}#${cardId}" class="sltyt" aria-label="#Link"></a>`;
+        
+        // Находим элемент с классом .bl3 внутри .info-card-format
+        const bl3Element = card.querySelector('.info-card-format .bl3');
+        if (bl3Element) {
+            // Вставляем ссылку перед элементом bl3
+            bl3Element.insertAdjacentHTML('beforebegin', link);
+        }
+        
+        // Добавляем HTML-код текущего info-card в результаты
+        results += card.outerHTML;
+        matchingCards++;  // Увеличиваем счетчик совпадающих карточек
+    }
+});
 
                             return { results, matchingCards };
                         });
