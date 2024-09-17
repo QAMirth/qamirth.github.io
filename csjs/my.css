@@ -1234,7 +1234,7 @@
 
 .sidebar-block-footer .inner-footer {
   border-radius: inherit;
-  padding: calc(var(--pad) - var(--5)) var(--10);
+  padding: var(--0) var(--10);
 }
 
 .sidebar-block .inner,
