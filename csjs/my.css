@@ -768,7 +768,7 @@
   font-family: "Material Icons Outlined";
   font-weight: 400;
   color: var(--link-c);
-  background-color: var(--000);
+  background-color: transparent;
   border: 0;
   border-radius: 0px var(--7a5) var(--7a5) 0px;
   outline: 0;
@@ -785,7 +785,8 @@
 }
 
 .header-search-button:hover {
-  background-color: var(--000);
+  background-color: transparent;
+  color: var(--link-c-hover);
 }
 
 .main-menu-nav ::before {
