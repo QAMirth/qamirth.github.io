@@ -63,34 +63,31 @@
 
      <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', () => {
-    // Инициализация всех существующих info-card на странице после загрузки
-    document.querySelectorAll('.info-card').forEach(card => {
-        initializeInfoCard(card); // Инициализация иконок для существующих карточек
-    });
+    const parentElement = document.body; // Родительский элемент, который уже существует
 
-    // Добавляем динамическую карточку для демонстрации
-    addDynamicInfoCard();
-
-    // Обработчик для кликов по кнопкам .button-link2 и .button-link3
-    document.body.addEventListener('click', (event) => {
-        const buttonLink2 = event.target.closest('.button-link2');
-        const buttonLink3 = event.target.closest('.button-link3');
-
-        if (buttonLink2) {
+    // Добавляем обработчик событий для кликов
+    parentElement.addEventListener('click', (event) => {
+        // Проверяем, был ли клик по .button-link2
+        if (event.target.closest('.button-link2')) {
+            const buttonLink2 = event.target.closest('.button-link2');
             const infoCard = buttonLink2.closest('.info-card');
             const desc = infoCard.querySelector('.info-card-desc');
             const buttonLink3 = infoCard.querySelector('.button-link3');
 
+            // Разворачиваем текст
             if (!desc.classList.contains('expanded')) {
-                desc.classList.add('expanded');
-                buttonLink2.innerHTML = '<svg class="close1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="close11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
+                desc.classList.add('expanded'); // Разворачиваем текст
+                buttonLink2.innerHTML = '<svg class="close1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path class="close11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
                 buttonLink3.style.display = 'inline';
+                buttonLink3.textContent = '';
             } else {
-                collapseText(desc, buttonLink2, buttonLink3);
+                collapseText(desc, buttonLink2, buttonLink3); // Если текст уже развернут, сворачиваем
             }
         }
 
-        if (buttonLink3) {
+        // Проверяем, был ли клик по .button-link3
+        if (event.target.closest('.button-link3')) {
+            const buttonLink3 = event.target.closest('.button-link3');
             const infoCard = buttonLink3.closest('.info-card');
             const desc = infoCard.querySelector('.info-card-desc');
             const buttonLink2 = infoCard.querySelector('.button-link2');
@@ -98,83 +95,54 @@ document.addEventListener('DOMContentLoaded', () => {
             collapseText(desc, buttonLink2, buttonLink3);
         }
     });
-});
 
-// Функция сворачивания текста
-function collapseText(desc, buttonLink2, buttonLink3) {
-    desc.classList.remove('expanded'); // Сворачиваем текст
-    buttonLink2.innerHTML = '<svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path class="open11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
-    buttonLink3.style.display = 'none';
-}
-
-// Функция инициализации блока info-card после его подгрузки
-function initializeInfoCard(infoCard) {
-    const buttonLink2 = infoCard.querySelector('.button-link2');
-    const buttonLink3 = infoCard.querySelector('.button-link3');
-
-    if (buttonLink2) {
+    // Функция сворачивания текста
+    function collapseText(desc, buttonLink2, buttonLink3) {
+        desc.classList.remove('expanded'); // Сворачиваем текст
         buttonLink2.innerHTML = '<svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path class="open11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
-        buttonLink2.style.display = 'flex';
-    }
-
-    if (buttonLink3) {
         buttonLink3.style.display = 'none';
     }
-}
 
-// Пример подгрузки динамического контента
-function addDynamicInfoCard() {
-    const newCardHtml = `
-        <div class="info-card static" data-title="я добавляю 1" id="я-добавляю-1">
-            <div class="info-who">
-                <div class="info-card-label">
-                    <span class="flog1">
-                        <div class="flog11">
-                            <a href="https://www.selenium.dev/" class="ttc" target="_blank" rel="nofollow">
-                                <img src="https://img.utdstc.com/icon/be9/0f1/be90f16ff858ad10e543c31455174cc67c1770d32d8b81e8a3793a8d9f268799:100" alt="#" class="ggh">
-                            </a>
-                        </div>
-                    </span>
-                    <div class="fwho1">
-                        <div class="fwho11">
-                            <div class="info-card-title">
-                                <a href="https://www.selenium.dev/" class="ttb" target="_blank" rel="nofollow">я добавляю 1</a>
-                            </div>
-                        </div>
-                        <div class="fwho12">
-                            <cite class="fwho121" role="text">https://www.selenium.dev</cite>
-                        </div>
-                    </div>
-                    <div class="fwho13">
-                        <span class="cp1"></span>
-                    </div>
-                </div>
-                <div class="ex1">
-                    <a class="button-link2"></a> 
-                </div>
+    // Функция инициализации блока info-card после его подгрузки
+    function initializeInfoCard(infoCard) {
+        const buttonLink2 = infoCard.querySelector('.button-link2');
+        const buttonLink3 = infoCard.querySelector('.button-link3');
+
+        // Устанавливаем иконку по умолчанию для buttonLink2
+        buttonLink2.innerHTML = '<svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path class="open11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
+        
+        // Скрываем кнопку buttonLink3 по умолчанию
+        buttonLink3.style.display = 'none';
+    }
+
+    // Пример подгрузки динамического контента
+    function addDynamicInfoCard() {
+        const newCardHtml = `
+            <div class="info-card">
+                <div class="info-card-desc">Описание карточки...</div>
+                <a href="#" class="button-link2"></a>
+                <a href="#" class="button-link3">Свернуть</a>
             </div>
-            <div class="info-card-content">
-                <div class="info-card-desc">
-                    <p>Текст карточки... (для тестирования)</p>
-                </div>
-                <div class="info-card-format">
-                    <span class="format"><a href="#" class="ft2">#CLI</a> <a href="#" class="ft2">#Download</a></span>
-                    <span class="freepaid"><a href="#" class="fp2">#Free</a> <a href="#" class="fp2">#Freemium</a></span>
-                    <a href="#" class="sltyt" aria-label="#Link"></a>
-                    <div class="bl3"><a class="button-link3"></a></div>
-                </div>
-            </div>
-        </div>
-    `;
+        `;
 
-    const container = document.querySelector('.info-cards-container');
-    const newCard = document.createElement('div');
-    newCard.innerHTML = newCardHtml;
-    container.appendChild(newCard);
+        // Добавляем новую карточку в DOM
+        const container = document.querySelector('.info-cards-container');
+        const newCard = document.createElement('div');
+        newCard.innerHTML = newCardHtml;
+        container.appendChild(newCard);
 
-    // Инициализируем новую карточку
-    initializeInfoCard(newCard);
-}
+        // Инициализируем новую карточку
+        initializeInfoCard(newCard);
+    }
+
+    // Инициализация всех существующих info-card на странице после загрузки
+    document.querySelectorAll('.info-card').forEach(card => {
+        initializeInfoCard(card); // Инициализация иконок для существующих карточек
+    });
+    
+    // Вызов функции для демонстрации подгрузки новой карточки
+    addDynamicInfoCard();
+});
 
 
 
