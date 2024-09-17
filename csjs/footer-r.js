@@ -35,7 +35,7 @@
 <div id="settings">
   <div class="cusa">
 
-    <div class="stdb">
+    <div class="stdb-t">
     <h2 class="sidebar-block-title" role="heading" aria-level="2">Text</h2>
     </div>
     <div class="cusa-radio">
