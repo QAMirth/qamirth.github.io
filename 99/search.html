@@ -120,33 +120,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* Стиль для кнопки по умолчанию */
 .button-link2::after {
-    content: ''; /* Замените это пустым значением, если вам не нужно показывать что-то по умолчанию */
+    content: '+'; /* Замените это пустым значением, если вам не нужно показывать что-то по умолчанию */
 }
 
-/* Иконка для кнопки по умолчанию */
-.button-link2::after {
-    content: url('data:image/svg+xml;utf8,<svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path class="open11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>');
-}
 
 /* Иконка для кнопки в состоянии expanded */
 .button-link2.expanded::after {
-    content: url('data:image/svg+xml;utf8,<svg class="close1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path class="close11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>');
+    content: '-'; /* Замените это пустым значением, если вам не нужно показывать что-то по умолчанию */
 }
 
-/* Стиль для expanded состояния info-card-desc */
-.info-card-desc.expanded {
-    /* Добавьте здесь стили для expanded состояния, например, увеличение высоты */
-    max-height: 50px; /* Пример значения, зависит от вашего контента */
-    overflow: visible; /* Обеспечивает, что текст видим */
-    transition: max-height 0.3s ease; /* Плавный переход для разворачивания */
-}
-
-/* Стили по умолчанию для info-card-desc */
-.info-card-desc {
-    max-height: 0; /* Изначально скрытый текст */
-    overflow: hidden; /* Скрытие текста за пределами контейнера */
-    transition: max-height 0.3s ease; /* Плавный переход для сворачивания */
-}
 
 
 
