@@ -81,13 +81,13 @@
       <label class="custom-radio">
       <input type="radio" name="color" value="green" id="green">
       <span class="radio-btn"></span>
-      Green
+      Teal
       </label>
 
       <label class="custom-radio">
       <input type="radio" name="color" value="light-green" id="light-green">
       <span class="radio-btn"></span>
-      Light-green
+      Green
       </label>
 
       <label class="custom-radio">
