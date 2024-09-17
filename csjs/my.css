@@ -924,7 +924,7 @@
 }
 
 .sltyt::before {
-  content: "#Link";
+  content: "\279C";
 }
 
 .header-search-button:before {
