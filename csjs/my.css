@@ -3214,7 +3214,7 @@ body.popup-active {
   }
 
   .sidebar-container {
-    display: none;
+    display: block;
   }
 
   .slideout-menu.active {
