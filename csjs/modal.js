@@ -35,11 +35,10 @@ closeButtons.forEach(function(closeButton) {
 // Закрываем модальные окна при клике вне их содержимого
 window.addEventListener('click', function(event) {
     modals.forEach(function(modal) {
-        if (event.target === modal) {
-            console.log("Closing modal by clicking outside: " + modal.id); // Отладка
-            modal.classList.remove('active'); // ЛЯЛЯ - Удаляем класс active
-            modal.style.display = "none"; // Закрываем окно
-            document.body.classList.remove('popup-active'); // Включаем прокрутку страницы
+        // Проверяем, не является ли целевой элемент клика содержимым модального окна
+        if (event.target === modal && !event.target.querySelector('.modal-content').contains(event.target)) {
+            // ЛЯЛЯ - Убрано закрытие модального окна при клике вне modal-content
+            console.log("Click outside detected, but modal will not close.");
         }
     });
 });
