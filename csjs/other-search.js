@@ -26,22 +26,26 @@ document.addEventListener("DOMContentLoaded", function() {
     const searchParams = new URLSearchParams(window.location.search);
     const query = searchParams.get("q");
     const searchResultsContainer = document.getElementById("search-results");
+    const h1Title = document.querySelector('h1');  // Assuming there's only one H1
+    const resultsCountSpan = document.querySelector('.results-count');
 
     if (query && query.trim() !== "") {
+        // Update the H1 with the search query
+        h1Title.textContent = `Search results for "${query}"`;  // Update H1 tag
+
         searchResultsContainer.innerHTML = "Searching...";
 
-        // HERE 1: Загрузка списка страниц из внешнего JSON файла
-        fetch('/csjs/pages.json')  // Убедитесь, что путь к файлу правильный
+        fetch('/csjs/pages.json')  // Make sure the path to your JSON file is correct
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-                return response.json();  // Парсинг JSON
+                return response.json();
             })
             .then(data => {
-                const pages = data.pages;  // HERE 2: Используем данные из JSON
+                const pages = data.pages;
 
-                // Функция для поиска на всех страницах
+                // Function to perform search on each page
                 function performSearchOnPage(pageUrl) {
                     return fetch(pageUrl)
                         .then(response => {
@@ -61,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                     const link = `<a href="${pageUrl}" class="sltyt" aria-label="#Link"></a>`;
                                     const bl3Element = card.querySelector('.info-card-format .bl3');
                                     if (bl3Element) {
-                                        // HERE 3: Вставка ссылки перед элементом .bl3
+                                        // Insert the link before the .bl3 element
                                         bl3Element.insertAdjacentHTML('beforebegin', link);
                                     }
                                     results += card.outerHTML;
@@ -72,26 +76,33 @@ document.addEventListener("DOMContentLoaded", function() {
                         });
                 }
 
-                // HERE 4: Выполнение поиска по всем страницам после загрузки списка
+                // Perform search on all pages
                 Promise.all(pages.map(performSearchOnPage))
                     .then(results => {
-                       const mergedResults = mergeAndRemoveDuplicates(results);
+                        const mergedResults = mergeAndRemoveDuplicates(results);
+                        const resultCount = mergedResults ? mergedResults.length : 0;  // Count the number of results
+
                         if (mergedResults) {
                             searchResultsContainer.innerHTML = mergedResults;
                         } else {
                             searchResultsContainer.innerHTML = 'No results';
                         }
+
+                        // Update the results count in the <span class="results-count">
+                        resultsCountSpan.textContent = `${resultCount} result(s) found`;  // Display the count of results
                     })
                     .catch(error => {
                         console.error('Search error:', error);
                         searchResultsContainer.innerHTML = 'An error occurred while searching.';
                     });
             })
-            .catch(error => {  // HERE 5: Обработка ошибок при загрузке JSON
+            .catch(error => {
                 console.error('Failed to load pages JSON:', error);
                 searchResultsContainer.innerHTML = 'Failed to load search data.';
             });
     } else {
         searchResultsContainer.innerHTML = 'No results found.';
+        h1Title.textContent = 'Search';  // Reset H1 if no query
+        resultsCountSpan.textContent = '0 result(s) found';  // Reset results count if no query
     }
 });
