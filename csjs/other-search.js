@@ -26,16 +26,16 @@ document.addEventListener("DOMContentLoaded", function() {
     const searchParams = new URLSearchParams(window.location.search);
     const query = searchParams.get("q");
     const searchResultsContainer = document.getElementById("search-results");
-    const h1Title = document.querySelector('h1');  // Assuming there's only one H1
-    const resultsCountSpan = document.querySelector('.results-count');
+    const h1Title = document.querySelector('h1');  // Assuming there's only one H1 tag
+    const resultsCountSpan = document.querySelector('.results-count');  // Results count <span>
 
     if (query && query.trim() !== "") {
         // Update the H1 with the search query
-        h1Title.textContent = `Search results for "${query}"`;  // Update H1 tag
+        h1Title.textContent = `Search results for "${query}"`;
 
         searchResultsContainer.innerHTML = "Searching...";
 
-        fetch('/csjs/pages.json')  // Make sure the path to your JSON file is correct
+        fetch('/csjs/pages.json')  // Ensure the path to your JSON file is correct
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -72,15 +72,15 @@ document.addEventListener("DOMContentLoaded", function() {
                                 }
                             });
 
-                            return results;
+                            return { pageUrl, results, count: infoCards.length };
                         });
                 }
 
                 // Perform search on all pages
                 Promise.all(pages.map(performSearchOnPage))
                     .then(results => {
-                        const mergedResults = mergeAndRemoveDuplicates(results);
-                        const resultCount = mergedResults ? mergedResults.length : 0;  // Count the number of results
+                        const mergedResults = results.map(result => result.results).join('');
+                        const totalResultsCount = results.reduce((acc, result) => acc + result.count, 0);  // Sum the counts
 
                         if (mergedResults) {
                             searchResultsContainer.innerHTML = mergedResults;
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         }
 
                         // Update the results count in the <span class="results-count">
-                        resultsCountSpan.textContent = `${resultCount} result(s) found`;  // Display the count of results
+                        resultsCountSpan.textContent = `${totalResultsCount} result(s) found`;  // Display the count of .info-card elements
                     })
                     .catch(error => {
                         console.error('Search error:', error);
@@ -106,3 +106,4 @@ document.addEventListener("DOMContentLoaded", function() {
         resultsCountSpan.textContent = '0 result(s) found';  // Reset results count if no query
     }
 });
+
