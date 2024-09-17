@@ -26,16 +26,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const searchParams = new URLSearchParams(window.location.search);
     const query = searchParams.get("q");
     const searchResultsContainer = document.getElementById("search-results");
-    const h1Title = document.querySelector('h1');  // Assuming there's only one H1 tag
-    const resultsCountSpan = document.querySelector('.results-count');  // Results count <span>
+    const h1Title = document.querySelector('h1');
+    const resultsCountSpan = document.querySelector('.results-count');
 
     if (query && query.trim() !== "") {
-        // Update the H1 with the search query
         h1Title.textContent = `Search results for "${query}"`;
-
         searchResultsContainer.innerHTML = "Searching...";
 
-        fetch('/csjs/pages.json')  // Ensure the path to your JSON file is correct
+        fetch('/csjs/pages.json')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -45,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function() {
             .then(data => {
                 const pages = data.pages;
 
-                // Function to perform search on each page
                 function performSearchOnPage(pageUrl) {
                     return fetch(pageUrl)
                         .then(response => {
@@ -59,28 +56,28 @@ document.addEventListener("DOMContentLoaded", function() {
                             const doc = parser.parseFromString(html, 'text/html');
                             const infoCards = doc.querySelectorAll('.info-card');
                             let results = '';
+                            let matchingCards = 0;  // Track number of matching cards
 
                             infoCards.forEach(card => {
                                 if (card.innerText.toLowerCase().includes(query.toLowerCase())) {
                                     const link = `<a href="${pageUrl}" class="sltyt" aria-label="#Link"></a>`;
                                     const bl3Element = card.querySelector('.info-card-format .bl3');
                                     if (bl3Element) {
-                                        // Insert the link before the .bl3 element
                                         bl3Element.insertAdjacentHTML('beforebegin', link);
                                     }
                                     results += card.outerHTML;
+                                    matchingCards++;  // Increment the count of matching cards
                                 }
                             });
 
-                            return { pageUrl, results, count: infoCards.length };
+                            return { results, matchingCards };
                         });
                 }
 
-                // Perform search on all pages
                 Promise.all(pages.map(performSearchOnPage))
-                    .then(results => {
-                        const mergedResults = results.map(result => result.results).join('');
-                        const totalResultsCount = results.reduce((acc, result) => acc + result.count, 0);  // Sum the counts
+                    .then(resultsArray => {
+                        const mergedResults = resultsArray.map(result => result.results).join('');
+                        const totalResultsCount = resultsArray.reduce((acc, result) => acc + result.matchingCards, 0);
 
                         if (mergedResults) {
                             searchResultsContainer.innerHTML = mergedResults;
@@ -88,8 +85,8 @@ document.addEventListener("DOMContentLoaded", function() {
                             searchResultsContainer.innerHTML = 'No results';
                         }
 
-                        // Update the results count in the <span class="results-count">
-                        resultsCountSpan.textContent = `${totalResultsCount} result(s) found`;  // Display the count of .info-card elements
+                        // Update results count based on the actual number of matched .info-card elements
+                        resultsCountSpan.textContent = `${totalResultsCount} result(s) found`;
                     })
                     .catch(error => {
                         console.error('Search error:', error);
@@ -102,8 +99,7 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     } else {
         searchResultsContainer.innerHTML = 'No results found.';
-        h1Title.textContent = 'Search';  // Reset H1 if no query
-        resultsCountSpan.textContent = '0 result(s) found';  // Reset results count if no query
+        h1Title.textContent = 'Search';
+        resultsCountSpan.textContent = '0 result(s) found';
     }
 });
-
