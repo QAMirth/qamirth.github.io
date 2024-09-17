@@ -160,7 +160,7 @@
   :root {
     --tpl-font-system: system-ui,
     "Segoe UI", "ABC", Arial, sans-serif;
-    --tpl-font-size-extra-small: 13px;
+    --tpl-font-size-extra-small: 12px;
     --tpl-font-size-small: 13px;
     --tpl-font-size: 14px;
     --tpl-font-size-plus: 16px;
@@ -203,12 +203,12 @@
     --pad: var(--15);
     --pad-small: var(--7a5);
 
-    --link-a: #009;
-    --link-b: #009;
-    --link-c: #009;
-    --link-a-hover: #253FE6;
-    --link-b-hover: #445BE6;
-    --link-c-hover: #445BE6;
+    --link-a: #715AFF;
+      --link-b: #8875FF;
+      --link-c: #9B8BFF;
+      --link-a-hover: #9B8BFF;
+      --link-b-hover: #AB9EFF;
+      --link-c-hover: #AB9EFF;
 
     --900: rgba(0, 0, 0, 1);
     --800: rgba(0, 0, 0, 0.95);
