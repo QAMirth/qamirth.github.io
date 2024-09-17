@@ -1250,9 +1250,9 @@
 }
 
 .sidebar-block-title {
-  color: var(--600);
+  color: var(--550);
   font-size: var(--tpl-font-size-medium-plus);
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: var(--10);
 }
 
@@ -1620,7 +1620,7 @@ strong{
   padding: var(--5) var(--10);
   border-radius: var(--7a5);
   border: 0;
-  font-weight:600;
+  font-weight: 700;
 }
 
 
@@ -2828,7 +2828,7 @@ font-weight: 600;
             color: var(--link-a);
             font: normal 400 var(--tpl-font-size) / 1.4 var(--tpl-font-system);
             font-size: var(--tpl-font-size-extra-small);
-            font-weight:600;
+            font-weight:700;
         }
 
         .num {
