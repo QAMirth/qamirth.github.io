@@ -110,6 +110,9 @@
 
 <div class="sidebar-block2">
                 <div class="inner">
+                <div class="stdb">
+                  <h2 class="sidebar-block-title" role="heading" aria-level="2">Top tags</h2>
+                 </div>
                   <div class="sidebar-block-content">
                     <!--<tags>-->
 <div id="tagCloud" class="tag-cloud"></div>
