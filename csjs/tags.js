@@ -1,5 +1,5 @@
  const jsonFilePath = '/csjs/pages.json';  // путь к JSON файлу
-    const tagCloudLimit = 24;
+    const tagCloudLimit = 10;
     const tagCounts = {};
 
     // Функция для парсинга и получения тегов с каждой страницы
@@ -69,7 +69,7 @@
 
             const tagCount = document.createElement('span');
             tagCount.classList.add('num');
-            tagCount.textContent = `(${data.count})`;
+            tagCount.textContent = `(${data.count} Materials)`;
 
             tagElement.appendChild(tagLink);
             tagElement.appendChild(tagCount);
