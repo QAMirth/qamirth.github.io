@@ -153,28 +153,29 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
 
-    <script>
-        // Функция для добавления SVG в элемент с классом 'button-link2'
-        function addSvgToButton() {
-            // Найдите элемент по классу
+
+       <script>
+        // Функция для удаления псевдоэлемента ::after при клике на него
+        function removeAfterOnClick() {
             const button = document.querySelector('.button-link2');
-            
+
             if (button) {
-                // SVG-код
-                const svgContent = `
-                    <svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
-                        <path class="open11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
-                    </svg>
-                `;
-                
-                // Установите SVG-код как внутреннее содержимое элемента
-                button.innerHTML = svgContent;
+                const observer = new MutationObserver(() => {
+                    if (getComputedStyle(button, '::after').content === 'url("path/to/your/image.png")') {
+                        button.addEventListener('click', () => {
+                            button.classList.add('hidden');
+                        });
+                    }
+                });
+
+                observer.observe(button, { attributes: true, attributeFilter: ['class'] });
             }
         }
 
         // Вызов функции после загрузки контента страницы
-        window.onload = addSvgToButton;
+        window.onload = removeAfterOnClick;
     </script>
+  
 
 
 
@@ -199,9 +200,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <style type="text/css">
 
-.button-link2::after {
-  content: "";
-}
+.button-link2 {
+            position: relative;
+            display: inline-block;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            text-decoration: none;
+        }
+
+        .button-link2::after {
+            content: url('++');
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20px; /* Примерный размер изображения */
+            height: 20px; /* Примерный размер изображения */
+            cursor: pointer;
+        }
+
+        .button-link2.hidden::after {
+            content: '';
+        }
+
+
+
+
+
+  
 
 
 
