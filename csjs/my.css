@@ -195,10 +195,10 @@
     --header-top: var(--2a5);
     --header-bottom: var(--2a5);
     --logo-width: 50px;
-    --logo-height: 40px;
+    --logo-height: 36px;
     --icon-size: 18px;
-    --search-line-height: 41px;
-    --bwh: var(--40);
+    --search-line-height: 36px;
+    --bwh: 36px;
     --pad-big: var(--7a5);
     --pad: var(--15);
     --pad-small: var(--7a5);
@@ -241,7 +241,7 @@
     --50: 48px;
     --sidebar-size-l: 200px;
     --sidebar-size-r: 250px;
-    --max-height-header: 80px;
+    --max-height-header: 60px;
     --left-absolute: 4%;
     --left-space:
     calc(200px + var(--15));
@@ -992,7 +992,7 @@
 .logo-link {
   /*! position: absolute; */
   /*! left: var(--left-absolute); */
-  width: var(--logo-width); 
+  width: auto; 
   max-width: var(--sidebar-size-l); 
   height: var(--logo-height);
   background-size: contain;
@@ -1039,7 +1039,7 @@
   gap: var(--40);
   justify-content: start;
   align-items: center;
-  max-width: calc(100% - 527px);
+  max-width: calc(100% - 427px);
   min-width: 0;
 }
 
@@ -1871,7 +1871,7 @@ select.codeButtons {
     justify-content: center;
     align-items: center;
     width: fit-content;
-    height: var(--40);
+    height: var(--bwh);
     padding: 0 var(--15);
     /*! line-height:1; */
   }
@@ -1974,10 +1974,10 @@ select.codeButtons {
   .main-menu .uMenuRoot > li > :where(a, .menu-item-more-text) {
     color: var(--menuha-link);
     font-weight: var(--menuha-weight);
-    font-size: var(--tpl-font-size-small);
+    font-size: var(--tpl-font-size);
     transition: color var(--tpl-transition);
     display: flex;
-    flex-direction:column;
+    flex-direction:row;
     align-items: center;
     min-width: 60px;
   }
