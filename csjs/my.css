@@ -2791,7 +2791,7 @@ font-weight: 600;
       line-height: 1;
     }
     
-    #tag-cloud-h{
+ #tag-cloud-h{
       text-align: center;
       margin: var(--20);
     }
@@ -2813,28 +2813,31 @@ font-weight: 600;
      .tag-cloud {
             display: flex;
             flex-wrap: wrap;
-            gap: var(--7a5);
+            gap: var(--10);
+            flex-direction:column;
         }
       .tag {
             margin-right: var(--0);
-            background: var(--200);
-            padding: var(--5) var(--10);
+            background: var(--000);
+            padding: var(--0);
             border-radius: var(--7a5);
             border: 0;
             display: flex;
-            align-items: center;
+            flex-direction:column;
         }
 
       .tag a {
             color: var(--link-a);
             font: normal 400 var(--tpl-font-size) / 1.4 var(--tpl-font-system);
-            font-size: var(--tpl-font-size-extra-small);
+            font-size: var(--tpl-font-size);
             font-weight:700;
         }
 
         .num {
-            display:none;
+            color: var(--500);
+            font-size: var(--tpl-font-size-extra-small);
         }
+
 
 .open1 {width: var(--bwh);
 height: var(--bwh);
