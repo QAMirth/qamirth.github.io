@@ -36,7 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('DOMContentLoaded', (event) => {
     const anchor = window.location.hash;
     if (anchor) {
-        const card = document.querySelector(anchor);
+        const decodedAnchor = decodeURIComponent(anchor);
+        const card = document.querySelector(decodedAnchor);
         if (card) {
             const desc = card.querySelector('.info-card-desc');
             const buttonLink2 = card.querySelector('.button-link2');
