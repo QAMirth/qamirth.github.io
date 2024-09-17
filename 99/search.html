@@ -275,32 +275,7 @@ autocomplete="off">
       <script type="text/javascript" src="../csjs/pref-mob.js"></script>
 
 
-      <script type="text/javascript">
-      document.addEventListener("click", function (event) {
-        if (event.target.matches(".button-link2")) {
-          const desc = event.target.parentElement;
-          desc.classList.add("expanded");
-          event.target.style.display = "none";
-          const buttonLink3 = desc.parentElement.querySelector(".button-link3");
-          buttonLink3.textContent = "Close info block";
-          buttonLink3.style.display = "inline";
-        }
-
-        if (event.target.matches(".button-link3")) {
-          const desc = event.target.closest(".info-card").querySelector(".info-card-desc");
-          const isExpanded = desc.classList.toggle("expanded");
-          const buttonLink2 = desc.querySelector(".button-link2");
-          if (isExpanded) {
-            buttonLink2.style.display = "none";
-            event.target.textContent = "Close";
-          } else {
-            buttonLink2.style.display = "inline";
-            event.target.textContent = "More info";
-            event.target.style.display = "none";
-          }
-        }
-      });
-    </script>
+     
     </div>
 
   </body>
