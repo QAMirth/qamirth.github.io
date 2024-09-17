@@ -84,7 +84,7 @@ function showToast(message) {
 window.addEventListener('DOMContentLoaded', (event) => {
   const anchor = window.location.hash;
   if (anchor) {
-    const card = document.querySelector(anchor);
+     anchor = decodeURIComponent(anchor);
     if (card) {
       const desc = card.querySelector('.info-card-desc');
       desc.classList.add('expanded');
