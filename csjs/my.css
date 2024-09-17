@@ -3223,6 +3223,7 @@ body.popup-active {
   
   #slideoutMenu .sidebar-block{
     display: block;
+    border:0;
   }
   
   .stdb-t{
