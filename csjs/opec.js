@@ -82,12 +82,15 @@ function showToast(message) {
 
 
 window.addEventListener('DOMContentLoaded', (event) => {
-  const anchor = window.location.hash;
+  let anchor = window.location.hash; // Изменили на let
   if (anchor) {
-     anchor = decodeURIComponent(anchor);
+    anchor = decodeURIComponent(anchor); // Декодируем якорь
+    const card = document.querySelector(`[id="${anchor.slice(1)}"]`); // Убираем символ #
     if (card) {
       const desc = card.querySelector('.info-card-desc');
       desc.classList.add('expanded');
     }
   }
 });
+
+
