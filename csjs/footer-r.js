@@ -69,19 +69,25 @@
       <label class="custom-radio">
       <input type="radio" name="color" value="standart" id="standart">
       <span class="radio-btn"></span>
-      Стандартный
-      </label>
-
-      <label class="custom-radio">
-      <input type="radio" name="color" value="green" id="green">
-      <span class="radio-btn"></span>
-      Зеленый
+      Standart
       </label>
 
       <label class="custom-radio">
       <input type="radio" name="color" value="blue" id="blue">
       <span class="radio-btn"></span>
-      Синий
+      Blue
+      </label>
+
+      <label class="custom-radio">
+      <input type="radio" name="color" value="green" id="green">
+      <span class="radio-btn"></span>
+      Green
+      </label>
+
+      <label class="custom-radio">
+      <input type="radio" name="color" value="light-green" id="light-green">
+      <span class="radio-btn"></span>
+      Light-green
       </label>
 
       <label class="custom-radio">
