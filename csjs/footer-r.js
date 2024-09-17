@@ -110,7 +110,7 @@
 
 <div class="sidebar-block2">
                 <div class="inner">
-                <div class="stdb">
+                <div class="stdb-first">
                   <h2 class="sidebar-block-title" role="heading" aria-level="2">Top tags</h2>
                  </div>
                   <div class="sidebar-block-content">
