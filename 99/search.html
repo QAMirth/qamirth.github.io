@@ -65,90 +65,95 @@
 document.addEventListener('DOMContentLoaded', () => {
     const parentElement = document.getElementById('search-results');
 
-    if (parentElement) {
-        parentElement.querySelectorAll('.info-card').forEach(card => {
-            const desc = card.querySelector('.info-card-desc');
-            const buttonLink2 = card.querySelector('.button-link2');
-            const buttonLink3 = card.querySelector('.button-link3');
+    // Функция для инициализации кнопок сворачивания/разворачивания
+    function initializeCard(card) {
+        const desc = card.querySelector('.info-card-desc');
+        const buttonLink2 = card.querySelector('.button-link2');
+        const buttonLink3 = card.querySelector('.button-link3');
 
-            // Инициализация
-            buttonLink2.style.display = 'flex';
-            buttonLink3.style.display = 'none';
-            buttonLink2.innerHTML = '<svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path class="open11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
+        // Инициализация
+        buttonLink2.style.display = 'flex';
+        buttonLink3.style.display = 'none';
+        buttonLink2.innerHTML = '<svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path class="open11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
 
-            // При нажатии на .button-link2
-            buttonLink2.addEventListener('click', function() {
-                if (!desc.classList.contains('expanded')) {
-                    desc.classList.add('expanded'); // Разворачиваем текст
-                    buttonLink2.innerHTML = '<svg   class="close1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="close11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
-                    buttonLink3.style.display = 'inline';
-                    buttonLink3.textContent = '';
-                } else {
-                    collapseText(); // Если текст уже развернут, сворачиваем
-                }
-            });
-
-            // При нажатии на .button-link3
-            buttonLink3.addEventListener('click', collapseText);
-
-            function collapseText() {
-                desc.classList.remove('expanded'); // Сворачиваем текст
-                buttonLink2.innerHTML = '<svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path class="open11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
-                buttonLink3.style.display = 'none';
+        // Обработчик на .button-link2 (Разворачивание текста)
+        buttonLink2.addEventListener('click', function() {
+            if (!desc.classList.contains('expanded')) {
+                desc.classList.add('expanded'); // Разворачиваем текст
+                buttonLink2.innerHTML = '<svg class="close1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="close11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
+                buttonLink3.style.display = 'inline'; // Показываем кнопку "Свернуть"
             }
         });
-    }
-});
 
-// Добавляем поддержку открытия якоря с развернутым текстом и правильной иконкой
-window.addEventListener('DOMContentLoaded', (event) => {
-    const anchor = window.location.hash;
-    if (anchor) {
-        const decodedAnchor = decodeURIComponent(anchor);
-        const parentElement = document.getElementById('search-results');
-        if (parentElement) {
-            const card = parentElement.querySelector(decodedAnchor);
+        // Обработчик на .button-link3 (Сворачивание текста)
+        buttonLink3.addEventListener('click', function() {
+            desc.classList.remove('expanded'); // Сворачиваем текст
+            buttonLink2.innerHTML = '<svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path class="open11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
+            buttonLink3.style.display = 'none'; // Прячем кнопку "Свернуть"
+        });
+    }
+
+    // Делегирование событий для динамически добавленных карточек
+    parentElement.addEventListener('click', function(event) {
+        const target = event.target;
+        
+        // Проверка на нажатие на кнопку button-link2
+        if (target.closest('.button-link2')) {
+            const card = target.closest('.info-card');
             if (card) {
                 const desc = card.querySelector('.info-card-desc');
                 const buttonLink2 = card.querySelector('.button-link2');
                 const buttonLink3 = card.querySelector('.button-link3');
-
-                desc.classList.add('expanded'); // Разворачиваем текст по умолчанию
-                buttonLink2.innerHTML = '<svg class="close1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="close11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>'; // Меняем иконку на close1
-                buttonLink3.style.display = 'inline'; // Показываем кнопку "Show Less"
+                
+                desc.classList.add('expanded'); // Разворачиваем текст
+                buttonLink2.innerHTML = '<svg class="close1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="close11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
+                buttonLink3.style.display = 'inline'; // Показываем кнопку "Свернуть"
             }
         }
-    }
-});
 
-document.querySelectorAll('.cp1').forEach(icon => {
-    icon.addEventListener('click', function(event) {
-        const card = this.closest('.info-card');
-        const id = card.id;
-        const url = `${window.location.origin}${window.location.pathname}#${id}`;
-
-        // Копируем ссылку в буфер обмена
-        navigator.clipboard.writeText(url).then(() => {
-            // Показываем уведомление
-            showToast('Link copied to clipboard \u{270C}');
-        }).catch(err => {
-            console.error('Failed to copy: ', err);
-        });
+        // Проверка на нажатие на кнопку button-link3
+        if (target.closest('.button-link3')) {
+            const card = target.closest('.info-card');
+            if (card) {
+                const desc = card.querySelector('.info-card-desc');
+                const buttonLink2 = card.querySelector('.button-link2');
+                const buttonLink3 = card.querySelector('.button-link3');
+                
+                desc.classList.remove('expanded'); // Сворачиваем текст
+                buttonLink2.innerHTML = '<svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path class="open11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
+                buttonLink3.style.display = 'none'; // Прячем кнопку "Свернуть"
+            }
+        }
     });
+
+    // Эта функция будет вызываться при добавлении новых блоков
+    function addNewCard(cardHTML) {
+        const div = document.createElement('div');
+        div.innerHTML = cardHTML;
+        const card = div.firstElementChild;
+
+        // Добавляем новую карточку в #search-results
+        parentElement.appendChild(card);
+
+        // Инициализация кнопок сворачивания/разворачивания на новой карточке
+        initializeCard(card);
+    }
+
+    // Пример динамического добавления карточки (используйте ваш механизм динамической загрузки)
+    const newCardHTML = `
+        <div class="info-card" id="new-card">
+            <div class="info-card-desc">
+                Some dynamic content...
+            </div>
+            <a href="#" class="button-link2"></a>
+            <a href="#" class="button-link3"></a>
+        </div>
+    `;
+
+    // Пример вызова функции для добавления новой карточки
+    addNewCard(newCardHTML);
 });
 
-function showToast(message) {
-    const toast = document.getElementById('toast');
-    toast.textContent = message;
-    toast.classList.remove('hidden');
-    toast.classList.add('show');
-
-    // Скрыть уведомление через 3 секунды
-    setTimeout(() => {
-        toast.classList.remove('show');
-        toast.classList.add('hidden');
-    }, 4000);
-}
 
            </script>
 
