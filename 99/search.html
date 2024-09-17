@@ -73,55 +73,81 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Инициализация
         buttonLink2.style.display = 'flex';
-        buttonLink3.style.display = 'none';
-        buttonLink2.innerHTML = '<svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path class="open11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
+        buttonLink3.style.display = 'none'; // Прячем button-link3
+        buttonLink2.innerHTML = `
+            <svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" width="24" height="24">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+            </svg>
+        `;
 
         // Обработчик на .button-link2 (Разворачивание текста)
         buttonLink2.addEventListener('click', function() {
             if (!desc.classList.contains('expanded')) {
                 desc.classList.add('expanded'); // Разворачиваем текст
-                buttonLink2.innerHTML = '<svg class="close1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="close11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
-                buttonLink3.style.display = 'inline'; // Показываем кнопку "Свернуть"
+                buttonLink2.innerHTML = `
+                    <svg class="close1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" width="24" height="24">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                    </svg>
+                `;
+                buttonLink3.style.display = 'flex'; // Показываем кнопку "Свернуть"
             }
         });
 
         // Обработчик на .button-link3 (Сворачивание текста)
         buttonLink3.addEventListener('click', function() {
-            desc.classList.remove('expanded'); // Сворачиваем текст
-            buttonLink2.innerHTML = '<svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path class="open11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
-            buttonLink3.style.display = 'none'; // Прячем кнопку "Свернуть"
+            if (desc.classList.contains('expanded')) {
+                desc.classList.remove('expanded'); // Сворачиваем текст
+                buttonLink2.innerHTML = `
+                    <svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" width="24" height="24">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                    </svg>
+                `;
+                buttonLink3.style.display = 'none'; // Прячем кнопку "Свернуть"
+            }
         });
     }
 
     // Делегирование событий для динамически добавленных карточек
     parentElement.addEventListener('click', function(event) {
         const target = event.target;
-        
-        // Проверка на нажатие на кнопку button-link2
+
+        // Проверка на нажатие на .button-link2
         if (target.closest('.button-link2')) {
             const card = target.closest('.info-card');
             if (card) {
                 const desc = card.querySelector('.info-card-desc');
                 const buttonLink2 = card.querySelector('.button-link2');
                 const buttonLink3 = card.querySelector('.button-link3');
-                
-                desc.classList.add('expanded'); // Разворачиваем текст
-                buttonLink2.innerHTML = '<svg class="close1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="close11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
-                buttonLink3.style.display = 'inline'; // Показываем кнопку "Свернуть"
+
+                if (!desc.classList.contains('expanded')) {
+                    desc.classList.add('expanded'); // Разворачиваем текст
+                    buttonLink2.innerHTML = `
+                        <svg class="close1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" width="24" height="24">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                        </svg>
+                    `;
+                    buttonLink3.style.display = 'flex'; // Показываем кнопку "Свернуть"
+                }
             }
         }
 
-        // Проверка на нажатие на кнопку button-link3
+        // Проверка на нажатие на .button-link3
         if (target.closest('.button-link3')) {
             const card = target.closest('.info-card');
             if (card) {
                 const desc = card.querySelector('.info-card-desc');
                 const buttonLink2 = card.querySelector('.button-link2');
                 const buttonLink3 = card.querySelector('.button-link3');
-                
-                desc.classList.remove('expanded'); // Сворачиваем текст
-                buttonLink2.innerHTML = '<svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path class="open11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
-                buttonLink3.style.display = 'none'; // Прячем кнопку "Свернуть"
+
+                if (desc.classList.contains('expanded')) {
+                    desc.classList.remove('expanded'); // Сворачиваем текст
+                    buttonLink2.innerHTML = `
+                        <svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" width="24" height="24">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                        </svg>
+                    `;
+                    buttonLink3.style.display = 'none'; // Прячем кнопку "Свернуть"
+                }
             }
         }
     });
@@ -141,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Пример динамического добавления карточки (используйте ваш механизм динамической загрузки)
     const newCardHTML = `
-        <div class="info-card" id="new-card">
+        <div class="info-card">
             <div class="info-card-desc">
                 Some dynamic content...
             </div>
@@ -153,7 +179,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Пример вызова функции для добавления новой карточки
     addNewCard(newCardHTML);
 });
-
 
            </script>
 
