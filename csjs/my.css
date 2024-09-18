@@ -2073,7 +2073,7 @@ select.codeButtons {
   }
 
   .main-menu li ul .menu-submenu-btn {
-    left: var(--tpl-spacing-s);
+    left: var(--15);
     pointer-events: none;
     position: absolute;
     /*! top: 50%; */
@@ -2141,7 +2141,7 @@ select.codeButtons {
   }
   .header-search-button {
     right: 17px;
-    top: 5px;
+    top: 15px;
   }
   .header-search-button:hover {
     background-color: var(--000);
@@ -2452,7 +2452,7 @@ select.codeButtons {
     background-color: var(--000);
     box-shadow: 0 13px 14px -9px rgba(0, 0, 0, 0.13);
     left: 0;
-    padding: var(--5) var(--15) var(--15);
+    padding: var(--12a5) var(--15) var(--15);
     pointer-events: none;
     position: absolute;
     right: 0;
