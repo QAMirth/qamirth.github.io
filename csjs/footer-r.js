@@ -125,64 +125,6 @@
 
 
 
-<a href="#" class="lang" data-lang="en">EN</a>
-<a href="#" class="lang" data-lang="ru">RU</a>
-<a href="#" class="lang" data-lang="uk">UA</a>
-<a href="#" class="lang" data-lang="de">DE</a>
-
-<div id="google_translate_element"></div>
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'en',
-            includedLanguages: 'en,ru,uk,de',
-            autoDisplay: false // Отключаем авто-предложения перевода
-        });
-    }
-
-    function changeLanguage(lang) {
-        var googleTranslateFrame = document.querySelector('iframe.goog-te-banner-frame');
-        if (googleTranslateFrame) {
-            googleTranslateFrame.contentWindow.document.querySelector(`.goog-te-menu2-item span.text:contains(${lang})`).click();
-        }
-    }
-
-    document.querySelectorAll('.lang').forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            var lang = this.getAttribute('data-lang');
-            changeLanguage(lang);
-        });
-    });
-</script>
-<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-<!-- CSS для скрытия баннера и тулбара Google Translate -->
-<style>
-    .goog-te-banner-frame.skiptranslate,
-    .goog-te-gadget-icon {
-        display: none !important;
-    }
-
-    body {
-        top: 0px !important;
-    }
-
-    .goog-te-banner-frame {
-        display: none !important;
-    }
-
-    .goog-te-menu-frame {
-        display: none !important;
-    }
-</style>
-
-
-
-
-
-
-
 
               <div class="sidebar-block-footer" aria-label="Footer">
                 <div class="inner-footer">
