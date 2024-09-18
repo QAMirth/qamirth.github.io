@@ -5,6 +5,14 @@
     font-style: normal;
 }
 
+@font-face {
+  font-family: 'CI';
+  src: url('icomoon.woff') format('woff'),
+  src: url('icomoon.eot') format('eot');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @layer reset,defaults,components;
 @layer reset {
   * {
