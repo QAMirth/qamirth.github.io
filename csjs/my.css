@@ -1266,7 +1266,7 @@
   margin-bottom: var(--10);
 }
 
-.stdb, stdb-t{
+.stdb, .stdb-t{
   margin-top: var(--pad);
 }
 
