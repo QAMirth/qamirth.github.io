@@ -211,6 +211,7 @@
     --pad-big: var(--15);
     --pad: var(--15);
     --pad-small: var(--7a5);
+    --border-radius: var(--5);
 
     --link-a: #715AFF;
       --link-b: #8875FF;
@@ -679,7 +680,7 @@
   background-color: var(--000);
   padding: var(--pad) var(--pad);
   border: 1px solid var(--300);
-  border-radius: var(--7a5);
+  border-radius: var(--border-radius);
 }
 
 #filters {
@@ -802,7 +803,7 @@
   color: var(--link-c);
   font-size: var(--icon-size);
   margin-right: var(--7a5);
-  margin-left: var(--7a5);
+  margin-left: var(--0);
   vertical-align: middle;
   font-family: "Material Icons Outlined";
   font-weight: 400;
@@ -1009,7 +1010,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-color: var(--link-c);
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   justify-content: center;
   align-items: center;
   margin-right: calc(var(--sidebar-size-l) - var(--logo-width) + var(--15));
@@ -1208,7 +1209,7 @@
   height: var(--bwh);
   align-items: center;
   justify-content: center;
-  border-radius: var(--7a5);
+  border-radius: var(--border-radius);
 }
 
 .header-search:hover {
@@ -1226,7 +1227,7 @@
 .sidebar-block,
 .sidebar-block2 {
   background-color: var(--000);
-  border-radius: var(--7a5);
+  border-radius: var(--border-radius);
   border: 1px solid var(--300);
   position: static;
   margin-bottom: var(--pad-small);
@@ -1248,7 +1249,7 @@
 
 .sidebar-block .inner,
 .sidebar-block2 .inner {
-  border-radius: inherit;
+  border-radius: var(--border-radius);
   padding: var(--pad);
 }
 
@@ -1317,10 +1318,10 @@
 .sidebar-block-content-l a {
   display: flex;
   align-items: center;
-  border-radius:  var(--7a5);
+  border-radius: var(--border-radius);
   padding: var(--7a5);
   color: var(--menuha-link);
-  font-size: var(--tpl-font-size);
+  font-size: var(--tpl-font-size-small);
   font-weight: 600;
 }
 
@@ -1330,7 +1331,7 @@
 
 .sidebar-block-content-l li:hover {
   background-color: var(--250);
-  border-radius: 8px;
+  border-radius: var(--border-radius);
 }
 
 .sidebar-block-content a {
@@ -1453,7 +1454,7 @@
   background-color: var(--000);
   padding: var(--pad) var(--pad);
   border: 1px solid var(--300);
-  border-radius: var(--7a5);
+  border-radius: var(--border-radius);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1628,7 +1629,7 @@ strong{
   color: var(--link-a);
   background: var(--200);
   padding: var(--5) var(--10);
-  border-radius: var(--7a5);
+  border-radius: var(--border-radius);
   border: 0;
   font-weight: 700;
 }
@@ -1838,7 +1839,7 @@ select.codeButtons {
     color: var(--700);
     border: 1px solid var(--link-c);
     /*! padding: var(--10); */
-    border-radius: var(--7a5);
+    border-radius: var(--border-radius);
     /*! align-items: center; */
   }
 
@@ -1934,7 +1935,7 @@ select.codeButtons {
 
   .main-menu .uMenuRoot {
     display: flex;
-    gap: var(--7a5);
+    gap: var(--15);
     justify-content: flex-start;
     font: var(--tpl-font-text-r2);
     height: 100%;
@@ -1949,12 +1950,12 @@ select.codeButtons {
     display: flex;
     gap: var(--2a5);
     padding: var(--5) var(--7a5);
-    border-radius: var(--10);
+    border-radius: var(--border-radius);
   }
 
   .main-menu .uMenuRoot > li:where(:not(.hidden)):hover {
     background-color: var(--200);
-    border-radius: 8px;
+    border-radius: var(--5);
   }
 
   .uWithSubmenu,
@@ -1984,7 +1985,7 @@ select.codeButtons {
   .main-menu .uMenuRoot > li > :where(a, .menu-item-more-text) {
     color: var(--menuha-link);
     font-weight: var(--menuha-weight);
-    font-size: var(--tpl-font-size);
+    font-size: var(--tpl-font-size-small);
     transition: color var(--tpl-transition);
     display: flex;
     flex-direction:row;
@@ -3176,7 +3177,7 @@ body.popup-active {
 
 #filters-r select{
   border: 1px solid var(--link-d);
-  font-size: var(--tpl-font-size-extra-small);
+  font-size: var(--tpl-font-size-small);
 }
 
 
