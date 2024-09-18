@@ -130,6 +130,7 @@
 <a href="#" class="lang" data-lang="uk">UA</a>
 <a href="#" class="lang" data-lang="de">DE</a>
 
+<div id="google_translate_element"></div>
 <script type="text/javascript">
     function googleTranslateElementInit() {
         new google.translate.TranslateElement({
@@ -139,7 +140,6 @@
         });
     }
 
-    // Функция для изменения языка
     function changeLanguage(lang) {
         var googleTranslateFrame = document.querySelector('iframe.goog-te-banner-frame');
         if (googleTranslateFrame) {
@@ -147,7 +147,6 @@
         }
     }
 
-    // Привязываем обработчик событий на все ссылки с классом "lang"
     document.querySelectorAll('.lang').forEach(link => {
         link.addEventListener('click', function (e) {
             e.preventDefault();
@@ -156,7 +155,9 @@
         });
     });
 </script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+<!-- CSS для скрытия баннера и тулбара Google Translate -->
 <style>
     .goog-te-banner-frame.skiptranslate,
     .goog-te-gadget-icon {
@@ -167,7 +168,6 @@
         top: 0px !important;
     }
 
-    /* Скрываем тулбар Google Translate вверху страницы */
     .goog-te-banner-frame {
         display: none !important;
     }
@@ -176,6 +176,7 @@
         display: none !important;
     }
 </style>
+
 
 
 
