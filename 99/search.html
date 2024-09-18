@@ -117,33 +117,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <style type="text/css">
 
+  .icon {
+  font-family: 'CI';
+  font-size: var(--25); 
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+}
 
+  
  .button-link2::after {
-    content: '';
-    display: inline-block;
-    width: var(--bwh); 
-    height: var(--bwh); 
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>');
-    background-size: contain;
-    background-repeat: no-repeat;
-    color: var(--300);
-    fill: var(--300);
-    vertical-align: middle; 
-    cursor: pointer;
+  content: '\e900';
+  font-family: 'CI';
+  font-size: 24px;
+  color: #ddd; 
 }
 
 .button-link2.expanded::after {
-    content: '';
-    display: inline-block;
-    width: var(--bwh); 
-    height: var(--bwh); 
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>');
-    background-size: contain;
-    background-repeat: no-repeat;
-    color: var(--300);
-    fill: var(--300);
-    vertical-align: middle; 
-    cursor: pointer;
+    content: '\e901';
+  font-family: 'CI';
+  font-size: 24px;
+  color: var(--link-b);
 }
 
 
