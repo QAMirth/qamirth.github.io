@@ -1,6 +1,6 @@
 const setIcon = document.getElementById('setIcon');
 const slideoutMenu = document.getElementById('slideoutMenu');
-const sidebarBlock = document.querySelector('.sidebar-block');
+const sidebarBlock = document.getElementById('settings');
 const sidebarFooter = document.querySelector('.sidebar-block-footer');
 const innerSlideout = document.querySelector('.inner-slideout');
 const sidebarContainer = document.querySelector('.sidebar-container');
