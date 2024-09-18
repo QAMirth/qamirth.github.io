@@ -737,7 +737,7 @@
 .main-container > .tpl-content-home-page {
   flex: 1;
   min-width: 0;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   max-width: calc(var(--tpl-max-layout-width) + (var(--tpl-spacing-l) * 2));
 }
