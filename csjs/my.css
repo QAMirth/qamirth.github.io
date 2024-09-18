@@ -3202,7 +3202,7 @@ body.popup-active {
     display: none;
   }
 
- #slideoutMenu .sidebar-block. #settings{
+ #slideoutMenu .sidebar-block .inner .sidebar-block-content #filters-r + #settings {
     display: block;
     border:0;
   }
@@ -3263,6 +3263,10 @@ body.popup-active {
   #slideoutMenu .sidebar-block{
     display: block;
     border:0;
+  }
+
+ #settings {
+ display: block;
   }
   
   .stdb-t{
