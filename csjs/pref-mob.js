@@ -1,6 +1,6 @@
 const setIcon = document.getElementById('setIcon');
 const slideoutMenu = document.getElementById('slideoutMenu');
-const sidebarBlock = document.getElementById('settings');
+const sidebarBlock = document.querySelector('.sidebar-block');
 const sidebarFooter = document.querySelector('.sidebar-block-footer');
 const innerSlideout = document.querySelector('.inner-slideout');
 const sidebarContainer = document.querySelector('.sidebar-container');
@@ -41,3 +41,4 @@ closeMenu.addEventListener('click', () => {
 
 window.addEventListener('resize', moveSidebarBlock);
 window.addEventListener('load', moveSidebarBlock);
+
