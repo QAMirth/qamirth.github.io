@@ -12,7 +12,7 @@ let isMovedToSlideout = false;
 function moveSidebarBlock() {
   const screenWidth = window.innerWidth;
 
-  if (screenWidth <= 1024 && slideoutMenu.classList.contains('active')) {
+  if (slideoutMenu.classList.contains('active')) {
     // Перемещаем блок в слайд-меню для мобильной версии, если меню открыто
     if (!innerSlideout.contains(sidebarBlock)) {
       innerSlideout.appendChild(sidebarBlock);
