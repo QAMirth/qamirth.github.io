@@ -1,11 +1,10 @@
  document.write(`
       <div class="sidebar-container">
 
-
-              <div class="sidebar-block">
+<div class="sidebar-block3">
                 <div class="inner">
                   <div class="sidebar-block-content">
-                    <!--<filters / user settings>-->
+                    <!--<filters>-->
                   
 <div id="filters-r">
 
@@ -31,6 +30,18 @@
 
 </div>
 
+                    <!--<filters>-->
+                  </div>
+                </div>
+              </div>
+
+              
+
+              <div class="sidebar-block">
+                <div class="inner">
+                  <div class="sidebar-block-content">
+                    <!--<user settings>-->
+                  
 
 <div id="settings">
   <div class="cusa">
@@ -100,7 +111,7 @@
 
 </div>
 
-                    <!--</filters / user settings>-->
+                    <!--<user settings>-->
                   </div>
                 </div>
               </div>
