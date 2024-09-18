@@ -3189,12 +3189,23 @@ body.popup-active {
 
 
 .set-icon {
-  display: none; 
+  display: block; 
   font-size: 24px;
   cursor: pointer;
 }
 
+.user-pref{
+    fill: var(--link-c);
+  }
 
+#settings {
+    display: none;
+  }
+
+ #slideoutMenu .sidebar-block. #settings{
+    display: block;
+    border:0;
+  }
 
 .slideout-menu {
   display: none; 
@@ -3210,8 +3221,26 @@ body.popup-active {
 }
 
 .slideout-menu.active {
+  display: block;
   right: 0; 
 }
+
+.close-menu {
+  background-color: var(--100);
+  color: var(--500);
+  border: none;
+  padding: 0 var(--7a5);
+  font-size: var(--icon-size);
+  cursor: pointer;
+  position: absolute;
+  top: var(--10);
+  right: var(--20);;
+  }
+
+  .close-menu:hover {
+  background-color: var(--300);
+  color: var(--550);
+  }
 
 
 @media (max-width: 1024px) {
