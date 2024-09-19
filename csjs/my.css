@@ -2215,7 +2215,7 @@ select.codeButtons {
   }
 
   .header-right {
-    gap: var(--7a5);
+    gap: var(--15);
     flex-direction: row-reverse;
   }
 
@@ -2270,6 +2270,13 @@ select.codeButtons {
     width: var(--size);
     z-index: 22001;
   }
+
+    #search_icon {
+  color: var(--link-c);
+  width: var(--bwh);
+  height: var(--bwh);
+ }
+
 
   .logo-link {
   /*! flex: 0 0 36px; */
