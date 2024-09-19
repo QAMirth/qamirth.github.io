@@ -1220,7 +1220,7 @@
   /*! height: var(--bwh); */
   align-items: center;
   justify-content: center;
-  /*! border-radius: var(--border-radius); */
+  border-radius: var(--border-radius); 
 }
 
 .header-search:hover {
