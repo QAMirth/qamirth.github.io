@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 @font-face {
     font-family: 'ABC';
     src: url('lucidagrande.ttf') format('truetype');
@@ -167,7 +169,7 @@
 
 @layer defaults {
   :root {
-    --tpl-font-system: system-ui,
+    --tpl-font-system: "Inter", system-ui,
     "Segoe UI", "ABC", Arial, sans-serif;
     --tpl-font-size-extra-small: 12px;
     --tpl-font-size-small: 13px;
