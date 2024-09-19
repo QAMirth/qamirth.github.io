@@ -3,7 +3,7 @@
 
 .q1{
   display:block;
-  border-radius: var(--15) !important;
+  border-radius: var(--border-radius) !important;
   overflow: visible;
   background-color: var(--000) !important;
   position: relative;
@@ -15,8 +15,8 @@
 .banner{
   min-height: 250px;
   max-height: 250px;
-  border-top-left-radius: var(--15);
-  border-top-right-radius: var(--15);
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
   position: relative;
   overflow-y: hidden;
   transition-duration: 1s;
@@ -32,8 +32,8 @@
   position: relative;
   width: 100%;
   padding-bottom: 25%;
-  border-top-left-radius: var(--15);
-  border-top-right-radius: var(--15);
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
   cursor: pointer;
 }
 
@@ -48,8 +48,8 @@
   justify-items: center;
   justify-content: center;
   align-items: center;
-  border-top-left-radius: var(--15);
-  border-top-right-radius: var(--15);
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
 }
 
 .display-flex{
@@ -103,6 +103,8 @@
 
 .name{
   margin-top: var(--7a5);
+  display:flex;
+  flex-direction:column;
 }
 
 .relative {
@@ -137,6 +139,7 @@ word-break: break-word;
 }
 
  .right-panel1 {
+   display:block;
     width: 232px;
     list-style: none;
     position: absolute;
@@ -319,7 +322,7 @@ word-break: break-word;
 
 .q2{
   display:block;
-  border-radius: var(--15) !important;
+  border-radius: var(--border-radius) !important;
   overflow: visible;
   background-color: var(--000) !important;
   position: relative;
@@ -446,6 +449,22 @@ padding: 0 24px;
   border-radius: 4px;
   display: block;
   }
+
+@media screen and (max-width: 1024px) {
+  .right-panel1 {
+   display:none;
+  }
+  
+  .name-slogan{
+  max-width: calc(100%);
+}
+
+  .sidebar-block2{
+    display:none;
+  }
+  
+}
+
 
 
 
