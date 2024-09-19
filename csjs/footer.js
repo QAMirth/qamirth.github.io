@@ -10,7 +10,7 @@
       <a class="footer-link" href="#" data-modal="feedbackModal">Feedback</a> <span >|</span> <a class="footer-link" href="#" data-modal="addModal">Add software to the site</a> <span >|</span> <a class="footer-link" href="#" data-modal="contactsModal">Contacts</a>
     </div>
     <div class="footer-right">
-      <a class="footer-link" href="#" data-modal="aboutModal">About</a> <span>|</span> <a href="../99/katzeniy.html">Katzeniy</a> <span >|</span> <a class="footer-link2" href="../99/katzeniy.html">Author</a> <span >|</span> © <span id="currentYear"></span>
+      <a class="footer-link" href="#" data-modal="aboutModal">About</a> <span>|</span> <a href="../99/katzeniy.html">Katzeniy</a> <span >|</span> <a class="footer-link2" href="../99/katzeniy.html">Author</a> <span >|</span> © <span id="currentYear-home"></span>
     </div>
 
   </div>
