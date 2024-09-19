@@ -2278,7 +2278,7 @@ select.codeButtons {
  }
 
     #search_icon:hover {
-  background-color: transparent;
+  background-color: var(--000);
  }
 
 
