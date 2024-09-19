@@ -547,7 +547,7 @@ fill="currentColor" stroke="none">
         <script type="text/javascript" src="csjs/footer.js"></script>
       </footer>
 
-<script>
+<script type="text/javascript">
         function getScreenResolution() {
             const width = window.screen.width;
             const height = window.screen.height;
@@ -655,13 +655,18 @@ Thanks, you two, you found all three!`;
             createBug();
         });
 </script>
-
+      
       <script type="text/javascript" src="csjs/1234.main.js"></script>
-      <script type="text/javascript" src="csjs/tags.js"></script>
       <script type="text/javascript" src="csjs/opec.js"></script>
       <script type="text/javascript" src="csjs/pref-mob.js"></script>
       <script type="text/javascript" src="csjs/modal-pop.js"></script>
       <script type="text/javascript" src="csjs/modal.js"></script>
+
+      <script type="text/javascript">
+      const currentYear = new Date().getFullYear();
+      document.getElementById('currentYear-home').textContent = currentYear;
+      </script>
+      
     </div>
   </body>
 </html>
