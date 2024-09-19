@@ -169,7 +169,7 @@
 
 @layer defaults {
   :root {
-    --tpl-font-system: "Inter", system-ui,
+    --tpl-font-system: "QA-serif", system-ui,
     "Segoe UI", "ABC", Arial, sans-serif;
     --tpl-font-size-extra-small: 12px;
     --tpl-font-size-small: 13px;
