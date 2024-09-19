@@ -264,6 +264,10 @@
   50% { border-color: transparent; }
   }
 
+.sidebar, .sidebar-block .inner,
+.sidebar-block2 .inner, .sidebar-block3 .inner, .sidebar-block-footer {
+ display:none;
+}
 
 
 @media screen and (max-width: 1024px) {
@@ -291,6 +295,10 @@
    .schQuery{
     width:100%;
     }
+
+.sidebar-block, .sidebar-block2 .inner, .sidebar-block3 .inner, .sidebar-block-footer {
+ display:none;
+}
 
 }
 
@@ -525,6 +533,9 @@ fill="currentColor" stroke="none">
           </main>
 
 
+          <aside id="sidebar" class="sidebar">
+            <script type="text/javascript" src="../csjs/footer-r.js"></script>
+          </aside>
         
           <!-- </middle> -->
         </div>
