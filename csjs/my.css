@@ -564,9 +564,10 @@
     }
 
      #add-material-btn {
-         position: absolute;
-         top: 80px;
-         right: 24px;
+      display:none;
+      position: absolute;
+      top: 80px;
+      right: 24px;
       border:none;
       color: transparent;
       background-color: transparent;
