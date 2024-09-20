@@ -316,7 +316,7 @@
   .hz h1 {
     font: var(--tpl-font-header-1);
     font-size: var(--tpl-font-size-medium-plus);
-    color: var(--600);
+    color: var(--700);
     font-weight: 600;
     margin: 0;
     background: transparent;
