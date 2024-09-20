@@ -258,7 +258,7 @@
     --left-space:
     calc(200px + var(--15));
     --menuha-link:
-    var(--600);
+    var(--550);
     --menuha-weight: 600;
     --trah:
     translateY(-180%);
