@@ -1948,8 +1948,10 @@ select.codeButtons {
   }
 
   .main-menu .uMenuRoot {
+    background: var(--200);
+    border-radius: var(--7a5);
     display: flex;
-    gap: var(--15);
+    gap: var(--0);
     justify-content: flex-start;
     font: var(--tpl-font-text-r2);
     height: 100%;
@@ -1960,11 +1962,11 @@ select.codeButtons {
   }
 
   .main-menu .uMenuRoot > li:where(:not(.hidden)) {
-    background: var(--000);
+    background: transparent;
     display: flex;
     gap: var(--2a5);
-    padding: var(--5) var(--7a5);
-    border-radius: var(--border-radius);
+    padding: var(--5) var(--10);
+    /*! border-radius: var(--border-radius); */
   }
 
   .main-menu .uMenuRoot > li:where(:not(.hidden)):hover {
