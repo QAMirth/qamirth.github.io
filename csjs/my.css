@@ -259,7 +259,7 @@
     calc(200px + var(--15));
     --menuha-link:
     var(--550);
-    --menuha-weight: 600;
+    --menuha-weight: 500;
     --trah:
     translateY(-180%);
     --right-search:  185px;
@@ -1336,7 +1336,7 @@
   padding: var(--7a5);
   color: var(--menuha-link);
   font-size: var(--tpl-font-size-small);
-  font-weight: 600;
+  font-weight: var(--menuha-weight);
 }
 
 .sidebar-block-content-l li {
