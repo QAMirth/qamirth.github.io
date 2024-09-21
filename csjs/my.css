@@ -1948,7 +1948,7 @@ select.codeButtons {
   }
 
   .main-menu .uMenuRoot {
-    background: var(--200);
+     /*! background: var(--200); */
     border-radius: var(--7a5);
     display: flex;
     gap: var(--0);
@@ -2004,7 +2004,7 @@ select.codeButtons {
     font-size: var(--tpl-font-size-small);
     transition: color var(--tpl-transition);
     display: flex;
-    flex-direction:row;
+    flex-direction:column;
     align-items: center;
     min-width: 60px;
   }
