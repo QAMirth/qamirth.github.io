@@ -200,7 +200,7 @@
     --tpl-font-header-4: normal 600
     var(--tpl-font-size-plus) / 1.3 var(--tpl-font-system);
     --tpl-transition: 0.2s ease;
-    --tpl-max-layout-width: 1200px;
+    --tpl-max-layout-width: 1280px;
     --tpl-border-line-100: 1px solid
     var(--250);
     --header-top: var(--2a5);
@@ -251,8 +251,8 @@
     --40: 40px;
     --45: 44px;
     --50: 48px;
-    --sidebar-size-l: 200px;
-    --sidebar-size-r: 250px;
+    --sidebar-size-l: 250px;
+    --sidebar-size-r: 350px;
     --max-height-header: 60px;
     --left-absolute: 4%;
     --left-space:
