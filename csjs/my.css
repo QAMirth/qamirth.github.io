@@ -252,15 +252,15 @@
     --40: 40px;
     --45: 44px;
     --50: 48px;
-    --sidebar-size-l: 250px;
-    --sidebar-size-r: 350px;
+    --sidebar-size-l: 200px;
+    --sidebar-size-r: 300px;
     --max-height-header: 60px;
     --left-absolute: 4%;
     --left-space:
     calc(200px + var(--15));
     --menuha-link:
     var(--550);
-    --menuha-weight: 500;
+    --menuha-weight: 600;
     --trah:
     translateY(-180%);
     --right-search:  185px;
