@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import url('QA-font.css');
 
 @font-face {
@@ -169,7 +170,7 @@
 
 @layer defaults {
   :root {
-    --tpl-font-system: "QA-serif", system-ui,
+    --tpl-font-system: "Open Sans", "QA-serif", system-ui,
     "Segoe UI", "ABC", Arial, sans-serif;
     --tpl-font-size-extra-small: 13px;
   --tpl-font-size-small: 14px;
