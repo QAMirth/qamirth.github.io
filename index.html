@@ -153,14 +153,15 @@
   display: none;
   }
 
-   .main-menu .uMenuRoot > li > :where(a, .menu-item-more-text) {
-    color: var(--menuha-link);
+.main-menu .uMenuRoot > li:where(:not(.hidden)):hover {
+    background-color: var(--200);
   }
 
-.main-menu-nav ::before {
-  color: var(--link-c);
-}
+.main-menu li ul li > a:hover {
+     background-color: var(--300);
+  }
 
+  
   .footer-container {
   display: flex;
   justify-content: space-between;
@@ -303,6 +304,16 @@
    .schQuery{
     width:100%;
     }
+
+  .header-mobile-button, .header-mobile-button-pc {
+    background-color: var(--000);
+  }
+
+
+ #search_icon:hover {
+  background-color: var(--000);
+ }
+
 
 .sidebar, .sidebar-block,
 .sidebar-block2, .sidebar-block3, .sidebar-block-footer, .set-icon {
