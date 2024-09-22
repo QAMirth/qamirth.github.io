@@ -207,7 +207,7 @@
     --header-bottom: var(--2a5);
     --logo-width: 50px;
     --logo-height: 36px;
-    --icon-size: 18px;
+    --icon-size: 22px;
     --search-line-height: 36px;
     --bwh: 36px;
     --pad-big: var(--15);
@@ -253,7 +253,7 @@
     --50: 48px;
     --sidebar-size-l: 200px;
     --sidebar-size-r: 350px;
-    --max-height-header: 60px;
+    --max-height-header: 64px;
     --left-absolute: 4%;
     --left-space:
     calc(200px + var(--15));
