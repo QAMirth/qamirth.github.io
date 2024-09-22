@@ -317,7 +317,7 @@
     font: var(--tpl-font-header-1);
     font-size: var(--tpl-font-size-medium-plus);
     color: var(--700);
-    font-weight: 600;
+    font-weight: 500;
     margin: 0;
     background: transparent;
     outline: none;
@@ -732,7 +732,7 @@
   border: 0;
   padding: var(--5) var(--25) var(--5) var(--7a5);
   border-radius: var(--7a5);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--600);
   font-size: var(--tpl-font-size-extra-small);
   margin-right: var(--7a5);
@@ -1277,7 +1277,7 @@
 .sidebar-block-title {
   color: var(--550);
   font-size: var(--tpl-font-size-medium-plus);
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: var(--10);
 }
 
@@ -1567,7 +1567,7 @@ strong{
 }
 
 .ttb {
-  font-weight: 700;
+  font-weight: 600;
   font-size: var(--tpl-font-size-medium-plus);
   color: var(--link-a);
   display: block;
@@ -1645,7 +1645,7 @@ strong{
   padding: var(--5) var(--10);
   border-radius: var(--border-radius);
   border: 0;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 
@@ -1890,7 +1890,7 @@ select.codeButtons {
     display:flex;
     background-color: var(--link-c); 
     color: var(--000);
-    font-weight: 700;
+    font-weight: 600;
     font-size: var(--tpl-font-size);
     transition: color var(--tpl-transition);
     justify-content: center;
@@ -2881,7 +2881,7 @@ font-weight: 600;
             color: var(--link-a);
             font: normal 400 var(--tpl-font-size) / 1.4 var(--tpl-font-system);
             font-size: var(--tpl-font-size);
-            font-weight:700;
+            font-weight:500;
         }
 
         .num {
