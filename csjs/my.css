@@ -3127,7 +3127,7 @@ body.popup-active {
 }
 
  .header-search-input2 {
-    background: var(--200);
+    background: var(--link-c);
     line-height: var(--search-line-height);
     border-radius: var(--7a5);
     width: var(--search-width);
@@ -3139,7 +3139,7 @@ body.popup-active {
   vertical-align: middle;
   font-family: "Material Icons Outlined";
   font-weight: 400;
-  color: var(--link-c);
+  color: var(--000);
   background-color: transparent;
   border: 0;
   border-radius: 0px var(--7a5) var(--7a5) 0px;
@@ -3168,7 +3168,7 @@ body.popup-active {
   }
 
   .header-search-input2::placeholder {
-    color: var(--900); 
+    color: var(--000); 
     font-size: var(--tpl-font-size-small);
 }
 
