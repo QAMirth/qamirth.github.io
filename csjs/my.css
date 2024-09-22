@@ -170,8 +170,7 @@
 
 @layer defaults {
   :root {
-    --tpl-font-system: "Open Sans", "QA-serif", system-ui,
-    "Segoe UI", "ABC", Arial, sans-serif;
+    --tpl-font-system: system-ui, "Segoe UI", "QA-serif", "Open Sans", "ABC", Arial, sans-serif;
     --tpl-font-size-extra-small: 13px;
   --tpl-font-size-small: 14px;
   --tpl-font-size: 15px;
@@ -765,7 +764,7 @@
 }
 
 .header {
-  background-color: var(--000);
+  background-color: var(--link-c-hover);
   position: sticky;
   top: 0;
   width: 100%;
@@ -807,7 +806,7 @@
 }
 
 .main-menu-nav ::before {
-  color: var(--link-c);
+  color: var(--000);
   font-size: var(--icon-size);
   margin-right: var(--7a5);
   margin-left: var(--0);
@@ -1123,14 +1122,14 @@
 }
 
 .header-mobile-button-pc:hover {
-  background-color: var(--link-c-hover);
+  background-color: var(--link-b);
   border-radius: var(--border-radius);
 }
 
 
 
 .header-search-panel {
-    background-color: var(--000);
+    background-color: var(--link-c-hover);
     /*! box-shadow: 0 13px 14px -9px rgba(0, 0, 0, 0.13); */
     left: 0;
     padding: var(--7a5) calc(var(--sidebar-size-r) + var(--pad) + var(--pad)) var(--7a5) calc(var(--sidebar-size-l) + var(--pad) + var(--pad));
@@ -1228,7 +1227,7 @@
 }
 
 .header-search:hover {
-  background-color: var(--link-c-hover);
+  background-color: var(--link--c-hover);
 }
 
 .sidebar-block-footer {
@@ -1852,7 +1851,7 @@ select.codeButtons {
 
   .auth-links .footer-link{
     color: var(--700);
-    border: 1px solid var(--link-c);
+    border: 0px solid var(--link-c);
     /*! padding: var(--10); */
     border-radius: var(--border-radius);
     /*! align-items: center; */
@@ -1883,7 +1882,7 @@ select.codeButtons {
   }
   
   .auth-links .footer-link:hover {
-    background-color: var(--link-c-hover);
+    background-color: var(--link-b);
     color: var(--000);
   }
 
@@ -1971,7 +1970,7 @@ select.codeButtons {
   }
 
   .main-menu .uMenuRoot > li:where(:not(.hidden)):hover {
-    background-color: var(--200);
+    background-color: var(--link-c);
     border-radius: var(--5);
   }
 
@@ -2000,7 +1999,7 @@ select.codeButtons {
   }
 
   .main-menu .uMenuRoot > li > :where(a, .menu-item-more-text) {
-    color: var(--menuha-link);
+    color: var(--000);
     font-weight: var(--menuha-weight);
     font-size: var(--tpl-font-size-small);
     transition: color var(--tpl-transition);
@@ -2023,7 +2022,7 @@ select.codeButtons {
   .main-menu li:hover > .menu-submenu-btn,
   .main-menu li:hover > .menu-item-more-text,
   .main-menu a:hover {
-    color: var(--900);
+    color: var(--000);
   }
 
   .main-menu li ul {
@@ -2079,6 +2078,18 @@ select.codeButtons {
   .main-menu li ul li:last-child > a {
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
+  }
+  
+  .main-menu li ul li > a {
+    color: var(--menuha-link);
+  }
+  
+  .main-menu li ul li > a:hover {
+    color: var(--700);
+  }
+  
+   .main-menu li ul li > a::before {
+    color: var(--link-c);
   }
 
   .main-menu li ul li.uWithSubmenu > a {
@@ -2233,6 +2244,7 @@ select.codeButtons {
     font-size: var(--25);
     margin-right: var(--15);
     padding-bottom: var(--5);
+    color: var(--900);
   }
 
   .menubar-block {
@@ -2254,12 +2266,13 @@ select.codeButtons {
 
   .header-mobile-button,.header-mobile-button-pc  {
     appearance: none;
-    background-color: transparent;
+    background-color: var(--link-c-hover);
     border: 0;
-    color: var(--link-c);
+    color: var(--000);
     height: var(--25);
     width: var(--25);
     padding: 0;
+    border-radius: var(--0);
   }
 
   .header-mobile-close {
@@ -2278,13 +2291,13 @@ select.codeButtons {
   }
 
     #search_icon {
-  color: var(--link-c);
+  color: var(--000);
   width: var(--bwh);
   height: var(--bwh);
  }
 
     #search_icon:hover {
-  background-color: var(--000);
+  background-color: var(--link-c-hover);
  }
 
 
@@ -2478,7 +2491,7 @@ select.codeButtons {
   }
 
   .header-search-panel {
-    background-color: var(--000);
+    background-color: var(--link-c-hover);
     box-shadow: 0 13px 14px -9px rgba(0, 0, 0, 0.13);
     left: 0;
     padding: var(--12a5) var(--15) var(--15);
@@ -3224,7 +3237,7 @@ body.popup-active {
 }
 
 .user-pref{
-    fill: var(--link-c);
+    fill: var(--000);
   }
 
 .sidebar-block {
@@ -3279,7 +3292,7 @@ body.popup-active {
   }
 
   .user-pref{
-    fill: var(--link-c);
+    fill: var(--000);
   }
 
   .sidebar-container {
