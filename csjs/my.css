@@ -1125,10 +1125,12 @@
   border-radius: var(--border-radius);
 }
 
-
+#header.bg-gray {
+    background-color: var(--link-c-hover);
+    }
 
 .header-search-panel {
-    background-color: var(--000);
+    background-color: var(--link-c-hover);
     /*! box-shadow: 0 13px 14px -9px rgba(0, 0, 0, 0.13); */
     left: 0;
     padding: var(--7a5) calc(var(--sidebar-size-r) + var(--pad) + var(--pad)) var(--7a5) calc(var(--sidebar-size-l) + var(--pad) + var(--pad));
@@ -1147,6 +1149,8 @@
     transition: top var(--tpl-transition);
     visibility: visible;
   }
+
+  
 
   .header-search-overlay {
     display: none;
