@@ -2762,16 +2762,20 @@ select.codeButtons {
 
 /* fallback */
 @font-face {
-  font-family: 'Material Symbols Outlined';
+  font-family: "Material Icons Outlined";
   font-style: normal;
-  font-weight: 100 700;
-  src: url(icons.woff2)
+  font-weight: 300;
+  font-display: swap;
+  src: url(gstatic2.woff2)
     format("woff2");
 }
 
-.material-symbols-outlined {
-  font-family: 'Material Symbols Outlined';
-  font-weight: normal;
+.material-icons-outlined {
+  font-family: "Material Icons Outlined";
+  font-weight: 300;
+  font-variation-settings:
+    "GRAD" -25,
+    /* Grade */ "opsz" 16; /* Optical Size */
   font-style: normal;
   font-size: 24px;
   line-height: 1;
@@ -2781,18 +2785,10 @@ select.codeButtons {
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
-  -moz-font-feature-settings: 'liga';
+  -moz-font-feature-settings: "liga";
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 1,
-  'wght' 600,
-  'GRAD' 0,
-  'opsz' 24
-}
 
 
 
