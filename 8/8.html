@@ -517,6 +517,28 @@
       <script type="text/javascript" src="../csjs/tags.js"></script>
       <script type="text/javascript" src="../csjs/opec.js"></script>
       <script type="text/javascript" src="../csjs/pref-mob.js"></script>
+
+
+
+       <script>
+        const header = document.getElementById('header');
+        const searchPanel = document.getElementById('searchPanel');
+        const toggleButton = document.getElementById('toggleButton');
+
+        toggleButton.addEventListener('click', () => {
+            // Переключаем класс для панели поиска
+            searchPanel.classList.toggle('open');
+
+            // Если класс 'open' добавлен к панели поиска, добавляем его и к header
+            if (searchPanel.classList.contains('open')) {
+                header.classList.add('open');
+            } else {
+                header.classList.remove('open');
+            }
+        });
+    </script>
+
+      
     </div>
   </body>
 </html>
