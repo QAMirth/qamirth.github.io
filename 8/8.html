@@ -520,17 +520,12 @@
 
 
 
-       <script>
-        // Получаем элементы header и searchPanel
-        var header = document.getElementById('header');
-        var searchPanel = document.getElementById('searchPanel');
+      <script>
+        const header = document.getElementById('header');
+        const searchPanel = document.getElementById('header_mb_search_panel');
 
-        // Обработчик для изменения класса панели поиска
-        function toggleSearchPanel() {
-            // Переключаем класс open у панели поиска
-            searchPanel.classList.toggle('open');
-
-            // Если класс open присутствует в панели поиска, добавляем класс open к header
+        // Функция для обновления класса в header
+        function updateHeader() {
             if (searchPanel.classList.contains('open')) {
                 header.classList.add('open');
             } else {
@@ -538,9 +533,17 @@
             }
         }
 
-        // Пример использования кнопки для теста (необязательно)
-        var button = document.getElementById('toggleSearchPanel');
-        button.addEventListener('click', toggleSearchPanel);
+        // Настройка MutationObserver для отслеживания изменений классов
+        const observer = new MutationObserver(() => {
+            updateHeader();
+        });
+
+        observer.observe(searchPanel, { attributes: true });
+
+        // Пример изменения класса (удалить, если не нужно)
+        // setTimeout(() => {
+        //     searchPanel.classList.toggle('open'); // Для тестирования
+        // }, 1000);
     </script>
 
       
