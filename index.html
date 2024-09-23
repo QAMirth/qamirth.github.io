@@ -121,10 +121,13 @@
   }
 
   .header {
-  background-color: var(--000);
+  background-color: var(--link-c-hover);
   border-bottom: 0px solid var(--300);
   box-shadow: none;
-  position: static;
+  }
+
+  #header.open {
+    background-color: var(--link-c-hover);
   }
 
   .container {
@@ -141,9 +144,18 @@
     background: transparent;
   }
 
+ .main-menu .uMenuRoot > li > :where(a, .menu-item-more-text) {
+    color: var(--000);
+  }
+
+.main-menu-nav ::before {
+  color: var(--000);
+}
+
+
  
   .main-menu li ul a {
-    background-color: var(--100);
+    background-color: var(--000);
   }
 
   .main-menu li ul .uMenuItemA,
@@ -312,7 +324,7 @@
     }
 
   .header-mobile-button, .header-mobile-button-pc {
-    background-color: var(--000);
+    background-color: var(--link-c-hover);
   }
 
 
@@ -327,13 +339,22 @@
 }
 
    .header-mobile-button, .header-mobile-button-pc {
-    color: var(--link-c);
+    color: var(--000);
+  }
+  
+    .header-mobile-close {
+    color: var(--999);
+      background: var(--000);
   }
 
   #search_icon {
-    color: var(--link-c);
+    color: var(--000);
     width: var(--bwh);
     height: var(--bwh);
+  }
+  
+   #search_icon:hover {
+    background: var(--link-c-hover)
   }
 
 
