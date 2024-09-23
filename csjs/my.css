@@ -3149,20 +3149,20 @@ body.popup-active {
 }
 
  .header-search-input2 {
-    background: var(--link-c);
+    background: var(--200);
     line-height: var(--search-line-height);
     border-radius: var(--7a5);
     width: var(--search-width);
     padding: var(--0) var(--15);
     border: 0px solid var(--300);
-    color: var(--000);
+    color: var(--900);
   }
 
 .header-search-button2 {
   vertical-align: middle;
   font-family: "Material Icons Outlined";
   font-weight: 400;
-  color: var(--000);
+  color: var(--link-c);
   background-color: transparent;
   border: 0;
   border-radius: 0px var(--7a5) var(--7a5) 0px;
@@ -3191,7 +3191,7 @@ body.popup-active {
   }
 
   .header-search-input2::placeholder {
-    color: var(--000); 
+    color: var(--900); 
     font-size: var(--tpl-font-size-small);
 }
 
