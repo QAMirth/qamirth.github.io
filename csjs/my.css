@@ -3248,10 +3248,10 @@ body.popup-active {
 }
 
 
-/* Основные стили для хедера */
 
  .sidebar-container {
     display: block;
+position: fixed; /* fixed */
   }
 
 
