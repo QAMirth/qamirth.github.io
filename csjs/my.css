@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 @import url('QA-font.css');
 
 @font-face {
@@ -169,7 +170,7 @@
 
 @layer defaults {
   :root {
-    --tpl-font-system:  system-ui, "Segoe UI", "QA-serif", Arial, sans-serif;
+    --tpl-font-system:  "Source Sans 3", system-ui, "Segoe UI", "QA-serif", Arial, sans-serif;
    --tpl-font-size-extra-small: 12px;
   --tpl-font-size-small: 13px;
   --tpl-font-size: 14px;
@@ -199,7 +200,7 @@
     --tpl-font-header-4: normal 600
     var(--tpl-font-size-plus) / 1.3 var(--tpl-font-system);
     --tpl-transition: 0.2s ease;
-    --tpl-max-layout-width: 1280px;
+    --tpl-max-layout-width: 1600px;
     --tpl-border-line-100: 1px solid
     var(--250);
     --header-top: var(--2a5);
@@ -250,8 +251,8 @@
     --40: 40px;
     --45: 44px;
     --50: 48px;
-    --sidebar-size-l: 200px;
-    --sidebar-size-r: 350px;
+    --sidebar-size-l: 240px;
+    --sidebar-size-r: 320px;
     --max-height-header: 64px;
     --left-absolute: 4%;
     --left-space:
