@@ -521,9 +521,9 @@
 
 
       <script>
-        const header = document.getElementById('header');
-        const searchPanel = document.getElementById('searchPanel');
-        const toggleButton = document.getElementById('toggleButton');
+        // Получаем элементы header и searchPanel
+        var header = document.getElementById('header');
+        var searchPanel = document.getElementById('searchPanel');
 
         // Функция для обновления класса header
         function updateHeaderClass() {
@@ -535,17 +535,12 @@
         }
 
         // Добавляем наблюдателя за изменением класса searchPanel
-        const observer = new MutationObserver(() => {
+        var observer = new MutationObserver(() => {
             updateHeaderClass();
         });
 
         // Настраиваем наблюдатель на атрибуты searchPanel
         observer.observe(searchPanel, { attributes: true, attributeFilter: ['class'] });
-
-        // Событие клика для тестирования (если требуется)
-        toggleButton.addEventListener('click', () => {
-            searchPanel.classList.toggle('open');
-        });
 
         // Обновляем класс header на старте
         updateHeaderClass();
