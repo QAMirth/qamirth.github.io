@@ -2535,7 +2535,7 @@ select.codeButtons {
 
   .header-search-overlay {
     display: none;
-    inset: 116px 0 0;
+    inset: 112px 0 0;
     pointer-events: none;
     position: fixed;
     z-index: -1;
