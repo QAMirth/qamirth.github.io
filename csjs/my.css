@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import url('QA-font.css');
 
 @font-face {
@@ -764,7 +763,7 @@
 }
 
 .header {
-  background-color: var(--link-c-hover);
+  background-color: var(--000);
   position: sticky;
   top: 0;
   width: 100%;
@@ -806,10 +805,10 @@
 }
 
 .main-menu-nav ::before {
-  color: var(--000);
+  color: var(--link-b);
   font-size: var(--icon-size);
   margin-right: var(--7a5);
-  margin-left: var(--0);
+  margin-left: var(--7a5);
   vertical-align: middle;
   font-family: "Material Icons Outlined";
   font-weight: 400;
@@ -822,7 +821,7 @@
   font-family: "Material Icons Outlined";
   font-weight: 300;
   font-size: var(--icon-size);
-  color: var(--link-c);
+  color: var(--link-b);
   line-height: 0;
 }
 
@@ -1129,7 +1128,7 @@
 
 
 .header-search-panel {
-    background-color: var(--link-c-hover);
+    background-color: var(--000);
     /*! box-shadow: 0 13px 14px -9px rgba(0, 0, 0, 0.13); */
     left: 0;
     padding: var(--7a5) calc(var(--sidebar-size-r) + var(--pad) + var(--pad)) var(--7a5) calc(var(--sidebar-size-l) + var(--pad) + var(--pad));
@@ -1973,6 +1972,21 @@ select.codeButtons {
     background-color: var(--link-c);
     border-radius: var(--5);
   }
+  
+  .main-menu .uMenuRoot > li:where(:not(.hidden)):hover > a {
+    color: var(--000);
+  }
+  
+  .main-menu .uMenuRoot > li:where(:not(.hidden)):hover > a::before {
+    color: var(--000);
+  }
+  
+   .main-menu .uMenuRoot > li:where(:not(.hidden)):hover > span::before {
+    color: var(--000);
+  }
+  
+  
+
 
   .uWithSubmenu,
   .menu-item-more,
@@ -1999,7 +2013,7 @@ select.codeButtons {
   }
 
   .main-menu .uMenuRoot > li > :where(a, .menu-item-more-text) {
-    color: var(--000);
+    color: var(--menuha-link);
     font-weight: var(--menuha-weight);
     font-size: var(--tpl-font-size-small);
     transition: color var(--tpl-transition);
@@ -2266,9 +2280,9 @@ select.codeButtons {
 
   .header-mobile-button,.header-mobile-button-pc  {
     appearance: none;
-    background-color: var(--link-c-hover);
+    background-color: var(--000);
     border: 0;
-    color: var(--000);
+    color: var(--link-b);
     height: var(--25);
     width: var(--25);
     padding: 0;
@@ -2291,13 +2305,13 @@ select.codeButtons {
   }
 
     #search_icon {
-  color: var(--000);
+  color: var(--link-b);
   width: var(--bwh);
   height: var(--bwh);
  }
 
     #search_icon:hover {
-  background-color: var(--link-c-hover);
+  background-color: var(--000);
  }
 
 
@@ -3238,7 +3252,7 @@ body.popup-active {
 }
 
 .user-pref{
-    fill: var(--000);
+    fill: var(--link-c);
   }
 
 .sidebar-block {
@@ -3293,7 +3307,7 @@ body.popup-active {
   }
 
   .user-pref{
-    fill: var(--000);
+    fill: var(--link-b);
   }
 
   .sidebar-container {
