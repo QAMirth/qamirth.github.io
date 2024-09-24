@@ -1479,7 +1479,7 @@
   align-items: flex-start;
   grid-row: auto/span 4;
   grid-template-rows: subgrid;
-  gap: var(--10);
+  gap: var(--5);
   margin-bottom: var(--pad-small);
   scroll-margin-top: calc(var(--max-height-header) + var(--5));
 }
@@ -1514,11 +1514,11 @@
 }
 
 .ggh {
-  width: var(--bwh);
+  width: 24px;
   height: auto;
   object-fit: cover;
   /*! background-color: var(--200); */
-  border-radius: 8px;
+  border-radius: 4px;
   display: block;
 }
 
