@@ -1642,25 +1642,29 @@ strong{
 }
 
 
-.format,
-.freepaid,
+.ft2,
+.fp2,
 .tg2{
   display:inline-flex;
   font: normal 400 var(--tpl-font-size) / 1.4 var(--tpl-font-system);
   /*! margin-right: var(--7a5); */
   /*! margin-bottom: var(--7a5); */
   font-size: var(--tpl-font-size-extra-small);
-  /*! background: var(--200); */
+  background: var(--000);
   padding: var(--5) var(--7a5);
   border-radius: var(--border-radius);
   border: 0;
-  font-weight: 500;
   line-height:1
 }
 
 .ft2, .fp2, .tg2 {
   color: var(--550);
   font-weight: 400;
+}
+
+.ft2:hover, .fp2:hover, .tg2:hover {
+  color: var(--000);
+  background: var(--link-b);
 }
 
 
