@@ -176,7 +176,7 @@
   --tpl-font-size: 15px;
   --tpl-font-size-plus: 17px;
   --tpl-font-size-medium: 15px;
-  --tpl-font-size-medium-plus: 16px;
+  --tpl-font-size-medium-plus: 17px;
   --tpl-font-size-large: 32px;
   --tpl-font-size-extra-large: 19px;
     --tpl-font-text-r1: normal 400
@@ -200,7 +200,7 @@
     --tpl-font-header-4: normal 600
     var(--tpl-font-size-plus) / 1.3 var(--tpl-font-system);
     --tpl-transition: 0.2s ease;
-    --tpl-max-layout-width: 1240px;
+    --tpl-max-layout-width: 1280px;
     --tpl-border-line-100: 1px solid
     var(--250);
     --header-top: var(--2a5);
@@ -222,7 +222,7 @@
   --link-b-hover: #AB9EFF;
   --link-c-hover: #AB9EFF;
 
-    --900: rgba(0, 0, 0, 1);
+    --900: rgba(0, 0, 0, 0.95);
     --800: rgba(0, 0, 0, 0.85);
     --750: rgba(0, 0, 0, 0.8);
     --700: rgba(0, 0, 0, 0.8);
@@ -251,7 +251,7 @@
     --40: 40px;
     --45: 44px;
     --50: 48px;
-    --sidebar-size-l: 220px;
+    --sidebar-size-l: 200px;
     --sidebar-size-r: 320px;
     --max-height-header: 72px;
     --left-absolute: 4%;
