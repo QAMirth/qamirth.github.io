@@ -1596,15 +1596,28 @@ strong{
   text-overflow: ellipsis;
 }
 
+
 .info-card-desc a{
   color: var(--900);
   text-decoration: underline dotted;
 }
+
+.info-card-desc img {
+  display: none;
+}
+
+
 .expanded {display:block;
   -webkit-line-clamp: unset;
   overflow: visible;
   position: relative;
 }
+
+.expanded img {
+  display: block; 
+}
+
+
 .button-link2 {
   cursor: pointer;
   color: var(--menuha-link);
