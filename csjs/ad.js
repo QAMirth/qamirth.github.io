@@ -3,7 +3,7 @@ document.write(`
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <style>
         #description-container {
-            height: 300px;
+            height: 650px;
         }
     </style>
 <button id="add-material-btn">+</button>
