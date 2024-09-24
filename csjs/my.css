@@ -253,7 +253,7 @@
     --50: 48px;
     --sidebar-size-l: 240px;
     --sidebar-size-r: 320px;
-    --max-height-header: 64px;
+    --max-height-header: 72px;
     --left-absolute: 4%;
     --left-space:
     calc(200px + var(--15));
