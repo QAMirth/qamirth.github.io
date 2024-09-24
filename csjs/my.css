@@ -3273,7 +3273,7 @@ body.popup-active {
 
  .sidebar-container {
     display: block;
-position: fixed; /* fixed */
+position: static; /* fixed */
   }
 
 
