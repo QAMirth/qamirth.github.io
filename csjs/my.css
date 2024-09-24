@@ -200,7 +200,7 @@
     --tpl-font-header-4: normal 600
     var(--tpl-font-size-plus) / 1.3 var(--tpl-font-system);
     --tpl-transition: 0.2s ease;
-    --tpl-max-layout-width: 1600px;
+    --tpl-max-layout-width: 1400px;
     --tpl-border-line-100: 1px solid
     var(--250);
     --header-top: var(--2a5);
