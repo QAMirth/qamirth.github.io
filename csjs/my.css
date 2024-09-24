@@ -1471,7 +1471,7 @@
 
 :where(.info-box) .info-card {
   background-color: var(--000);
-  padding: var(--pad) var(--pad) var(--5) var(--pad);
+  padding: var(--pad) var(--pad) var(--10) var(--pad);
   border: 1px solid var(--300);
   border-radius: var(--border-radius);
   display: flex;
