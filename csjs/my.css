@@ -1254,7 +1254,7 @@
 
 .sidebar-block-l {
   background-color: var(--000);
-  border-radius: var(--7a5);
+  border-radius: var(--border-radius);
   border: 1px solid var(--300);
   position: fixed;
   width: var(--sidebar-size-l);
