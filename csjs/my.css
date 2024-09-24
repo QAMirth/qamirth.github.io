@@ -200,7 +200,7 @@
     --tpl-font-header-4: normal 600
     var(--tpl-font-size-plus) / 1.3 var(--tpl-font-system);
     --tpl-transition: 0.2s ease;
-    --tpl-max-layout-width: 1400px;
+    --tpl-max-layout-width: 1280px;
     --tpl-border-line-100: 1px solid
     var(--250);
     --header-top: var(--2a5);
@@ -210,9 +210,9 @@
     --icon-size: 22px;
     --search-line-height: 36px;
     --bwh: 36px;
-    --pad-big: var(--7a5);
-    --pad: var(--15);
-    --pad-small: var(--7a5);
+    --pad-big: var(--10);
+    --pad: var(--25);
+    --pad-small: var(--10);
     --border-radius: var(--5);
 
    --link-a: #715AFF;
@@ -233,7 +233,7 @@
     --300: rgba(0, 0, 0, 0.13);
     --250: rgba(0, 0, 0, 0.05);
     --200: rgba(0, 0, 0, 0.05);
-    --100: rgba(0, 0, 0, 0.05);
+    --100: rgba(0, 0, 0, 0.03);
     --000: rgb(255, 255, 255);
     --0: 0;
     --2a5: 2px;
@@ -251,7 +251,7 @@
     --40: 40px;
     --45: 44px;
     --50: 48px;
-    --sidebar-size-l: 240px;
+    --sidebar-size-l: 220px;
     --sidebar-size-r: 320px;
     --max-height-header: 72px;
     --left-absolute: 4%;
@@ -1253,9 +1253,9 @@
 }
 
 .sidebar-block-l {
-  background-color: var(--000);
+  /*! background-color: var(--000); */
   border-radius: var(--border-radius);
-  border: 1px solid var(--300);
+  /*! border: 1px solid var(--300); */
   position: fixed;
   width: var(--sidebar-size-l);
 }
@@ -1559,7 +1559,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  line-height: 1.5;
+  line-height: 1.7;
   color: var(--900);
 }
 
@@ -1590,7 +1590,7 @@ strong{
 
 .info-card-desc {
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 10;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
