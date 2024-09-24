@@ -170,7 +170,7 @@
 
 @layer defaults {
   :root {
-    --tpl-font-system: "Source Sans 3", system-ui, "Segoe UI", "QA-serif", Arial, sans-serif;
+    --tpl-font-system: system-ui, "Segoe UI", "Source Sans 3", "QA-serif", Arial, sans-serif;
  --tpl-font-size-extra-small: 13px;
   --tpl-font-size-small: 14px;
   --tpl-font-size: 15px;
@@ -203,8 +203,8 @@
     --tpl-max-layout-width: 1400px;
     --tpl-border-line-100: 1px solid
     var(--250);
-    --header-top: var(--2a5);
-    --header-bottom: var(--2a5);
+    --header-top: var(--7a5);
+    --header-bottom: var(--7a5);
     --logo-width: 50px;
     --logo-height: 36px;
     --icon-size: 22px;
@@ -258,8 +258,8 @@
     --left-space:
     calc(200px + var(--15));
     --menuha-link:
-    var(--550);
-    --menuha-weight: 600;
+    var(--700);
+    --menuha-weight: 500;
     --trah:
     translateY(-180%);
     --right-search:  185px;
@@ -317,7 +317,7 @@
     font: var(--tpl-font-header-1);
     font-size: var(--tpl-font-size-medium-plus);
     color: var(--550);
-    font-weight: 600;
+    font-weight: 500;
     margin: 0;
     background: transparent;
     outline: none;
@@ -735,7 +735,7 @@
   border: 0;
   padding: var(--5) var(--25) var(--5) var(--7a5);
   border-radius: var(--7a5);
-  font-weight: 600;
+  font-weight: 400;
   color: var(--600);
   font-size: var(--tpl-font-size-extra-small);
   margin-right: var(--7a5);
@@ -1281,7 +1281,7 @@
 .sidebar-block-title {
   color: var(--550);
   font-size: var(--tpl-font-size-medium-plus);
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: var(--10);
 }
 
@@ -1340,7 +1340,7 @@
   padding: var(--10) var(--pad);
   
   color: var(--menuha-link);
-  font-size: var(--tpl-font-size-small);
+  font-size: var(--tpl-font-size);
   font-weight: var(--menuha-weight);
 }
 
@@ -1677,7 +1677,7 @@ strong{
 
 .ft2, .fp2, .tg2 {
   color: var(--550);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .ft2:hover, .fp2:hover, .tg2:hover {
@@ -2053,12 +2053,13 @@ select.codeButtons {
   .main-menu .uMenuRoot > li > :where(a, .menu-item-more-text) {
     color: var(--menuha-link);
     font-weight: var(--menuha-weight);
-    font-size: var(--tpl-font-size-small);
+    font-size: var(--tpl-font-size-extra-small);
     transition: color var(--tpl-transition);
     display: flex;
     flex-direction:column;
     align-items: center;
     min-width: 60px;
+    line-height:1.3;
   }
 
   .menu-item-more-text {
