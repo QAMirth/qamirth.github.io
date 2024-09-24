@@ -1595,6 +1595,11 @@ strong{
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.info-card-desc a{
+  color: var(--900);
+  text-decoration: underline dotted;
+}
 .expanded {display:block;
   -webkit-line-clamp: unset;
   overflow: visible;
