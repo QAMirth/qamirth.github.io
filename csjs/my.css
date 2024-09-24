@@ -577,6 +577,9 @@
       background-color: #f0f0f0;
     }
 
+      #popup-form{min-width:100%;}
+#material-form input{width:60%;}
+
    
 
     #eyeButton {
@@ -3368,7 +3371,7 @@ position: fixed; /* fixed */
 
 }
 
-#popup-form{min-width:100%;}
+
 
 
 
