@@ -1640,16 +1640,18 @@ strong{
   margin-top: var(--7a5);
   display:block;
 }
+
+
 .format,
 .freepaid,
 .tg2{
   display:inline-flex;
   font: normal 400 var(--tpl-font-size) / 1.4 var(--tpl-font-system);
-  margin-right: var(--7a5);
-  margin-bottom: var(--7a5);
+  /*! margin-right: var(--7a5); */
+  /*! margin-bottom: var(--7a5); */
   font-size: var(--tpl-font-size-small);
   color: var(--link-a);
-  background: var(--200);
+  /*! background: var(--200); */
   padding: var(--5) var(--7a5);
   border-radius: var(--border-radius);
   border: 0;
