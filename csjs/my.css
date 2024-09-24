@@ -3388,6 +3388,15 @@ position: fixed; /* fixed */
 }
 
 
+pre {
+  white-space: pre-wrap; /* Перенос текста внутри <pre> при переполнении */
+  word-break: break-all; /* Разрывает длинные слова, если они не помещаются */
+  overflow: auto; /* Добавляем прокрутку, если нужно */
+  max-width: 100%; /* Ограничиваем максимальную ширину */
+  box-sizing: border-box; /* Включает padding и border в размер блока */
+}
+
+
 
 
 
