@@ -46,7 +46,7 @@ document.write(`
                     <li><a class="m82" href="../8/81.html" ><span>Mobile testing</span></a></li>
                     <li><a class="m83" href="../8/82.html" ><span>Test case based</span></a></li>
                     <li><a class="m84" href="../8/83.html" ><span>Exploratory/Ad hoc</span></a></li>
-                    <li><a class="m85" href="../1/12.html" ><span>Management Tools List</span></a></li>
+                    <li><a class="m85" href="../8/84.html" ><span>Management tools</span></a></li>
                    
                   </ul>
             </div>
