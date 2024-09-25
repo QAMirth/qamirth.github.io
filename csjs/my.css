@@ -707,15 +707,37 @@
 .hz {
   display: flex;
   flex-direction: row;
-  gap: var(--pad);
+  gap: var(--10);
   width: 100%;
   justify-content: space-between;
   margin-bottom: var(--pad-big);
   background-color: var(--000);
-  padding: var(--15) var(--15);
+  padding: var(--15) var(--pad);
   border: 1px solid var(--300);
   border-radius: var(--border-radius);
   box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+
+
+.hz-top{
+  display:flex;
+  justify-content: space-between;
+  width:100%;
+  flex-direction:row;
+}
+
+.h1title{
+  display:flex;
+  line-height:1;
+  justify-content: center;
+  align-items: center;
+}
+
+.block-display{
+  display:flex;
+  line-height:1;
+  justify-content: center;
+  align-items: center;
 }
 
 #filters {
