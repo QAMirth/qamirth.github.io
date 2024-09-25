@@ -1532,6 +1532,10 @@
   box-shadow: 0 1px 2px rgba(0,0,0,.2);
 }
 
+.info-cards-grid .info-card:last-child {
+    margin-bottom: var(--pad-small);
+}
+
 .info-who{
   display:flex; 
   width: 100%; 
