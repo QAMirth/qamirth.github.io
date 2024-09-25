@@ -1723,11 +1723,24 @@ strong{
   order: 4;
   margin-top: 12px;
 }
+
 .info-card-format {
   margin-top: var(--15);
-  /*! display:none; */
+  display:flex;
+  flex-direction:column;
 }
 
+.format{
+  order:1;
+}
+
+.freepaid{
+  order:2
+}
+
+.tags{
+  order:3
+}
 
 
 .format::before {
