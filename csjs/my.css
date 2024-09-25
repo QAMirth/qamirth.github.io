@@ -300,6 +300,17 @@
   /*! background-image: url(bugologo.svg); */  
   }
 
+    .lg {
+    width:auto; 
+    height:70px;
+    /*! background: var(--link-c); */
+    /*! padding: 5px; */
+    /*! border-radius:10px; */
+  }
+  .lgbug {
+    fill:var(--link-b);
+  }
+
   .home-p {
     background-color: var(--000);
   }
@@ -2241,6 +2252,17 @@ select.codeButtons {
 
   .logo-link {
     height: 36px;
+  }
+
+    .lg {
+    width:auto; 
+    height:36px;
+    /*! background: var(--link-c); */
+    /*! padding: 5px; */
+    /*! border-radius:10px; */
+  }
+  .lgbug {
+    fill:var(--link-b);
   }
 
   .header-search-form {
