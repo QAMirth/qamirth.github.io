@@ -207,7 +207,7 @@
     --header-bottom: var(--7a5);
     --logo-width: 50px;
     --logo-height: 36px;
-    --icon-size: 22px;
+    --icon-size: 24px;
     --search-line-height: 36px;
     --bwh: 36px;
     --pad-big: var(--10);
@@ -3425,20 +3425,21 @@ pre {
   box-sizing: border-box; /* Включает padding и border в размер блока */
 }
 
+     .iconm {
+    font-size: var(--icon-size);
+    cursor: pointer;
+    color: var(--400);
+    }
 
+    .iconm.passive::before {
+    font-family: "Material Icons Outlined";
+    content: 'format_list_bulleted'; /* Пассивная иконка */
+    }
 
- .iconm {
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        .iconm.passive::before {
-            content: '🔵'; /* Пассивная иконка */
-        }
-
-        .iconm.active::before {
-            content: '🟢'; /* Активная иконка */
-        }
+    .iconm.active::before {
+    font-family: "Material Icons Outlined";
+    content: 'segment'; /* Активная иконка */
+    }
 
 
 
