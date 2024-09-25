@@ -1562,7 +1562,7 @@
 }
 
 .ggh {
-  width: var(--bwh);
+  width: 48px;
   height: auto;
   object-fit: cover;
 background-color: var(--200);
