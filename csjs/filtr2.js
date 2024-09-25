@@ -1,4 +1,6 @@
 document.write(`
+<span id="toggleIconm" class="iconm passive"></span>
+
 <div id="filters">
     <select id="sort-filter" onchange="sortMaterials()">
         <option value="title-asc">Titleа (A)</option>
