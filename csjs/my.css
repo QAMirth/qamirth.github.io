@@ -200,7 +200,7 @@
     --tpl-font-header-4: normal 600
     var(--tpl-font-size-plus) / 1.3 var(--tpl-font-system);
     --tpl-transition: 0.2s ease;
-    --tpl-max-layout-width: 1400px;
+    --tpl-max-layout-width: 1324px;
     --tpl-border-line-100: 1px solid
     var(--250);
     --header-top: var(--7a5);
@@ -222,7 +222,7 @@
   --link-b-hover: #A496FC;
   --link-c-hover: #A496FC;
 
-    --900: rgb(0, 0, 0);
+    --900: rgba(0, 0, 0, 0.9);
     --800: rgba(0, 0, 0, 0.85);
     --750: rgba(0, 0, 0, 0.8);
     --700: rgba(0, 0, 0, 0.8);
@@ -251,7 +251,7 @@
     --40: 40px;
     --45: 44px;
     --50: 48px;
-    --sidebar-size-l: 220px;
+    --sidebar-size-l: 250px;
     --sidebar-size-r: 350px;
     --max-height-header: 72px;
 
@@ -1299,6 +1299,10 @@
   box-shadow: 0 1px 2px rgba(0,0,0,.2);
 }
 
+.sidebar-block-l{
+  padding-right:var(--pad-small);
+}
+
 .sidebar-block-l {
   /*! background-color: var(--000); */
   border-radius: var(--border-radius);
@@ -1526,7 +1530,7 @@
   align-items: flex-start;
   grid-row: auto/span 4;
   grid-template-rows: subgrid;
-  gap: var(--15);
+  gap: var(--7a5);
   margin-bottom: var(--mp-margin-bottom);
   scroll-margin-top: calc(var(--max-height-header) + var(--5));
   box-shadow: 0 1px 2px rgba(0,0,0,.2);
@@ -1563,14 +1567,16 @@
 .flog11{
   display: inline-block;
   vertical-align: middle;
+  border: 1px solid var(--200);
+  border-radius: 9999px;
 }
 
 .ggh {
   width: 48px;
-  height: auto;
+  height: 48px;
   object-fit: cover;
 background-color: var(--200);
-  border-radius: 50%;
+  border-radius: 9999px;
   display: block;
 }
 
@@ -1589,7 +1595,7 @@ background-color: var(--200);
 
 .fwho12 {
     align-items: center;
-    display: none;
+    display: flex;
     flex-direction: row;
 }
 
@@ -1625,6 +1631,7 @@ strong{
 
 .ttc {
   color: var(--link-a);
+  border-radius: 9999px;
 }
 
 .ttb {
@@ -1646,7 +1653,7 @@ strong{
 
 .info-card-desc {
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 7;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1718,7 +1725,7 @@ strong{
 }
 .info-card-format {
   /*! margin-bottom: var(--15); */
-  display:block;
+  display:none;
 }
 
 
