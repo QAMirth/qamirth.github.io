@@ -200,7 +200,7 @@
     --tpl-font-header-4: normal 600
     var(--tpl-font-size-plus) / 1.3 var(--tpl-font-system);
     --tpl-transition: 0.2s ease;
-    --tpl-max-layout-width: 1400px;
+    --tpl-max-layout-width: 1300px;
     --tpl-border-line-100: 1px solid
     var(--250);
     --header-top: var(--7a5);
@@ -213,7 +213,7 @@
     --pad-big: var(--10);
     --pad: var(--25);
     --pad-small: var(--10);
-    --border-radius: var(--5);
+    --border-radius: var(--7a5);
 
    --link-a: #715AFF;
   --link-b: #8875FF;
@@ -325,13 +325,17 @@
   }
 
   .hz h1 {
+    display:flex;
     font: var(--tpl-font-header-1);
-    font-size: var(--tpl-font-size-medium-plus);
+    font-size: var(--tpl-font-size);
     color: var(--550);
-    font-weight: 400;
+    font-weight: 600;
     margin: 0;
     background: transparent;
     outline: none;
+    line-height:1;
+    justify-content: center;
+    align-items: center;
   }
   
   .material-count {
@@ -701,6 +705,7 @@
   padding: var(--15) var(--15);
   border: 1px solid var(--300);
   border-radius: var(--border-radius);
+  box-shadow: 0 1px 2px rgba(0,0,0,.2);
 }
 
 #filters {
@@ -1224,9 +1229,9 @@
   display: none;
 }
 
-.a {
-  /*! background-color: var(--000); */
-  border-radius: var(--0);
+.sidebar-block-content-l a.a {
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
   cursor: pointer;
   border-left: 4px solid var(--link-c-hover);
 }
@@ -1261,6 +1266,7 @@
   position: static;
   margin-bottom: var(--pad-small);
   width: var(--sidebar-size-r);
+  box-shadow: 0 1px 2px rgba(0,0,0,.2);
 }
 
 .sidebar-block-l {
@@ -1291,8 +1297,8 @@
 
 .sidebar-block-title {
   color: var(--550);
-  font-size: var(--tpl-font-size-medium-plus);
-  font-weight: 400;
+  font-size: var(--tpl-font-size);
+  font-weight: 600;
   margin-bottom: var(--10);
 }
 
@@ -1493,6 +1499,7 @@
   gap: var(--15);
   margin-bottom: var(--mp-margin-bottom);
   scroll-margin-top: calc(var(--max-height-header) + var(--5));
+  box-shadow: 0 1px 2px rgba(0,0,0,.2);
 }
 
 .info-who{
@@ -3429,6 +3436,7 @@ pre {
     font-size: var(--icon-size);
     cursor: pointer;
     color: var(--400);
+       line-height:1;
     }
 
     .iconm.passive::before {
