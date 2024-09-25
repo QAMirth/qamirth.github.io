@@ -317,7 +317,7 @@
     font: var(--tpl-font-header-1);
     font-size: var(--tpl-font-size-medium-plus);
     color: var(--550);
-    font-weight: 500;
+    font-weight: 400;
     margin: 0;
     background: transparent;
     outline: none;
@@ -1281,7 +1281,7 @@
 .sidebar-block-title {
   color: var(--550);
   font-size: var(--tpl-font-size-medium-plus);
-  font-weight: 500;
+  font-weight: 400;
   margin-bottom: var(--10);
 }
 
@@ -1677,7 +1677,7 @@ strong{
 
 .ft2, .fp2, .tg2 {
   color: var(--550);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .ft2:hover, .fp2:hover, .tg2:hover {
