@@ -1652,6 +1652,12 @@ strong{
   display: block; 
 }
 
+.info-card-desc h1, .info-card-desc h2, .info-card-desc h3, .info-card-desc h4, .info-card-desc h5, .info-card-desc h6 {
+  margin: 0; 
+  font-weight:600;
+  font-size: inherit;
+}
+
 
 .button-link2 {
   cursor: pointer;
