@@ -302,7 +302,7 @@
 
     .lg {
     width:auto; 
-    height:70px;
+    height:48px;
     /*! background: var(--link-c); */
     /*! padding: 5px; */
     /*! border-radius:10px; */
@@ -1041,11 +1041,11 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: var(--link-c);
+  /*! background-color: var(--link-c); */
   border-radius: var(--border-radius);
   justify-content: center;
   align-items: center;
-  margin-right: calc(var(--sidebar-size-l) - var(--logo-width) + var(--15));
+  margin-right: calc(var(--sidebar-size-l) - var(--logo-width));
   padding: 0 var(--7a5);
 }
 
@@ -1056,9 +1056,10 @@
 }
 
 :where(.header) .logo-slogan {
-  max-width: 224px;
+  max-width: 116px;
 }
 
+/*
 .logo-slogan:after {
   color: var(--000);
   font-size: 20px;
@@ -1066,6 +1067,7 @@
   font-weight:700;
   content: "QA";
 }
+*/
 
 .header-container {
   align-items: stretch;
