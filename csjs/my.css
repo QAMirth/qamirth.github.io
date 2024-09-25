@@ -1563,6 +1563,10 @@
   color: var(--900);
 }
 
+.info-card-content.expanded {
+  display: flex;
+}
+
 strong{
   font-weight:600
 }
