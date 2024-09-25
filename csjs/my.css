@@ -257,7 +257,7 @@
 
 --mp-top: var(--pad);
   --mp-left: var(--pad);
-  --mp-bottom: var(--pad);
+  --mp-bottom: var(--7a5);
   --mp-right: var(--pad);
   --mp-border-radius: var(--border-radius);
   --mp-margin-bottom: var(--pad-small);
