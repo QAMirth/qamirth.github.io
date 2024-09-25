@@ -1695,6 +1695,14 @@ strong{
 }
 
 
+
+.format::before {
+    font-family: "Material Icons Outlined";
+    content: 'sell'; 
+  margin-right:var(--10);
+  color: var(--550);
+    }
+
 .ft2,
 .fp2,
 .tg2{
@@ -1702,7 +1710,7 @@ strong{
   font: normal 400 var(--tpl-font-size) / 1.4 var(--tpl-font-system);
   margin-right: var(--7a5);
   /*! margin-bottom: var(--7a5); */
-  font-size: var(--tpl-font-size-small);
+  font-size: var(--tpl-font-size);
   background: var(--000);
   padding: var(--5) var(--0);
   border-radius: var(--border-radius);
