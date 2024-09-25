@@ -4,7 +4,7 @@
             if (size === 'maximum') {
                 root.style.setProperty('--mp-top', 'var(--pad)');
                 root.style.setProperty('--mp-left', 'var(--pad)');
-                root.style.setProperty('--mp-bottom', 'var(--10)');
+                root.style.setProperty('--mp-bottom', 'var(--pad)');
                 root.style.setProperty('--mp-right', 'var(--pad)');
                 root.style.setProperty('--mp-border-radius', 'var(--border-radius)');
                 root.style.setProperty('--mp-margin-bottom', 'var(--pad-small)');
