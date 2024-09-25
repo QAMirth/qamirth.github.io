@@ -1,5 +1,5 @@
  const jsonFilePath = '/csjs/pages.json';  // путь к JSON файлу
-    const tagCloudLimit = 10;
+    const tagCloudLimit = 5;
     const tagCounts = {};
 
     // Функция для парсинга и получения тегов с каждой страницы
