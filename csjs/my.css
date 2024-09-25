@@ -1045,7 +1045,7 @@
   border-radius: var(--border-radius);
   justify-content: center;
   align-items: center;
-  margin-right: calc(var(--sidebar-size-l) - var(--logo-width));
+  margin-right: calc(var(--sidebar-size-l) - var(--logo-width) - var(--25));
   padding: 0 var(--7a5);
 }
 
