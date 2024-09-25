@@ -257,7 +257,7 @@
 
 --mp-top: var(--pad);
   --mp-left: var(--pad);
-  --mp-bottom: var(--10);
+  --mp-bottom: var(--pad);
   --mp-right: var(--pad);
   --mp-border-radius: var(--border-radius);
   --mp-margin-bottom: var(--pad-small);
@@ -1610,7 +1610,7 @@ background-color: var(--200);
 :where(.info-box) .info-card-content {
   flex: 1;
   display: var(--icc-display);
-  flex-direction: column;
+  flex-direction: column-reverse;
   line-height: 1.7;
   color: var(--900);
 }
@@ -1717,7 +1717,7 @@ strong{
   margin-top: 12px;
 }
 .info-card-format {
-  margin-top: var(--15);
+  /*! margin-bottom: var(--15); */
   display:block;
 }
 
