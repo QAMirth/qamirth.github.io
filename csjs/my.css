@@ -1202,13 +1202,13 @@
 
   
 
-  .header-search-overlay {
+ .header-search-overlay {
     display: none;
-    inset: 57px 0 0;
+    inset: var(--max-height-header) 0 0;
     pointer-events: none;
     position: fixed;
     z-index: -1;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.4);
   }
 
   :where(.header-search-panel.open) .header-search-overlay {
@@ -1229,10 +1229,6 @@
   .header-search-button {
     flex: 0;
   }
-
-
-
-
 
 
 
