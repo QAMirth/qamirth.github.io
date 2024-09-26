@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
             })
             .then(data => {
                 const pages = data.pages;
-                 const uniqueCards = new Set();  // Set 
+                const uniqueCards = new Set();  // Set для отслеживания уникальных блоков
 
                 function performSearchOnPage(pageUrl) {
                     return fetch(pageUrl)
@@ -57,33 +57,28 @@ document.addEventListener("DOMContentLoaded", function() {
                             const doc = parser.parseFromString(html, 'text/html');
                             const infoCards = doc.querySelectorAll('.info-card');
                             let results = '';
-                            let matchingCards = 0;  // Track number of matching cards
-
+                            let matchingCards = 0;
 
                             infoCards.forEach(card => {
-    if (card.innerText.toLowerCase().includes(query.toLowerCase())) {
-        // Получаем id элемента с классом info-card
-        const cardId = card.getAttribute('id');
-
-           // Проверяем, добавляли ли уже этот блок в результаты
+                                if (card.innerText.toLowerCase().includes(query.toLowerCase())) {
+                                    const cardId = card.getAttribute('id');
+                                    
+                                    // Проверяем, добавляли ли уже этот блок в результаты
                                     if (!uniqueCards.has(cardId)) {
                                         uniqueCards.add(cardId);  // Добавляем id в Set
-        
-        // Формируем ссылку, добавляя id в конец href
-        const link = `<a href="${pageUrl}#${cardId}" class="sltyt" aria-label="#Link"></a>`;
-        
-        // Находим элемент с классом .bl3 внутри .info-card-format
-        const bl3Element = card.querySelector('.info-card-format .bl3');
-        if (bl3Element) {
-            // Вставляем ссылку перед элементом bl3
-            bl3Element.insertAdjacentHTML('beforebegin', link);
-        }
-        
-        // Добавляем HTML-код текущего info-card в результаты
-        results += card.outerHTML;
-        matchingCards++;  // Увеличиваем счетчик совпадающих карточек
-    }
-});
+                                        
+                                        const link = `<a href="${pageUrl}#${cardId}" class="sltyt" aria-label="#Link"></a>`;
+                                        const bl3Element = card.querySelector('.info-card-format .bl3');
+                                        
+                                        if (bl3Element) {
+                                            bl3Element.insertAdjacentHTML('beforebegin', link);
+                                        }
+                                        
+                                        results += card.outerHTML;
+                                        matchingCards++;
+                                    }
+                                }
+                            });
 
                             return { results, matchingCards };
                         });
@@ -100,7 +95,6 @@ document.addEventListener("DOMContentLoaded", function() {
                             searchResultsContainer.innerHTML = 'No results';
                         }
 
-                        // Update results count based on the actual number of matched .info-card elements
                         resultsCountSpan.textContent = `(${totalResultsCount} found)`;
                     })
                     .catch(error => {
