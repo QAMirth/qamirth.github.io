@@ -106,8 +106,6 @@
 </script>
     
 <style type="text/css">
-
-
   p {
     margin: var(--10) 0;
   }
@@ -121,13 +119,8 @@
   }
 
   .header {
-  background-color: var(--link-c-hover);
   border-bottom: 0px solid var(--300);
   box-shadow: none;
-  }
-
-  #header.open {
-    background-color: var(--link-c-hover);
   }
 
   .container {
@@ -140,20 +133,14 @@
   justify-content: center;
   }
 
+.main-menu {
+  max-width: 728px;
+  }
+
   .main-menu .uMenuRoot > li:where(:not(.hidden)) {
     background: transparent;
   }
 
- .main-menu .uMenuRoot > li > :where(a, .menu-item-more-text) {
-    color: var(--000);
-  }
-
-.main-menu-nav ::before {
-  color: var(--000);
-}
-
-
- 
   .main-menu li ul a {
     background-color: var(--000);
   }
@@ -190,6 +177,7 @@
 .footer-home-page a:hover {
   text-decoration: underline;
 }
+
 
 .searchForm2 form {
         display: flex;
@@ -257,7 +245,7 @@
   }
 
 .typing-container {
-  border: 0px solid #ddd;
+  border: 0;
   padding: 20px;
   background-color: #fff;
   border-radius: 8px;
@@ -266,7 +254,7 @@
   white-space: pre-wrap;
   font-size: 16px;
   line-height: 1.5;
-  height: 400px;
+  height: 360px;
   }
         
   .cursor {
@@ -289,9 +277,13 @@
   .header-container {
   justify-content: end;
   }
+  
+  .main-menu {
+  max-width: 100%;
+}
 
    .header-search-overlay {
-    inset: 122px 0 0;
+    inset: 128px 0 0;
   }
 
 .main-menu li ul a {
@@ -300,10 +292,6 @@
 
 .main-menu-nav li:hover {
    background-color: var(--200);
-  }
-
-  .header-search-panel {
-    background-color: var(--link-c);
   }
 
   .main-menu li ul .uMenuItemA,
@@ -316,7 +304,7 @@
   }
 
 .main-menu-nav ::before {
-  color: var(--900);
+  color: var(--link-b);
 }
 
   .header-right {
@@ -328,9 +316,16 @@
     }
 
   .header-mobile-button, .header-mobile-button-pc {
-    background-color: var(--link-c-hover);
+    background-color: var(--link-c);
+    height: var(--bwh);
+    width: var(--bwh);
+    padding: 6px;
+    border-radius: var(--border-radius);
   }
-
+  
+   .header-mobile-button:hover, .header-mobile-button-pc:hover {
+    background-color: var(--link-b);
+  }
 
  #search_icon:hover {
   background-color: var(--000);
@@ -347,8 +342,12 @@
   }
   
     .header-mobile-close {
-    color: var(--999);
+    color: var(--900);
       background: var(--000);
+  }
+  
+   .header-mobile-close:hover {
+    color: var(--000);
   }
 
   #search_icon {
@@ -358,14 +357,8 @@
   }
   
    #search_icon:hover {
-    background: var(--link-c-hover)
+    background: var(--link-b)
   }
-
-
- .header-search-panel {
-    background-color: var(--link-c-hover);
-  }
-
 
 }
 
@@ -401,7 +394,6 @@
 .bug:hover {
   cursor: url('csjs/bugnet2.png'), auto;
 }
-
 </style>
 
   </head>
