@@ -1624,7 +1624,7 @@ background-color: var(--200);
   flex: 1;
   display: var(--icc-display);
   flex-direction: column;
-  line-height: 1.7;
+  line-height: 1.75;
   color: var(--900);
 }
 
