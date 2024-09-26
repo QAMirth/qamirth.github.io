@@ -1387,7 +1387,7 @@
   display: flex;
   align-items: center;
   border-radius: var(--border-radius);
-  padding: var(--10) var(--pad);
+  padding: var(--10) var(--15);
  
   color: var(--menuha-link);
   font-size: var(--tpl-font-size);
