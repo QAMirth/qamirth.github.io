@@ -145,6 +145,17 @@ document.addEventListener('DOMContentLoaded', () => {
     display:none;
     }
 
+  .results-count {
+  color: var(--700);
+    margin-left: 0;
+    font-size: 92%;
+  }
+  
+  .results-count:before {
+    content: ", ";
+    margin-right: var(--5);
+  }
+  
   @media screen and (max-width: 1024px) {
   .header-right {
     gap: var(--15);
