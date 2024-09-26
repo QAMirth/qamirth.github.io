@@ -3539,11 +3539,11 @@ position: static; /* fixed */
 
 
 pre {
-  white-space: pre-wrap; /* Перенос текста внутри <pre> при переполнении */
-  word-break: break-all; /* Разрывает длинные слова, если они не помещаются */
-  overflow: auto; /* Добавляем прокрутку, если нужно */
-  max-width: 100%; /* Ограничиваем максимальную ширину */
-  box-sizing: border-box; /* Включает padding и border в размер блока */
+  white-space: pre-wrap; 
+  word-break: break-all; 
+  overflow: auto; 
+  max-width: 100%; 
+  box-sizing: border-box; 
 }
 
      .iconm {
@@ -3555,10 +3555,10 @@ pre {
 
     .iconm.passive::before {
     font-family: "Material Icons Outlined";
-    content: 'format_list_bulleted'; /* Пассивная иконка */
+    content: 'format_list_bulleted'; 
     }
 
     .iconm.active::before {
     font-family: "Material Icons Outlined";
-    content: 'segment'; /* Активная иконка */
+    content: 'segment'; 
     }
