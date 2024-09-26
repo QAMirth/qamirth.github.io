@@ -2554,7 +2554,7 @@ select.codeButtons {
 
   .main-menu-nav .main-menu-scroll-area a {
     color: var(--900);
-    font-size: 16px;
+    font-size: inherit;
   }
 
   .main-menu-nav li > ul {
