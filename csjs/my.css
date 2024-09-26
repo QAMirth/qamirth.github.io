@@ -1727,39 +1727,51 @@ strong{
 .info-card-format {
   margin-top: var(--15);
   display:flex;
-  flex-direction:column;
+  flex-wrap: wrap;
+  gap: var(--5);
 }
 
-.format{
-  order:1;
+.info-card-format .format,
+.info-card-format .freepaid {
+    display: inline-block; 
 }
 
-.freepaid{
-  order:2
+.info-card-format .tags {
+   display:block;
+    flex-basis: 100%; 
 }
-
-.tags{
-  order:3
-}
-
 
 .format::before {
     font-family: "Material Icons Outlined";
-    content: 'sell'; 
-  margin-right:var(--10);
+    content: 'folder_open'; 
+  margin-right:var(--5);
   color: var(--550);
-    }
+  }
+
+.freepaid::before {
+    font-family: "Material Icons Outlined";
+    content: 'bookmark_manager'; 
+  margin-right:var(--5);
+  color: var(--550);
+  }
+
+.tags::before {
+    font-family: "Material Icons Outlined";
+    content: 'more'; 
+  margin-right:var(--0);
+  color: var(--550);
+  }
 
 .ft2,
 .fp2,
 .tg2{
   display:inline-flex;
-  font: normal 400 var(--tpl-font-size) / 1.4 var(--tpl-font-system);
+  font: normal 400 var(--tpl-font-size-extra-small) / 1.4 var(--tpl-font-system);
   margin-right: var(--7a5);
   /*! margin-bottom: var(--7a5); */
   font-size: var(--tpl-font-size);
   background: var(--000);
-  padding: var(--5) var(--0);
+  padding: var(--0) var(--0);
   border-radius: var(--border-radius);
   border: 0;
   line-height:1
@@ -1770,9 +1782,6 @@ strong{
   font-weight: 400;
 }
 
-.tags{
-  display:none;
-}
 
 .ft2:hover, .fp2:hover, .tg2:hover {
   color: var(--link-a);
@@ -3531,15 +3540,3 @@ pre {
     font-family: "Material Icons Outlined";
     content: 'segment'; /* Активная иконка */
     }
-
-
-
-
-
-
-
-
-
-
-
-
