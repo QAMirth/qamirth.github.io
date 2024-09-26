@@ -112,6 +112,38 @@
    </div>
   </div>
 
+
+  
+
+   <div class="cusa-w">
+    <div class="stdb">
+    <h2 class="sidebar-block-title" role="heading" aria-level="2">Width</h2>
+    </div>
+    <div class="cusa-radio">    
+
+    <label class="custom-radio">
+      <input type="radio" name="width" value="tight" id="tight">
+      <span class="radio-btn"></span>
+      Tight
+      </label>
+
+      
+      <label class="custom-radio">
+      <input type="radio" name="width" value="medium" id="medium">
+      <span class="radio-btn"></span>
+      Medium
+      </label>
+
+
+      <label class="custom-radio">
+      <input type="radio" name="width" value="wide" id="wide">
+      <span class="radio-btn"></span>
+      Wide
+      </label>
+
+   </div>
+  </div>
+
 </div>
 
                     <!--<user settings>-->
