@@ -1680,6 +1680,15 @@ strong{
   display: none;
 }
 
+.info-card-desc p:empty {
+    display: none;
+}
+
+.info-card-desc br + br {
+    display: none;
+}
+
+
 
 .expanded {display:block;
   -webkit-line-clamp: unset;
