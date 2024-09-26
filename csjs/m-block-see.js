@@ -2,7 +2,7 @@
             let root = document.documentElement;
 
             if (size === 'maximum') {
-                root.style.setProperty('--mp-top', 'var(--pad)');
+                root.style.setProperty('--mp-top', 'var(--20)');
                 root.style.setProperty('--mp-left', 'var(--pad)');
                 root.style.setProperty('--mp-bottom', 'var(--7a5)');
                 root.style.setProperty('--mp-right', 'var(--pad)');
