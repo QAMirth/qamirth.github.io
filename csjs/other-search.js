@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         }
 
                         // Update results count based on the actual number of matched .info-card elements
-                        resultsCountSpan.textContent = `${totalResultsCount} result(s) found`;
+                        resultsCountSpan.textContent = `(${totalResultsCount} result(s) found)`;
                     })
                     .catch(error => {
                         console.error('Search error:', error);
