@@ -1659,8 +1659,7 @@ strong{
 
 
 .info-card-desc a{
-  color: var(--900);
-  text-decoration: underline dotted;
+  color: var(--link-a);
 }
 
 .info-card-desc img {
