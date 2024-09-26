@@ -1698,6 +1698,9 @@ strong{
 
 .expanded img {
   display: block; 
+  width: calc(100% + var(--mp-right) + var(--mp-left)); 
+   margin-left: calc(-1 * var(--mp-left));
+   max-width: none;
 }
 
 .info-card-desc h1, .info-card-desc h2, .info-card-desc h3, .info-card-desc h4, .info-card-desc h5, .info-card-desc h6 {
