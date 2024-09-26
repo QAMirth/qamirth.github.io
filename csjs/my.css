@@ -1541,8 +1541,13 @@
     max-width: 100%;
 }
 
+.info-cards-grid .info-card:first-child {
+   border-radius:  var(--border-radius) var(--border-radius) 0 0; 
+}
+
 .info-cards-grid .info-card:last-child {
     margin-bottom: var(--pad-small);
+    border-radius: 0 0 var(--border-radius) var(--border-radius); 
 }
 
 .info-who{
