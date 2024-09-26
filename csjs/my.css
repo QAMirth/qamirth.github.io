@@ -1778,8 +1778,8 @@ strong{
 .tg2{
   display:inline-flex;
   font: normal 400 var(--tpl-font-size-extra-small) / 1.4 var(--tpl-font-system);
-  margin-right: var(--7a5);
-  /*! margin-bottom: var(--7a5); */
+  margin-right: var(--5);
+  /*! margin-bottom: var(--5); */
   font-size: var(--tpl-font-size);
   background: var(--000);
   padding: var(--0) var(--0);
