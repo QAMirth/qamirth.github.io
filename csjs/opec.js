@@ -87,15 +87,15 @@ function showToast(message) {
 
 
 window.addEventListener('DOMContentLoaded', (event) => {
-  let anchor = window.location.hash; // Изменили на let
+  let anchor = window.location.hash; 
   if (anchor) {
-    anchor = decodeURIComponent(anchor); // Декодируем якорь
-    const card = document.querySelector(`[id="${anchor.slice(1)}"]`); // Убираем символ #
+    anchor = decodeURIComponent(anchor); 
+    const card = document.querySelector(`[id="${anchor.slice(1)}"]`); 
     if (card) {
       const desc = card.querySelector('.info-card-desc');
-       const content = card.querySelector('.info-card-content'); // Добавляем выбор элемента .info-card-content
+       const content = card.querySelector('.info-card-content'); 
       desc.classList.add('expanded');
-      content.classList.add('expanded'); // Разворачиваем контент
+      content.classList.add('expanded'); 
     }
   }
 });
