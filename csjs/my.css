@@ -2400,10 +2400,13 @@ select.codeButtons {
   margin-top: calc(-1 * var(--pad-big));
   background-color: var(--000); 
   border-radius: var(--border-radius);
-   border: 1px solid var(--300); 
-  box-shadow: 0 1px 2px rgba(0,0,0,.2); 
   padding: var(--7a5) 0;
 }
+  
+  .sidebar-block2{
+    border: 1px solid var(--300); 
+  box-shadow: 0 1px 2px rgba(0,0,0,.2); 
+  }
 
 
   .footer {
