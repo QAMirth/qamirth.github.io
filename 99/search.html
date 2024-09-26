@@ -52,23 +52,25 @@
 
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', () => {
-    const parentElement = document.body; // Родительский элемент, который уже существует
+    const parentElement = document.body; 
 
-    // Добавляем обработчик событий для кликов
     parentElement.addEventListener('click', (event) => {
         const buttonLink2 = event.target.closest('.button-link2');
 
         if (buttonLink2) {
             const infoCard = buttonLink2.closest('.info-card');
             const desc = infoCard.querySelector('.info-card-desc');
+            const content = infoCard.querySelector('.info-card-content');
 
             // Переключение класса expanded
             if (buttonLink2.classList.contains('expanded')) {
                 buttonLink2.classList.remove('expanded');
                 desc.classList.remove('expanded');
+                content.classList.remove('expanded');
             } else {
                 buttonLink2.classList.add('expanded');
                 desc.classList.add('expanded');
+                content.classList.add('expanded');
             }
         }
     });
