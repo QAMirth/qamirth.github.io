@@ -1537,6 +1537,8 @@
   margin-bottom: var(--mp-margin-bottom);
   scroll-margin-top: calc(var(--max-height-header) + var(--5));
   box-shadow: 0 1px 2px rgba(0,0,0,.2);
+     position: relative; 
+    max-width: 100%;
 }
 
 .info-cards-grid .info-card:last-child {
@@ -1678,6 +1680,12 @@ strong{
 
 .info-card-desc img {
   display: none;
+    
+     width: calc(100% + var(--mp-right) + var(--mp-left)); 
+  margin-left: calc(-1 * var(--mp-left));
+  height: auto; /* Сохранение пропорций */
+  object-fit: contain; 
+  max-width: 100%; /* Ограничивает ширину изображения */
 }
 
 .info-card-desc p:empty {
@@ -1696,11 +1704,14 @@ strong{
   position: relative;
 }
 
-.expanded img {
+.info-card-desc.expanded img {
   display: block; 
+    
   width: calc(100% + var(--mp-right) + var(--mp-left)); 
-   margin-left: calc(-1 * var(--mp-left));
-   max-width: none;
+  margin-left: calc(-1 * var(--mp-left));
+  height: auto; /* Сохранение пропорций */
+  object-fit: contain; 
+  max-width: 100%; /* Ограничивает ширину изображения */
 }
 
 .info-card-desc h1, .info-card-desc h2, .info-card-desc h3, .info-card-desc h4, .info-card-desc h5, .info-card-desc h6 {
