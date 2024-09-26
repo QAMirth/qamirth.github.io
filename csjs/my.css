@@ -3357,6 +3357,7 @@ body.popup-active {
  .header-search-input2 {
     background: var(--200);
     line-height: var(--search-line-height);
+    height: var(--search-line-height);
     border-radius: var(--7a5);
     width: var(--search-width);
     padding: var(--0) var(--15);
