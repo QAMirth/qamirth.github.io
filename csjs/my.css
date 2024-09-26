@@ -3459,7 +3459,7 @@ position: static; /* fixed */
 
 
 .set-icon {
-  display: block; 
+  display: flex; 
   background: var(--link-c);
   cursor: pointer;
   margin-right: var(--0);
@@ -3467,6 +3467,8 @@ position: static; /* fixed */
   width: var(--bwh);
   padding:6px;
   border-radius:var(--border-radius);
+  justify-content: center;
+  align-items: center;
 }
 
 .set-icon:hover {
