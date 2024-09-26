@@ -841,8 +841,8 @@
   border-radius: 0px var(--7a5) var(--7a5) 0px;
   outline: 0;
   padding: 0;
-  width: var(--search-line-height);
-  height: var(--search-line-height);
+  width: calc(var(--search-line-height) - 2px);
+  height: calc(var(--search-line-height) - 2px);
   display:flex;
   justify-content: center;
   align-items: center;
@@ -2348,7 +2348,7 @@ select.codeButtons {
   }
   .header-search-button {
     right: 17px;
-    top: 15px;
+    top: 13px;
   }
   .header-search-button:hover {
     background-color: var(--000);
