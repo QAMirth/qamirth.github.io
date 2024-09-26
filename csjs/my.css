@@ -223,7 +223,7 @@
   --link-b-hover: #A496FC;
   --link-c-hover: #A496FC;
 
-    --900: rgba(0, 0, 0, 0.9);
+    --900: rgba(0, 0, 0, 0.97);
     --800: rgba(0, 0, 0, 0.85);
     --750: rgba(0, 0, 0, 0.8);
     --700: rgba(0, 0, 0, 0.8);
@@ -1785,7 +1785,7 @@ strong{
 }
 
 .ft2, .fp2, .tg2 {
-  color: var(--550);
+  color: var(--600);
   font-weight: 400;
 }
 
@@ -2398,7 +2398,13 @@ select.codeButtons {
 .sidebar-block2 {
   position: static;
   margin-top: calc(-1 * var(--pad-big));
+  background-color: var(--000); 
+  border-radius: var(--border-radius);
+   border: 1px solid var(--300); 
+  box-shadow: 0 1px 2px rgba(0,0,0,.2); 
+  padding: var(--7a5) 0;
 }
+
 
   .footer {
     padding-left: 0;
