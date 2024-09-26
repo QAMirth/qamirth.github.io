@@ -2410,7 +2410,7 @@ select.codeButtons {
   }
 
   .header-right {
-    gap: var(--15);
+    gap: var(--10);
     flex-direction: row-reverse;
   }
 
@@ -2422,7 +2422,7 @@ select.codeButtons {
     font-size: var(--25);
     margin-right: var(--15);
     padding-bottom: var(--5);
-    color: var(--900);
+    color: var(--link-b);
   }
 
   .menubar-block {
@@ -2444,20 +2444,24 @@ select.codeButtons {
 
   .header-mobile-button,.header-mobile-button-pc  {
     appearance: none;
-    background-color: var(--000);
+    background-color: var(--link-c);
     border: 0;
-    color: var(--link-b);
-    height: var(--25);
-    width: var(--25);
-    padding: 0;
-    border-radius: var(--0);
+    color: var(--000);
+    height: var(--bwh);
+    width: var(--bwh);
+    padding: 6px;
+    border-radius: var(--border-radius);
+  }
+  
+   .header-mobile-button:hover,.header-mobile-button-pc:hover  {
+    background-color: var(--link-b);
   }
 
   .header-mobile-close {
     --size: 40px;
     background: var(--000);
     color: var(--900);
-    border-radius: var(--size);
+    border-radius: var(--border-radius);
     height: var(--size);
     position: fixed;
     right: 5px;
@@ -2467,16 +2471,17 @@ select.codeButtons {
     width: var(--size);
     z-index: 22001;
   }
+  
+   .header-mobile-close:hover {
+    color: var(--000);   
+  }
 
     #search_icon {
-  color: var(--link-b);
+  color: var(--000);
   width: var(--bwh);
   height: var(--bwh);
  }
 
-    #search_icon:hover {
-  background-color: var(--000);
- }
 
 
   .logo-link {
@@ -2691,7 +2696,7 @@ select.codeButtons {
 
   .header-search-overlay {
     display: none;
-    inset: 122px 0 0;
+    inset: 128px 0 0;
     pointer-events: none;
     position: fixed;
     z-index: -1;
@@ -3414,13 +3419,21 @@ position: static; /* fixed */
 
 .set-icon {
   display: block; 
-  font-size: 24px;
+  background: var(--link-c);
   cursor: pointer;
-  margin-right: var(--7a5);
+  margin-right: var(--0);
+  height: var(--bwh);
+  width: var(--bwh);
+  padding:6px;
+  border-radius:var(--border-radius);
+}
+
+.set-icon:hover {
+  background: var(--link-b);
 }
 
 .user-pref{
-    fill: var(--link-c);
+    fill: var(--000);
   }
 
 .sidebar-block {
@@ -3475,7 +3488,9 @@ position: static; /* fixed */
   }
 
   .user-pref{
-    fill: var(--link-b);
+    fill: var(--000);
+    height: 24px;
+    width: 24px;
   }
 
   .sidebar-container {
