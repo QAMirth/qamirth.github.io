@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
             })
             .then(data => {
                 const pages = data.pages;
+                 const uniqueCards = new Set();  // Set 
 
                 function performSearchOnPage(pageUrl) {
                     return fetch(pageUrl)
@@ -63,6 +64,10 @@ document.addEventListener("DOMContentLoaded", function() {
     if (card.innerText.toLowerCase().includes(query.toLowerCase())) {
         // Получаем id элемента с классом info-card
         const cardId = card.getAttribute('id');
+
+           // Проверяем, добавляли ли уже этот блок в результаты
+                                    if (!uniqueCards.has(cardId)) {
+                                        uniqueCards.add(cardId);  // Добавляем id в Set
         
         // Формируем ссылку, добавляя id в конец href
         const link = `<a href="${pageUrl}#${cardId}" class="sltyt" aria-label="#Link"></a>`;
