@@ -87,4 +87,26 @@
         
         // Выводим текущий год в span с id 'currentYear'
         document.getElementById('currentYear').textContent = currentYear;
-   
+
+
+
+ // Функция для удаления атрибутов из изображений
+function removeImageAttributes() {
+  // Находим все изображения в указанных блоках
+  const images = document.querySelectorAll('.info-card-desc img, .info-card-desc.expanded img');
+
+  images.forEach(img => {
+    // Удаляем атрибуты width и height
+    img.removeAttribute('width');
+    img.removeAttribute('height');
+
+    // Удаляем CSS свойства, если они установлены в inline-стиле
+    img.style.maxWidth = '';
+    img.style.maxHeight = '';
+    img.style.minWidth = '';
+    img.style.minHeight = '';
+  });
+}
+
+// Вызываем функцию после загрузки страницы
+document.addEventListener('DOMContentLoaded', removeImageAttributes);
