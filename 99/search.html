@@ -29,48 +29,99 @@
 
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', () => {
-    const parentElement = document.body;
+    // Функция для инициализации карточек
+    function initializeCard(card) {
+        const desc = card.querySelector('.info-card-desc');
+        const content = card.querySelector('.info-card-content');
+        const buttonLink2 = card.querySelector('.button-link2');
+        const buttonLink3 = card.querySelector('.button-link3');
 
-   
-    // Обрабатываем динамическое добавление контента
-    const observer = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-            if (mutation.addedNodes.length > 0) {
-                mutation.addedNodes.forEach((node) => {
-                    if (node.classList && node.classList.contains('info-card')) {
-                        const desc = node.querySelector('.info-card-desc');
-                        const buttonLink2 = node.querySelector('.button-link2');
-                        checkTextLength(desc, buttonLink2); // Проверяем количество строк для нового блока
-                    }
-                });
-            }
-        });
-    });
+        // Инициализация
+        buttonLink2.style.display = 'flex';
+        buttonLink3.style.display = 'none';
+        buttonLink2.innerHTML = '<svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path class="open11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
 
-    // Наблюдение за изменениями DOM
-    observer.observe(parentElement, { childList: true, subtree: true });
+        // Проверка длины текста для показа кнопки
+        function checkTextLength() {
+            const lineHeight = parseFloat(getComputedStyle(desc).lineHeight);
+            const blockHeight = desc.scrollHeight;
+            const lineCount = Math.floor(blockHeight / lineHeight);
 
-    // Обработка кликов
-    parentElement.addEventListener('click', (event) => {
-        const buttonLink2 = event.target.closest('.button-link2');
-
-        if (buttonLink2) {
-            const infoCard = buttonLink2.closest('.info-card');
-            const desc = infoCard.querySelector('.info-card-desc');
-            const content = infoCard.querySelector('.info-card-content');
-
-            // Переключение класса expanded
-            if (buttonLink2.classList.contains('expanded')) {
-                buttonLink2.classList.remove('expanded');
-                desc.classList.remove('expanded');
-                content.classList.remove('expanded');
+            if (lineCount > 7) {
+                buttonLink2.style.display = 'block';
             } else {
-                buttonLink2.classList.add('expanded');
-                desc.classList.add('expanded');
-                content.classList.add('expanded');
+                buttonLink2.style.display = 'none';
             }
         }
+
+        checkTextLength(); // Проверить длину текста при инициализации
+
+        // Функция для сворачивания текста
+        function collapseText() {
+            desc.classList.remove('expanded'); // Сворачиваем текст
+            content.classList.remove('expanded'); // Сворачиваем контент
+            buttonLink2.innerHTML = '<svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path class="open11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
+            buttonLink3.style.display = 'none';
+        }
+
+        // Обработка нажатия на .button-link2
+        buttonLink2.addEventListener('click', function() {
+            if (!desc.classList.contains('expanded')) {
+                desc.classList.add('expanded'); // Разворачиваем текст
+                content.classList.add('expanded'); // Разворачиваем контент
+                buttonLink2.innerHTML = '<svg class="close1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="close11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
+                buttonLink3.style.display = 'inline';
+                buttonLink3.textContent = '';
+            } else {
+                collapseText(); // Если текст уже развернут, сворачиваем
+            }
+        });
+
+        // Обработка нажатия на .button-link3
+        buttonLink3.addEventListener('click', collapseText);
+    }
+
+    // Инициализация всех существующих карточек на странице при загрузке
+    document.querySelectorAll('.info-card').forEach(initializeCard);
+
+    // Делегирование событий для динамически добавляемых карточек
+    document.body.addEventListener('click', (event) => {
+        const buttonLink2 = event.target.closest('.button-link2');
+        const buttonLink3 = event.target.closest('.button-link3');
+
+        if (buttonLink2) {
+            const card = buttonLink2.closest('.info-card');
+            const desc = card.querySelector('.info-card-desc');
+            const content = card.querySelector('.info-card-content');
+
+            // Разворачивание текста
+            if (!desc.classList.contains('expanded')) {
+                desc.classList.add('expanded'); // Разворачиваем текст
+                content.classList.add('expanded'); // Разворачиваем контент
+                buttonLink2.innerHTML = '<svg class="close1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="close11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
+                card.querySelector('.button-link3').style.display = 'inline';
+            } else {
+                // Сворачивание текста
+                desc.classList.remove('expanded');
+                content.classList.remove('expanded');
+                buttonLink2.innerHTML = '<svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path class="open11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
+                card.querySelector('.button-link3').style.display = 'none';
+            }
+        }
+
+        if (buttonLink3) {
+            const card = buttonLink3.closest('.info-card');
+            const desc = card.querySelector('.info-card-desc');
+            const content = card.querySelector('.info-card-content');
+
+            // Сворачивание текста по клику на button-link3
+            desc.classList.remove('expanded');
+            content.classList.remove('expanded');
+            card.querySelector('.button-link2').innerHTML = '<svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path class="open11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
+            buttonLink3.style.display = 'none';
+        }
     });
+});
 
 
 
@@ -85,8 +136,92 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
+
+
+
+
+// KURY: Добавляем поддержку открытия якоря с развернутым текстом и правильной иконкой
+window.addEventListener('DOMContentLoaded', (event) => {
+    const anchor = window.location.hash;
+    if (anchor) {
+        const decodedAnchor = decodeURIComponent(anchor);
+        const card = document.querySelector(decodedAnchor);
+        if (card) {
+            const desc = card.querySelector('.info-card-desc');
+            const content = card.querySelector('.info-card-content');
+            const buttonLink2 = card.querySelector('.button-link2');
+            const buttonLink3 = card.querySelector('.button-link3');
+
+            desc.classList.add('expanded'); // Разворачиваем текст по умолчанию
+            content.classList.add('expanded'); // Разворачиваем контент по умолчанию
+            buttonLink2.innerHTML = '<svg class="close1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="close11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>'; // KURY: Меняем иконку на close1
+            buttonLink3.style.display = 'inline'; // Показываем кнопку "Show Less"
+        }
+    }
+});
+
+
+document.querySelectorAll('.cp1').forEach(icon => {
+  icon.addEventListener('click', function(event) {
+    const card = this.closest('.info-card');
+    const id = card.id;
+    const url = `${window.location.origin}${window.location.pathname}#${id}`;
+    
+    // Копируем ссылку в буфер обмена
+    navigator.clipboard.writeText(url).then(() => {
+      // Показываем уведомление
+      showToast('Link copied to clipboard \u{270C}');
+    }).catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+  });
+});
+
+function showToast(message) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.classList.remove('hidden');
+  toast.classList.add('show');
   
- // ID2
+  // Скрыть уведомление через 3 секунды
+  setTimeout(() => {
+    toast.classList.remove('show');
+    toast.classList.add('hidden');
+  }, 4000);
+}
+
+
+window.addEventListener('DOMContentLoaded', (event) => {
+  let anchor = window.location.hash; 
+  if (anchor) {
+    anchor = decodeURIComponent(anchor); 
+    const card = document.querySelector(`[id="${anchor.slice(1)}"]`); 
+    if (card) {
+      const desc = card.querySelector('.info-card-desc');
+       const content = card.querySelector('.info-card-content'); 
+      desc.classList.add('expanded');
+      content.classList.add('expanded'); 
+    }
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Функция для установки CSS в зависимости от состояния
 function setCSS(size) {
     let root = document.documentElement;
 
@@ -194,7 +329,14 @@ document.getElementById('toggleIconm').addEventListener('click', () => {
 
 
 
-});
+
+
+
+
+
+
+
+
 </script>
     
 <script type="text/javascript" src="../csjs/other-search.js"></script>
