@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Инициализация
         buttonLink2.style.display = 'flex';
         buttonLink3.style.display = 'none';
-        buttonLink2.innerHTML = '<svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path class="open11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
+        buttonLink2.innerHTML = '';
 
 
 
@@ -32,12 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+        
         // При нажатии на .button-link2
         buttonLink2.addEventListener('click', function() {
             if (!desc.classList.contains('expanded')) {
+                buttonLink2.classList.add('expanded'); // button = expanded
                 desc.classList.add('expanded'); // Разворачиваем текст
                 content.classList.add('expanded'); // Разворачиваем контент
-                buttonLink2.innerHTML = '<svg   class="close1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="close11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
+                buttonLink2.innerHTML = '';
                 buttonLink3.style.display = 'inline';
                 buttonLink3.textContent = '';
             } else {
@@ -49,9 +51,10 @@ document.addEventListener('DOMContentLoaded', () => {
         buttonLink3.addEventListener('click', collapseText);
 
         function collapseText() {
+            buttonLink2.classList.remove('expanded'); // button - expanded
             desc.classList.remove('expanded'); // Сворачиваем текст
             content.classList.remove('expanded'); // Сворачиваем контент
-            buttonLink2.innerHTML = '<svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path class="open11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
+            buttonLink2.innerHTML = '';
             buttonLink3.style.display = 'none';
         }
     });
