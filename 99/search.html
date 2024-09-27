@@ -378,7 +378,6 @@ function initInfoCard() {
             buttonLink3.style.display = 'none';
         }
     });
-}
 
     // KURY: Поддержка открытия якоря с развернутым текстом
     const anchor = window.location.hash;
@@ -391,13 +390,15 @@ function initInfoCard() {
             const buttonLink2 = card.querySelector('.button-link2');
             const buttonLink3 = card.querySelector('.button-link3');
 
-            desc.classList.add('expanded');
-            content.classList.add('expanded');
-            buttonLink2.innerHTML = '';
-            buttonLink3.style.display = 'inline';
+            if (desc && content && buttonLink2 && buttonLink3) {
+                desc.classList.add('expanded');
+                content.classList.add('expanded');
+                buttonLink2.innerHTML = '';
+                buttonLink3.style.display = 'inline';
+            }
         }
     }
-});
+}
 
 // Функция для управления состояниями активное/пассивное
 function setCSS(size) {
@@ -424,7 +425,7 @@ function setCSS(size) {
 
 // Инициализация значений при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
-    let savedState = getCookie('iconState') || 'passive';
+    let savedState = getCookie('iconState') || 'passive'; // Значение по умолчанию - 'passive'
     setState(savedState);
 });
 
@@ -459,6 +460,7 @@ document.getElementById('toggleIconm').addEventListener('click', () => {
     // Переключение между состояниями
     setState(currentState === 'passive' ? 'active' : 'passive');
 });
+
 </script>
 
 
