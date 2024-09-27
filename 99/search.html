@@ -399,7 +399,6 @@ function initInfoCard(card) {
         }
     }
 
-
 // Функция для управления состояниями активное/пассивное
 function setCSS(size) {
     let root = document.documentElement;
@@ -456,13 +455,13 @@ function setState(state) {
         iconElement.classList.remove('passive');
         iconElement.classList.add('active');
         setCSS('minimum');
-        toggleButtonLink2('active');
+        toggleButtonLink2('active'); // Показываем все кнопки
         document.cookie = `iconState=active; path=/; max-age=31536000;`;
     } else {
         iconElement.classList.remove('active');
         iconElement.classList.add('passive');
         setCSS('maximum');
-        toggleButtonLink2('passive');
+        toggleButtonLink2('passive'); // Показываем кнопки в зависимости от текста
         document.cookie = `iconState=passive; path=/; max-age=31536000;`;
     }
 }
@@ -476,7 +475,7 @@ function getCookie(name) {
 // Инициализация значений при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
     let savedState = getCookie('iconState') || 'passive'; // Значение по умолчанию - 'passive'
-    setState(savedState);
+    setState(savedState); // Устанавливаем состояние
 });
 
 // Переключение состояния при клике на иконку
@@ -487,6 +486,7 @@ document.getElementById('toggleIconm').addEventListener('click', () => {
     // Переключение между состояниями
     setState(currentState === 'passive' ? 'active' : 'passive');
 });
+
 
 
 
