@@ -1,6 +1,8 @@
 
  // ID1
 document.addEventListener('DOMContentLoaded', () => {
+ const parentElement = document.body;
+ 
     document.querySelectorAll('.info-card').forEach(card => {
         const desc = card.querySelector('.info-card-desc');
         const content = card.querySelector('.info-card-content');
