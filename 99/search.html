@@ -69,27 +69,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     
-    // Обработка кликов
-    parentElement.addEventListener('click', (event) => {
-        const buttonLink2 = event.target.closest('.button-link2');
-
-        if (buttonLink2) {
-            const infoCard = buttonLink2.closest('.info-card');
-            const desc = infoCard.querySelector('.info-card-desc');
-            const content = infoCard.querySelector('.info-card-content');
-
-            // Переключение класса expanded
-            if (buttonLink2.classList.contains('expanded')) {
-                buttonLink2.classList.remove('expanded');
-                desc.classList.remove('expanded');
-                content.classList.remove('expanded');
+     
+        // При нажатии на .button-link2
+        buttonLink2.addEventListener('click', function() {
+            if (!desc.classList.contains('expanded')) {
+                buttonLink2.classList.add('expanded'); // button = expanded
+                desc.classList.add('expanded'); // Разворачиваем текст
+                content.classList.add('expanded'); // Разворачиваем контент
+                buttonLink2.innerHTML = '';
+                buttonLink3.style.display = 'inline';
+                buttonLink3.textContent = '';
             } else {
-                buttonLink2.classList.add('expanded');
-                desc.classList.add('expanded');
-                content.classList.add('expanded');
+                collapseText(); // Если текст уже развернут, сворачиваем
             }
+        });
+
+        // При нажатии на .button-link3
+        buttonLink3.addEventListener('click', collapseText);
+
+        function collapseText() {
+            buttonLink2.classList.remove('expanded'); // button - expanded
+            desc.classList.remove('expanded'); // Сворачиваем текст
+            content.classList.remove('expanded'); // Сворачиваем контент
+            buttonLink2.innerHTML = '';
+            buttonLink3.style.display = 'none';
         }
     });
+
 
 
 
