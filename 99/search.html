@@ -422,8 +422,7 @@ function setCSS(size) {
     }
 }
 
-
-  // Функция для управления кнопкой button-link2
+// Функция для управления кнопкой button-link2
 function toggleButtonLink2(state) {
     const buttons = document.querySelectorAll('.button-link2');
     buttons.forEach(button => {
@@ -434,34 +433,19 @@ function toggleButtonLink2(state) {
             // Показываем кнопку только для блоков с длинным текстом в состоянии passive
             const content2 = button.closest('.info-card').querySelector('.info-card-desc');
 
-            if (content2) { // Проверяем, существует ли элемент
+            if (content2) {
                 const lineHeight = parseFloat(getComputedStyle(content2).lineHeight);
                 const blockHeight = content2.scrollHeight;
                 const lineCount = Math.floor(blockHeight / lineHeight);
 
                 // Проверяем количество строк
-                if (lineCount > 7) {
-                    button.style.display = 'block';
-                } else {
-                    button.style.display = 'none';
-                }
+                button.style.display = lineCount > 7 ? 'block' : 'none';
             } else {
                 button.style.display = 'none'; // Если контент не найден, скрываем кнопку
             }
         }
     });
 }
-
-
-// Инициализация значений при загрузке страницы
-document.addEventListener('DOMContentLoaded', () => {
-    let savedState = getCookie('iconState') || 'passive'; // Значение по умолчанию - 'passive'
-    setState(savedState);
-    toggleButtonLink2(savedState); // Обновляем видимость кнопок
-});
-
-
-  
 
 // Функция для установки состояния и сохранения в куки
 function setState(state) {
@@ -471,23 +455,28 @@ function setState(state) {
         iconElement.classList.remove('passive');
         iconElement.classList.add('active');
         setCSS('minimum');
-      toggleButtonLink2('active');
-        document.cookie = iconState=active; path=/; max-age=31536000;;
+        toggleButtonLink2('active'); // Показываем все кнопки
+        document.cookie = `iconState=active; path=/; max-age=31536000;`;
     } else {
         iconElement.classList.remove('active');
         iconElement.classList.add('passive');
         setCSS('maximum');
-      toggleButtonLink2('passive');
-        document.cookie = iconState=passive; path=/; max-age=31536000;;
+        toggleButtonLink2('passive'); // Показываем кнопки в зависимости от текста
+        document.cookie = `iconState=passive; path=/; max-age=31536000;`;
     }
 }
-
 
 // Получение значения куки
 function getCookie(name) {
     let matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([.$?*|{}()\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
     return matches ? decodeURIComponent(matches[1]) : undefined;
 }
+
+// Инициализация значений при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+    let savedState = getCookie('iconState') || 'passive'; // Значение по умолчанию - 'passive'
+    setState(savedState); // Устанавливаем состояние
+});
 
 // Переключение состояния при клике на иконку
 document.getElementById('toggleIconm').addEventListener('click', () => {
