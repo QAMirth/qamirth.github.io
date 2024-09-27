@@ -29,142 +29,6 @@
 
 
 
-<script type="text/javascript">
-// Функция для инициализации логики работы блоков .info-card
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.info-card').forEach(card => {
-        const desc = card.querySelector('.info-card-desc');
-        const content = card.querySelector('.info-card-content');
-        const buttonLink2 = card.querySelector('.button-link2');
-        const buttonLink3 = card.querySelector('.button-link3');
-
-        // Инициализация
-        buttonLink2.style.display = 'flex';
-        buttonLink3.style.display = 'none';
-        buttonLink2.innerHTML = '';
-
-        // Проверка количества строк и настройка кнопок
-        function checkTextLength() {
-            const lineHeight = parseFloat(getComputedStyle(desc).lineHeight);
-            const blockHeight = desc.scrollHeight;
-            const lineCount = Math.floor(blockHeight / lineHeight);
-
-            if (lineCount > 7) {
-                buttonLink2.style.display = 'block';
-            } else {
-                buttonLink2.style.display = 'none';
-            }
-        }
-
-        checkTextLength();
-
-        // Логика работы кнопки button-link2 (развернуть)
-        buttonLink2.addEventListener('click', function() {
-            if (!desc.classList.contains('expanded')) {
-                desc.classList.add('expanded');
-                content.classList.add('expanded');
-                buttonLink2.innerHTML = '';
-                buttonLink3.style.display = 'inline';
-            } else {
-                collapseText(); // Если текст уже развернут
-            }
-        });
-
-        // Логика работы кнопки button-link3 (свернуть)
-        buttonLink3.addEventListener('click', collapseText);
-
-        function collapseText() {
-            desc.classList.remove('expanded');
-            content.classList.remove('expanded');
-            buttonLink2.innerHTML = '';
-            buttonLink3.style.display = 'none';
-        }
-    });
-
-    // KURY: Поддержка открытия якоря с развернутым текстом
-    const anchor = window.location.hash;
-    if (anchor) {
-        const decodedAnchor = decodeURIComponent(anchor);
-        const card = document.querySelector(decodedAnchor);
-        if (card) {
-            const desc = card.querySelector('.info-card-desc');
-            const content = card.querySelector('.info-card-content');
-            const buttonLink2 = card.querySelector('.button-link2');
-            const buttonLink3 = card.querySelector('.button-link3');
-
-            desc.classList.add('expanded');
-            content.classList.add('expanded');
-            buttonLink2.innerHTML = '';
-            buttonLink3.style.display = 'inline';
-        }
-    }
-});
-
-// Функция для управления состояниями активное/пассивное
-function setCSS(size) {
-    let root = document.documentElement;
-
-    if (size === 'maximum') {
-        root.style.setProperty('--mp-top', 'var(--20)');
-        root.style.setProperty('--mp-left', 'var(--pad)');
-        root.style.setProperty('--mp-bottom', 'var(--7a5)');
-        root.style.setProperty('--mp-right', 'var(--pad)');
-        root.style.setProperty('--mp-border-radius', 'var(--border-radius)');
-        root.style.setProperty('--mp-margin-bottom', 'var(--pad-small)');
-        root.style.setProperty('--icc-display', 'flex');
-    } else if (size === 'minimum') {
-        root.style.setProperty('--mp-top', 'var(--10)');
-        root.style.setProperty('--mp-left', 'var(--15)');
-        root.style.setProperty('--mp-bottom', 'var(--10)');
-        root.style.setProperty('--mp-right', 'var(--15)');
-        root.style.setProperty('--mp-border-radius', 'var(--0)');
-        root.style.setProperty('--mp-margin-bottom', '-1px');
-        root.style.setProperty('--icc-display', 'none');
-    }
-}
-
-// Инициализация значений при загрузке страницы
-document.addEventListener('DOMContentLoaded', () => {
-    let savedState = getCookie('iconState') || 'passive';
-    setState(savedState);
-});
-
-// Функция для установки состояния и сохранения в куки
-function setState(state) {
-    const iconElement = document.getElementById('toggleIconm');
-
-    if (state === 'active') {
-        iconElement.classList.remove('passive');
-        iconElement.classList.add('active');
-        setCSS('minimum');
-        document.cookie = `iconState=active; path=/; max-age=31536000;`;
-    } else {
-        iconElement.classList.remove('active');
-        iconElement.classList.add('passive');
-        setCSS('maximum');
-        document.cookie = `iconState=passive; path=/; max-age=31536000;`;
-    }
-}
-
-// Получение значения куки
-function getCookie(name) {
-    let matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([.$?*|{}()\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
-    return matches ? decodeURIComponent(matches[1]) : undefined;
-}
-
-// Переключение состояния при клике на иконку
-document.getElementById('toggleIconm').addEventListener('click', () => {
-    const iconElement = document.getElementById('toggleIconm');
-    const currentState = iconElement.classList.contains('active') ? 'active' : 'passive';
-    
-    // Переключение между состояниями
-    setState(currentState === 'passive' ? 'active' : 'passive');
-});
-</script>
-
-
-
-
 
     
  
@@ -442,6 +306,149 @@ autocomplete="off">
       <script type="text/javascript" src="../csjs/tags.js"></script>
       
 <script type="text/javascript" src="../csjs/opec3.js"></script>
+
+
+
+
+      
+
+<script type="text/javascript">
+// Функция для инициализации логики работы блоков .info-card
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.info-card').forEach(card => {
+        const desc = card.querySelector('.info-card-desc');
+        const content = card.querySelector('.info-card-content');
+        const buttonLink2 = card.querySelector('.button-link2');
+        const buttonLink3 = card.querySelector('.button-link3');
+
+        // Инициализация
+        buttonLink2.style.display = 'flex';
+        buttonLink3.style.display = 'none';
+        buttonLink2.innerHTML = '';
+
+        // Проверка количества строк и настройка кнопок
+        function checkTextLength() {
+            const lineHeight = parseFloat(getComputedStyle(desc).lineHeight);
+            const blockHeight = desc.scrollHeight;
+            const lineCount = Math.floor(blockHeight / lineHeight);
+
+            if (lineCount > 7) {
+                buttonLink2.style.display = 'block';
+            } else {
+                buttonLink2.style.display = 'none';
+            }
+        }
+
+        checkTextLength();
+
+        // Логика работы кнопки button-link2 (развернуть)
+        buttonLink2.addEventListener('click', function() {
+            if (!desc.classList.contains('expanded')) {
+                desc.classList.add('expanded');
+                content.classList.add('expanded');
+                buttonLink2.innerHTML = '';
+                buttonLink3.style.display = 'inline';
+            } else {
+                collapseText(); // Если текст уже развернут
+            }
+        });
+
+        // Логика работы кнопки button-link3 (свернуть)
+        buttonLink3.addEventListener('click', collapseText);
+
+        function collapseText() {
+            desc.classList.remove('expanded');
+            content.classList.remove('expanded');
+            buttonLink2.innerHTML = '';
+            buttonLink3.style.display = 'none';
+        }
+    });
+
+    // KURY: Поддержка открытия якоря с развернутым текстом
+    const anchor = window.location.hash;
+    if (anchor) {
+        const decodedAnchor = decodeURIComponent(anchor);
+        const card = document.querySelector(decodedAnchor);
+        if (card) {
+            const desc = card.querySelector('.info-card-desc');
+            const content = card.querySelector('.info-card-content');
+            const buttonLink2 = card.querySelector('.button-link2');
+            const buttonLink3 = card.querySelector('.button-link3');
+
+            desc.classList.add('expanded');
+            content.classList.add('expanded');
+            buttonLink2.innerHTML = '';
+            buttonLink3.style.display = 'inline';
+        }
+    }
+});
+
+// Функция для управления состояниями активное/пассивное
+function setCSS(size) {
+    let root = document.documentElement;
+
+    if (size === 'maximum') {
+        root.style.setProperty('--mp-top', 'var(--20)');
+        root.style.setProperty('--mp-left', 'var(--pad)');
+        root.style.setProperty('--mp-bottom', 'var(--7a5)');
+        root.style.setProperty('--mp-right', 'var(--pad)');
+        root.style.setProperty('--mp-border-radius', 'var(--border-radius)');
+        root.style.setProperty('--mp-margin-bottom', 'var(--pad-small)');
+        root.style.setProperty('--icc-display', 'flex');
+    } else if (size === 'minimum') {
+        root.style.setProperty('--mp-top', 'var(--10)');
+        root.style.setProperty('--mp-left', 'var(--15)');
+        root.style.setProperty('--mp-bottom', 'var(--10)');
+        root.style.setProperty('--mp-right', 'var(--15)');
+        root.style.setProperty('--mp-border-radius', 'var(--0)');
+        root.style.setProperty('--mp-margin-bottom', '-1px');
+        root.style.setProperty('--icc-display', 'none');
+    }
+}
+
+// Инициализация значений при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+    let savedState = getCookie('iconState') || 'passive';
+    setState(savedState);
+});
+
+// Функция для установки состояния и сохранения в куки
+function setState(state) {
+    const iconElement = document.getElementById('toggleIconm');
+
+    if (state === 'active') {
+        iconElement.classList.remove('passive');
+        iconElement.classList.add('active');
+        setCSS('minimum');
+        document.cookie = `iconState=active; path=/; max-age=31536000;`;
+    } else {
+        iconElement.classList.remove('active');
+        iconElement.classList.add('passive');
+        setCSS('maximum');
+        document.cookie = `iconState=passive; path=/; max-age=31536000;`;
+    }
+}
+
+// Получение значения куки
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([.$?*|{}()\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+// Переключение состояния при клике на иконку
+document.getElementById('toggleIconm').addEventListener('click', () => {
+    const iconElement = document.getElementById('toggleIconm');
+    const currentState = iconElement.classList.contains('active') ? 'active' : 'passive';
+    
+    // Переключение между состояниями
+    setState(currentState === 'passive' ? 'active' : 'passive');
+});
+</script>
+
+
+
+
+      
     
       <script type="text/javascript" src="../csjs/pref-mob.js"></script>
        <script type="text/javascript" src="../csjs/hehe.js"></script>
