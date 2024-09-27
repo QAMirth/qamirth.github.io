@@ -467,11 +467,13 @@ function setState(state) {
         iconElement.classList.remove('passive');
         iconElement.classList.add('active');
         setCSS('minimum');
+      toggleButtonLink2('active');
         document.cookie = `iconState=active; path=/; max-age=31536000;`;
     } else {
         iconElement.classList.remove('active');
         iconElement.classList.add('passive');
         setCSS('maximum');
+      toggleButtonLink2('passive');
         document.cookie = `iconState=passive; path=/; max-age=31536000;`;
     }
 }
