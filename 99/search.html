@@ -52,7 +52,28 @@
 
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', () => {
-    const parentElement = document.body; 
+    const parentElement = document.body;
+
+    // Функция для проверки длины текста
+    function checkTextLength(desc, buttonLink2) {
+        const lineHeight = parseFloat(getComputedStyle(desc).lineHeight);
+        const blockHeight = desc.scrollHeight;
+
+        const lineCount = Math.floor(blockHeight / lineHeight);
+
+        if (lineCount > 7) {
+            buttonLink2.style.display = 'block';
+        } else {
+            buttonLink2.style.display = 'none';
+        }
+    }
+
+    // Инициализация для каждой карточки
+    document.querySelectorAll('.info-card').forEach(card => {
+        const desc = card.querySelector('.info-card-desc');
+        const buttonLink2 = card.querySelector('.button-link2');
+        checkTextLength(desc, buttonLink2); // Проверяем количество строк при загрузке
+    });
 
     parentElement.addEventListener('click', (event) => {
         const buttonLink2 = event.target.closest('.button-link2');
@@ -75,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
 
 </script>
     
