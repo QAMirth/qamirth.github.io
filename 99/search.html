@@ -69,31 +69,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         
-        // При нажатии на .button-link2
-        buttonLink2.addEventListener('click', function() {
-            if (!desc.classList.contains('expanded')) {
-                buttonLink2.classList.add('expanded'); // button = expanded
-                desc.classList.add('expanded'); // Разворачиваем текст
-                content.classList.add('expanded'); // Разворачиваем контент
-                buttonLink2.innerHTML = '';
-                buttonLink3.style.display = 'inline';
-                buttonLink3.textContent = '';
-            } else {
-                collapseText(); // Если текст уже развернут, сворачиваем
+         // Обрабатываем динамическое добавление контента
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.addedNodes.length > 0) {
+                mutation.addedNodes.forEach((node) => {
+                    if (node.classList && node.classList.contains('info-card')) {
+                        const desc = node.querySelector('.info-card-desc');
+                        const buttonLink2 = node.querySelector('.button-link2');
+                        checkTextLength(desc, buttonLink2); // Проверяем количество строк для нового блока
+                    }
+                });
             }
         });
+    });
 
-        // При нажатии на .button-link3
-        buttonLink3.addEventListener('click', collapseText);
+    // Наблюдение за изменениями DOM
+    observer.observe(parentElement, { childList: true, subtree: true });
 
-        function collapseText() {
-            buttonLink2.classList.remove('expanded'); // button - expanded
-            desc.classList.remove('expanded'); // Сворачиваем текст
-            content.classList.remove('expanded'); // Сворачиваем контент
-            buttonLink2.innerHTML = '';
-            buttonLink3.style.display = 'none';
+    // Обработка кликов
+    parentElement.addEventListener('click', (event) => {
+        const buttonLink2 = event.target.closest('.button-link2');
+
+        if (buttonLink2) {
+            const infoCard = buttonLink2.closest('.info-card');
+            const desc = infoCard.querySelector('.info-card-desc');
+            const content = infoCard.querySelector('.info-card-content');
+
+            // Переключение класса expanded
+            if (buttonLink2.classList.contains('expanded')) {
+                buttonLink2.classList.remove('expanded');
+                desc.classList.remove('expanded');
+                content.classList.remove('expanded');
+            } else {
+                buttonLink2.classList.add('expanded');
+                desc.classList.add('expanded');
+                content.classList.add('expanded');
+            }
         }
     });
+
+
 
 
 
