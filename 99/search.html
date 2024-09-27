@@ -469,6 +469,7 @@ function getCookie(name) {
 // Инициализация значений при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
     let savedState = getCookie('iconState') || 'passive'; // Значение по умолчанию - 'passive'
+    console.log('Saved State:', savedState); // Отладочная информация
     setState(savedState); // Устанавливаем состояние
 });
 
@@ -487,6 +488,7 @@ function addNewElement(htmlContent) {
 
     // Обновляем состояние кнопок после добавления новых элементов
     const savedState = getCookie('iconState') || 'passive'; // Проверяем текущее состояние
+    console.log('Updating buttons with state:', savedState); // Отладочная информация
     toggleButtonLink2(savedState); // Обновляем видимость кнопок в зависимости от состояния
 }
 
