@@ -449,7 +449,10 @@ function setState(state) {
         iconElement.classList.remove('passive');
         iconElement.classList.add('active');
         setCSS('minimum');
-        toggleButtonLink2('active'); // Всегда показываем все кнопки
+        // Установка состояния с небольшой задержкой
+        setTimeout(() => {
+            toggleButtonLink2('active'); // Всегда показываем все кнопки
+        }, 100);
         document.cookie = `iconState=active; path=/; max-age=31536000;`;
     } else {
         iconElement.classList.remove('active');
@@ -477,7 +480,6 @@ document.addEventListener('DOMContentLoaded', () => {
 document.getElementById('toggleIconm').addEventListener('click', () => {
     const iconElement = document.getElementById('toggleIconm');
     const currentState = iconElement.classList.contains('active') ? 'active' : 'passive';
-    // Переключение между состояниями
     setState(currentState === 'passive' ? 'active' : 'passive');
 });
 
@@ -489,7 +491,9 @@ function addNewElement(htmlContent) {
     // Обновляем состояние кнопок после добавления новых элементов
     const savedState = getCookie('iconState') || 'passive'; // Проверяем текущее состояние
     console.log('Updating buttons with state:', savedState); // Отладочная информация
-    toggleButtonLink2(savedState); // Обновляем видимость кнопок в зависимости от состояния
+    setTimeout(() => {
+        toggleButtonLink2(savedState); // Обновляем видимость кнопок в зависимости от состояния
+    }, 100);
 }
 
 // Пример вызова функции для добавления нового элемента
