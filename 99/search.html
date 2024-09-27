@@ -312,12 +312,13 @@ autocomplete="off">
 <script type="text/javascript">
 const observer = new MutationObserver(mutations => {
     mutations.forEach(mutation => {
-        if (mutation.type === 'childList') {
-            const newCards = document.querySelectorAll('.info-card');
-            if (newCards.length > 0) {
-                // Инициализация логики работы блоков .info-card
-                initInfoCard();
-            }
+        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+            mutation.addedNodes.forEach(node => {
+                if (node.nodeType === Node.ELEMENT_NODE && node.classList.contains('info-card')) {
+                    // Инициализация логики работы блока .info-card
+                    initInfoCard(node);
+                }
+            });
         }
     });
 });
@@ -325,58 +326,58 @@ const observer = new MutationObserver(mutations => {
 // Настройка наблюдателя для всего документа
 observer.observe(document.body, { childList: true, subtree: true });
 
-function initInfoCard() {
-    document.querySelectorAll('.info-card').forEach(card => {
-        const desc = card.querySelector('.info-card-desc');
-        const content = card.querySelector('.info-card-content');
-        const buttonLink2 = card.querySelector('.button-link2');
-        const buttonLink3 = card.querySelector('.button-link3');
+function initInfoCard(card) {
+    const desc = card.querySelector('.info-card-desc');
+    const content = card.querySelector('.info-card-content');
+    const buttonLink2 = card.querySelector('.button-link2');
+    const buttonLink3 = card.querySelector('.button-link3');
 
-        if (!desc || !content || !buttonLink2 || !buttonLink3) {
-            console.error('Один из элементов не найден в блоке .info-card', card);
-            return;
+    if (!desc || !content || !buttonLink2 || !buttonLink3) {
+        console.error('Один из элементов не найден в блоке .info-card', card);
+        return;
+    }
+
+    buttonLink2.style.display = 'flex';
+    buttonLink3.style.display = 'none';
+    buttonLink2.innerHTML = '';
+
+    function checkTextLength() {
+        const lineHeight = parseFloat(getComputedStyle(desc).lineHeight);
+        const blockHeight = desc.scrollHeight;
+        const lineCount = Math.floor(blockHeight / lineHeight);
+
+        if (lineCount > 7) {
+            buttonLink2.style.display = 'block';
+        } else {
+            buttonLink2.style.display = 'none';
         }
+    }
 
-        buttonLink2.style.display = 'flex';
-        buttonLink3.style.display = 'none';
-        buttonLink2.innerHTML = '';
+    checkTextLength();
 
-        function checkTextLength() {
-            const lineHeight = parseFloat(getComputedStyle(desc).lineHeight);
-            const blockHeight = desc.scrollHeight;
-            const lineCount = Math.floor(blockHeight / lineHeight);
-
-            if (lineCount > 7) {
-                buttonLink2.style.display = 'block';
-            } else {
-                buttonLink2.style.display = 'none';
-            }
-        }
-
-        checkTextLength();
-
-        buttonLink2.addEventListener('click', function() {
-            if (!desc.classList.contains('expanded')) {
-               buttonLink2.classList.add('expanded'); // button = expanded
-                desc.classList.add('expanded'); // Разворачиваем текст
-                content.classList.add('expanded'); // Разворачиваем контент
-                buttonLink2.innerHTML = '';
-                buttonLink3.style.display = 'inline';
-            } else {
-                collapseText();
-            }
-        });
-
-        buttonLink3.addEventListener('click', collapseText);
-
-        function collapseText() {
-           buttonLink2.classList.remove('expanded'); // button - expanded
-            desc.classList.remove('expanded'); // Сворачиваем текст
-            content.classList.remove('expanded'); // Сворачиваем контент
+    buttonLink2.addEventListener('click', function() {
+        if (!desc.classList.contains('expanded')) {
+            buttonLink2.classList.add('expanded');
+            desc.classList.add('expanded');
+            content.classList.add('expanded');
             buttonLink2.innerHTML = '';
-            buttonLink3.style.display = 'none';
+            buttonLink3.style.display = 'inline';
+        } else {
+            collapseText();
         }
     });
+
+    buttonLink3.addEventListener('click', collapseText);
+
+    function collapseText() {
+        buttonLink2.classList.remove('expanded');
+        desc.classList.remove('expanded');
+        content.classList.remove('expanded');
+        buttonLink2.innerHTML = '';
+        buttonLink3.style.display = 'none';
+    }
+}
+
 
     // KURY: Поддержка открытия якоря с развернутым текстом
     const anchor = window.location.hash;
@@ -397,7 +398,7 @@ function initInfoCard() {
             }
         }
     }
-}
+
 
 // Функция для управления состояниями активное/пассивное
 function setCSS(size) {
