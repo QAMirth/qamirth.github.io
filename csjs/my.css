@@ -1685,12 +1685,8 @@ strong{
 
 .info-card-desc img {
   display: none;
-    
-     width: calc(100% + var(--mp-right) + var(--mp-left)); 
-  margin-left: calc(-1 * var(--mp-left));
-  height: auto; /* Сохранение пропорций */
   object-fit: contain; 
-  max-width: 100%; /* Ограничивает ширину изображения */
+  width: 100%; 
 }
 
 .info-card-desc p:empty {
