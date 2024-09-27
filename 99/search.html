@@ -360,8 +360,9 @@ function initInfoCard() {
 
         buttonLink2.addEventListener('click', function() {
             if (!desc.classList.contains('expanded')) {
-                desc.classList.add('expanded');
-                content.classList.add('expanded');
+               buttonLink2.classList.add('expanded'); // button = expanded
+                desc.classList.add('expanded'); // Разворачиваем текст
+                content.classList.add('expanded'); // Разворачиваем контент
                 buttonLink2.innerHTML = '';
                 buttonLink3.style.display = 'inline';
             } else {
@@ -372,8 +373,9 @@ function initInfoCard() {
         buttonLink3.addEventListener('click', collapseText);
 
         function collapseText() {
-            desc.classList.remove('expanded');
-            content.classList.remove('expanded');
+           buttonLink2.classList.remove('expanded'); // button - expanded
+            desc.classList.remove('expanded'); // Сворачиваем текст
+            content.classList.remove('expanded'); // Сворачиваем контент
             buttonLink2.innerHTML = '';
             buttonLink3.style.display = 'none';
         }
