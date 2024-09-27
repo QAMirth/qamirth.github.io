@@ -68,13 +68,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Инициализация для каждой карточки
-    document.querySelectorAll('.info-card').forEach(card => {
-        const desc = card.querySelector('.info-card-desc');
-        const buttonLink2 = card.querySelector('.button-link2');
-        checkTextLength(desc, buttonLink2); // Проверяем количество строк при загрузке
+    // Обрабатываем динамическое добавление контента
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.addedNodes.length > 0) {
+                mutation.addedNodes.forEach((node) => {
+                    if (node.classList && node.classList.contains('info-card')) {
+                        const desc = node.querySelector('.info-card-desc');
+                        const buttonLink2 = node.querySelector('.button-link2');
+                        checkTextLength(desc, buttonLink2); // Проверяем количество строк для нового блока
+                    }
+                });
+            }
+        });
     });
 
+    // Наблюдение за изменениями DOM
+    observer.observe(parentElement, { childList: true, subtree: true });
+
+    // Обработка кликов
     parentElement.addEventListener('click', (event) => {
         const buttonLink2 = event.target.closest('.button-link2');
 
