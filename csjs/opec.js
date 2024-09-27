@@ -10,6 +10,25 @@ document.addEventListener('DOMContentLoaded', () => {
         buttonLink3.style.display = 'none';
         buttonLink2.innerHTML = '<svg class="open1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path class="open11" fill-rule="evenodd" clip-rule="evenodd" d="M7 6h10a6 6 0 0 1 0 12H7A6 6 0 0 1 7 6Zm3 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>';
 
+
+           // For checking the number of lines
+     function checkTextLength() {
+    const lineHeight = parseFloat(getComputedStyle(desc).lineHeight);
+    const blockHeight = desc.scrollHeight;
+
+    const lineCount = Math.floor(blockHeight / lineHeight);
+
+    if (lineCount > 7) {
+        buttonLink2.style.display = 'block';
+    } else {
+        buttonLink2.style.display = 'none';
+    }
+}
+
+        checkTextLength();
+
+
+        
         // При нажатии на .button-link2
         buttonLink2.addEventListener('click', function() {
             if (!desc.classList.contains('expanded')) {
