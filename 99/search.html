@@ -87,6 +87,127 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+
+
+
+
+
+
+
+
+
+
+  
+ // ID2
+function setCSS(size) {
+    let root = document.documentElement;
+
+    if (size === 'maximum') {
+                root.style.setProperty('--mp-top', 'var(--20)');
+                root.style.setProperty('--mp-left', 'var(--pad)');
+                root.style.setProperty('--mp-bottom', 'var(--7a5)');
+                root.style.setProperty('--mp-right', 'var(--pad)');
+                root.style.setProperty('--mp-border-radius', 'var(--border-radius)');
+                root.style.setProperty('--mp-margin-bottom', 'var(--pad-small)');
+                root.style.setProperty('--icc-display', 'flex');
+                root.style.setProperty('--icc-display-expanded', 'flex');
+              
+       
+            } else if (size === 'minimum') {
+                root.style.setProperty('--mp-top', 'var(--10)');
+                root.style.setProperty('--mp-left', 'var(--15)');
+                root.style.setProperty('--mp-bottom', 'var(--10)');
+                root.style.setProperty('--mp-right', 'var(--15)');
+                root.style.setProperty('--mp-border-radius', 'var(--0)');
+                root.style.setProperty('--mp-margin-bottom', '-1px');
+                root.style.setProperty('--icc-display', 'none');
+                root.style.setProperty('--icc-display-expanded', 'flex');
+
+
+            }
+        }
+
+
+// Функция для управления кнопкой button-link2
+function toggleButtonLink2(state) {
+    const buttons = document.querySelectorAll('.button-link2');
+    buttons.forEach(button => {
+        if (state === 'active') {
+            // Показываем кнопку во всех блоках в состоянии active
+            button.style.display = 'block';
+        } else {
+            // Показываем кнопку только для блоков с длинным текстом в состоянии passive
+            const content2 = button.closest('.info-card').querySelector('.info-card-desc');
+
+            if (content2) { // Проверяем, существует ли элемент
+                const lineHeight = parseFloat(getComputedStyle(content2).lineHeight);
+                const blockHeight = content2.scrollHeight;
+                const lineCount = Math.floor(blockHeight / lineHeight);
+
+                // Проверяем количество строк
+                if (lineCount > 7) {
+                    button.style.display = 'block';
+                } else {
+                    button.style.display = 'none';
+                }
+            } else {
+                button.style.display = 'none'; // Если контент не найден, скрываем кнопку
+            }
+        }
+    });
+}
+
+
+// Инициализация значений при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+    // Устанавливаем начальное состояние из куки или по умолчанию
+    let savedState = getCookie('iconState') || 'passive';
+    setState(savedState);
+});
+
+// Функция для установки состояния и сохранения его в куки
+function setState(state) {
+    const iconElement = document.getElementById('toggleIconm');
+
+    if (state === 'active') {
+        // Состояние active (только иконка, название, ссылка)
+        iconElement.classList.remove('passive');
+        iconElement.classList.add('active');
+        setCSS('minimum');
+        toggleButtonLink2('active');
+        document.cookie = `iconState=active; path=/; max-age=31536000;`;
+    } else {
+        // Состояние passive (полное отображение материалов)
+        iconElement.classList.remove('active');
+        iconElement.classList.add('passive');
+        setCSS('maximum');
+        toggleButtonLink2('passive');
+        document.cookie = `iconState=passive; path=/; max-age=31536000;`;
+    }
+}
+
+// Получение значения куки
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([.$?*|{}()\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+// Переключение состояния при клике на иконку
+document.getElementById('toggleIconm').addEventListener('click', () => {
+    const iconElement = document.getElementById('toggleIconm');
+    const currentState = iconElement.classList.contains('active') ? 'active' : 'passive';
+    
+    // Переключение между состояниями passive и active
+    setState(currentState === 'passive' ? 'active' : 'passive');
+});
+
+
+
+
+
 </script>
     
 <script type="text/javascript" src="../csjs/other-search.js"></script>
