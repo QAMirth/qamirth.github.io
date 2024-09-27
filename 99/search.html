@@ -313,20 +313,37 @@ autocomplete="off">
       
 
 <script type="text/javascript">
-// Функция для инициализации логики работы блоков .info-card
-document.addEventListener('DOMContentLoaded', () => {
+const observer = new MutationObserver(mutations => {
+    mutations.forEach(mutation => {
+        if (mutation.type === 'childList') {
+            const newCards = document.querySelectorAll('.info-card');
+            if (newCards.length > 0) {
+                // Инициализация логики работы блоков .info-card
+                initInfoCard();
+            }
+        }
+    });
+});
+
+// Настройка наблюдателя для всего документа
+observer.observe(document.body, { childList: true, subtree: true });
+
+function initInfoCard() {
     document.querySelectorAll('.info-card').forEach(card => {
         const desc = card.querySelector('.info-card-desc');
         const content = card.querySelector('.info-card-content');
         const buttonLink2 = card.querySelector('.button-link2');
         const buttonLink3 = card.querySelector('.button-link3');
 
-        // Инициализация
+        if (!desc || !content || !buttonLink2 || !buttonLink3) {
+            console.error('Один из элементов не найден в блоке .info-card', card);
+            return;
+        }
+
         buttonLink2.style.display = 'flex';
         buttonLink3.style.display = 'none';
         buttonLink2.innerHTML = '';
 
-        // Проверка количества строк и настройка кнопок
         function checkTextLength() {
             const lineHeight = parseFloat(getComputedStyle(desc).lineHeight);
             const blockHeight = desc.scrollHeight;
@@ -341,7 +358,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         checkTextLength();
 
-        // Логика работы кнопки button-link2 (развернуть)
         buttonLink2.addEventListener('click', function() {
             if (!desc.classList.contains('expanded')) {
                 desc.classList.add('expanded');
@@ -349,11 +365,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 buttonLink2.innerHTML = '';
                 buttonLink3.style.display = 'inline';
             } else {
-                collapseText(); // Если текст уже развернут
+                collapseText();
             }
         });
 
-        // Логика работы кнопки button-link3 (свернуть)
         buttonLink3.addEventListener('click', collapseText);
 
         function collapseText() {
@@ -363,6 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
             buttonLink3.style.display = 'none';
         }
     });
+}
 
     // KURY: Поддержка открытия якоря с развернутым текстом
     const anchor = window.location.hash;
