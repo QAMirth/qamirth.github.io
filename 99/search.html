@@ -427,19 +427,14 @@ function toggleButtonLink2(state) {
     const buttons = document.querySelectorAll('.button-link2');
     buttons.forEach(button => {
         if (state === 'active') {
-            // Показываем кнопку во всех блоках в состоянии active
-            button.style.display = 'block';
+            button.style.display = 'block'; // Всегда показываем в состоянии active
         } else {
-            // Показываем кнопку только для блоков с длинным текстом в состоянии passive
             const content2 = button.closest('.info-card').querySelector('.info-card-desc');
-
             if (content2) {
                 const lineHeight = parseFloat(getComputedStyle(content2).lineHeight);
                 const blockHeight = content2.scrollHeight;
                 const lineCount = Math.floor(blockHeight / lineHeight);
-
-                // Проверяем количество строк
-                button.style.display = lineCount > 7 ? 'block' : 'none';
+                button.style.display = lineCount > 7 ? 'block' : 'none'; // Показываем или скрываем в зависимости от количества строк
             } else {
                 button.style.display = 'none'; // Если контент не найден, скрываем кнопку
             }
@@ -450,12 +445,11 @@ function toggleButtonLink2(state) {
 // Функция для установки состояния и сохранения в куки
 function setState(state) {
     const iconElement = document.getElementById('toggleIconm');
-
     if (state === 'active') {
         iconElement.classList.remove('passive');
         iconElement.classList.add('active');
         setCSS('minimum');
-        toggleButtonLink2('active'); // Показываем все кнопки
+        toggleButtonLink2('active'); // Всегда показываем все кнопки
         document.cookie = `iconState=active; path=/; max-age=31536000;`;
     } else {
         iconElement.classList.remove('active');
@@ -482,12 +476,22 @@ document.addEventListener('DOMContentLoaded', () => {
 document.getElementById('toggleIconm').addEventListener('click', () => {
     const iconElement = document.getElementById('toggleIconm');
     const currentState = iconElement.classList.contains('active') ? 'active' : 'passive';
-    
     // Переключение между состояниями
     setState(currentState === 'passive' ? 'active' : 'passive');
 });
 
+// Функция для добавления новых элементов
+function addNewElement(htmlContent) {
+    const container = document.getElementById('yourContainerId'); // Замените на ваш контейнер
+    container.insertAdjacentHTML('beforeend', htmlContent);
 
+    // Обновляем состояние кнопок после добавления новых элементов
+    const savedState = getCookie('iconState') || 'passive'; // Проверяем текущее состояние
+    toggleButtonLink2(savedState); // Обновляем видимость кнопок в зависимости от состояния
+}
+
+// Пример вызова функции для добавления нового элемента
+// addNewElement('<div class="info-card"><div class="info-card-desc">Ваш текст здесь</div><button class="button-link2">Кнопка 2</button></div>');
 
 
 </script>
