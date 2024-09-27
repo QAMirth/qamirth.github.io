@@ -453,11 +453,16 @@ function toggleButtonLink2(state) {
     });
 }
 
-// Инициализация значений при загрузке страницы
+
+
+  // Инициализация значений при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
     let savedState = getCookie('iconState') || 'passive'; // Значение по умолчанию - 'passive'
     setState(savedState);
+    toggleButtonLink2(savedState); // Обновляем видимость кнопок
 });
+
+  
 
 // Функция для установки состояния и сохранения в куки
 function setState(state) {
