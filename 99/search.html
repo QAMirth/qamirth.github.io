@@ -454,41 +454,12 @@ function toggleButtonLink2(state) {
 }
 
 
-
 // Инициализация значений при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
     let savedState = getCookie('iconState') || 'passive'; // Значение по умолчанию - 'passive'
     setState(savedState);
-    
-    // Обновляем видимость кнопок для существующих карточек
-    const infoCards = document.querySelectorAll('.info-card');
-    infoCards.forEach(card => {
-        initInfoCard(card, savedState); // Передаем savedState в функцию инициализации
-    });
-
-    toggleButtonLink2(savedState); // Обновляем видимость кнопок для всех карточек
+    toggleButtonLink2(savedState); // Обновляем видимость кнопок
 });
-
-// Измените функцию initInfoCard для обновления кнопок
-function initInfoCard(card, state) {
-    const desc = card.querySelector('.info-card-desc');
-    const content = card.querySelector('.info-card-content');
-    const buttonLink2 = card.querySelector('.button-link2');
-    const buttonLink3 = card.querySelector('.button-link3');
-
-    if (!desc || !content || !buttonLink2 || !buttonLink3) {
-        console.error('Один из элементов не найден в блоке .info-card', card);
-        return;
-    }
-
-    // Остальной код инициализации
-    checkTextLength(); // Возможно, вы захотите вызвать эту функцию здесь
-
-    // Обновление видимости кнопки
-    toggleButtonLink2(state); // Обновляем видимость для этой карточки
-}
-
-// Не забудьте также добавить checkTextLength в initInfoCard или вызвать его отдельно при необходимости
 
 
   
