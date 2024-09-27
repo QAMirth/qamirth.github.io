@@ -30,6 +30,166 @@
 
 
 
+
+      
+
+<script type="text/javascript">
+const observer = new MutationObserver(mutations => {
+    mutations.forEach(mutation => {
+        if (mutation.type === 'childList') {
+            const newCards = document.querySelectorAll('.info-card');
+            if (newCards.length > 0) {
+                // Инициализация логики работы блоков .info-card
+                initInfoCard();
+            }
+        }
+    });
+});
+
+// Настройка наблюдателя для всего документа
+observer.observe(document.body, { childList: true, subtree: true });
+
+function initInfoCard() {
+    document.querySelectorAll('.info-card').forEach(card => {
+        const desc = card.querySelector('.info-card-desc');
+        const content = card.querySelector('.info-card-content');
+        const buttonLink2 = card.querySelector('.button-link2');
+        const buttonLink3 = card.querySelector('.button-link3');
+
+        if (!desc || !content || !buttonLink2 || !buttonLink3) {
+            console.error('Один из элементов не найден в блоке .info-card', card);
+            return;
+        }
+
+        buttonLink2.style.display = 'flex';
+        buttonLink3.style.display = 'none';
+        buttonLink2.innerHTML = '';
+
+        function checkTextLength() {
+            const lineHeight = parseFloat(getComputedStyle(desc).lineHeight);
+            const blockHeight = desc.scrollHeight;
+            const lineCount = Math.floor(blockHeight / lineHeight);
+
+            if (lineCount > 7) {
+                buttonLink2.style.display = 'block';
+            } else {
+                buttonLink2.style.display = 'none';
+            }
+        }
+
+        checkTextLength();
+
+        buttonLink2.addEventListener('click', function() {
+            if (!desc.classList.contains('expanded')) {
+               buttonLink2.classList.add('expanded'); // button = expanded
+                desc.classList.add('expanded'); // Разворачиваем текст
+                content.classList.add('expanded'); // Разворачиваем контент
+                buttonLink2.innerHTML = '';
+                buttonLink3.style.display = 'inline';
+            } else {
+                collapseText();
+            }
+        });
+
+        buttonLink3.addEventListener('click', collapseText);
+
+        function collapseText() {
+           buttonLink2.classList.remove('expanded'); // button - expanded
+            desc.classList.remove('expanded'); // Сворачиваем текст
+            content.classList.remove('expanded'); // Сворачиваем контент
+            buttonLink2.innerHTML = '';
+            buttonLink3.style.display = 'none';
+        }
+    });
+
+    // KURY: Поддержка открытия якоря с развернутым текстом
+    const anchor = window.location.hash;
+    if (anchor) {
+        const decodedAnchor = decodeURIComponent(anchor);
+        const card = document.querySelector(decodedAnchor);
+        if (card) {
+            const desc = card.querySelector('.info-card-desc');
+            const content = card.querySelector('.info-card-content');
+            const buttonLink2 = card.querySelector('.button-link2');
+            const buttonLink3 = card.querySelector('.button-link3');
+
+            if (desc && content && buttonLink2 && buttonLink3) {
+                desc.classList.add('expanded');
+                content.classList.add('expanded');
+                buttonLink2.innerHTML = '';
+                buttonLink3.style.display = 'inline';
+            }
+        }
+    }
+}
+
+// Функция для управления состояниями активное/пассивное
+function setCSS(size) {
+    let root = document.documentElement;
+
+    if (size === 'maximum') {
+        root.style.setProperty('--mp-top', 'var(--20)');
+        root.style.setProperty('--mp-left', 'var(--pad)');
+        root.style.setProperty('--mp-bottom', 'var(--7a5)');
+        root.style.setProperty('--mp-right', 'var(--pad)');
+        root.style.setProperty('--mp-border-radius', 'var(--border-radius)');
+        root.style.setProperty('--mp-margin-bottom', 'var(--pad-small)');
+        root.style.setProperty('--icc-display', 'flex');
+    } else if (size === 'minimum') {
+        root.style.setProperty('--mp-top', 'var(--10)');
+        root.style.setProperty('--mp-left', 'var(--15)');
+        root.style.setProperty('--mp-bottom', 'var(--10)');
+        root.style.setProperty('--mp-right', 'var(--15)');
+        root.style.setProperty('--mp-border-radius', 'var(--0)');
+        root.style.setProperty('--mp-margin-bottom', '-1px');
+        root.style.setProperty('--icc-display', 'none');
+    }
+}
+
+// Инициализация значений при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+    let savedState = getCookie('iconState') || 'passive'; // Значение по умолчанию - 'passive'
+    setState(savedState);
+});
+
+// Функция для установки состояния и сохранения в куки
+function setState(state) {
+    const iconElement = document.getElementById('toggleIconm');
+
+    if (state === 'active') {
+        iconElement.classList.remove('passive');
+        iconElement.classList.add('active');
+        setCSS('minimum');
+        document.cookie = `iconState=active; path=/; max-age=31536000;`;
+    } else {
+        iconElement.classList.remove('active');
+        iconElement.classList.add('passive');
+        setCSS('maximum');
+        document.cookie = `iconState=passive; path=/; max-age=31536000;`;
+    }
+}
+
+// Получение значения куки
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([.$?*|{}()\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+// Переключение состояния при клике на иконку
+document.getElementById('toggleIconm').addEventListener('click', () => {
+    const iconElement = document.getElementById('toggleIconm');
+    const currentState = iconElement.classList.contains('active') ? 'active' : 'passive';
+    
+    // Переключение между состояниями
+    setState(currentState === 'passive' ? 'active' : 'passive');
+});
+
+</script>
+
+
+
+
+    
     
  
 <script type="text/javascript" src="../csjs/other-search.js"></script>
@@ -308,162 +468,6 @@ autocomplete="off">
 <script type="text/javascript" src="../csjs/opec3.js"></script>
 
 
-
-
-      
-
-<script type="text/javascript">
-const observer = new MutationObserver(mutations => {
-    mutations.forEach(mutation => {
-        if (mutation.type === 'childList') {
-            const newCards = document.querySelectorAll('.info-card');
-            if (newCards.length > 0) {
-                // Инициализация логики работы блоков .info-card
-                initInfoCard();
-            }
-        }
-    });
-});
-
-// Настройка наблюдателя для всего документа
-observer.observe(document.body, { childList: true, subtree: true });
-
-function initInfoCard() {
-    document.querySelectorAll('.info-card').forEach(card => {
-        const desc = card.querySelector('.info-card-desc');
-        const content = card.querySelector('.info-card-content');
-        const buttonLink2 = card.querySelector('.button-link2');
-        const buttonLink3 = card.querySelector('.button-link3');
-
-        if (!desc || !content || !buttonLink2 || !buttonLink3) {
-            console.error('Один из элементов не найден в блоке .info-card', card);
-            return;
-        }
-
-        buttonLink2.style.display = 'flex';
-        buttonLink3.style.display = 'none';
-        buttonLink2.innerHTML = '';
-
-        function checkTextLength() {
-            const lineHeight = parseFloat(getComputedStyle(desc).lineHeight);
-            const blockHeight = desc.scrollHeight;
-            const lineCount = Math.floor(blockHeight / lineHeight);
-
-            if (lineCount > 7) {
-                buttonLink2.style.display = 'block';
-            } else {
-                buttonLink2.style.display = 'none';
-            }
-        }
-
-        checkTextLength();
-
-        buttonLink2.addEventListener('click', function() {
-            if (!desc.classList.contains('expanded')) {
-               buttonLink2.classList.add('expanded'); // button = expanded
-                desc.classList.add('expanded'); // Разворачиваем текст
-                content.classList.add('expanded'); // Разворачиваем контент
-                buttonLink2.innerHTML = '';
-                buttonLink3.style.display = 'inline';
-            } else {
-                collapseText();
-            }
-        });
-
-        buttonLink3.addEventListener('click', collapseText);
-
-        function collapseText() {
-           buttonLink2.classList.remove('expanded'); // button - expanded
-            desc.classList.remove('expanded'); // Сворачиваем текст
-            content.classList.remove('expanded'); // Сворачиваем контент
-            buttonLink2.innerHTML = '';
-            buttonLink3.style.display = 'none';
-        }
-    });
-
-    // KURY: Поддержка открытия якоря с развернутым текстом
-    const anchor = window.location.hash;
-    if (anchor) {
-        const decodedAnchor = decodeURIComponent(anchor);
-        const card = document.querySelector(decodedAnchor);
-        if (card) {
-            const desc = card.querySelector('.info-card-desc');
-            const content = card.querySelector('.info-card-content');
-            const buttonLink2 = card.querySelector('.button-link2');
-            const buttonLink3 = card.querySelector('.button-link3');
-
-            if (desc && content && buttonLink2 && buttonLink3) {
-                desc.classList.add('expanded');
-                content.classList.add('expanded');
-                buttonLink2.innerHTML = '';
-                buttonLink3.style.display = 'inline';
-            }
-        }
-    }
-}
-
-// Функция для управления состояниями активное/пассивное
-function setCSS(size) {
-    let root = document.documentElement;
-
-    if (size === 'maximum') {
-        root.style.setProperty('--mp-top', 'var(--20)');
-        root.style.setProperty('--mp-left', 'var(--pad)');
-        root.style.setProperty('--mp-bottom', 'var(--7a5)');
-        root.style.setProperty('--mp-right', 'var(--pad)');
-        root.style.setProperty('--mp-border-radius', 'var(--border-radius)');
-        root.style.setProperty('--mp-margin-bottom', 'var(--pad-small)');
-        root.style.setProperty('--icc-display', 'flex');
-    } else if (size === 'minimum') {
-        root.style.setProperty('--mp-top', 'var(--10)');
-        root.style.setProperty('--mp-left', 'var(--15)');
-        root.style.setProperty('--mp-bottom', 'var(--10)');
-        root.style.setProperty('--mp-right', 'var(--15)');
-        root.style.setProperty('--mp-border-radius', 'var(--0)');
-        root.style.setProperty('--mp-margin-bottom', '-1px');
-        root.style.setProperty('--icc-display', 'none');
-    }
-}
-
-// Инициализация значений при загрузке страницы
-document.addEventListener('DOMContentLoaded', () => {
-    let savedState = getCookie('iconState') || 'passive'; // Значение по умолчанию - 'passive'
-    setState(savedState);
-});
-
-// Функция для установки состояния и сохранения в куки
-function setState(state) {
-    const iconElement = document.getElementById('toggleIconm');
-
-    if (state === 'active') {
-        iconElement.classList.remove('passive');
-        iconElement.classList.add('active');
-        setCSS('minimum');
-        document.cookie = `iconState=active; path=/; max-age=31536000;`;
-    } else {
-        iconElement.classList.remove('active');
-        iconElement.classList.add('passive');
-        setCSS('maximum');
-        document.cookie = `iconState=passive; path=/; max-age=31536000;`;
-    }
-}
-
-// Получение значения куки
-function getCookie(name) {
-    let matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([.$?*|{}()\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
-    return matches ? decodeURIComponent(matches[1]) : undefined;
-}
-
-// Переключение состояния при клике на иконку
-document.getElementById('toggleIconm').addEventListener('click', () => {
-    const iconElement = document.getElementById('toggleIconm');
-    const currentState = iconElement.classList.contains('active') ? 'active' : 'passive';
-    
-    // Переключение между состояниями
-    setState(currentState === 'passive' ? 'active' : 'passive');
-});
-
-</script>
 
 
 
