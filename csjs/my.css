@@ -252,7 +252,7 @@
     --40: 40px;
     --45: 44px;
     --50: 48px;
-    --sidebar-size-l: 200px;
+    --sidebar-size-l: 220px;
     --sidebar-size-r: 240px;
     --max-height-header: 76px;
 
@@ -1325,7 +1325,7 @@
   display:flex;
   flex-direction: column-reverse;
   border-radius: inherit;
-  padding: var(--0);
+  padding: var(--pad-small) var(--pad-small);
 }
 
 .sidebar-block-title {
