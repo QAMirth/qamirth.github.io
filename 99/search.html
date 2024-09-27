@@ -346,10 +346,17 @@ function initInfoCard(card) {
         const blockHeight = desc.scrollHeight;
         const lineCount = Math.floor(blockHeight / lineHeight);
 
-        if (lineCount > 7) {
-            buttonLink2.style.display = 'block';
+        // Проверяем состояние перед изменением display
+        const currentState = getCookie('iconState') || 'passive';
+        
+        if (currentState === 'passive') {
+            if (lineCount > 7) {
+                buttonLink2.style.display = 'block';
+            } else {
+                buttonLink2.style.display = 'none';
+            }
         } else {
-            buttonLink2.style.display = 'none';
+            buttonLink2.style.display = 'block'; // Показываем кнопку, если состояние active
         }
     }
 
@@ -377,6 +384,7 @@ function initInfoCard(card) {
         buttonLink3.style.display = 'none';
     }
 }
+
 
 
     // KURY: Поддержка открытия якоря с развернутым текстом
