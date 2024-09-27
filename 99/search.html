@@ -26,29 +26,6 @@
     <link type="text/css" rel="stylesheet" href="../csjs/my.css" />
     <script type="text/javascript" src="../csjs/ulightbox.min.js"></script>
 
-    <script type="text/javascript">
-      function mergeAndRemoveDuplicates(results) {
-        const uniqueResults = new Set();
-        let mergedResults = "";
-
-        results.forEach((result) => {
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(result, "text/html");
-          const infoCards = doc.querySelectorAll(".info-card");
-
-          infoCards.forEach((card) => {
-            const cardText = card.innerText.toLowerCase();
-            if (!uniqueResults.has(cardText)) {
-              uniqueResults.add(cardText);
-              mergedResults += card.outerHTML;
-            }
-          });
-        });
-
-        return mergedResults;
-      }
-    </script>
-
 
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', () => {
