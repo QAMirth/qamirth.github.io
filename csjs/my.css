@@ -1633,6 +1633,9 @@ background-color: var(--200);
   flex-direction: column;
   line-height: 1.75;
   color: var(--900);
+
+  width: 100%; /* Чтобы родительский блок был гибким 12312313123123*/
+    max-width: 100%; /* Чтобы родительский блок был гибким 131232313134343243*/
 }
 
 .info-card-content.expanded {
@@ -1671,11 +1674,17 @@ strong{
 }
 
 .info-card-desc {
-  display: -webkit-box;
-  -webkit-line-clamp: 7;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.info-card-desc, .info-card-desc img {
+    box-sizing: border-box; /* Учитываем padding и border в общей ширине */
 }
 
 
@@ -1684,10 +1693,23 @@ strong{
 }
 
 .info-card-desc img {
-  display: none;
-  object-fit: contain; 
-  width: 100%; 
+  display: block; /* Убираем -webkit-box для изображений */
+  max-width: 100%; !important; /* Ограничивает ширину изображения размером родительского блока */
+  height: auto; !important;   /* Автоматически сохраняет соотношение сторон */
+  width: auto; !important;    /* Убирает фиксированную ширину */
+  min-width: 0; !important;   /* Убираем возможные минимальные значения ширины */
+  padding: 0;
+  margin: 0;
+    object-fit: contain;  /* Обеспечивает адаптацию картинки в контейнере */
 }
+
+@media (max-width: 400px) {
+    .info-card-desc img {
+        width: 100% !important; /* Принудительно растягиваем на всю ширину контейнера */
+        height: auto !important;
+    }
+}
+
 
 .info-card-desc p:empty {
     display: none;
