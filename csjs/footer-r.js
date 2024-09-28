@@ -79,16 +79,16 @@
     <div class="cusa-radio">    
 
     <label class="custom-radio">
-      <input type="radio" name="color" value="standart" id="standart">
+      <input type="radio" name="color" value="standard" id="standard">
       <span class="radio-btn"></span>
-      Standart
+      Standard
       </label>
 
       
       <label class="custom-radio">
-      <input type="radio" name="color" value="blue" id="blue">
+      <input type="radio" name="color" value="violet" id="violet">
       <span class="radio-btn"></span>
-      Blue
+      Violet
       </label>
 
 
