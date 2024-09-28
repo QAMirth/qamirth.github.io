@@ -59,7 +59,7 @@
       <label class="custom-radio">
         <input type="radio" name="fontSize" value="normal" id="normal">
         <span class="radio-btn"></span>
-        Standart
+        Normal
       </label>
 
       <label class="custom-radio">
