@@ -21,5 +21,14 @@
         // setTimeout(() => {
         //     searchPanel.classList.toggle('open'); // Для тестирования
         // }, 1000);
+
+
+
+ document.querySelectorAll('.info-card-desc img').forEach(function(img) {
+    img.style.width = '100%';    
+    img.style.height = 'auto';  
+    img.removeAttribute('width');  
+    img.removeAttribute('height'); 
+});
     
 
