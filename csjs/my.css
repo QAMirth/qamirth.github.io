@@ -1693,7 +1693,7 @@ strong{
 }
 
 .info-card-desc img {
-  display: block; /* Убираем -webkit-box для изображений */
+  display: none; /* Убираем -webkit-box для изображений */
   max-width: 100%; !important; /* Ограничивает ширину изображения размером родительского блока */
   height: auto; !important;   /* Автоматически сохраняет соотношение сторон */
   width: auto; !important;    /* Убирает фиксированную ширину */
