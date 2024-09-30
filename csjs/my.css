@@ -217,12 +217,12 @@
     --pad-small: var(--10);
     --border-radius: var(--7a5);
 
-  --link-a: #0057AB;
-  --link-b: #2175C7;
-  --link-c: #3B82C7;
-  --link-a-hover: #3B82C7;
-  --link-b-hover: #5A9BD9;
-  --link-c-hover: #5A9BD9;
+ --link-a: #008383;
+  --link-b: #1CACAC;
+  --link-c: #33ACAC;
+  --link-a-hover: #33ACAC;
+  --link-b-hover: #52C7C7;
+  --link-c-hover: #52C7C7;
 
     --900: rgba(0, 0, 0, 0.97);
     --800: rgba(0, 0, 0, 0.85);
