@@ -216,7 +216,8 @@
     --pad: var(--25);
     --pad-small: var(--10);
     --border-radius: var(--7a5);
-
+      
+/* This is a set of changeable colors */
  --link-a: #008383;
   --link-b: #1CACAC;
   --link-c: #33ACAC;
@@ -224,6 +225,7 @@
   --link-b-hover: #52C7C7;
   --link-c-hover: #52C7C7;
 
+/* This is a set of unchangeable colors */
     --900: rgba(0, 0, 0, 0.97);
     --800: rgba(0, 0, 0, 0.85);
     --750: rgba(0, 0, 0, 0.8);
@@ -237,6 +239,8 @@
     --200: rgba(0, 0, 0, 0.05);
     --100: rgba(0, 0, 0, 0.04);
     --000: rgb(255, 255, 255);
+
+      
     --0: 0;
     --2a5: 2px;
     --5: 4px;
