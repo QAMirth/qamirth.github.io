@@ -984,6 +984,10 @@
   content: "manage_accounts";
 }
 
+.moth::before {
+  content: "sms";
+}
+
 .addd::before {
   /*! margin-right: var(--10); */
   font-size: var(--icon-size);
