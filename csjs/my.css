@@ -2361,6 +2361,10 @@ select.codeButtons {
     display: none;
   }
 
+    .container {
+  max-width: 100%;
+  }
+
   .main-container {
     /*! --gap-size: 80px; */
     --sidebar-size-r: 100%;
