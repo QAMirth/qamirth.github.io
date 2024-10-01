@@ -3531,6 +3531,8 @@ position: static; /* fixed */
 
 .user-pref{
     fill: var(--000);
+     width: 24px;
+  height:24px;
   }
 
 .sidebar-block {
