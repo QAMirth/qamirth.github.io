@@ -12,7 +12,7 @@
 <h2 class="sidebar-block-title" role="heading" aria-level="2">Order</h2>
 </div>
 <select id="sort-filter-r" onchange="sortMaterials()">
-<option value="title-asc">Titleа (A)</option>
+<option value="title-asc">Title (A)</option>
 <option value="title-desc">Title (D)</option>
 </select>
 
