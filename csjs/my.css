@@ -3168,7 +3168,7 @@ font-weight: 600;
   content: '\e900';
   font-family: 'CI';
   font-size: var(--bwh);
-  color: var(--link-c);
+  color: var(--link-c-hover);
 }
 
 .open1 {width: var(--bwh);
