@@ -172,7 +172,7 @@
 
 @layer defaults {
   :root {
-    --tpl-font-system: "Source Sans 3", "QA-serif", system-ui, "Segoe UI", "Nunito Sans",  Arial, sans-serif;
+    --tpl-font-system:  system-ui, "Segoe UI", "QA-serif", "Source Sans 3",  "Nunito Sans",  Arial, sans-serif;
 --tpl-font-size-extra-small: 13px;
   --tpl-font-size-small: 14px;
   --tpl-font-size: 15px;
@@ -237,7 +237,7 @@
     --300: rgba(0, 0, 0, 0.13);
     --250: rgba(0, 0, 0, 0.05);
     --200: rgba(0, 0, 0, 0.05);
-    --100: rgba(0, 0, 0, 0.04);
+    --100: rgba(0, 0, 0, 0.03);
     --000: rgb(255, 255, 255);
 
       
@@ -258,7 +258,7 @@
     --45: 44px;
     --50: 48px;
     --sidebar-size-l: 220px;
-    --sidebar-size-r: 240px;
+    --sidebar-size-r: 300px;
     --max-height-header: 76px;
 
 --mp-top: var(--pad);
@@ -719,7 +719,7 @@
   margin-bottom: var(--pad-big);
   background-color: var(--000);
   padding: var(--15) var(--pad);
-  border: 1px solid var(--300);
+  /*! border: 1px solid var(--300); */
   border-radius: var(--border-radius);
   box-shadow: 0 1px 2px rgba(0,0,0,.2);
 }
@@ -826,7 +826,7 @@
   top: 0;
   width: 100%;
   z-index: 999;
-  border-bottom: 1px solid var(--300); 
+  /*! border-bottom: 1px solid var(--300); */ 
   padding: var(--header-top) 0 var(--header-bottom) 0;
   box-shadow: 0 1px 2px rgba(0,0,0,.1);
   max-height: var(--max-height-header);
@@ -1300,23 +1300,23 @@
 
 .sidebar-block,
 .sidebar-block2, .sidebar-block3 {
-  /*! background-color: var(--000); */
+  background-color: var(--000);
   border-radius: var(--border-radius);
   /*! border: 1px solid var(--300); */
   position: static;
   margin-bottom: var(--pad-small);
   width: var(--sidebar-size-r);
-  /*! box-shadow: 0 1px 2px rgba(0,0,0,.2); */
+  box-shadow: 0 1px 2px rgba(0,0,0,.2);
 }
 
 
 .sidebar-block-l {
-  /*! background-color: var(--000); */
+  background-color: var(--000);
   border-radius: var(--border-radius);
   /*! border: 1px solid var(--300); */
   position: fixed;
   width: var(--sidebar-size-l);
-  /*! box-shadow: 0 1px 2px rgba(0,0,0,.2); */
+  box-shadow: 0 1px 2px rgba(0,0,0,.2);
 }
 
 .sidebar-block-footer .inner-footer {
@@ -1334,7 +1334,7 @@
   display:flex;
   flex-direction: column-reverse;
   border-radius: inherit;
-  padding: var(--pad-small) var(--pad-small);
+  /*! padding: var(--pad-small) var(--pad-small); */
 }
 
 .sidebar-block-title {
@@ -1535,7 +1535,7 @@
 :where(.info-box) .info-card {
   background-color: var(--000);
   padding: var(--mp-top) var(--mp-right) var(--mp-bottom) var(--mp-left);
-  border: 1px solid var(--300);
+  /*! border: 1px solid var(--300); */
   border-radius: var(--mp-border-radius);
   display: flex;
   flex-direction: column;
