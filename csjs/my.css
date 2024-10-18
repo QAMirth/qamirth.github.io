@@ -1640,7 +1640,7 @@ background-color: var(--200);
   flex: 1;
   display: var(--icc-display);
   flex-direction: column;
-  line-height: 1.75;
+  line-height: 1.64;
   color: var(--900);
 
   width: 100%; /* Чтобы родительский блок был гибким 12312313123123*/
