@@ -86,9 +86,9 @@
       
 
     <label class="custom-radio">
-      <input type="radio" name="color" value="blue" id="blue">
+      <input type="radio" name="color" value="teal" id="teal">
       <span class="radio-btn"></span>
-      Blue
+      Teal
       </label>
 
       
