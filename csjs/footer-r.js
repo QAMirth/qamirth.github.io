@@ -11,7 +11,7 @@
 <div class="stdb-first">
 <h2 class="sidebar-block-title" role="heading" aria-level="2">Order</h2>
 </div>
-<select id="sort-filter-r" onchange="sortMaterials()">
+<select id="sort-filter-r"  aria-label="Order" onchange="sortMaterials()">
 <option value="title-asc">Title (A)</option>
 <option value="title-desc">Title (D)</option>
 </select>
@@ -20,10 +20,10 @@
 <div class="stdb">
 <h2 class="sidebar-block-title" role="heading" aria-level="2">Filters</h2>
 </div>
-<select id="format-filter-r" onchange="filterMaterials()">
+<select id="format-filter-r" aria-label="Format" onchange="filterMaterials()">
 <option value="">All Formats</option>
 </select>
-<select id="freepaid-filter-r" onchange="filterMaterials()">
+<select id="freepaid-filter-r"  aria-label="License" onchange="filterMaterials()">
 <option value="">All Free/Paid</option>
 </select>
 
