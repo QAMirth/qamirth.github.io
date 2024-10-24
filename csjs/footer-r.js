@@ -179,8 +179,8 @@
                   <div class="sidebar-block-content-footer">
                     <!--<footer>-->
                      <ul>
-                      <li class="copyright-footer-item">© <span id="currentYear"></span> <a href="../99/katzeniy.html">Katzeniy</a></li>
-                      <span class="spf">·</span>
+                      <li class="copyright-footer-item">© <span id="currentYear"></span> <a href="../99/katzeniy.html">Katzeniy</a><span class="spf">·</span></li>
+                      
              <li class="footer-item"><a class="footer-link" href="#" data-modal="aboutModal">About</a><span class="spf"> · </span></li>
                       <li class="footer-item"><a class="footer-link2" href="../99/katzeniy.html">Author</a><span class="spf"> · </span></li>
          <li class="footer-item"><a class="footer-link" href="#" data-modal="feedbackModal">Feedback</a><span class="spf"> · </span></li>
