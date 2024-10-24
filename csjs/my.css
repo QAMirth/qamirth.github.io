@@ -1799,26 +1799,6 @@ strong{
     flex-basis: 100%; 
 }
 
-.format::before {
-    font-family: "Material Icons Outlined";
-    content: 'folder_open'; 
-  margin-right:var(--5);
-  color: var(--550);
-  }
-
-.freepaid::before {
-    font-family: "Material Icons Outlined";
-    content: 'bookmark_manager'; 
-  margin-right:var(--5);
-  color: var(--550);
-  }
-
-.tags::before {
-    font-family: "Material Icons Outlined";
-    content: 'more'; 
-  margin-right:var(--0);
-  color: var(--550);
-  }
 
 .ft2,
 .fp2,
