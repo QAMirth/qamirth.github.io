@@ -272,7 +272,7 @@
     calc(200px + var(--15));
     --menuha-link:
     var(--link-a);
-    --menuha-weight: 600;
+    --menuha-weight: 500;
     --trah:
     translateY(-180%);
     --right-search:  185px;
@@ -3114,7 +3114,7 @@ font-weight: 600;
             color: var(--link-a);
             font: normal 400 var(--tpl-font-size) / 1.4 var(--tpl-font-system);
             font-size: var(--tpl-font-size);
-            font-weight:600;
+            font-weight:500;
         }
 
         .num {
