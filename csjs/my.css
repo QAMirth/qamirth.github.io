@@ -3118,7 +3118,7 @@ font-weight: 600;
         }
 
         .num {
-            color: var(--500);
+            color: var(--550);
             font-size: var(--tpl-font-size-extra-small);
         }
 
