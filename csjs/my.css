@@ -2992,7 +2992,7 @@ select.codeButtons {
   font-family: "Material Icons Outlined";
   font-style: normal;
   font-weight: 300;
-  font-display: swap;
+font-display: block;
   src: url(myicons.woff2) format("woff2");
   font-variation-settings:
     'FILL' 0,  
