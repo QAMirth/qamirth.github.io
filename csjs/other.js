@@ -132,7 +132,7 @@ const linkOrigin = new URL(material.link).origin;
                 </div>
             </div>
             <div class="ex1">
-                <a class="button-link2" role="link"></a> 
+                <a class="button-link2" role="link" aria-label="Open/close text"></a> 
             </div>
         </div>
         <div class="info-card-content">
@@ -141,7 +141,7 @@ const linkOrigin = new URL(material.link).origin;
             </div>
             <div class="info-card-format">
                  <cite class="fwho121" role="text">${linkOrigin}</cite>
-                <div class="bl3"><a class="button-link3" role="link"></a></div>
+                <div class="bl3"><a class="button-link3" role="link" aria-label="Close text"></a></div>
             </div>
         </div>
             <button class="delete-material">&times;</button>
