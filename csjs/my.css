@@ -1620,7 +1620,7 @@ background-color: var(--200);
 
 .fwho121 {
     font-size: var(--tpl-font-size-extra-small);
-    /*! line-height: 18px; */
+    display: none;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -1827,7 +1827,7 @@ strong{
   font: normal 400 var(--tpl-font-size-extra-small) / 1.4 var(--tpl-font-system);
   margin-right: var(--5);
   /*! margin-bottom: var(--5); */
-  font-size: var(--tpl-font-size);
+  font-size: var(--tpl-font-size-extra-small);
   background: var(--000);
   padding: var(--0) var(--0);
   border-radius: var(--border-radius);
@@ -1836,7 +1836,7 @@ strong{
 }
 
 .ft2, .fp2, .tg2 {
-  color: var(--600);
+  color: var(--550);
   font-weight: 400;
 }
 
