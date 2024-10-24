@@ -2976,7 +2976,7 @@ font-display: block;
   src: url(myicons.woff2) format("woff2");
   font-variation-settings:
     'FILL' 0,  
-    'wght' 200,  
+    'wght' 300,  
     'GRAD' 0,    
     'opsz' 24;  
 }
