@@ -34,7 +34,7 @@ document.write(`
 
 
 <div id="header_mb_search" class="header-search">
-<button class="header-mobile-button-pc js-mb-search-btn">
+<button class="header-mobile-button-pc js-mb-search-btn" aria-label="Search">
 
 <svg class="header-mobile-icon" xmlns="http://www.w3.org/2000/svg" id="search_icon" viewBox="0 0 18 19" fill="none"><path d="M12.0962 3.40381C14.6346 5.94221 14.6346 10.0578 12.0962 12.5962C9.55779 15.1346 5.44221 15.1346 2.90381 12.5962C0.365398 10.0578 0.365398 5.94221 2.90381 3.40381C5.44221 0.865398 9.55779 0.865398 12.0962 3.40381Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.5 13L16.5 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
 
