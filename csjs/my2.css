@@ -1,3 +1,26 @@
+
+.format::before {
+    font-family: "Material Icons Outlined";
+    content: 'folder_open'; 
+  margin-right:var(--5);
+  color: var(--550);
+  }
+
+.freepaid::before {
+    font-family: "Material Icons Outlined";
+    content: 'bookmark_manager'; 
+  margin-right:var(--5);
+  color: var(--550);
+  }
+
+.tags::before {
+    font-family: "Material Icons Outlined";
+    content: 'more'; 
+  margin-right:var(--0);
+  color: var(--550);
+  }
+
+
 @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 @layer reset,defaults,components; @layer reset {
     * {
