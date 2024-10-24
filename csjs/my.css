@@ -1614,7 +1614,7 @@ background-color: var(--200);
 
 .fwho12 {
     align-items: center;
-    display: flex;
+    /*! display: flex; */
     flex-direction: row;
 }
 
@@ -1789,12 +1789,12 @@ strong{
   gap: var(--5);
 }
 
-.info-card-format .format,
-.info-card-format .freepaid {
+.fwho12 .format,
+ .fwho12 .freepaid {
     display: inline-block; 
 }
 
-.info-card-format .tags {
+ .fwho12 .tags {
    display:block;
     flex-basis: 100%; 
 }
