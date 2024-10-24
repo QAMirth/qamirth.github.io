@@ -2103,7 +2103,7 @@ select.codeButtons {
 
   .main-menu {
     min-width: 110px;
-    margin: 0 0 0 0px;
+    margin: 0 0 0 -40px;
     width: calc(
       var(--tpl-max-layout-width) - var(--15) - var(--15) -
         var(--sidebar-size)
