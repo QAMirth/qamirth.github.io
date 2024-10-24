@@ -198,7 +198,7 @@
     --tpl-font-header-4: normal 600
     var(--tpl-font-size-plus) / 1.3 var(--tpl-font-system);
     --tpl-transition: 0.2s ease;
-    --tpl-max-layout-width: 1140px;
+    --tpl-max-layout-width: 1540px;
     --tpl-border-line-100: 1px solid
     var(--250);
     --header-top: var(--7a5);
@@ -214,12 +214,12 @@
     --border-radius: var(--7a5);
       
 /* This is a set of changeable colors */
- --link-a: #008383;
-  --link-b: #1CACAC;
-  --link-c: #33ACAC;
-  --link-a-hover: #33ACAC;
-  --link-b-hover: #52C7C7;
-  --link-c-hover: #52C7C7;
+ --link-a: #3f51b5;
+  --link-b: #5E6FCD;
+  --link-c: #6F7ECD;
+  --link-a-hover: #6F7ECD;
+  --link-b-hover: #8996DE;
+  --link-c-hover: #96A1DE;
 
 /* This is a set of unchangeable colors */
     --900: rgba(0, 0, 0, 0.9);
