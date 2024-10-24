@@ -120,7 +120,11 @@ const linkOrigin = new URL(material.link).origin;
                         </div>
                     </div>
                     <div class="fwho12">
-                        <cite class="fwho121" role="text">${linkOrigin}</cite>
+                        <span class="format">${formatLinks}</span>
+                        <span class="freepaid">${freepaidLinks}</span>
+                        <span class="tags">
+                            <span class="tg">${material.tagsHTML}</span>
+                        </span>  
                     </div>
                 </div>
                 <div class="fwho13">
@@ -128,7 +132,7 @@ const linkOrigin = new URL(material.link).origin;
                 </div>
             </div>
             <div class="ex1">
-                <a class="button-link2"></a> 
+                <a class="button-link2" role="link"></a> 
             </div>
         </div>
         <div class="info-card-content">
@@ -136,12 +140,8 @@ const linkOrigin = new URL(material.link).origin;
                 ${material.description}
             </div>
             <div class="info-card-format">
-                <span class="format">${formatLinks}</span>
-                <span class="freepaid">${freepaidLinks}</span>
-                <span class="tags">
-                    <span class="tg">${material.tagsHTML}</span>
-                </span>
-                <div class="bl3"><a class="button-link3"></a></div>
+                 <cite class="fwho121" role="text">${linkOrigin}</cite>
+                <div class="bl3"><a class="button-link3" role="link"></a></div>
             </div>
         </div>
             <button class="delete-material">&times;</button>
