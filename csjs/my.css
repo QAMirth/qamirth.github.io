@@ -3573,14 +3573,14 @@ position: static; /* fixed */
     margin-right: var(--0); 
     background: var(--link-c);
 }
-  }
+  
 
   .user-pref{
     fill: var(--000);
     height: 24px;
     width: 24px;
   }
-
+ }
   .sidebar-container {
     display: block;
   }
