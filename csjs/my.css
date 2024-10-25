@@ -3114,7 +3114,7 @@ font-weight: 600;
       .tag a {
             color: var(--link-a);
             font: normal 400 var(--tpl-font-size) / 1.4 var(--tpl-font-system);
-            font-size: var(--tpl-font-size);
+            font-size: var(--tpl-font-size-small);
             font-weight:500;
         }
 
