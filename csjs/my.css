@@ -272,7 +272,7 @@
     calc(200px + var(--15));
     --menuha-link:
     var(--link-a);
-    --menuha-weight: 500;
+    --menuha-weight: 600;
     --trah:
     translateY(-180%);
     --right-search:  185px;
