@@ -208,6 +208,7 @@
     --icon-size: 20px;
     --search-line-height: 36px;
     --bwh: 36px;
+    --lg: 40px;
     --pad-big: var(--10);
     --pad: var(--25);
     --pad-small: var(--10);
@@ -1576,14 +1577,14 @@
 :where(.info-box) .info-card-label {
   display: flex;
   overflow: hidden;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
 }
 
 .flog1{
   margin-right: var(--15);
-  width: 56px;
-  height: 56px;
+  width: var(--lg);
+  height: var(--lg);
 }
 
 .flog11{
@@ -1591,16 +1592,16 @@
   vertical-align: middle;
   border: 1px solid var(--200);
   border-radius: 9999px;
-  width: 56px;
-  height: 56px;
+  width: var(--lg);
+  height: var(--lg);
 }
 
 .ggh {
-  width: 56px;
-  height: 56px;
+  width: var(--lg);
+  height: var(--lg);
   object-fit: cover;
 background-color: var(--200);
-  border-radius: 9999px;
+  border-radius: 2px;
   display: block;
 }
 
@@ -1659,8 +1660,8 @@ strong{
 .ttc {
   color: var(--link-a);
   display:block;
-  width: 56px;
-  height: 56px;
+  width: var(--lg);
+  height: var(--lg);
   border-radius: 9999px;
 }
 
