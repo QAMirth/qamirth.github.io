@@ -173,7 +173,11 @@
 
 
 
-    <div class="info-card static" data-title="pairwise online tool" id="pairwise-online-tool">
+
+
+
+
+<div class="info-card static" data-title="pairwise online tool" id="pairwise-online-tool">
         <div class="info-who">
             <div class="info-card-label">
                 <span class="flog1">
@@ -363,18 +367,16 @@
         </div>
 
 
-                  
 
 
 
 
-
-                  <div class="info-card static" data-title="pict (pairwise independent combinatorial tool)" id="pict-(pairwise-independent-combinatorial-tool)">
+<div class="info-card static" data-title="pict (pairwise independent combinatorial tool)" id="pict-(pairwise-independent-combinatorial-tool)">
         <div class="info-who">
             <div class="info-card-label">
                 <span class="flog1">
                     <div class="flog11">
-                        <a href="https://github.com/microsoft/pict" class="ttc" target="_blank" rel="nofollow"><img src="https://avatars.githubusercontent.com/u/6154722?s=48&amp;v=4" alt="#" class="ggh"></a>
+                        <a href="https://github.com/microsoft/pict" class="ttc" target="_blank" rel="nofollow"><img src="/img/13.png" alt="#" class="ggh"></a>
                     </div>
                 </span>
                 <div class="fwho1">
@@ -384,7 +386,11 @@
                         </div>
                     </div>
                     <div class="fwho12">
-                        <cite class="fwho121" role="text">https://github.com</cite>
+                        <span class="format"><a href="/99/search.html?t=0&amp;q=%23CLI" class="ft2">#CLI</a></span>
+                        <span class="freepaid"><a href="/99/search.html?t=0&amp;q=%23Free" class="fp2">#Free</a></span>
+                        <span class="tags">
+                            <span class="tg"><a href="/99/search.html?t=0&amp;q=%23black%20box%20testing" class="tg2">#black box testing</a> <a href="/99/search.html?t=0&amp;q=%23pairwise%20testing" class="tg2">#pairwise testing</a> <a href="/99/search.html?t=0&amp;q=%23command%20line" class="tg2">#command line</a></span>
+                        </span>  
                     </div>
                 </div>
                 <div class="fwho13">
@@ -392,33 +398,30 @@
                 </div>
             </div>
             <div class="ex1">
-                <a class="button-link2"></a> 
+                <a class="button-link2" role="link" aria-label="Open/close text"></a> 
             </div>
         </div>
         <div class="info-card-content">
             <div class="info-card-desc">
-                <p>The application is similar to the Allpairs , as it also runs from the command line. The program takes as input a simple text file with parameters and their values, and as an output, it provides the generated test scripts.</p><p><br></p><p>PICT generates test cases and test configurations. With PICT, you can generate tests that are more effective than manually generated tests and in a fraction of the time required by hands-on test case design.</p><p>PICT runs as a command line tool. Prepare a model file detailing the parameters of the interface (or set of configurations, or data) you want to test. PICT generates a compact set of parameter value choices that represent the test cases you should use to get comprehensive combinatorial coverage of your parameters.</p><p>For instance, if you wish to create a test suite for partition and volume creation, the domain can be described by the following parameters: <strong>Type</strong>, <strong>Size</strong>, <strong>File system</strong>, <strong>Format method</strong>, <strong>Cluster size</strong>, and <strong>Compression</strong>. Each parameter has a limited number of possible values, each of which is determined by its nature (for example, <strong>Compression</strong> can only be <strong>On</strong> or <strong>Off</strong>) or by the equivalence partitioning (such as <strong>Size</strong>).</p><p><br></p><pre class="ql-syntax" spellcheck="false">Type:          Single, Span, Stripe, Mirror, RAID-5
+                <p>The application is similar to the Allpairs , as it also runs from the command line. The program takes as input a simple text file with parameters and their values, and as an output, it provides the generated test scripts.</p><p><br></p><p>PICT generates test cases and test configurations. With PICT, you can generate tests that are more effective than manually generated tests and in a fraction of the time required by hands-on test case design.</p><p>PICT runs as a command line tool. Prepare a model file detailing the parameters of the interface (or set of configurations, or data) you want to test. PICT generates a compact set of parameter value choices that represent the test cases you should use to get comprehensive combinatorial coverage of your parameters.</p><p>For instance, if you wish to create a test suite for partition and volume creation, the domain can be described by the following parameters: <strong>Type</strong>, <strong>Size</strong>, <strong>File system</strong>, <strong>Format method</strong>, <strong>Cluster size</strong>, and <strong>Compression</strong>. Each parameter has a limited number of possible values, each of which is determined by its nature (for example, <strong>Compression</strong> can only be <strong>On</strong> or <strong>Off</strong>) or by the equivalence partitioning (such as <strong>Size</strong>).</p><pre class="ql-syntax" spellcheck="false">Type:          Single, Span, Stripe, Mirror, RAID-5
 Size:          10, 100, 500, 1000, 5000, 10000, 40000
 Format method: Quick, Slow
 File system:   FAT, FAT32, NTFS
 Cluster size:  512, 1024, 2048, 4096, 8192, 16384, 32768, 65536
 Compression:   On, Off
-</pre><p><br></p><p>There are thousands of possible combinations of these values. It would be difficult to test all of them in a reasonable amount of time. Instead, we settle on testing all possible pairs of values. For example, <strong>{Single, FAT}</strong> is one pair, <strong>{10, Slow}</strong> is another; one test case can cover many pairs. Research shows that testing all pairs is an effective alternative to exhaustive testing and much less costly. It will provide very good coverage and the number of test cases will remain manageable.</p>
+</pre><p>There are thousands of possible combinations of these values. It would be difficult to test all of them in a reasonable amount of time. Instead, we settle on testing all possible pairs of values. For example, <strong>{Single, FAT}</strong> is one pair, <strong>{10, Slow}</strong> is another; one test case can cover many pairs. Research shows that testing all pairs is an effective alternative to exhaustive testing and much less costly. It will provide very good coverage and the number of test cases will remain manageable.</p>
             </div>
             <div class="info-card-format">
-                <span class="format"><a href="/99/search.html?t=0&amp;q=%23CLI" class="ft2">#CLI</a></span>
-                <span class="freepaid"><a href="/99/search.html?t=0&amp;q=%23Free" class="fp2">#Free</a></span>
-                <span class="tags">
-                    <span class="tg"><a href="/99/search.html?t=0&amp;q=%23black%20box%20testing" class="tg2">#black box testing</a> <a href="/99/search.html?t=0&amp;q=%23pairwise%20testing" class="tg2">#pairwise testing</a> <a href="/99/search.html?t=0&amp;q=%23command%20line" class="tg2">#command line</a></span>
-                </span>
-                <div class="bl3"><a class="button-link3"></a></div>
+                 <cite class="fwho121" role="text">https://github.com</cite>
+                <div class="bl3"><a class="button-link3" role="link" aria-label="Close text"></a></div>
             </div>
         </div>
             <button class="delete-material2">×</button>
             <button class="copy-html2">Copy HTML</button>
             <button class="edit-material2">Edit</button>
         </div>
-                  
+
+
 
 
 
@@ -427,17 +430,21 @@ Compression:   On, Off
             <div class="info-card-label">
                 <span class="flog1">
                     <div class="flog11">
-                        <a href="https://inductive.no/pairwiser-tool/" class="ttc" target="_blank" rel="nofollow"><img src="../csjs/mirth.svg" alt="#" class="ggh"></a>
+                        <a href="https://inductive.no/pairwiser-tool/ " class="ttc" target="_blank" rel="nofollow"><img src="../csjs/mirth.svg" alt="#" class="ggh"></a>
                     </div>
                 </span>
                 <div class="fwho1">
                     <div class="fwho11">
                         <div class="info-card-title">
-                            <a href="https://inductive.no/pairwiser-tool/" class="ttb" target="_blank" rel="nofollow">Pairwiser</a>
+                            <a href="https://inductive.no/pairwiser-tool/ " class="ttb" target="_blank" rel="nofollow">Pairwiser</a>
                         </div>
                     </div>
                     <div class="fwho12">
-                        <cite class="fwho121" role="text">https://inductive.no</cite>
+                        <span class="format"><a href="/99/search.html?t=0&amp;q=%23Online" class="ft2">#Online</a></span>
+                        <span class="freepaid"><a href="/99/search.html?t=0&amp;q=%23Free" class="fp2">#Free</a></span>
+                        <span class="tags">
+                            <span class="tg"><a href="/99/search.html?t=0&amp;q=%23black%20box%20testing" class="tg2">#black box testing</a> <a href="/99/search.html?t=0&amp;q=%23pairwise%20testing" class="tg2">#pairwise testing</a> <a href="/99/search.html?t=0&amp;q=%23generator" class="tg2">#generator</a> <a href="/99/search.html?t=0&amp;q=%23generate%20pairwise" class="tg2">#generate pairwise</a> <a href="/99/search.html?t=0&amp;q=%23online%20tool" class="tg2">#online tool</a> <a href="/99/search.html?t=0&amp;q=%23creating%20a%20test%20plan" class="tg2">#creating a test plan</a> <a href="/99/search.html?t=0&amp;q=%23requires%20registration" class="tg2">#requires registration</a></span>
+                        </span>  
                     </div>
                 </div>
                 <div class="fwho13">
@@ -445,20 +452,16 @@ Compression:   On, Off
                 </div>
             </div>
             <div class="ex1">
-                <a class="button-link2"></a> 
+                <a class="button-link2" role="link" aria-label="Open/close text"></a> 
             </div>
         </div>
         <div class="info-card-content">
             <div class="info-card-desc">
-                <p>The Pairwiser online service allows downloading or creating a test plan, defining the parameters of the system to be tested, and generating a list of tests and test scripts. The service is free but requires registration.</p><p>To generate tests, you must first define the parameters of the tested system. The parameters are specified on the  «Define Parameters» tab.</p><p><a href="https://en.training.qatestlab.com/wp-content/uploads/2023/05/3-Вкладка-Define-Parameters-789x1024.png" target="_blank"><img src="https://en.training.qatestlab.com/wp-content/uploads/2023/05/3-Вкладка-Define-Parameters.png" alt="The «Define Parameters» tab" height="1087" width="838"></a></p><p><br></p><p>Constraints should be used if there is a need to exclude any combination from the test plan. If there are mandatory tests or parameter settings that must be included in the test suite, they can be specified on the «Required Tests» tab.</p><p><br></p><p><a href="https://en.training.qatestlab.com/wp-content/uploads/2023/05/4-Вкладка-Required-Tests.png" target="_blank"><img src="https://en.training.qatestlab.com/wp-content/uploads/2023/05/4-Вкладка-Required-Tests.png" alt="The «Required Tests» tab" height="280" width="838"></a></p><p><br></p><p>Test variations are created on the «Generate Tests» tab. You can generate 1-wise, 2-wise, and 3-wise tests (tests with 1/2/3 parameters) and mixed tests.&nbsp;It is also possible to include pre-decided required checks in the list. If the goal is to create a checklist, then this can be the last step in this tool.&nbsp;</p><p>Select the required degree of test thoroughness and create the tests – as a result, you will get a table with combinations of parameters that exclude the constraints specified in the first tab. The results from this tab can be exported to Excel or Jira.</p><p><br></p><p><a href="https://en.training.qatestlab.com/wp-content/uploads/2023/05/5-Вкладка-Generate-Tests.png" target="_blank"><img src="https://en.training.qatestlab.com/wp-content/uploads/2023/05/5-Вкладка-Generate-Tests.png" alt="The «Generate Tests» tab" height="582" width="838"></a></p><p><br></p><p>After the parameters of the tested system are defined and tests are created, you can write test scripts with the necessary parameters: preconditions, steps, expected results and postconditions by using the «Test Script Template» tab. If there is already a template, test scripts can be created by using the «Test Scripts» tab.</p><p><br></p><p><a href="https://en.training.qatestlab.com/wp-content/uploads/2023/05/6-Вкладка-Test-Scripts.png" target="_blank"><img src="https://en.training.qatestlab.com/wp-content/uploads/2023/05/6-Вкладка-Test-Scripts.png" alt="The «Test Scripts» tab" height="418" width="838"></a></p><p><br></p><p><a href="https://en.training.qatestlab.com/wp-content/uploads/2023/05/7-Вкладка-Test-Scripts-продовження.png" target="_blank"><img src="https://en.training.qatestlab.com/wp-content/uploads/2023/05/7-Вкладка-Test-Scripts-продовження.png" alt="The «Test Scripts» tab (continuation)" height="568" width="838"></a></p><p><br></p><p><a href="https://en.training.qatestlab.com/blog/technical-articles/pairwise-tools-creating-test-plans-by-using-test-design-techniques/" target="_blank">The material text link</a></p>
+                <p>The Pairwiser online service allows downloading or creating a test plan, defining the parameters of the system to be tested, and generating a list of tests and test scripts. The service is free but requires registration.</p><p>To generate tests, you must first define the parameters of the tested system. The parameters are specified on the «Define Parameters» tab.</p><p><br></p><p><a href="https://en.training.qatestlab.com/wp-content/uploads/2023/05/3-Вкладка-Define-Parameters-789x1024.png" target="_blank"><img src="https://en.training.qatestlab.com/wp-content/uploads/2023/05/3-Вкладка-Define-Parameters.png" alt="The «Define Parameters» tab"></a></p><p><br></p><p>Constraints should be used if there is a need to exclude any combination from the test plan. If there are mandatory tests or parameter settings that must be included in the test suite, they can be specified on the «Required Tests» tab.</p><p><br></p><p><a href="https://en.training.qatestlab.com/wp-content/uploads/2023/05/4-Вкладка-Required-Tests.png" target="_blank"><img src="https://en.training.qatestlab.com/wp-content/uploads/2023/05/4-Вкладка-Required-Tests.png" alt="The «Required Tests» tab"></a></p><p><br></p><p>Test variations are created on the «Generate Tests» tab. You can generate 1-wise, 2-wise, and 3-wise tests (tests with 1/2/3 parameters) and mixed tests.&nbsp;It is also possible to include pre-decided required checks in the list. If the goal is to create a checklist, then this can be the last step in this tool.&nbsp;</p><p>Select the required degree of test thoroughness and create the tests – as a result, you will get a table with combinations of parameters that exclude the constraints specified in the first tab. The results from this tab can be exported to Excel or Jira.</p><p><br></p><p><a href="https://en.training.qatestlab.com/wp-content/uploads/2023/05/5-Вкладка-Generate-Tests.png" target="_blank"><img src="https://en.training.qatestlab.com/wp-content/uploads/2023/05/5-Вкладка-Generate-Tests.png" alt="The «Generate Tests» tab"></a></p><p><br></p><p>After the parameters of the tested system are defined and tests are created, you can write test scripts with the necessary parameters: preconditions, steps, expected results and postconditions by using the «Test Script Template» tab. If there is already a template, test scripts can be created by using the «Test Scripts» tab.</p><p><br></p><p><a href="https://en.training.qatestlab.com/wp-content/uploads/2023/05/6-Вкладка-Test-Scripts.png" target="_blank"><img src="https://en.training.qatestlab.com/wp-content/uploads/2023/05/6-Вкладка-Test-Scripts.png" alt="The «Test Scripts» tab"></a></p><p><br></p><p><a href="https://en.training.qatestlab.com/wp-content/uploads/2023/05/7-Вкладка-Test-Scripts-продовження.png" target="_blank"><img src="https://en.training.qatestlab.com/wp-content/uploads/2023/05/7-Вкладка-Test-Scripts-продовження.png" alt="The «Test Scripts» tab (continuation)"></a></p>
             </div>
             <div class="info-card-format">
-                <span class="format"><a href="/99/search.html?t=0&amp;q=%23Online" class="ft2">#Online</a></span>
-                <span class="freepaid"><a href="/99/search.html?t=0&amp;q=%23Free" class="fp2">#Free</a></span>
-                <span class="tags">
-                    <span class="tg"><a href="/99/search.html?t=0&amp;q=%23black%20box%20testing" class="tg2">#black box testing</a> <a href="/99/search.html?t=0&amp;q=%23pairwise%20testing" class="tg2">#pairwise testing</a> <a href="/99/search.html?t=0&amp;q=%23generator" class="tg2">#generator</a> <a href="/99/search.html?t=0&amp;q=%23generate%20pairwise" class="tg2">#generate pairwise</a> <a href="/99/search.html?t=0&amp;q=%23online%20tool" class="tg2">#online tool</a> <a href="/99/search.html?t=0&amp;q=%23creating%20a%20test%20plan" class="tg2">#creating a test plan</a> <a href="/99/search.html?t=0&amp;q=%23requires%20registration" class="tg2">#requires registration</a></span>
-                </span>
-                <div class="bl3"><a class="button-link3"></a></div>
+                 <cite class="fwho121" role="text">https://inductive.no</cite>
+                <div class="bl3"><a class="button-link3" role="link" aria-label="Close text"></a></div>
             </div>
         </div>
             <button class="delete-material2">×</button>
@@ -471,7 +474,9 @@ Compression:   On, Off
 
 
 
-                  <div class="info-card static" data-title="hexawise" id="hexawise">
+
+
+<div class="info-card static" data-title="hexawise" id="hexawise">
         <div class="info-who">
             <div class="info-card-label">
                 <span class="flog1">
@@ -486,7 +491,11 @@ Compression:   On, Off
                         </div>
                     </div>
                     <div class="fwho12">
-                        <cite class="fwho121" role="text">https://hexawise.com</cite>
+                        <span class="format"><a href="/99/search.html?t=0&amp;q=%23Online" class="ft2">#Online</a></span>
+                        <span class="freepaid"><a href="/99/search.html?t=0&amp;q=%23Trial" class="fp2">#Trial</a></span>
+                        <span class="tags">
+                            <span class="tg"><a href="/99/search.html?t=0&amp;q=%23manual%20testing" class="tg2">#manual testing</a> <a href="/99/search.html?t=0&amp;q=%23automated%20testing" class="tg2">#automated testing</a> <a href="/99/search.html?t=0&amp;q=%23pairwise" class="tg2">#pairwise</a> <a href="/99/search.html?t=0&amp;q=%23combinatorial%20test%20prioritization" class="tg2">#combinatorial test prioritization</a> <a href="/99/search.html?t=0&amp;q=%23coverage%20reporting" class="tg2">#coverage reporting</a> <a href="/99/search.html?t=0&amp;q=%23risk-based%20testing" class="tg2">#risk-based testing</a> <a href="/99/search.html?t=0&amp;q=%23test%20design%20tool" class="tg2">#test design tool</a> <a href="/99/search.html?t=0&amp;q=%23equivalence%20partitioning" class="tg2">#equivalence partitioning</a> <a href="/99/search.html?t=0&amp;q=%23boundary%20value%20analysis" class="tg2">#boundary value analysis</a></span>
+                        </span>  
                     </div>
                 </div>
                 <div class="fwho13">
@@ -494,20 +503,16 @@ Compression:   On, Off
                 </div>
             </div>
             <div class="ex1">
-                <a class="button-link2"></a> 
+                <a class="button-link2" role="link" aria-label="Open/close text"></a> 
             </div>
         </div>
         <div class="info-card-content">
             <div class="info-card-desc">
-                <p>Hexawise <a href="https://hexawise.com/Hexawise_Introduction.pdf" target="_blank">is a test design tool that will increase the effectiveness of your testing</a>. Hexawise carefully constructs combinations of test conditions to achieve as much coverage as possible in as few tests as possible using applied statistics-based optimization methods that have been refined over more than 40 years.</p><p><br></p><p>Hexawise helps teams achieve a variety of benefits, including but not limited to:</p><ul><li>the execution of fewer tests that simultaneously achieve more coverage</li><li>less time spent selecting and documenting those tests</li><li>better visibility into both exactly what, and how much, is covered after every test</li><li>the ability to export into a wide variety of formats that meet their exact needs</li></ul><p><br></p><h6>How is Hexawise different from other testing tools?</h6><p><br></p><p>Hexawise focuses on the Test Design phase of software testing. Very few other testing tools include funtionality focused on ensuring the right scenarios are being executed. As a result, Hexawise is complementary to – not competitive with – almost all other software testing tools.</p><p>For example, many users export test scenarios from Hexawise and import them into test management tools such as ALM / Quality Center and Jira (with Zephyr or X-Ray plugins), or test execution tools like Selenium, Cucumber, Protractor, or Tosca.</p><p><br></p><p>Most likely. Hexawise applicability is not exclusive to any industry, type of testing, or testing strategies. Hexawise is useful in every circumstance you can think of whether test execution is manual or automated. However, here are a few of the most common use cases for Hexawise:</p><p>Industries:</p><ul><li>Insurance</li><li>Banking</li><li>Capital Markets</li><li>Travel</li><li>Health Care</li></ul><p>Types of Testing:</p><ul><li>Web Application</li><li>Services-Layer</li><li>UI / UX</li><li>Integration-Layer</li><li>Desktop Application</li></ul><p>Testing Strategies:</p><ul><li>Functional</li><li>Regression</li><li>Integration</li><li>End-to-End</li><li>User Acceptance</li></ul><p><br></p><p>Hexawise offers multiple licensing options - found at our Licensing page. Exact Hexawise pricing depends on a number of factors including the desired licensing plan, number of licenses required, necessary implementation support, and any additional tool customizations.</p><p><br></p>
+                <p>Hexawise <a href="https://hexawise.com/Hexawise_Introduction.pdf" target="_blank">is a test design tool that will increase the effectiveness of your testing</a>. Hexawise carefully constructs combinations of test conditions to achieve as much coverage as possible in as few tests as possible using applied statistics-based optimization methods that have been refined over more than 40 years.</p><p><br></p><p>Hexawise helps teams achieve a variety of benefits, including but not limited to:</p><ul><li>the execution of fewer tests that simultaneously achieve more coverage</li><li>less time spent selecting and documenting those tests</li><li>better visibility into both exactly what, and how much, is covered after every test</li><li>the ability to export into a wide variety of formats that meet their exact needs</li></ul><p>How is Hexawise different from other testing tools?</p><p>Hexawise focuses on the Test Design phase of software testing. Very few other testing tools include funtionality focused on ensuring the right scenarios are being executed. As a result, Hexawise is complementary to – not competitive with – almost all other software testing tools.</p><p>For example, many users export test scenarios from Hexawise and import them into test management tools such as ALM / Quality Center and Jira (with Zephyr or X-Ray plugins), or test execution tools like Selenium, Cucumber, Protractor, or Tosca.</p><p><br></p><p>Most likely. Hexawise applicability is not exclusive to any industry, type of testing, or testing strategies. Hexawise is useful in every circumstance you can think of whether test execution is manual or automated. However, here are a few of the most common use cases for Hexawise:</p><p>Industries:</p><ul><li>Insurance</li><li>Banking</li><li>Capital Markets</li><li>Travel</li><li>Health Care</li></ul><p>Types of Testing:</p><ul><li>Web Application</li><li>Services-Layer</li><li>UI / UX</li><li>Integration-Layer</li><li>Desktop Application</li></ul><p>Testing Strategies:</p><ul><li>Functional</li><li>Regression</li><li>Integration</li><li>End-to-End</li><li>User Acceptance</li></ul><p><br></p><p>Hexawise offers multiple licensing options - found at our Licensing page. Exact Hexawise pricing depends on a number of factors including the desired licensing plan, number of licenses required, necessary implementation support, and any additional tool customizations.</p>
             </div>
             <div class="info-card-format">
-                <span class="format"><a href="/99/search.html?t=0&amp;q=%23Online" class="ft2">#Online</a></span>
-                <span class="freepaid"><a href="/99/search.html?t=0&amp;q=%23Trial" class="fp2">#Trial</a></span>
-                <span class="tags">
-                    <span class="tg"><a href="/99/search.html?t=0&amp;q=%23manual%20testing" class="tg2">#manual testing</a> <a href="/99/search.html?t=0&amp;q=%23automated%20testing" class="tg2">#automated testing</a> <a href="/99/search.html?t=0&amp;q=%23pairwise" class="tg2">#pairwise</a> <a href="/99/search.html?t=0&amp;q=%23combinatorial%20test%20prioritization" class="tg2">#combinatorial test prioritization</a> <a href="/99/search.html?t=0&amp;q=%23coverage%20reporting" class="tg2">#coverage reporting</a> <a href="/99/search.html?t=0&amp;q=%23risk-based%20testing" class="tg2">#risk-based testing</a> <a href="/99/search.html?t=0&amp;q=%23test%20design%20tool" class="tg2">#test design tool</a> <a href="/99/search.html?t=0&amp;q=%23equivalence%20partitioning" class="tg2">#equivalence partitioning</a> <a href="/99/search.html?t=0&amp;q=%23boundary%20value%20analysis" class="tg2">#boundary value analysis</a></span>
-                </span>
-                <div class="bl3"><a class="button-link3"></a></div>
+                 <cite class="fwho121" role="text">https://hexawise.com</cite>
+                <div class="bl3"><a class="button-link3" role="link" aria-label="Close text"></a></div>
             </div>
         </div>
             <button class="delete-material2">×</button>
@@ -519,7 +524,8 @@ Compression:   On, Off
 
 
 
-                  <div class="info-card static" data-title="tessy - test system" id="tessy---test-system">
+
+<div class="info-card static" data-title="tessy - test system" id="tessy---test-system">
         <div class="info-who">
             <div class="info-card-label">
                 <span class="flog1">
@@ -534,7 +540,11 @@ Compression:   On, Off
                         </div>
                     </div>
                     <div class="fwho12">
-                        <cite class="fwho121" role="text">https://www.razorcat.com</cite>
+                        <span class="format"><a href="/99/search.html?t=0&amp;q=%23Download" class="ft2">#Download</a></span>
+                        <span class="freepaid"><a href="/99/search.html?t=0&amp;q=%23Free" class="fp2">#Free</a> <a href="/99/search.html?t=0&amp;q=%23Freemium" class="fp2">#Freemium</a></span>
+                        <span class="tags">
+                            <span class="tg"><a href="/99/search.html?t=0&amp;q=%23automated%20testing" class="tg2">#automated testing</a> <a href="/99/search.html?t=0&amp;q=%23regression%20testing" class="tg2">#regression testing</a> <a href="/99/search.html?t=0&amp;q=%23for%20embedded%20software" class="tg2">#for embedded software</a> <a href="/99/search.html?t=0&amp;q=%23unit%20testing" class="tg2">#unit testing</a> <a href="/99/search.html?t=0&amp;q=%23test%20design" class="tg2">#test design</a> <a href="/99/search.html?t=0&amp;q=%23test%20execution" class="tg2">#test execution</a> <a href="/99/search.html?t=0&amp;q=%23reporting" class="tg2">#reporting</a> <a href="/99/search.html?t=0&amp;q=%23test%20management" class="tg2">#test management</a> <a href="/99/search.html?t=0&amp;q=%23test%20organization" class="tg2">#test organization</a> <a href="/99/search.html?t=0&amp;q=%23STLC" class="tg2">#STLC</a> <a href="/99/search.html?t=0&amp;q=%23coverage%20measurement" class="tg2">#coverage measurement</a> <a href="/99/search.html?t=0&amp;q=%23traceability" class="tg2">#traceability</a> <a href="/99/search.html?t=0&amp;q=%23code%20coverage" class="tg2">#code coverage</a> <a href="/99/search.html?t=0&amp;q=%23decision%20tables" class="tg2">#decision tables</a></span>
+                        </span>  
                     </div>
                 </div>
                 <div class="fwho13">
@@ -542,20 +552,16 @@ Compression:   On, Off
                 </div>
             </div>
             <div class="ex1">
-                <a class="button-link2"></a> 
+                <a class="button-link2" role="link" aria-label="Open/close text"></a> 
             </div>
         </div>
         <div class="info-card-content">
             <div class="info-card-desc">
-                <p>TESSY automates the whole unit test cycle including regression testing for your embedded software in C/C++ on different target systems. As an easy-to-install and easy to operate testing tool TESSY guides you through the unit test workflow from the project setup through the test design and execution to the result analysis and reporting. TESSY takes additionally care of the complete test organization as well as the test management, including requirements, coverage measurement, and traceability. </p><p><br></p><p><strong>The following figure describes TESSY's core feature. </strong></p><p><br></p><p><img src="https://www.razorcat.com/assets/images/c/VxV_TESSY_en_RGB-c41da575.png" alt="V-model TESSY" height="625" width="800"></p><h3>Manage your test project</h3><p>The TESSY test project management feature provides the possibilty to define an individual test project structure based on collections and folders, to define environment variables, and to configure your desired compiler/debugger with the help of the integrated Test Environment Editor. The coverage results are displayed directly within the project structure and the test results are stored within test runs which allows keeping former (successful) results for reporting while continuing to work on test cases and test data.</p><p><br></p><h3>Define, link and trace requirements</h3><p>TESSY provides a basic management of requirements in a document structure. Furthermore it is possible to import Requirements from Requirement Management Tools, e.g. from DOORS and Polarion via ReqIF, CVS, and XML files. Requirement and validation results may also be exported into XML and ReqIF format. Reference mechanisms from test cases back to the requirements allow easy coverage analysis and reports as well as impact analysis of requirements changes. Tests (in detail modules, test objects and test cases) may be linked to requirements within a convenient requirements coverage view.</p><p><br></p><h3>Design test cases within the Classification Tree Editor (CTE)</h3><p>The <a href="https://www.razorcat.com/en/product-cte.html" target="_blank">Classification Tree Editor (CTE)</a> is a graphical editor which provides a systematic and easy understandable way to create test cases in a graphical notation.</p><p>&nbsp;</p><p>Based on the Classification Tree Method (CTM) the CTE is used to transform a (functional) specification into a set of error sensitive and low redundant test case specifications. The CTE can be used in general, in all test phases, in all programming languages, for every application in the IT, from embedded over mobile to web applications.</p><p>&nbsp;</p><p>Since the CTE is integrated in TESSY it is easy to set the values needed in the TESSY test process (e.g. input/output) directly within the CTE.</p><p>A standalone installation of the CTE is also available.</p><p><a href="https://www.razorcat.com/files/de/produkte/tessy/CTE_Perspective.png" target="_blank"> <img src="https://www.razorcat.com/assets/images/1/CTE_Perspective-b8fdb4d2.png" alt="CTE Perspektive" height="583" width="800"> </a></p><h3>Edit test data within the tabular Test Data Editor (TDE)</h3><p>With the help of the Test Data Editor (TDE) the editing of test data is simplified. Additionally the test data are visualized within plots.</p><p><a href="https://www.razorcat.com/files/de/produkte/tessy/TDE_Plots.png" target="_blank"> <img src="https://www.razorcat.com/assets/images/8/TDE_Plots-dd82e97d.png" alt="TDE Plots" height="563" width="800"> </a></p><h3>Add additional code</h3><p>The Usercode editor is an integral part of the TDE perspective and provides flexible editing and outline views together with the tabular test data viewer, e.g. you have the possibility to read/write registers or add individual stub code.</p><p><br></p><h3>Testing variants</h3><p>With the fourth generation of TESSY it is now an easy task to test code variants. Hierarchical variant trees are created by derived modules. This allows an automatic testing of base and derived variants with selected test cases in a short period of time. For the tests, to indicate the relationship to a specific code variant, modules can be assigned to variants. Test cases within the derived variant modules can be added, deleted and individual test data values can be applied. Changes on the base variant can easily be synchronized down to the derived variant modules. The software variant management of TESSY V4.0 enables a product-specific code of a product series with different variations to be analyzed and tested individually in an efficient way.</p><p><br></p><p>&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/jGp_aEhmbPQ?si=yLg1EGN-NaaD0uHB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;</p><p><br></p><h3>Analyze the test results</h3><p>Colored values within the TDE which correspond to the state of the test results, the visualization of test results within plots, and the Coverage Viewer (CV) with the function flow and details about the coverage help to analyze the test results.</p><p><a href="https://www.razorcat.com/files/de/produkte/tessy/TDE_Perspective.png" target="_blank"> <img src="https://www.razorcat.com/assets/images/d/TDE_Perspective-3089ad67.png" alt="TDE perspektive" height="575" width="800"> </a></p><h3>Analyzing Code Coverage</h3><p>To determine what proportion of your project's code is actually being tested by unit tests or integration tests, you can use the code coverage feature of TESSY. There are different kinds of coverage measurements which are provided in TESSY:</p><ul><li>Statement Coverage (C0)</li><li>Branch Coverage (C1)</li><li>Decision Coverage (DC)</li><li>Modiﬁed Condition / Decision Coverage (MC/DC)</li><li>Multiple Condition Coverage (MCC)</li><li>Entry Point Coverage (EPC)</li><li>Function Coverage (FC)</li><li>Call Pair Coverage (CPC)</li></ul><p>&nbsp;</p><p>Code coverage can optionally be enabled when running tests, which causes TESSY to automatically instrument the source code for the selected coverage measurements. The Coverage Viewer shows the percentage of the code that was run in the test. In addition, the flow chart view and the colored source code view shows you graphically which code has been tested. To effectively prevent bugs, the tests should achieve the highest possible test coverage of the project code.</p><p>&nbsp;</p><p><a href="https://www.razorcat.com/files/de/produkte/tessy/CV_Perspective.png" target="_blank"> <img src="https://www.razorcat.com/assets/images/5/CV_Perspective-fe35a1d0.png" height="583" width="800"> </a></p><h4>Call Pair Coverage</h4><p>An important feature in TESSY is the Call Pair Coverage (CPC) measurement, which checks whether all call points of functions or methods within the test object have been executed at least once. This meets the requirements of ISO 26262 for safety-relevant software development as an alternative code coverage procedure for integration tests instead of function coverage (FC) measurement.</p><h4>Hyper Coverage</h4><p>The Hyper Coverage (HP) provides a way to easily reveal code parts not being tested by any of the existing tests by investigating the current weaknesses of code coverage. And the best part is: This works without any additional efforts for the tester. The key of this feature is the automated detection of hidden code within the source files and the accumulation of standard code coverage measurements into the Hyper Coverage. As a side effect of the implementation of this novel capability, the need for retesting due to minor software adjustments can also be streamlined. This ensures that solely the impacted components necessitate reevaluation.</p><p>&nbsp;</p><p>The Code Access Analysis is already availabe after creation and analysis of modules. Testers have a quick overview after test set up if there are any untested parts of the source code.</p><p>&nbsp;</p><p>The Test Cockpit view summarizes all results and coverages for all test objects within the source files.</p><p><a href="https://www.razorcat.com/files/de/produkte/tessy/TESSY_cockpit-view.png" target="_blank"> <img src="https://www.razorcat.com/files/de/produkte/tessy/TESSY_cockpit-view.png" height="413" width="403"> </a></p><p>The following videos explain the Code Access and Hyper Coverage features as the most innovative TESSY features in depth:</p><p><a href="https://www.razorcat.com/en/support/videos/code-access-feature-in-tessy.html" target="_blank">Code Access Feature in TESSY</a></p><p><a href="https://www.razorcat.com/en/support/videos/hyper-coverage-feature-in-tessy.html" target="_blank">Hyper Coverage Feature in TESSY</a></p><p><a href="https://www.razorcat.com/en/support/videos/hyper-coverage-with-variants-feature-in-tessy.html" target="_blank">Hyper Coverage with Variants Feature in TESSY</a></p><h3>Coverage Review</h3><p>Source code lines can be marked with predefined as well arbitrary comments. This ensures a better documentation of unreached code lines found by Code Access (CA) an Hyper Coverage (HC).</p><p><img src="https://www.razorcat.com/files/de/produkte/tessy/Coverage-review.png" height="403" width="713"></p><p>Using this feature provides the possibility to reach full coverage as reviewed source code lines will be considered in the Code Access (CA) and Hyper Coverage (HC) measurement.</p><p>&nbsp;</p><p>The Coverage Review view lists the reviews for each source file. All coverage reviews will be documented within the test summary report.</p><p><img src="https://www.razorcat.com/files/de/produkte/tessy/Coverage-review-list.png" height="211" width="585"></p><h3>Test your components</h3><p>Define scenarios in the Scenario Editor (SCE) and test components. All variables of the component interface may be set and checked at arbitrary points in time within the scenario.</p><h3>Report the test plan and the test results</h3><p>TESSY offers different types of automatically created and well-designed test reports in PDF. These reports summarize the test execution coverage and test summary of the current test project status, initially as an overview and finally regarding the test details. This way, you can create reports that e.g. map your requirements, the V&amp;V matrix and the test planning coverage (=planned requirements coverage).</p><p><a href="https://www.razorcat.com/files/de/produkte/tessy/test-summary-report.png" target="_blank"> <img src="https://www.razorcat.com/assets/images/8/test-summary-report-f1c3946f.png" height="356" width="800"> </a></p>
+                <p>TESSY automates the whole unit test cycle including regression testing for your embedded software in C/C++ on different target systems. As an easy-to-install and easy to operate testing tool TESSY guides you through the unit test workflow from the project setup through the test design and execution to the result analysis and reporting. TESSY takes additionally care of the complete test organization as well as the test management, including requirements, coverage measurement, and traceability.</p><p><br></p><p><strong>The following figure describes TESSY's core feature. </strong></p><p><br></p><p><img src="https://www.razorcat.com/assets/images/c/VxV_TESSY_en_RGB-c41da575.png" alt="V-model TESSY"></p><h3>Manage your test project</h3><p>The TESSY test project management feature provides the possibilty to define an individual test project structure based on collections and folders, to define environment variables, and to configure your desired compiler/debugger with the help of the integrated Test Environment Editor. The coverage results are displayed directly within the project structure and the test results are stored within test runs which allows keeping former (successful) results for reporting while continuing to work on test cases and test data.</p><p><br></p><h3>Define, link and trace requirements</h3><p>TESSY provides a basic management of requirements in a document structure. Furthermore it is possible to import Requirements from Requirement Management Tools, e.g. from DOORS and Polarion via ReqIF, CVS, and XML files. Requirement and validation results may also be exported into XML and ReqIF format. Reference mechanisms from test cases back to the requirements allow easy coverage analysis and reports as well as impact analysis of requirements changes. Tests (in detail modules, test objects and test cases) may be linked to requirements within a convenient requirements coverage view.</p><p><br></p><h3>Design test cases within the Classification Tree Editor (CTE)</h3><p>The <a href="https://www.razorcat.com/en/product-cte.html" target="_blank">Classification Tree Editor (CTE)</a> is a graphical editor which provides a systematic and easy understandable way to create test cases in a graphical notation.</p><p>&nbsp;</p><p>Based on the Classification Tree Method (CTM) the CTE is used to transform a (functional) specification into a set of error sensitive and low redundant test case specifications. The CTE can be used in general, in all test phases, in all programming languages, for every application in the IT, from embedded over mobile to web applications...</p>
             </div>
             <div class="info-card-format">
-                <span class="format"><a href="/99/search.html?t=0&amp;q=%23Download" class="ft2">#Download</a></span>
-                <span class="freepaid"><a href="/99/search.html?t=0&amp;q=%23Free" class="fp2">#Free</a> <a href="/99/search.html?t=0&amp;q=%23Freemium" class="fp2">#Freemium</a></span>
-                <span class="tags">
-                    <span class="tg"><a href="/99/search.html?t=0&amp;q=%23automated%20testing" class="tg2">#automated testing</a> <a href="/99/search.html?t=0&amp;q=%23regression%20testing" class="tg2">#regression testing</a> <a href="/99/search.html?t=0&amp;q=%23for%20embedded%20software" class="tg2">#for embedded software</a> <a href="/99/search.html?t=0&amp;q=%23unit%20testing" class="tg2">#unit testing</a> <a href="/99/search.html?t=0&amp;q=%23test%20design" class="tg2">#test design</a> <a href="/99/search.html?t=0&amp;q=%23test%20execution" class="tg2">#test execution</a> <a href="/99/search.html?t=0&amp;q=%23reporting" class="tg2">#reporting</a> <a href="/99/search.html?t=0&amp;q=%23test%20management" class="tg2">#test management</a> <a href="/99/search.html?t=0&amp;q=%23test%20organization" class="tg2">#test organization</a> <a href="/99/search.html?t=0&amp;q=%23STLC" class="tg2">#STLC</a> <a href="/99/search.html?t=0&amp;q=%23coverage%20measurement" class="tg2">#coverage measurement</a> <a href="/99/search.html?t=0&amp;q=%23traceability" class="tg2">#traceability</a> <a href="/99/search.html?t=0&amp;q=%23code%20coverage" class="tg2">#code coverage</a> <a href="/99/search.html?t=0&amp;q=%23decision%20tables" class="tg2">#decision tables</a></span>
-                </span>
-                <div class="bl3"><a class="button-link3"></a></div>
+                 <cite class="fwho121" role="text">https://www.razorcat.com</cite>
+                <div class="bl3"><a class="button-link3" role="link" aria-label="Close text"></a></div>
             </div>
         </div>
             <button class="delete-material2">×</button>
@@ -566,7 +572,19 @@ Compression:   On, Off
 
 
 
-                  <div class="info-card static" data-title="decision table maker by rendersnail" id="decision-table-maker-by-rendersnail-">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="info-card static" data-title="decision table maker by rendersnail" id="decision-table-maker-by-rendersnail">
         <div class="info-who">
             <div class="info-card-label">
                 <span class="flog1">
@@ -577,11 +595,15 @@ Compression:   On, Off
                 <div class="fwho1">
                     <div class="fwho11">
                         <div class="info-card-title">
-                            <a href="https://rendersnail.com/tools/decision-table-online/" class="ttb" target="_blank" rel="nofollow">Decision Table Maker by RenderSnail </a>
+                            <a href="https://rendersnail.com/tools/decision-table-online/" class="ttb" target="_blank" rel="nofollow">Decision Table Maker by RenderSnail</a>
                         </div>
                     </div>
                     <div class="fwho12">
-                        <cite class="fwho121" role="text">https://rendersnail.com</cite>
+                        <span class="format"><a href="/99/search.html?t=0&amp;q=%23Online" class="ft2">#Online</a></span>
+                        <span class="freepaid"><a href="/99/search.html?t=0&amp;q=%23Free" class="fp2">#Free</a></span>
+                        <span class="tags">
+                            <span class="tg"><a href="/99/search.html?t=0&amp;q=%23decision%20tables" class="tg2">#decision tables</a> <a href="/99/search.html?t=0&amp;q=%23generator" class="tg2">#generator</a> <a href="/99/search.html?t=0&amp;q=%23black%20box%20testing" class="tg2">#black box testing</a> <a href="/99/search.html?t=0&amp;q=%23scenarios" class="tg2">#scenarios</a></span>
+                        </span>  
                     </div>
                 </div>
                 <div class="fwho13">
@@ -589,7 +611,7 @@ Compression:   On, Off
                 </div>
             </div>
             <div class="ex1">
-                <a class="button-link2"></a> 
+                <a class="button-link2" role="link" aria-label="Open/close text"></a> 
             </div>
         </div>
         <div class="info-card-content">
@@ -597,12 +619,8 @@ Compression:   On, Off
                 <p>Free online decision table generator, the tool designed to simplify and automate the creation of decision tables. Whether you’re looking for a decision table generator, maker, or creator, this tool dynamically calculates all possible combinations based on the number of variables and their potential values, allowing you to easily add decisions to each scenario. Highlight important paths and conceal undesirable ones using customizable colors. Export your tables as text, tables, or printable formats, and share them effortlessly with colleagues via a URL or QR code. Ideal for anyone searching for a decision table tool, calculator, or generator. This tool makes decision-making simple and efficient.</p>
             </div>
             <div class="info-card-format">
-                <span class="format"><a href="/99/search.html?t=0&amp;q=%23Online" class="ft2">#Online</a></span>
-                <span class="freepaid"><a href="/99/search.html?t=0&amp;q=%23Free" class="fp2">#Free</a></span>
-                <span class="tags">
-                    <span class="tg"><a href="/99/search.html?t=0&amp;q=%23decision%20tables" class="tg2">#decision tables</a> <a href="/99/search.html?t=0&amp;q=%23generator" class="tg2">#generator</a> <a href="/99/search.html?t=0&amp;q=%23black%20box%20testing" class="tg2">#black box testing</a> <a href="/99/search.html?t=0&amp;q=%23scenarios" class="tg2">#scenarios</a></span>
-                </span>
-                <div class="bl3"><a class="button-link3"></a></div>
+                 <cite class="fwho121" role="text">https://rendersnail.com</cite>
+                <div class="bl3"><a class="button-link3" role="link" aria-label="Close text"></a></div>
             </div>
         </div>
             <button class="delete-material2">×</button>
@@ -615,7 +633,16 @@ Compression:   On, Off
 
 
 
-                  <div class="info-card static" data-title="visual paradigm" id="visual-paradigm">
+
+
+
+
+
+
+
+
+
+<div class="info-card static" data-title="visual paradigm" id="visual-paradigm">
         <div class="info-who">
             <div class="info-card-label">
                 <span class="flog1">
@@ -630,7 +657,11 @@ Compression:   On, Off
                         </div>
                     </div>
                     <div class="fwho12">
-                        <cite class="fwho121" role="text">https://www.visual-paradigm.com</cite>
+                        <span class="format"><a href="/99/search.html?t=0&amp;q=%23Download" class="ft2">#Download</a></span>
+                        <span class="freepaid"><a href="/99/search.html?t=0&amp;q=%23Trial" class="fp2">#Trial</a></span>
+                        <span class="tags">
+                            <span class="tg"><a href="/99/search.html?t=0&amp;q=%23STLC" class="tg2">#STLC</a> <a href="/99/search.html?t=0&amp;q=%23management%20tool" class="tg2">#management tool</a> <a href="/99/search.html?t=0&amp;q=%23decision%20tables" class="tg2">#decision tables</a> <a href="/99/search.html?t=0&amp;q=%23test%20design" class="tg2">#test design</a> <a href="/99/search.html?t=0&amp;q=%23Agile" class="tg2">#Agile</a> <a href="/99/search.html?t=0&amp;q=%23requirements%20capturing" class="tg2">#requirements capturing</a> <a href="/99/search.html?t=0&amp;q=%23process%20analysis" class="tg2">#process analysis</a> <a href="/99/search.html?t=0&amp;q=%23system%20design" class="tg2">#system design</a> <a href="/99/search.html?t=0&amp;q=%23database%20design" class="tg2">#database design</a></span>
+                        </span>  
                     </div>
                 </div>
                 <div class="fwho13">
@@ -638,18 +669,16 @@ Compression:   On, Off
                 </div>
             </div>
             <div class="ex1">
-                <a class="button-link2"></a> 
+                <a class="button-link2" role="link" aria-label="Open/close text"></a> 
             </div>
         </div>
         <div class="info-card-content">
-            <div class="info-card-desc"><p>A suite of design, analysis and management tools to drive your IT project development and digital transformation. Especially provides a handy way to explain business rules by constucting decision table.</p><p><br></p><p>IT is a software tool designed for software development teams to model business information system and manage development processes. Visual Paradigm supports key industry modeling languages and standards such as <a href="http://www.uml.org/" target="_blank">Unified Modeling Language (UML)</a>, <a href="http://www.omg.org/spec/SoaML/" target="_blank">SoaML</a>, <a href="http://www.bpmn.org/" target="_blank">BPMN</a>, XMI, etc. It offers complete tool-set software companies need for <a href="https://www.visual-paradigm.com/features/agile-user-story-mapping-tool/" target="_blank">requirements capturing</a>, <a href="https://www.visual-paradigm.com/features/bpmn-diagram-and-tools/" target="_blank">process analysis</a>, <a href="https://www.visual-paradigm.com/features/uml-tool/" target="_blank">system design</a>, <a href="https://www.visual-paradigm.com/features/database-design-with-erd-tools/" target="_blank">database design</a>, and etc.</p></div>
+            <div class="info-card-desc">
+                <p>A suite of design, analysis and management tools to drive your IT project development and digital transformation. Especially provides a handy way to explain business rules by constucting decision table.</p><p><br></p><p>IT is a software tool designed for software development teams to model business information system and manage development processes. Visual Paradigm supports key industry modeling languages and standards such as <a href="http://www.uml.org/" target="_blank">Unified Modeling Language (UML)</a>, <a href="http://www.omg.org/spec/SoaML/" target="_blank">SoaML</a>, <a href="http://www.bpmn.org/" target="_blank">BPMN</a>, XMI, etc. It offers complete tool-set software companies need for <a href="https://www.visual-paradigm.com/features/agile-user-story-mapping-tool/" target="_blank">requirements capturing</a>, <a href="https://www.visual-paradigm.com/features/bpmn-diagram-and-tools/" target="_blank">process analysis</a>, <a href="https://www.visual-paradigm.com/features/uml-tool/" target="_blank">system design</a>, <a href="https://www.visual-paradigm.com/features/database-design-with-erd-tools/" target="_blank">database design</a>, and etc.</p>
+            </div>
             <div class="info-card-format">
-                <span class="format"><a href="/99/search.html?t=0&amp;q=%23Download" class="ft2">#Download</a></span>
-                <span class="freepaid"><a href="/99/search.html?t=0&amp;q=%23Trial" class="fp2">#Trial</a></span>
-                <span class="tags">
-                    <span class="tg"><a href="/99/search.html?t=0&amp;q=%23Download" class="tg2">#Download</a> <a href="/99/search.html?t=0&amp;q=%23Trial" class="tg2">#Trial</a> <a href="/99/search.html?t=0&amp;q=%23STLC" class="tg2">#STLC</a> <a href="/99/search.html?t=0&amp;q=%23management%20tool" class="tg2">#management tool</a> <a href="/99/search.html?t=0&amp;q=%23decision%20tables" class="tg2">#decision tables</a> <a href="/99/search.html?t=0&amp;q=%23test%20design" class="tg2">#test design</a> <a href="/99/search.html?t=0&amp;q=%23Agile" class="tg2">#Agile</a> <a href="/99/search.html?t=0&amp;q=%23requirements%20capturing" class="tg2">#requirements capturing</a> <a href="/99/search.html?t=0&amp;q=%23process%20analysis" class="tg2">#process analysis</a> <a href="/99/search.html?t=0&amp;q=%23system%20design" class="tg2">#system design</a> <a href="/99/search.html?t=0&amp;q=%23database%20design" class="tg2">#database design</a></span>
-                </span>
-                <div class="bl3"><a class="button-link3"></a></div>
+                 <cite class="fwho121" role="text">https://www.visual-paradigm.com</cite>
+                <div class="bl3"><a class="button-link3" role="link" aria-label="Close text"></a></div>
             </div>
         </div>
             <button class="delete-material2">×</button>
@@ -659,7 +688,13 @@ Compression:   On, Off
 
 
 
-                  <div class="info-card static" data-title="visual paradigm online" id="visual-paradigm-online-">
+
+
+
+
+
+
+<div class="info-card static" data-title="visual paradigm online" id="visual-paradigm-online-">
         <div class="info-who">
             <div class="info-card-label">
                 <span class="flog1">
@@ -674,7 +709,11 @@ Compression:   On, Off
                         </div>
                     </div>
                     <div class="fwho12">
-                        <cite class="fwho121" role="text">https://online.visual-paradigm.com</cite>
+                        <span class="format"><a href="/99/search.html?t=0&amp;q=%23Online" class="ft2">#Online</a></span>
+                        <span class="freepaid"><a href="/99/search.html?t=0&amp;q=%23Freemium" class="fp2">#Freemium</a></span>
+                        <span class="tags">
+                            <span class="tg"><a href="/99/search.html?t=0&amp;q=%23decision%20tables" class="tg2">#decision tables</a> <a href="/99/search.html?t=0&amp;q=%23generator" class="tg2">#generator</a> <a href="/99/search.html?t=0&amp;q=%23black%20box%20testing" class="tg2">#black box testing</a> <a href="/99/search.html?t=0&amp;q=%23scenarios" class="tg2">#scenarios</a> <a href="/99/search.html?t=0&amp;q=%23use%20case" class="tg2">#use case</a> <a href="/99/search.html?t=0&amp;q=%23diagram" class="tg2">#diagram</a></span>
+                        </span>  
                     </div>
                 </div>
                 <div class="fwho13">
@@ -682,7 +721,7 @@ Compression:   On, Off
                 </div>
             </div>
             <div class="ex1">
-                <a class="button-link2"></a> 
+                <a class="button-link2" role="link" aria-label="Open/close text"></a> 
             </div>
         </div>
         <div class="info-card-content">
@@ -690,12 +729,8 @@ Compression:   On, Off
                 <p>A demo online tool for creating decision table, Use case diagram and other important things.</p>
             </div>
             <div class="info-card-format">
-                <span class="format"><a href="/99/search.html?t=0&amp;q=%23Online" class="ft2">#Online</a></span>
-                <span class="freepaid"><a href="/99/search.html?t=0&amp;q=%23Freemium" class="fp2">#Freemium</a></span>
-                <span class="tags">
-                    <span class="tg"><a href="/99/search.html?t=0&amp;q=%23decision%20tables" class="tg2">#decision tables</a> <a href="/99/search.html?t=0&amp;q=%23generator" class="tg2">#generator</a> <a href="/99/search.html?t=0&amp;q=%23black%20box%20testing" class="tg2">#black box testing</a> <a href="/99/search.html?t=0&amp;q=%23scenarios" class="tg2">#scenarios</a> <a href="/99/search.html?t=0&amp;q=%23use%20case" class="tg2">#use case</a> <a href="/99/search.html?t=0&amp;q=%23diagram" class="tg2">#diagram</a></span>
-                </span>
-                <div class="bl3"><a class="button-link3"></a></div>
+                 <cite class="fwho121" role="text">https://online.visual-paradigm.com</cite>
+                <div class="bl3"><a class="button-link3" role="link" aria-label="Close text"></a></div>
             </div>
         </div>
             <button class="delete-material2">×</button>
@@ -705,7 +740,11 @@ Compression:   On, Off
 
 
 
-                  <div class="info-card static" data-title="qa docs" id="qa-docs">
+
+
+
+
+<div class="info-card static" data-title="qa docs" id="qa-docs">
         <div class="info-who">
             <div class="info-card-label">
                 <span class="flog1">
@@ -720,7 +759,11 @@ Compression:   On, Off
                         </div>
                     </div>
                     <div class="fwho12">
-                        <cite class="fwho121" role="text">https://v1.qadocs.online</cite>
+                        <span class="format"><a href="/99/search.html?t=0&amp;q=%23Online" class="ft2">#Online</a></span>
+                        <span class="freepaid"><a href="/99/search.html?t=0&amp;q=%23Free" class="fp2">#Free</a></span>
+                        <span class="tags">
+                            <span class="tg"><a href="/99/search.html?t=0&amp;q=%23decision%20tables" class="tg2">#decision tables</a> <a href="/99/search.html?t=0&amp;q=%23generator" class="tg2">#generator</a> <a href="/99/search.html?t=0&amp;q=%23black%20box%20testing" class="tg2">#black box testing</a> <a href="/99/search.html?t=0&amp;q=%23business%20analys" class="tg2">#business analys</a></span>
+                        </span>  
                     </div>
                 </div>
                 <div class="fwho13">
@@ -728,20 +771,16 @@ Compression:   On, Off
                 </div>
             </div>
             <div class="ex1">
-                <a class="button-link2"></a> 
+                <a class="button-link2" role="link" aria-label="Open/close text"></a> 
             </div>
         </div>
         <div class="info-card-content">
             <div class="info-card-desc">
-                <p>Free and easy to use decision table generator. Use QADOCS to ensure that all business rules are thoroughly tested, identifying potential issues before they impact the application.</p><p><br></p><p>Leverage QADOCS to translate business rules into functional requirements for a software application, converting them into a programming language that integrates into the application</p><p><br></p><p>Utilize QADOCS to develop precise business rules that represent actual or proposed business processes, generating natural language documentation that describes each rule in detail</p><p><br></p>
+                <p>Free and easy to use decision table generator. Use QADOCS to ensure that all business rules are thoroughly tested, identifying potential issues before they impact the application.</p><p><br></p><p>Leverage QADOCS to translate business rules into functional requirements for a software application, converting them into a programming language that integrates into the application</p><p><br></p><p>Utilize QADOCS to develop precise business rules that represent actual or proposed business processes, generating natural language documentation that describes each rule in detail</p>
             </div>
             <div class="info-card-format">
-                <span class="format"><a href="/99/search.html?t=0&amp;q=%23Online" class="ft2">#Online</a></span>
-                <span class="freepaid"><a href="/99/search.html?t=0&amp;q=%23Free" class="fp2">#Free</a></span>
-                <span class="tags">
-                    <span class="tg"><a href="/99/search.html?t=0&amp;q=%23decision%20tables" class="tg2">#decision tables</a> <a href="/99/search.html?t=0&amp;q=%23generator" class="tg2">#generator</a> <a href="/99/search.html?t=0&amp;q=%23black%20box%20testing" class="tg2">#black box testing</a> <a href="/99/search.html?t=0&amp;q=%23business%20analys" class="tg2">#business analys</a></span>
-                </span>
-                <div class="bl3"><a class="button-link3"></a></div>
+                 <cite class="fwho121" role="text">https://v1.qadocs.online</cite>
+                <div class="bl3"><a class="button-link3" role="link" aria-label="Close text"></a></div>
             </div>
         </div>
             <button class="delete-material2">×</button>
@@ -755,9 +794,7 @@ Compression:   On, Off
 
 
 
-
-
-                  <div class="info-card static" data-title="plantuml at a glance" id="plantuml-at-a-glance">
+<div class="info-card static" data-title="plantuml at a glance" id="plantuml-at-a-glance">
         <div class="info-who">
             <div class="info-card-label">
                 <span class="flog1">
@@ -772,7 +809,11 @@ Compression:   On, Off
                         </div>
                     </div>
                     <div class="fwho12">
-                        <cite class="fwho121" role="text">https://plantuml.com</cite>
+                        <span class="format"><a href="/99/search.html?t=0&amp;q=%23Online" class="ft2">#Online</a></span>
+                        <span class="freepaid"><a href="/99/search.html?t=0&amp;q=%23Free" class="fp2">#Free</a></span>
+                        <span class="tags">
+                            <span class="tg"><a href="/99/search.html?t=0&amp;q=%23decision%20tables" class="tg2">#decision tables</a> <a href="/99/search.html?t=0&amp;q=%23generator" class="tg2">#generator</a> <a href="/99/search.html?t=0&amp;q=%23black%20box%20testing" class="tg2">#black box testing</a> <a href="/99/search.html?t=0&amp;q=%23scenarios" class="tg2">#scenarios</a> <a href="/99/search.html?t=0&amp;q=%23PlantUML" class="tg2">#PlantUML</a> <a href="/99/search.html?t=0&amp;q=%23Usecase%20diagram" class="tg2">#Usecase diagram</a> <a href="/99/search.html?t=0&amp;q=UI%20mockups%20(salt)" class="tg2">UI mockups (salt)</a> <a href="/99/search.html?t=0&amp;q=%23black-box" class="tg2">#black-box</a></span>
+                        </span>  
                     </div>
                 </div>
                 <div class="fwho13">
@@ -780,7 +821,7 @@ Compression:   On, Off
                 </div>
             </div>
             <div class="ex1">
-                <a class="button-link2"></a> 
+                <a class="button-link2" role="link" aria-label="Open/close text"></a> 
             </div>
         </div>
         <div class="info-card-content">
@@ -788,12 +829,8 @@ Compression:   On, Off
                 <p>PlantUML is a highly versatile tool that facilitates the rapid and straightforward creation of a wide array of diagrams. Utilizing a simple and intuitive language, users can effortlessly draft various types of diagrams.</p><p><br></p><p>Supported UML Diagrams</p><p>With PlantUML, you can create well-structured UML diagrams, including but not limited to: <a href="https://plantuml.com/en/sequence-diagram" target="_blank">Sequence diagram</a></p><p><a href="https://plantuml.com/en/use-case-diagram" target="_blank">Usecase diagram</a></p><p><a href="https://plantuml.com/en/class-diagram" target="_blank">Class diagram</a></p><p><a href="https://plantuml.com/en/object-diagram" target="_blank">Object diagram</a></p><p><a href="https://plantuml.com/en/activity-diagram-beta" target="_blank">Activity diagram</a><em>(Find the </em><a href="https://plantuml.com/en/activity-diagram-legacy" target="_blank"><em>legacy syntax here</em></a><em>)</em></p><p><a href="https://plantuml.com/en/component-diagram" target="_blank">Component diagram</a></p><p><a href="https://plantuml.com/en/deployment-diagram" target="_blank">Deployment diagram</a></p><p><a href="https://plantuml.com/en/state-diagram" target="_blank">State diagram</a></p><p><a href="https://plantuml.com/en/timing-diagram" target="_blank">Timing diagram</a></p><p><br></p><p>Supported Non-UML Diagrams</p><p>Beyond traditional UML diagrams, PlantUML also supports the creation of various other diagram types, such as: <a href="https://plantuml.com/en/json" target="_blank">JSON data</a></p><p><a href="https://plantuml.com/en/yaml" target="_blank">YAML data</a></p><p><a href="https://plantuml.com/en/ebnf" target="_blank">EBNF diagram</a></p><p><a href="https://plantuml.com/en/regex" target="_blank">Regex diagram</a></p><p><a href="https://plantuml.com/en/nwdiag" target="_blank">Network diagram (nwdiag)</a></p><p><a href="https://plantuml.com/en/salt" target="_blank">UI mockups (salt)</a></p><p><a href="https://plantuml.com/en/archimate-diagram" target="_blank">Archimate diagram</a></p><p><a href="https://plantuml.com/en/activity-diagram-beta#sdl" target="_blank">Specification and Description Language (SDL)</a></p><p><a href="https://plantuml.com/en/ditaa" target="_blank">Ditaa diagram</a></p><p><a href="https://plantuml.com/en/gantt-diagram" target="_blank">Gantt diagram</a></p><p><a href="https://plantuml.com/en/chronology-diagram" target="_blank">Chronology diagram</a></p><p><a href="https://plantuml.com/en/mindmap-diagram" target="_blank">MindMap diagram</a></p><p><a href="https://plantuml.com/en/wbs-diagram" target="_blank">WBS diagram</a></p><p><a href="https://plantuml.com/en/ascii-math" target="_blank">Mathematics with AsciiMath or JLaTeXMath notation</a></p><p><a href="https://plantuml.com/en/ie-diagram" target="_blank">Information Engineering (IE) diagram</a></p><p><a href="https://plantuml.com/en/er-diagram" target="_blank">Entity Relationship (ER) diagram</a></p><p><br></p><p>Additional Features</p><p>Enhance the dynamism and informativeness of your diagrams with these additional features: <a href="https://plantuml.com/en/link" target="_blank">Hyperlinks and tooltips</a> to provide extra context and interactivity</p><p><a href="https://plantuml.com/en/creole" target="_blank">Rich text formatting, emoticons, Unicode, and icons with Creole</a> for a visually appealing presentation</p><p><a href="https://plantuml.com/en/openiconic" target="_blank">OpenIconic icons</a> for enhanced visual representation</p><p><a href="https://plantuml.com/en/sprite" target="_blank">Sprite icons</a> to add custom symbols</p><p><a href="https://plantuml.com/en/ascii-math" target="_blank">AsciiMath mathematical expressions</a> for precise mathematical representation</p>
             </div>
             <div class="info-card-format">
-                <span class="format"><a href="/99/search.html?t=0&amp;q=%23Online" class="ft2">#Online</a></span>
-                <span class="freepaid"><a href="/99/search.html?t=0&amp;q=%23Free" class="fp2">#Free</a></span>
-                <span class="tags">
-                    <span class="tg"><a href="/99/search.html?t=0&amp;q=%23decision%20tables" class="tg2">#decision tables</a> <a href="/99/search.html?t=0&amp;q=%23generator" class="tg2">#generator</a> <a href="/99/search.html?t=0&amp;q=%23black%20box%20testing" class="tg2">#black box testing</a> <a href="/99/search.html?t=0&amp;q=%23scenarios" class="tg2">#scenarios</a> <a href="/99/search.html?t=0&amp;q=%23PlantUML" class="tg2">#PlantUML</a> <a href="/99/search.html?t=0&amp;q=%23Usecase%20diagram" class="tg2">#Usecase diagram</a> <a href="/99/search.html?t=0&amp;q=UI%20mockups%20(salt)" class="tg2">UI mockups (salt)</a> <a href="/99/search.html?t=0&amp;q=%23black-box" class="tg2">#black-box</a></span>
-                </span>
-                <div class="bl3"><a class="button-link3"></a></div>
+                 <cite class="fwho121" role="text">https://plantuml.com</cite>
+                <div class="bl3"><a class="button-link3" role="link" aria-label="Close text"></a></div>
             </div>
         </div>
             <button class="delete-material2">×</button>
@@ -804,7 +841,17 @@ Compression:   On, Off
 
 
 
-                  <div class="info-card static" data-title="lucidchart" id="lucidchart-">
+
+
+
+
+
+
+
+
+
+
+<div class="info-card static" data-title="lucidchart" id="lucidchart">
         <div class="info-who">
             <div class="info-card-label">
                 <span class="flog1">
@@ -815,11 +862,15 @@ Compression:   On, Off
                 <div class="fwho1">
                     <div class="fwho11">
                         <div class="info-card-title">
-                            <a href="https://www.lucidchart.com/pages/?" class="ttb" target="_blank" rel="nofollow">Lucidchart </a>
+                            <a href="https://www.lucidchart.com/pages/?" class="ttb" target="_blank" rel="nofollow">Lucidchart</a>
                         </div>
                     </div>
                     <div class="fwho12">
-                        <cite class="fwho121" role="text">https://www.lucidchart.com</cite>
+                        <span class="format"><a href="/99/search.html?t=0&amp;q=%23Online" class="ft2">#Online</a></span>
+                        <span class="freepaid"><a href="/99/search.html?t=0&amp;q=%23Freemium" class="fp2">#Freemium</a></span>
+                        <span class="tags">
+                            <span class="tg"><a href="/99/search.html?t=0&amp;q=%23decision%20tables" class="tg2">#decision tables</a> <a href="/99/search.html?t=0&amp;q=%23use%20cases" class="tg2">#use cases</a> <a href="/99/search.html?t=0&amp;q=%23black-box" class="tg2">#black-box</a> <a href="/99/search.html?t=0&amp;q=%23AI" class="tg2">#AI</a> <a href="/99/search.html?t=0&amp;q=%23diagrams" class="tg2">#diagrams</a> <a href="/99/search.html?t=0&amp;q=%23STLC" class="tg2">#STLC</a> <a href="/99/search.html?t=0&amp;q=%23SDLC" class="tg2">#SDLC</a></span>
+                        </span>  
                     </div>
                 </div>
                 <div class="fwho13">
@@ -827,26 +878,34 @@ Compression:   On, Off
                 </div>
             </div>
             <div class="ex1">
-                <a class="button-link2"></a> 
+                <a class="button-link2" role="link" aria-label="Open/close text"></a> 
             </div>
         </div>
         <div class="info-card-content">
             <div class="info-card-desc">
-                <p>Lucidchart is a web-based diagramming application that enables users to visually collaborate to draw, revise, and share diagrams and charts, and improve processes, systems, and organizational structures. A free online diagramming tool that supports state transition diagrams.Create next-generation diagrams with AI, data, and automation in Lucidchart. Understand and optimize every system and process.</p><p><br></p><p>Our cloud-based platform and intuitive interface make it simple to start diagramming, no matter the device, browser, or operating system. </p><p><br></p><p>Lucidchart improves the way teams work together with real-time co-authoring, in-editor chat, shape-specific comments, and collaborative cursors.</p>
+                <p>Lucidchart is a web-based diagramming application that enables users to visually collaborate to draw, revise, and share diagrams and charts, and improve processes, systems, and organizational structures. A free online diagramming tool that supports state transition diagrams.Create next-generation diagrams with AI, data, and automation in Lucidchart. Understand and optimize every system and process.</p><p><br></p><p>Our cloud-based platform and intuitive interface make it simple to start diagramming, no matter the device, browser, or operating system.</p><p><br></p><p>Lucidchart improves the way teams work together with real-time co-authoring, in-editor chat, shape-specific comments, and collaborative cursors.</p>
             </div>
             <div class="info-card-format">
-                <span class="format"><a href="/99/search.html?t=0&amp;q=%23Online" class="ft2">#Online</a></span>
-                <span class="freepaid"><a href="/99/search.html?t=0&amp;q=%23Freemium" class="fp2">#Freemium</a></span>
-                <span class="tags">
-                    <span class="tg"><a href="/99/search.html?t=0&amp;q=%23decision%20tables" class="tg2">#decision tables</a> <a href="/99/search.html?t=0&amp;q=%23use%20cases" class="tg2">#use cases</a> <a href="/99/search.html?t=0&amp;q=%23black-box" class="tg2">#black-box</a> <a href="/99/search.html?t=0&amp;q=%23AI" class="tg2">#AI</a> <a href="/99/search.html?t=0&amp;q=%23diagrams" class="tg2">#diagrams</a> <a href="/99/search.html?t=0&amp;q=%23STLC" class="tg2">#STLC</a> <a href="/99/search.html?t=0&amp;q=%23SDLC" class="tg2">#SDLC</a></span>
-                </span>
-                <div class="bl3"><a class="button-link3"></a></div>
+                 <cite class="fwho121" role="text">https://www.lucidchart.com</cite>
+                <div class="bl3"><a class="button-link3" role="link" aria-label="Close text"></a></div>
             </div>
         </div>
             <button class="delete-material2">×</button>
             <button class="copy-html2">Copy HTML</button>
             <button class="edit-material2">Edit</button>
         </div>
+
+
+
+
+
+     
+                  
+
+
+
+
+
 
 
                   
