@@ -3570,7 +3570,9 @@ position: static; /* fixed */
 @media (max-width: 1024px) {
   .set-icon {
     display: block;
-    margin-right: var(--0);
+    margin-right: var(--0); 
+    background: var(--link-c);
+}
   }
 
   .user-pref{
