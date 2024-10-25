@@ -152,10 +152,10 @@ function setCSS(size) {
               
        
             } else if (size === 'minimum') {
-                root.style.setProperty('--mp-top', 'var(--15)');
-                root.style.setProperty('--mp-left', 'var(--20)');
-                root.style.setProperty('--mp-bottom', 'var(--15)');
-                root.style.setProperty('--mp-right', 'var(--20)');
+                root.style.setProperty('--mp-top', 'var(--20)');
+                root.style.setProperty('--mp-left', 'var(--25)');
+                root.style.setProperty('--mp-bottom', 'var(--20)');
+                root.style.setProperty('--mp-right', 'var(--25)');
                 root.style.setProperty('--mp-border-radius', 'var(--0)');
                 root.style.setProperty('--mp-margin-bottom', '-1px');
                 root.style.setProperty('--icc-display', 'none');
