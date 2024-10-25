@@ -859,7 +859,7 @@
 }
 
 .main-menu-nav ::before {
-  color: var(--link-b);
+  color: var(--link-a);
   font-size: var(--icon-size);
   margin-right: var(--7a5);
   margin-left: var(--7a5);
@@ -875,7 +875,7 @@
   font-family: "Material Icons Outlined";
   font-weight: 300;
   font-size: var(--icon-size);
-  color: var(--link-b);
+  color: var(--link-a);
   line-height: 0;
 }
 
