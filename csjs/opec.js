@@ -199,7 +199,7 @@ function toggleButtonLink2(state) {
 // Инициализация значений при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
     // Устанавливаем начальное состояние из куки или по умолчанию
-    let savedState = getCookie('iconState') || 'passive';
+    let savedState = getCookie('iconState') || 'active';
     setState(savedState);
 });
 
