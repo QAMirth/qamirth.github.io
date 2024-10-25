@@ -201,8 +201,8 @@
     --tpl-max-layout-width: 1540px;
     --tpl-border-line-100: 1px solid
     var(--250);
-    --header-top: var(--7a5);
-    --header-bottom: var(--7a5);
+    --header-top: var(--5);
+    --header-bottom: var(--5);
     --logo-width: 50px;
     --logo-height: 36px;
     --icon-size: 20px;
