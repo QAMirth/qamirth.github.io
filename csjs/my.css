@@ -1584,7 +1584,7 @@
 .flog1{
   margin-right: var(--15);
   width: var(--lg);
-  height: var(--lg);
+  /*! height: var(--lg); */
 }
 
 .flog11{
@@ -1593,12 +1593,12 @@
   border: 1px solid var(--200);
   border-radius: 9999px;
   width: var(--lg);
-  height: var(--lg);
+  /*! height: var(--lg); */
 }
 
 .ggh {
   width: var(--lg);
-  height: var(--lg);
+  /*! height: var(--lg); */
   object-fit: cover;
 background-color: var(--200);
   border-radius: 2px;
@@ -1661,7 +1661,7 @@ strong{
   color: var(--link-a);
   display:block;
   width: var(--lg);
-  height: var(--lg);
+  /*! height: var(--lg); */
   border-radius: 9999px;
 }
 
