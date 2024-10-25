@@ -3116,7 +3116,7 @@ font-weight: 600;
             color: var(--link-a);
             font: normal 400 var(--tpl-font-size) / 1.4 var(--tpl-font-system);
             font-size: var(--tpl-font-size-small);
-            font-weight:500;
+            font-weight: var(--menuha-weight);
         }
 
         .num {
