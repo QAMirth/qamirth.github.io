@@ -205,7 +205,7 @@
     --header-bottom: var(--7a5);
     --logo-width: 50px;
     --logo-height: 36px;
-    --icon-size: 24px;
+    --icon-size: 20px;
     --search-line-height: 36px;
     --bwh: 36px;
     --pad-big: var(--10);
@@ -310,7 +310,7 @@
     /*! border-radius:10px; */
   }
   .lgbug {
-    fill:var(--link-b);
+    fill:var(--link-c);
   }
 
   .home-p {
@@ -340,7 +340,7 @@
   .hz h1 {
     display:flex;
     font: var(--tpl-font-header-1);
-    font-size: var(--tpl-font-size);
+    font-size: var(--tpl-font-size-small);
     color: var(--600);
     font-weight: 600;
     margin: 0;
@@ -1163,7 +1163,7 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  background-color: var(--link-c);
+  background-color: var(--000);
   color: var(--000);
   width: var(--bwh);
   height: var(--bwh);
@@ -1250,7 +1250,7 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  color: var(--000);
+  color: var(--link-c);
   width: var(--icon-size);
   height: var(--icon-size);
 }
@@ -1335,7 +1335,7 @@
 
 .sidebar-block-title {
   color: var(--600);
-  font-size: var(--tpl-font-size);
+  font-size: var(--tpl-font-size-small);
   font-weight: 600;
   margin-bottom: var(--10);
 }
@@ -2070,8 +2070,8 @@ select.codeButtons {
 
   .auth-links .footer-link {
     display:flex;
-    background-color: var(--link-c); 
-    color: var(--000);
+    background-color: var(--000); 
+    color: var(--link-c);
     font-weight: 600;
     font-size: var(--tpl-font-size);
     transition: color var(--tpl-transition);
@@ -2518,7 +2518,8 @@ select.codeButtons {
     color: var(--000);   
   }
 
-    #search_icon {
+    
+   #search_icon {
   color: var(--000);
   width: var(--bwh);
   height: var(--bwh);
@@ -3490,7 +3491,7 @@ position: static; /* fixed */
 
 .set-icon {
   display: flex; 
-  background: var(--link-c);
+  background: var(--000);
   cursor: pointer;
   margin-right: var(--0);
   height: var(--bwh);
@@ -3502,14 +3503,15 @@ position: static; /* fixed */
 }
 
 .set-icon:hover {
-  background: var(--link-b);
+  background: var(--link-c);
 }
 
 .user-pref{
-    fill: var(--000);
-     width: 24px;
-  height:24px;
+    fill: var(--link-c);
+     width: var(--icon-size);
+  height:var(--icon-size);
   }
+
 
 .sidebar-block {
     display: none;
