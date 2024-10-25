@@ -1177,7 +1177,7 @@
 }
 
 .header-mobile-button-pc:hover {
-  background-color: var(--link-b);
+  background-color: var(--link-c);
   border-radius: var(--border-radius);
 }
 
@@ -3580,7 +3580,10 @@ position: static; /* fixed */
     height: 24px;
     width: 24px;
   }
- }
+  
+  .set-icon:hover {background: var(--link-b);}
+  }
+
   .sidebar-container {
     display: block;
   }
