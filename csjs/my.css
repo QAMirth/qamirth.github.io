@@ -1257,6 +1257,10 @@
   height: 24px;
 }
 
+.header-mobile-button-pc:hover #search_icon{
+  color: var(--000);
+}
+
 .header-mobile-close .header-mobile-icon {
   height: 18px;
   pointer-events: none;
@@ -3511,6 +3515,10 @@ position: static; /* fixed */
     fill: var(--link-c);
      width: 24px;
   height:24px;
+  }
+
+.set-icon:hover .user-pref{
+    fill: var(--000);
   }
 
 
