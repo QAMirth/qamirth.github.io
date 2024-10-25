@@ -2148,7 +2148,7 @@ select.codeButtons {
     background: transparent;
     display: flex;
     gap: var(--2a5);
-    padding: var(--5) var(--10);
+    padding: var(--5) var(--10) var(--5) var(--5);
     /*! border-radius: var(--border-radius); */
   }
 
@@ -2202,7 +2202,7 @@ select.codeButtons {
     font-size: var(--tpl-font-size-small);
     transition: color var(--tpl-transition);
     display: flex;
-    flex-direction:column;
+    flex-direction: row;
     align-items: center;
     min-width: 60px;
     line-height:1.3;
