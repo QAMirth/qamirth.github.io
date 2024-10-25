@@ -3478,7 +3478,7 @@ body.popup-active {
 
 #filters-r select{
   border: 1px solid var(--link-d);
-  font-size: var(--tpl-font-size-small);
+  font-size: var(--tpl-font-size-extra-small);
 }
 
 
