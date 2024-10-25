@@ -1810,7 +1810,7 @@ strong{
 .tg2{
   display:inline-flex;
   font: normal 400 var(--tpl-font-size-extra-small) / 1.4 var(--tpl-font-system);
-  margin-right: var(--5);
+  margin-right: 5px;
   /*! margin-bottom: var(--5); */
   font-size: var(--tpl-font-size-extra-small);
   background: var(--000);
