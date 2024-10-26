@@ -2193,14 +2193,6 @@ select.codeButtons {
     transform: rotate(90deg);
   }
 
-
-
-
-
-
-
-
-
   .module-gb .layout [id^="entryID"]:where(:not(:last-child)) {
     border-bottom: 2px solid var(--tpl-dark-300);
     padding-bottom: var(--tpl-spacing-xl);
