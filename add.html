@@ -223,6 +223,16 @@ function openPopup(url, windowName, width, height) {
     window.open(url, windowName, `width=${width},height=${height},top=${top},left=${left}`);
 }
 </script>
+
+	    <script>
+document.getElementById('image').addEventListener('input', function() {
+    const input = this.value;
+    const prefix = '/img/';
+    if (!input.startsWith(prefix)) {
+        this.value = prefix + input;
+    }
+});
+</script>
 	    
     </div>
   </body>
