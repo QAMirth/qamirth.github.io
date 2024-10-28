@@ -35,6 +35,8 @@ document.write(`
     </select><br>  
             <label for="image">Image URL:</label>
             <input type="text" id="image" name="image"><br>
+<a href="#" onclick="openPopup('https://github.com/QAMirth/qamirth.github.io/tree/main/img', 'popupWindow', 600, 400)">Открыть страницу в поп-ап окне</a>
+             <br>
             <label for="link">Link:</label>
             <input type="text" id="link" name="link" required><br>
             <label for="link-type">Link Type:</label>
@@ -48,12 +50,6 @@ document.write(`
     </div>
 
 
-
-<form id="uploadForm" enctype="multipart/form-data">
-    <input type="file" id="imageFile" name="image" accept="image/*">
-    <button type="button" onclick="uploadImage()">Загрузить изображение</button>
-</form>
-<p id="uploadStatus"></p>
 
 
 
