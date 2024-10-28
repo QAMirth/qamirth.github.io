@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 @font-face {
     font-family: 'ABC';
     src: url('lucidagrande.ttf') format('truetype');
@@ -169,15 +168,15 @@
 
 @layer defaults {
   :root {
-    --tpl-font-system: "Source Sans 3", system-ui, "Segoe UI", Arial, "Source Sans 3", "QA-serif", "Nunito Sans",  sans-serif;
+    --tpl-font-system: "QA", system-ui, "Segoe UI", Arial, "Nunito Sans",  sans-serif;
 --tpl-font-size-extra-small: 13px;
   --tpl-font-size-small: 14px;
-  --tpl-font-size: 15px;
-  --tpl-font-size-plus: 17px;
-  --tpl-font-size-medium: 15px;
-  --tpl-font-size-medium-plus: 16px;
-  --tpl-font-size-large: 30px;
-  --tpl-font-size-extra-large: 19px;
+  --tpl-font-size: 14px;
+  --tpl-font-size-plus: 18px;
+  --tpl-font-size-medium: 14px;
+  --tpl-font-size-medium-plus: 14px;
+  --tpl-font-size-large: 28px;
+  --tpl-font-size-extra-large: 20px;
     --tpl-font-text-r1: normal 400
     var(--tpl-font-size) / 1.4 var(--tpl-font-system);
     --tpl-font-text-m1: normal 500
@@ -206,10 +205,10 @@
     --header-bottom: var(--7a5);
     --logo-width: 50px;
     --logo-height: 36px;
-    --icon-size: 24px;
+    --icon-size: 22px;
     --search-line-height: 36px;
     --bwh: 36px;
-    --lg: 40px;
+    --lg: 48px;
     --pad-big: var(--7a5);
     --pad: var(--25);
     --pad-small: var(--10);
@@ -229,13 +228,13 @@
     --750: rgba(0, 0, 0, 0.8);
     --700: rgba(0, 0, 0, 0.8);
     --600: rgba(0, 0, 0, 0.75);
-    --550: rgba(0, 0, 0, 0.7);
+    --550: rgba(0, 0, 0, 0.65);
     --500: rgba(0, 0, 0, 0.4);
     --400: rgba(0, 0, 0, 0.2);
     --300: rgba(0, 0, 0, 0.13);
     --250: rgba(0, 0, 0, 0.05);
     --200: rgba(0, 0, 0, 0.05);
-    --100: rgba(0, 0, 0, 0.04);
+    --100: rgba(0, 0, 0, 0.05);
     --000: rgb(255, 255, 255);
 
       
@@ -255,9 +254,9 @@
     --40: 40px;
     --45: 44px;
     --50: 48px;
-    --sidebar-size-l: 250px;
-    --sidebar-size-r: 350px;
-    --max-height-header: 70px;
+    --sidebar-size-l: 240px;
+    --sidebar-size-r: 320px;
+    --max-height-header: 72px;
 
 --mp-top: var(--pad);
   --mp-left: var(--pad);
@@ -826,7 +825,7 @@
   z-index: 999;
   border-bottom: 1px solid var(--300); 
   padding: var(--header-top) 0 var(--header-bottom) 0;
-  /*! box-shadow: 0 0px 1px rgba(0,0,0,.3); */
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
   /*! max-height: var(--max-height-header); */
 }
 
@@ -861,7 +860,7 @@
 }
 
 .main-menu-nav ::before {
-  color: var(--link-a);
+  color: var(--link-b);
   font-size: var(--icon-size);
   margin-right: var(--7a5);
   margin-left: var(--7a5);
@@ -877,7 +876,7 @@
   font-family: "Material Icons Outlined";
   font-weight: 300;
   font-size: var(--icon-size);
-  color: var(--link-a);
+  color: var(--link-b);
   line-height: 0;
 }
 
@@ -1278,6 +1277,7 @@
   border-top-left-radius: 4px;
   cursor: pointer;
   border-left: 4px solid var(--link-c-hover);
+  text-decoration: none;
 }
 
 .header-search {
@@ -1583,7 +1583,7 @@
 }
 
 .flog1{
-  margin-right: var(--15);
+  margin-right: var(--25);
   width: var(--lg);
   /*! height: var(--lg); */
 }
@@ -1602,7 +1602,7 @@
   /*! height: var(--lg); */
   object-fit: cover;
 background-color: var(--200);
-  border-radius: 2px;
+  border-radius: 9999px;
   display: block;
 }
 
@@ -1623,7 +1623,7 @@ background-color: var(--200);
     align-items: center;
     /*! display: flex; */
     flex-direction: row;
-     line-height:1.3;
+     line-height:1.4;
 }
 
 .fwho121 {
@@ -2088,6 +2088,7 @@ select.codeButtons {
     align-items: center;
     min-width: 60px;
     line-height:1.3;
+    text-decoration: none;
   }
 
   .menu-item-more-text {
