@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 @font-face {
     font-family: 'ABC';
     src: url('lucidagrande.ttf') format('truetype');
@@ -168,7 +169,7 @@
 
 @layer defaults {
   :root {
-    --tpl-font-system:  system-ui, "Segoe UI", Arial, "Source Sans 3", "QA-serif", "Nunito Sans",  sans-serif;
+    --tpl-font-system: "Source Sans 3", system-ui, "Segoe UI", Arial, "Source Sans 3", "QA-serif", "Nunito Sans",  sans-serif;
 --tpl-font-size-extra-small: 13px;
   --tpl-font-size-small: 14px;
   --tpl-font-size: 15px;
@@ -201,8 +202,8 @@
     --tpl-max-layout-width: 1540px;
     --tpl-border-line-100: 1px solid
     var(--250);
-    --header-top: var(--5);
-    --header-bottom: var(--5);
+    --header-top: var(--7a5);
+    --header-bottom: var(--7a5);
     --logo-width: 50px;
     --logo-height: 36px;
     --icon-size: 20px;
@@ -254,9 +255,9 @@
     --40: 40px;
     --45: 44px;
     --50: 48px;
-    --sidebar-size-l: 220px;
-    --sidebar-size-r: 300px;
-    --max-height-header: 60px;
+    --sidebar-size-l: 250px;
+    --sidebar-size-r: 350px;
+    --max-height-header: 70px;
 
 --mp-top: var(--pad);
   --mp-left: var(--pad);
@@ -826,7 +827,7 @@
   border-bottom: 1px solid var(--300); 
   padding: var(--header-top) 0 var(--header-bottom) 0;
   /*! box-shadow: 0 0px 1px rgba(0,0,0,.3); */
-  max-height: var(--max-height-header);
+  /*! max-height: var(--max-height-header); */
 }
 
 .header-scrolled {
