@@ -46,4 +46,17 @@ document.write(`
         </form>
         <button class="close">Close</button>
     </div>
+
+
+
+<form id="uploadForm" enctype="multipart/form-data">
+    <input type="file" id="imageFile" name="image" accept="image/*">
+    <button type="button" onclick="uploadImage()">Загрузить изображение</button>
+</form>
+<p id="uploadStatus"></p>
+
+
+
+
+    
 `);
