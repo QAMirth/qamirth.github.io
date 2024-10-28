@@ -35,7 +35,7 @@ document.write(`
     </select><br>  
             <label for="image">Image URL:</label>
             <input type="text" id="image" name="image"><br>
-<a href="#" onclick="openPopup('https://github.com/QAMirth/qamirth.github.io/tree/main/img', 'popupWindow', 600, 400)">Открыть страницу в поп-ап окне</a>
+<a href="#" onclick="openPopup('https://github.com/QAMirth/qamirth.github.io/tree/main/img', 'popupWindow', 900, 500)">Открыть страницу в поп-ап окне</a>
              <br>
             <label for="link">Link:</label>
             <input type="text" id="link" name="link" required><br>
