@@ -93,9 +93,9 @@
 
       
       <label class="custom-radio">
-      <input type="radio" name="color" value="violet" id="violet">
+      <input type="radio" name="color" value="blue" id="blue">
       <span class="radio-btn"></span>
-      Violet
+      Blue
       </label>
 
 
