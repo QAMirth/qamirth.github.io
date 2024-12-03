@@ -123,12 +123,6 @@
     </div>
     <div class="cusa-radio">    
 
-    <label class="custom-radio">
-      <input type="radio" name="width" value="tight" id="tight">
-      <span class="radio-btn"></span>
-      Tight
-      </label>
-
       
       <label class="custom-radio">
       <input type="radio" name="width" value="medium" id="medium">
