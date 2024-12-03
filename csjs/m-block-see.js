@@ -6,8 +6,8 @@
                 root.style.setProperty('--mp-left', 'var(--pad)');
                 root.style.setProperty('--mp-bottom', 'var(--7a5)');
                 root.style.setProperty('--mp-right', 'var(--pad)');
-                root.style.setProperty('--mp-border-radius', 'var(--border-radius)');
-                root.style.setProperty('--mp-margin-bottom', 'var(--pad-small)');
+                root.style.setProperty('--mp-border-radius', 'var(--0)');
+                root.style.setProperty('--mp-margin-bottom', '-1px');
                 root.style.setProperty('--icc-display', 'flex');
                 root.style.setProperty('--icc-display-expanded', 'flex');
             } else if (size === 'minimum') {
